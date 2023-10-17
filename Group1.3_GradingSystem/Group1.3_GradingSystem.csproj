@@ -104,16 +104,17 @@
   <ItemGroup>
     <Content Include="About.aspx" />
     <Content Include="AdminPages\AdminDashboard.aspx" />
+    <Content Include="AdminPages\AdminHome.aspx" />
     <Content Include="AdminPages\AdminLogin.aspx" />
-    <Content Include="AdminPages\DashboardImages\Graphic1.png" />
-    <Content Include="AdminPages\DashboardImages\🦆 icon _book_.png" />
-    <Content Include="AdminPages\DashboardImages\🦆 icon _calendar_.png" />
-    <Content Include="AdminPages\DashboardImages\🦆 icon _clipboard_.png" />
-    <Content Include="AdminPages\DashboardImages\🦆 icon _dashboard_.png" />
-    <Content Include="AdminPages\DashboardImages\🦆 icon _data transfer upload_.png" />
-    <Content Include="AdminPages\DashboardImages\🦆 icon _grid three up_.png" />
-    <Content Include="AdminPages\DashboardImages\🦆 icon _home_.png" />
-    <Content Include="AdminPages\DashboardImages\🦆 icon _people_.png" />
+    <Content Include="AdminPages\HomeImages\Graphic1.png" />
+    <Content Include="AdminPages\HomeImages\🦆 icon _book_.png" />
+    <Content Include="AdminPages\HomeImages\🦆 icon _calendar_.png" />
+    <Content Include="AdminPages\HomeImages\🦆 icon _clipboard_.png" />
+    <Content Include="AdminPages\HomeImages\🦆 icon _dashboard_.png" />
+    <Content Include="AdminPages\HomeImages\🦆 icon _data transfer upload_.png" />
+    <Content Include="AdminPages\HomeImages\🦆 icon _grid three up_.png" />
+    <Content Include="AdminPages\HomeImages\🦆 icon _home_.png" />
+    <Content Include="AdminPages\HomeImages\🦆 icon _people_.png" />
     <Content Include="AdminPages\LoginImages\FormGroup1Graphics.png" />
     <Content Include="AdminPages\LoginImages\ic_outline-alternate-email.png" />
     <Content Include="AdminPages\LoginImages\mdi_eye.png" />
@@ -209,6 +210,13 @@
     </Compile>
     <Compile Include="AdminPages\AdminDashboard.aspx.designer.cs">
       <DependentUpon>AdminDashboard.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminPages\AdminHome.aspx.cs">
+      <DependentUpon>AdminHome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminPages\AdminHome.aspx.designer.cs">
+      <DependentUpon>AdminHome.aspx</DependentUpon>
     </Compile>
     <Compile Include="AdminPages\AdminLogin.aspx.cs">
       <DependentUpon>AdminLogin.aspx</DependentUpon>

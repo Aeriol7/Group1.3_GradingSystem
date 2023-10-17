@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AdminDashboard.aspx.cs" Inherits="Group1._3_GradingSystem.AdminPages.AdminDashboard1" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AdminHome.aspx.cs" Inherits="Group1._3_GradingSystem.AdminPages.AdminHome" %>
 
 <!DOCTYPE html>
 
@@ -10,8 +10,8 @@
 }
 #Image2{
     position: fixed;
-    top: 57px;
-    left: 1199px;
+    top: 49px;
+    left: 1130px;
     height: 32px;
     width: 33px;
 }
@@ -23,8 +23,8 @@
 }
 #DropDownList1{
     position: fixed;
-    top: 59px;
-    left: 1255px;
+    top: 54px;
+    left: 1171px;
 }
 #Label2{
     position: fixed;
@@ -70,15 +70,13 @@
     }
 #Label11{
     position: fixed;
-        top: 143px;
-        left: 537px;
-        resize: 20px;
+        top: 114px;
+        left: 312px;
     }
 #Label10{
     position: fixed;
-        top: 144px;
-        left: 763px;
-        resize: 20px;
+        top: 113px;
+        left: 422px;
     }
 #Image3{
     position: fixed;
@@ -143,122 +141,26 @@
         height: 479px;
         width: 985px;
     }
-#Panel1{
-    position: fixed;
-}
-#Panel4{
-    position: fixed;
-}
-#Label12{
-    position: fixed;
-        top: 174px;
-        left: 297px;
-        height: 80px;
-        width: 220px;
-    }
-#Label13{
-    position: fixed;
-        top: 293px;
-        left: 296px;
-        height: 84px;
-        width: 217px;
-        right: 784px;
-    }
-#Label14{
-    position: fixed;
-        top: 414px;
-        left: 294px;
-        height: 88px;
-        width: 221px;
-    }
-#Label15{
-    position: fixed;
-        top: 178px;
-        left: 559px;
-        height: 72px;
-        width: 214px;
-    }
-#Label16{
-    position: fixed;
-        top: 291px;
-        left: 560px;
-        height: 88px;
-        width: 218px;
-    }
-#Label17{
-    position: fixed;
-        top: 414px;
-        left: 556px;
-        height: 88px;
-        width: 219px;
-    }
-#Label18{
-    position: fixed;
-        top: 415px;
-        left: 821px;
-        height: 88px;
-        width: 225px;
-    }
-#Label19{
-    position: fixed;
-        top: 413px;
-        left: 1082px;
-        height: 88px;
-        width: 218px;
-    }
-
 </style>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
+    
 </head>
-<body>
-    <form id="form2" runat="server">
-        <div style="height: 565px; width: 1441px;">
-            
-            <asp:Image ID="Image1" img src="../HomePage/Image/hopeLogoWhiteBG_.png" runat="server" Height="94px" Width="103px" /> 
-                        
-            
-            <asp:Label ID="Label12" runat="server" BackColor="#66FFFF"></asp:Label>
-            
-                
-                
-        <asp:Image ID="Image2" img src="../HomePage/Image/ProfileIcon1%20(1).png" runat="server" />
-            <asp:Label ID="Label13" runat="server" BackColor="#9966FF"></asp:Label>
-            
-                
-                
-            <asp:Label ID="Label14" runat="server" BackColor="#99CCFF"></asp:Label>
-            
-                
-                
-            <asp:Label ID="Label15" runat="server" BackColor="#FFFF99"></asp:Label>
-            
-                
-                
-            <asp:Label ID="Label16" runat="server" BackColor="#FF99FF"></asp:Label>
-            
-                
-                
-            <asp:Label ID="Label17" runat="server" BackColor="#FF9966"></asp:Label>
-            
-                
-                
-            <asp:Label ID="Label18" runat="server" BackColor="#99FF99"></asp:Label>
-            
-                
-                
-            <asp:Label ID="Label19" runat="server" BackColor="#CC66FF"></asp:Label>
-            
-                
-                
+<body style="height: 546px">
+    
+        <div>
+            <asp:Image ID="Image1" img src="../HomePage/Image/hopeLogoWhiteBG_.png" runat="server" Height="94px" Width="103px" />
         </div>
         <asp:Label ID="Label1" runat="server" Text="HOPE INTERGRATED SCHOOL" Font-Names="Times New Roman"></asp:Label>
         <asp:DropDownList ID="DropDownList1" runat="server">
             <asp:ListItem>Admin</asp:ListItem>
             <asp:ListItem>Logout</asp:ListItem>
         </asp:DropDownList>
+        <asp:Image ID="Image2" img src="../HomePage/Image/ProfileIcon1%20(1).png" runat="server" />
+    
+    <form id="form1" runat="server">
         <div style="height: 546px">
             <asp:Label ID="Label2" runat="server" Text="Home" ForeColor="#B03E3E"></asp:Label>
             <asp:Label ID="Label3" runat="server" Text="Dashboard" ForeColor="#B03E3E"></asp:Label>
@@ -268,8 +170,8 @@
             <asp:Label ID="Label7" runat="server" Text="Sections" ForeColor="#B03E3E"></asp:Label>
             <asp:Label ID="Label8" runat="server" Text="School Year" ForeColor="#B03E3E"></asp:Label>
             <asp:Label ID="Label9" runat="server" Text="Back-up" ForeColor="#B03E3E"></asp:Label>
-            <asp:Label ID="Label11" runat="server" Text="Welcome To Dashboard," Font-Names="Arial" ForeColor="#B03E3E"></asp:Label>
-            <asp:Label ID="Label10" runat="server" Text="Admin" Font-Names="Arial" ForeColor="#33CC33"></asp:Label>
+            <asp:Label ID="Label11" runat="server" Text="WELCOME," Font-Names="Arial" ForeColor="#B03E3E"></asp:Label>
+            <asp:Label ID="Label10" runat="server" Text="ADMIN" Font-Names="Arial" ForeColor="#33CC33"></asp:Label>
 
             <asp:Image ID="Image3" img src="HomeImages/🦆%20icon%20_home_.png" runat="server" />
             <asp:Image ID="Image4" img src="HomeImages/🦆%20icon%20_dashboard_.png"  runat="server" />
@@ -279,9 +181,9 @@
             <asp:Image ID="Image8" img src="HomeImages/🦆%20icon%20_grid%20three%20up_.png"  runat="server" />
             <asp:Image ID="Image9" img src="HomeImages/🦆%20icon%20_calendar_.png"  runat="server" />
             <asp:Image ID="Image10" img src="HomeImages/🦆%20icon%20_data%20transfer%20upload_.png"  runat="server" />
+            <asp:Image ID="Image11" img src="HomeImages/Graphic1.png"  runat="server" />
             
         </div>
     </form>
-    
 </body>
 </html>
