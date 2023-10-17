@@ -106,6 +106,7 @@
     <Content Include="AdminPages\AdminDashboard.aspx" />
     <Content Include="AdminPages\AdminHome.aspx" />
     <Content Include="AdminPages\AdminLogin.aspx" />
+    <Content Include="AdminPages\AdminSubjects.aspx" />
     <Content Include="AdminPages\HomeImages\Graphic1.png" />
     <Content Include="AdminPages\HomeImages\🦆 icon _book_.png" />
     <Content Include="AdminPages\HomeImages\🦆 icon _calendar_.png" />
@@ -224,6 +225,13 @@
     </Compile>
     <Compile Include="AdminPages\AdminLogin.aspx.designer.cs">
       <DependentUpon>AdminLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminPages\AdminSubjects.aspx.cs">
+      <DependentUpon>AdminSubjects.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminPages\AdminSubjects.aspx.designer.cs">
+      <DependentUpon>AdminSubjects.aspx</DependentUpon>
     </Compile>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="About.aspx.cs">
