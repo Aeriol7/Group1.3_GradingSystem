@@ -98,8 +98,9 @@
         width: 64px;
     }
 body{
-    width: 500px;
-}
+    width: 1273px;
+        height: 545px;
+    }
 </style>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
