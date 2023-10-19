@@ -121,23 +121,22 @@ body{
             <asp:ListItem>User</asp:ListItem>
             <asp:ListItem>Logout</asp:ListItem>
         </asp:DropDownList>
-        <p>
+        
         <asp:Image ID="Image3" img src="../HomePage/Image/hopeLogoWhiteBG_.png" runat="server" />
-        </p>
+        
         <asp:Label ID="Label2" runat="server" Text="HOPE" ForeColor="Yellow" Font-Bold="True" Font-Names="Arial"></asp:Label>
         <asp:Label ID="Label3" runat="server" Text="INTERGRATED" ForeColor="Red" Font-Bold="True" Font-Names="Arial"></asp:Label>
         <asp:Label ID="Label4" runat="server" Text="SCHOOL" ForeColor="Blue" Font-Bold="True" Font-Names="Arial"></asp:Label>
-        <asp:TextBox ID="TextBox1" runat="server" Font-Bold="True" Font-Names="Arial">                            Admin Login</asp:TextBox>
-        <asp:Panel ID="Panel1" runat="server">
-        </asp:Panel>
+        <asp:TextBox ID="TextBox1" runat="server" Font-Bold="True" Font-Names="Arial">Admin Login</asp:TextBox>
+        
         <asp:TextBox ID="TextBox2" runat="server">Username</asp:TextBox>
         <asp:TextBox ID="TextBox3" runat="server">Password</asp:TextBox>
-        <asp:Image ID="Image4" img src="images/ic_outline-alternate-email.png" runat="server" Height="24px" Width="27px" />
-        <p>
-        <asp:Image ID="Image5" img src="images/mdi_eye.png" runat="server" />
-        </p>
-        <asp:Button ID="Button1" runat="server" Text="Login" BackColor="#0066FF" Font-Bold="False" ForeColor="White" />
-        <asp:Image ID="Image6" img src="images/FormGroup1Graphics.png" runat="server" />
+        <asp:Image ID="Image4" img src="LoginImages/ic_outline-alternate-email.png" runat="server" Height="24px" Width="27px" />
+        
+        <asp:Image ID="Image5" img src="LoginImages/mdi_eye.png" runat="server" />
+        
+        <asp:Button ID="Button1" OnClick="btnLogin_Click" runat="server" Text="Login" BackColor="#0066FF" Font-Bold="False" ForeColor="White" />
+        <asp:Image ID="Image6" img src="LoginImages/FormGroup1Graphics.png" runat="server" />
     </form>
      
 </body>

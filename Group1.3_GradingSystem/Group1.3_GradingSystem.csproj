@@ -104,8 +104,12 @@
   <ItemGroup>
     <Content Include="About.aspx" />
     <Content Include="AdminPages\AdminDashboard.aspx" />
+    <Content Include="AdminPages\AdminFaculty.aspx" />
     <Content Include="AdminPages\AdminHome.aspx" />
     <Content Include="AdminPages\AdminLogin.aspx" />
+    <Content Include="AdminPages\AdminSchoolYearCalendar.aspx" />
+    <Content Include="AdminPages\AdminSections.aspx" />
+    <Content Include="AdminPages\AdminStudent.aspx" />
     <Content Include="AdminPages\AdminSubjects.aspx" />
     <Content Include="AdminPages\HomeImages\Graphic1.png" />
     <Content Include="AdminPages\HomeImages\🦆 icon _book_.png" />
@@ -212,6 +216,13 @@
     <Compile Include="AdminPages\AdminDashboard.aspx.designer.cs">
       <DependentUpon>AdminDashboard.aspx</DependentUpon>
     </Compile>
+    <Compile Include="AdminPages\AdminFaculty.aspx.cs">
+      <DependentUpon>AdminFaculty.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminPages\AdminFaculty.aspx.designer.cs">
+      <DependentUpon>AdminFaculty.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AdminPages\AdminHome.aspx.cs">
       <DependentUpon>AdminHome.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -225,6 +236,27 @@
     </Compile>
     <Compile Include="AdminPages\AdminLogin.aspx.designer.cs">
       <DependentUpon>AdminLogin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminPages\AdminSchoolYearCalendar.aspx.cs">
+      <DependentUpon>AdminSchoolYearCalendar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminPages\AdminSchoolYearCalendar.aspx.designer.cs">
+      <DependentUpon>AdminSchoolYearCalendar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminPages\AdminSections.aspx.cs">
+      <DependentUpon>AdminSections.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminPages\AdminSections.aspx.designer.cs">
+      <DependentUpon>AdminSections.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="AdminPages\AdminStudent.aspx.cs">
+      <DependentUpon>AdminStudent.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminPages\AdminStudent.aspx.designer.cs">
+      <DependentUpon>AdminStudent.aspx</DependentUpon>
     </Compile>
     <Compile Include="AdminPages\AdminSubjects.aspx.cs">
       <DependentUpon>AdminSubjects.aspx</DependentUpon>

@@ -216,24 +216,45 @@
         <asp:Image ID="Image2" img src="../HomePage/Image/ProfileIcon1%20(1).png" runat="server" />
     
         <div style="height: 546px; width: 1437px;">
-            <asp:Label ID="Label2" runat="server" Text="Home" ForeColor="#B03E3E"></asp:Label>
-            <asp:Label ID="Label3" runat="server" Text="Dashboard" ForeColor="#B03E3E"></asp:Label>
-            <asp:Label ID="Label4" runat="server" Text="Subjects" ForeColor="#B03E3E"></asp:Label>
-            <asp:Label ID="Label5" runat="server" Text="Faculty" ForeColor="#B03E3E"></asp:Label>
-            <asp:Label ID="Label6" runat="server" Text="Students" ForeColor="#B03E3E"></asp:Label>
-            <asp:Label ID="Label7" runat="server" Text="Sections" ForeColor="#B03E3E"></asp:Label>
-            <asp:Label ID="Label8" runat="server" Text="School Year" ForeColor="#B03E3E"></asp:Label>
+            <asp:HyperLink ID="Label2" runat="server" NavigateUrl="AdminHome.aspx" Text="Home" ForeColor="#B03E3E" Font-Underline="False" ></asp:HyperLink>
+            <asp:HyperLink ID="Label3" runat="server" NavigateUrl="~/AdminPages/AdminDashboard.aspx" Text="Dashboard" ForeColor="#B03E3E" Font-Underline="False"></asp:HyperLink>
+            <asp:HyperLink ID="Label4" runat="server" NavigateUrl="~/AdminPages/AdminSubjects.aspx" Text="Subjects" ForeColor="#B03E3E" Font-Underline="False"></asp:HyperLink>
+            <asp:HyperLink ID="Label5" runat="server" NavigateUrl="~/AdminPages/AdminFaculty.aspx" Text="Faculty" ForeColor="#B03E3E" Font-Underline="False"></asp:HyperLink>
+            <asp:HyperLink ID="Label6" runat="server" NavigateUrl="~/AdminPages/AdminStudent.aspx" Text="Students" ForeColor="#B03E3E" Font-Underline="False"></asp:HyperLink>
+            <asp:HyperLink ID="Label7" runat="server" NavigateUrl="~/AdminPages/AdminSections.aspx" Text="Sections" ForeColor="#B03E3E" Font-Underline="False"></asp:HyperLink>
+            <asp:HyperLink ID="Label8" runat="server" NavigateUrl="~/AdminPages/AdminSchoolYearCalendar.aspx" Text="School Year" ForeColor="#B03E3E" Font-Underline="False"></asp:HyperLink>
             <asp:Label ID="Label9" runat="server" Text="Back-up" ForeColor="#B03E3E"></asp:Label>
             <asp:Label ID="Label11" runat="server" Text="Home      " Font-Names="Arial" ForeColor="#B03E3E" Font-Size="7pt"></asp:Label>
             <asp:Label ID="Label10" runat="server" Text="/          Dashboard" Font-Names="Arial" ForeColor="#B03E3E" Font-Size="7pt"></asp:Label>
 
-            <asp:Image ID="Image3" img src="HomeImages/🦆%20icon%20_home_.png" runat="server" />
-            <asp:Image ID="Image4" img src="HomeImages/🦆%20icon%20_dashboard_.png"  runat="server" />
-            <asp:Image ID="Image5" img src="HomeImages/🦆%20icon%20_book_.png"  runat="server" />
-            <asp:Image ID="Image6" img src="HomeImages/🦆%20icon%20_clipboard_.png"  runat="server" />
-            <asp:Image ID="Image7" img src="HomeImages/🦆%20icon%20_people_.png"  runat="server" />
-            <asp:Image ID="Image8" img src="HomeImages/🦆%20icon%20_grid%20three%20up_.png"  runat="server" />
-            <asp:Image ID="Image9" img src="HomeImages/🦆%20icon%20_calendar_.png"  runat="server" />
+            <asp:hyperlink id="link" runat="server" NavigateUrl="~/AdminPages/AdminHome.aspx">
+<asp:Image ID="Image3" img src="HomeImages/🦆%20icon%20_home_.png" runat="server" />
+</asp:hyperlink>
+
+<asp:hyperlink id="Hyperlink1" runat="server" NavigateUrl="~/AdminPages/AdminDashboard.aspx">
+<asp:Image ID="Image4" img src="HomeImages/🦆%20icon%20_dashboard_.png"  runat="server" />
+</asp:hyperlink>
+
+<asp:hyperlink id="Hyperlink2" runat="server" NavigateUrl="~/AdminPages/AdminSubjects.aspx">
+<asp:Image ID="Image5" img src="HomeImages/🦆%20icon%20_book_.png"  runat="server" />
+</asp:hyperlink>
+
+<asp:hyperlink id="Hyperlink3" runat="server" NavigateUrl="~/AdminPages/AdminFaculty.aspx">
+<asp:Image ID="Image6" img src="HomeImages/🦆%20icon%20_clipboard_.png"  runat="server" />
+</asp:hyperlink>
+
+<asp:hyperlink id="Hyperlink4" runat="server" NavigateUrl="~/AdminPages/AdminStudent.aspx">
+<asp:Image ID="Image7" img src="HomeImages/🦆%20icon%20_people_.png"  runat="server" />
+</asp:hyperlink>
+
+<asp:hyperlink id="Hyperlink5" runat="server" NavigateUrl="~/AdminPages/AdminSections.aspx">
+<asp:Image ID="Image8" img src="HomeImages/🦆%20icon%20_grid%20three%20up_.png"  runat="server" />
+</asp:hyperlink>
+
+<asp:hyperlink id="Hyperlink6" runat="server" NavigateUrl="~/AdminPages/AdminSchoolYearCalendar.aspx">
+<asp:Image ID="Image9" img src="HomeImages/🦆%20icon%20_calendar_.png"  runat="server" />
+</asp:hyperlink>
+
             <asp:Image ID="Image10" img src="HomeImages/🦆%20icon%20_data%20transfer%20upload_.png"  runat="server" />
             <asp:Label ID="Label12" runat="server" Text="/  Subjects" Font-Size="7pt" ForeColor="#B03E3E"></asp:Label>
             
@@ -256,10 +277,6 @@
             <asp:Button ID="Button5" runat="server" Text="Previous" />
             
         </div>
-    </form>
-    <form id="form1" runat="server">
-        <div>
-        </div>
-    </form>
+    </form>   
 </body>
 </html>

@@ -7,11 +7,11 @@ using System.Web.UI.WebControls;
 
 namespace Group1._3_GradingSystem.AdminPages
 {
-    public partial class AdminLogin : System.Web.UI.Page
+    public partial class AdminFaculty : System.Web.UI.Page
     {
-        protected void btnLogin_Click(object sender, EventArgs e)
+        protected void Page_Load(object sender, EventArgs e)
         {
-            Response.Redirect("AdminHome.aspx");
+
         }
     }
 }

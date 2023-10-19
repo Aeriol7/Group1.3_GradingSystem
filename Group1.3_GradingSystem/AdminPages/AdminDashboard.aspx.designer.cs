@@ -138,7 +138,7 @@ namespace Group1._3_GradingSystem.AdminPages
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label2;
+        protected global::System.Web.UI.WebControls.HyperLink Label2;
 
         /// <summary>
         /// Label3 control.
@@ -147,7 +147,7 @@ namespace Group1._3_GradingSystem.AdminPages
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label3;
+        protected global::System.Web.UI.WebControls.HyperLink Label3;
 
         /// <summary>
         /// Label4 control.
@@ -156,7 +156,7 @@ namespace Group1._3_GradingSystem.AdminPages
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label4;
+        protected global::System.Web.UI.WebControls.HyperLink Label4;
 
         /// <summary>
         /// Label5 control.
@@ -165,7 +165,7 @@ namespace Group1._3_GradingSystem.AdminPages
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label5;
+        protected global::System.Web.UI.WebControls.HyperLink Label5;
 
         /// <summary>
         /// Label6 control.
@@ -174,7 +174,7 @@ namespace Group1._3_GradingSystem.AdminPages
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label6;
+        protected global::System.Web.UI.WebControls.HyperLink Label6;
 
         /// <summary>
         /// Label7 control.
@@ -183,7 +183,7 @@ namespace Group1._3_GradingSystem.AdminPages
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label7;
+        protected global::System.Web.UI.WebControls.HyperLink Label7;
 
         /// <summary>
         /// Label8 control.
@@ -192,7 +192,7 @@ namespace Group1._3_GradingSystem.AdminPages
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label Label8;
+        protected global::System.Web.UI.WebControls.HyperLink Label8;
 
         /// <summary>
         /// Label9 control.
@@ -222,6 +222,15 @@ namespace Group1._3_GradingSystem.AdminPages
         protected global::System.Web.UI.WebControls.Label Label10;
 
         /// <summary>
+        /// link control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink link;
+
+        /// <summary>
         /// Image3 control.
         /// </summary>
         /// <remarks>
@@ -229,6 +238,15 @@ namespace Group1._3_GradingSystem.AdminPages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Image Image3;
+
+        /// <summary>
+        /// Hyperlink1 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink Hyperlink1;
 
         /// <summary>
         /// Image4 control.
@@ -240,6 +258,15 @@ namespace Group1._3_GradingSystem.AdminPages
         protected global::System.Web.UI.WebControls.Image Image4;
 
         /// <summary>
+        /// Hyperlink2 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink Hyperlink2;
+
+        /// <summary>
         /// Image5 control.
         /// </summary>
         /// <remarks>
@@ -247,6 +274,15 @@ namespace Group1._3_GradingSystem.AdminPages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Image Image5;
+
+        /// <summary>
+        /// Hyperlink3 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink Hyperlink3;
 
         /// <summary>
         /// Image6 control.
@@ -258,6 +294,15 @@ namespace Group1._3_GradingSystem.AdminPages
         protected global::System.Web.UI.WebControls.Image Image6;
 
         /// <summary>
+        /// Hyperlink4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink Hyperlink4;
+
+        /// <summary>
         /// Image7 control.
         /// </summary>
         /// <remarks>
@@ -267,6 +312,15 @@ namespace Group1._3_GradingSystem.AdminPages
         protected global::System.Web.UI.WebControls.Image Image7;
 
         /// <summary>
+        /// Hyperlink5 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink Hyperlink5;
+
+        /// <summary>
         /// Image8 control.
         /// </summary>
         /// <remarks>
@@ -274,6 +328,15 @@ namespace Group1._3_GradingSystem.AdminPages
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Image Image8;
+
+        /// <summary>
+        /// Hyperlink6 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HyperLink Hyperlink6;
 
         /// <summary>
         /// Image9 control.
