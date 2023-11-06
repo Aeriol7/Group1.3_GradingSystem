@@ -204,6 +204,7 @@
     <Content Include="HomePage\HomePage.aspx" />
     <Content Include="HomePage\Image\hopeLogoWhiteBG_.png" />
     <Content Include="HomePage\Image\ProfileIcon1 %281%29.png" />
+    <Content Include="HomePage\LoginPage.aspx" />
     <Content Include="imgs\FormGroup1Graphics.png" />
     <Content Include="imgs\Graphic1.png" />
     <Content Include="imgs\HopeLogo_TransparentPng.png" />
@@ -391,6 +392,13 @@
     </Compile>
     <Compile Include="HomePage\HomePage.aspx.designer.cs">
       <DependentUpon>HomePage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="HomePage\LoginPage.aspx.cs">
+      <DependentUpon>LoginPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="HomePage\LoginPage.aspx.designer.cs">
+      <DependentUpon>LoginPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="obj\Debug\.NETFramework,Version=v4.7.2.AssemblyAttributes.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
