@@ -147,6 +147,16 @@
     <Content Include="HomePage\HomePage.aspx" />
     <Content Include="HomePage\Image\hopeLogoWhiteBG_.png" />
     <Content Include="HomePage\Image\ProfileIcon1 %281%29.png" />
+    <Content Include="imgs\FormGroup1Graphics.png" />
+    <Content Include="imgs\Graphic1.png" />
+    <Content Include="imgs\HopeLogo_TransparentPng.png" />
+    <Content Include="imgs\icon _people_.png" />
+    <Content Include="imgs\icon-park_mail-review.png" />
+    <Content Include="imgs\icon_home.png" />
+    <Content Include="imgs\ic_sharp-rate-review.png" />
+    <Content Include="imgs\material-symbols_print.png" />
+    <Content Include="imgs\mdi_announcement.png" />
+    <Content Include="imgs\ProfileIcon1.png" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
     <Content Include="Scripts\bootstrap.esm.js" />
@@ -203,6 +213,14 @@
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
+    <Content Include="StudentPages\StudentAnnouncementsPage.aspx" />
+    <Content Include="StudentPages\StudentHomePage.aspx" />
+    <Content Include="StudentPages\StudentLoginPage.aspx" />
+    <Content Include="StudentPages\StudentViewGradesPage.aspx" />
+    <Content Include="TeacherPages\TeacherAnnouncementsPage.aspx" />
+    <Content Include="TeacherPages\TeacherHomePage.aspx" />
+    <Content Include="TeacherPages\TeacherLoginPage.aspx" />
+    <Content Include="TeacherPages\TeacherSetGradesPage.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -312,6 +330,62 @@
     </Compile>
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
+    </Compile>
+    <Compile Include="StudentPages\StudentAnnouncementsPage.aspx.cs">
+      <DependentUpon>StudentAnnouncementsPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StudentPages\StudentAnnouncementsPage.aspx.designer.cs">
+      <DependentUpon>StudentAnnouncementsPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StudentPages\StudentHomePage.aspx.cs">
+      <DependentUpon>StudentHomePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StudentPages\StudentHomePage.aspx.designer.cs">
+      <DependentUpon>StudentHomePage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StudentPages\StudentLoginPage.aspx.cs">
+      <DependentUpon>StudentLoginPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StudentPages\StudentLoginPage.aspx.designer.cs">
+      <DependentUpon>StudentLoginPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="StudentPages\StudentViewGradesPage.aspx.cs">
+      <DependentUpon>StudentViewGradesPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="StudentPages\StudentViewGradesPage.aspx.designer.cs">
+      <DependentUpon>StudentViewGradesPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherPages\TeacherAnnouncementsPage.aspx.cs">
+      <DependentUpon>TeacherAnnouncementsPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TeacherPages\TeacherAnnouncementsPage.aspx.designer.cs">
+      <DependentUpon>TeacherAnnouncementsPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherPages\TeacherHomePage.aspx.cs">
+      <DependentUpon>TeacherHomePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TeacherPages\TeacherHomePage.aspx.designer.cs">
+      <DependentUpon>TeacherHomePage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherPages\TeacherLoginPage.aspx.cs">
+      <DependentUpon>TeacherLoginPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TeacherPages\TeacherLoginPage.aspx.designer.cs">
+      <DependentUpon>TeacherLoginPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherPages\TeacherSetGradesPage.aspx.cs">
+      <DependentUpon>TeacherSetGradesPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TeacherPages\TeacherSetGradesPage.aspx.designer.cs">
+      <DependentUpon>TeacherSetGradesPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="ViewSwitcher.ascx.cs">
       <DependentUpon>ViewSwitcher.ascx</DependentUpon>

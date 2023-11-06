@@ -38,9 +38,9 @@
             <asp:Image ID="Image1" img src="Image/hopeLogoWhiteBG_.png" runat="server" Height="94px" Width="103px" />
         </div>
         <asp:Label ID="Label1" runat="server" Text="HOPE INTERGRATED SCHOOL" Font-Names="Times New Roman"></asp:Label>
-        <asp:DropDownList ID="DropDownList1" runat="server">
-            <asp:ListItem>Login</asp:ListItem>
-            <asp:ListItem>Admin</asp:ListItem>
+        <asp:DropDownList ID="DropDownList1" runat="server" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" AutoPostBack="True">
+            <asp:ListItem Selected="True">Login</asp:ListItem>
+            <asp:ListItem >Admin</asp:ListItem>
             <asp:ListItem>Teacher</asp:ListItem>
             <asp:ListItem>Student</asp:ListItem>
         </asp:DropDownList>
