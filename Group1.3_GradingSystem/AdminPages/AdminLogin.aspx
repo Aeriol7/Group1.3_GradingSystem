@@ -117,9 +117,10 @@ body{
         </div>
         <asp:Label ID="Label1" runat="server" Text="HOPE INTERGRATED SCHOOL" Font-Names="Times New Roman"></asp:Label>
         <asp:Image ID="Image2" img src="../HomePage/Image/ProfileIcon1%20(1).png" runat="server" />
-        <asp:DropDownList ID="DropDownList1" runat="server">
-            <asp:ListItem>User</asp:ListItem>
-            <asp:ListItem>Logout</asp:ListItem>
+        <asp:DropDownList ID="DropDownList1" runat="server" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" AutoPostBack="True">
+            <asp:ListItem Selected="True">Admin</asp:ListItem>
+            <asp:ListItem>Teacher</asp:ListItem>
+            <asp:ListItem>Student</asp:ListItem>
         </asp:DropDownList>
         
         <asp:Image ID="Image3" img src="../HomePage/Image/hopeLogoWhiteBG_.png" runat="server" />

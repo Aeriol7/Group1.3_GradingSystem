@@ -128,10 +128,9 @@
         <asp:Label ID="Label1" runat="server" Text="HOPE INTEGRATED SCHOOL" Font-Bold="False" Font-Size="16pt" Width="204px" Font-Names="Times New Roman"></asp:Label>
 
             <asp:DropDownList ID="LoginDropDown" runat="server" OnSelectedIndexChanged="LoginDropDown_SelectedIndexChanged" AutoPostBack="True">
-                <asp:ListItem>Login</asp:ListItem>
+                <asp:ListItem Selected="True">Student</asp:ListItem>
                 <asp:ListItem>Admin</asp:ListItem>
                 <asp:ListItem>Teacher</asp:ListItem>
-                <asp:ListItem>Student</asp:ListItem>
             </asp:DropDownList>
 
        </nav>

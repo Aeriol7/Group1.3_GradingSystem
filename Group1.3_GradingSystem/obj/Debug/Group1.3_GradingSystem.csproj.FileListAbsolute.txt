@@ -112,17 +112,6 @@ D:\School\SIA101\Group1.3_GradingSystem\Group1.3_GradingSystem\bin\roslyn\vbc.ex
 D:\School\SIA101\Group1.3_GradingSystem\Group1.3_GradingSystem\bin\roslyn\vbc.rsp
 D:\School\SIA101\Group1.3_GradingSystem\Group1.3_GradingSystem\bin\roslyn\VBCSCompiler.exe
 D:\School\SIA101\Group1.3_GradingSystem\Group1.3_GradingSystem\bin\roslyn\VBCSCompiler.exe.config
-D:\School\SIA101\Group1.3_GradingSystem\Group1.3_GradingSystem\bin\Antlr3.Runtime.dll
-D:\School\SIA101\Group1.3_GradingSystem\Group1.3_GradingSystem\bin\AspNet.ScriptManager.jQuery.dll
-D:\School\SIA101\Group1.3_GradingSystem\Group1.3_GradingSystem\bin\Microsoft.AspNet.FriendlyUrls.dll
-D:\School\SIA101\Group1.3_GradingSystem\Group1.3_GradingSystem\bin\Microsoft.AspNet.Web.Optimization.WebForms.dll
-D:\School\SIA101\Group1.3_GradingSystem\Group1.3_GradingSystem\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
-D:\School\SIA101\Group1.3_GradingSystem\Group1.3_GradingSystem\bin\Microsoft.ScriptManager.MSAjax.dll
-D:\School\SIA101\Group1.3_GradingSystem\Group1.3_GradingSystem\bin\Microsoft.ScriptManager.WebForms.dll
-D:\School\SIA101\Group1.3_GradingSystem\Group1.3_GradingSystem\bin\Microsoft.Web.Infrastructure.dll
-D:\School\SIA101\Group1.3_GradingSystem\Group1.3_GradingSystem\bin\Newtonsoft.Json.dll
-D:\School\SIA101\Group1.3_GradingSystem\Group1.3_GradingSystem\bin\System.Web.Optimization.dll
-D:\School\SIA101\Group1.3_GradingSystem\Group1.3_GradingSystem\bin\WebGrease.dll
 D:\School\SIA101\Group1.3_GradingSystem\Group1.3_GradingSystem\bin\System.Web.Optimization.xml
 D:\School\SIA101\Group1.3_GradingSystem\Group1.3_GradingSystem\bin\Newtonsoft.Json.xml
 D:\School\SIA101\Group1.3_GradingSystem\Group1.3_GradingSystem\bin\Antlr3.Runtime.pdb
