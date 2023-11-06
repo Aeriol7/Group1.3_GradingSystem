@@ -106,7 +106,6 @@
     <Content Include="AdminPages\AdminDashboard.aspx" />
     <Content Include="AdminPages\AdminFaculty.aspx" />
     <Content Include="AdminPages\AdminHome.aspx" />
-    <Content Include="AdminPages\AdminLogin.aspx" />
     <Content Include="AdminPages\AdminSchoolYearCalendar.aspx" />
     <Content Include="AdminPages\AdminSections.aspx" />
     <Content Include="AdminPages\AdminStudent.aspx" />
@@ -292,11 +291,9 @@
     <Content Include="Site.Master" />
     <Content Include="StudentPages\StudentAnnouncementsPage.aspx" />
     <Content Include="StudentPages\StudentHomePage.aspx" />
-    <Content Include="StudentPages\StudentLoginPage.aspx" />
     <Content Include="StudentPages\StudentViewGradesPage.aspx" />
     <Content Include="TeacherPages\TeacherAnnouncementsPage.aspx" />
     <Content Include="TeacherPages\TeacherHomePage.aspx" />
-    <Content Include="TeacherPages\TeacherLoginPage.aspx" />
     <Content Include="TeacherPages\TeacherSetGradesPage.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
@@ -324,13 +321,6 @@
     </Compile>
     <Compile Include="AdminPages\AdminHome.aspx.designer.cs">
       <DependentUpon>AdminHome.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="AdminPages\AdminLogin.aspx.cs">
-      <DependentUpon>AdminLogin.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="AdminPages\AdminLogin.aspx.designer.cs">
-      <DependentUpon>AdminLogin.aspx</DependentUpon>
     </Compile>
     <Compile Include="AdminPages\AdminSchoolYearCalendar.aspx.cs">
       <DependentUpon>AdminSchoolYearCalendar.aspx</DependentUpon>
@@ -430,13 +420,6 @@
     <Compile Include="StudentPages\StudentHomePage.aspx.designer.cs">
       <DependentUpon>StudentHomePage.aspx</DependentUpon>
     </Compile>
-    <Compile Include="StudentPages\StudentLoginPage.aspx.cs">
-      <DependentUpon>StudentLoginPage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="StudentPages\StudentLoginPage.aspx.designer.cs">
-      <DependentUpon>StudentLoginPage.aspx</DependentUpon>
-    </Compile>
     <Compile Include="StudentPages\StudentViewGradesPage.aspx.cs">
       <DependentUpon>StudentViewGradesPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -457,13 +440,6 @@
     </Compile>
     <Compile Include="TeacherPages\TeacherHomePage.aspx.designer.cs">
       <DependentUpon>TeacherHomePage.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="TeacherPages\TeacherLoginPage.aspx.cs">
-      <DependentUpon>TeacherLoginPage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="TeacherPages\TeacherLoginPage.aspx.designer.cs">
-      <DependentUpon>TeacherLoginPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="TeacherPages\TeacherSetGradesPage.aspx.cs">
       <DependentUpon>TeacherSetGradesPage.aspx</DependentUpon>
