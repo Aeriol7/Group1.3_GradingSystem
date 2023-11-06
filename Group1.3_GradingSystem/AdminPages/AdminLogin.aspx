@@ -119,7 +119,6 @@ body{
         <asp:Image ID="Image2" img src="../HomePage/Image/ProfileIcon1%20(1).png" runat="server" />
         <asp:DropDownList ID="DropDownList1" runat="server" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" AutoPostBack="True">
             <asp:ListItem Selected="True">Admin</asp:ListItem>
-            <asp:ListItem>Home</asp:ListItem>
             <asp:ListItem>Teacher</asp:ListItem>
             <asp:ListItem>Student</asp:ListItem>
         </asp:DropDownList>
