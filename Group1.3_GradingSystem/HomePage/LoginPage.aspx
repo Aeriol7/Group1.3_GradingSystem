@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="StudentLoginPage.aspx.cs" Inherits="Group1._3_GradingSystem.StudentPages.StudentLoginPage" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="LoginPage.aspx.cs" Inherits="Group1._3_GradingSystem.HomePage.LoginPage" %>
 
 <!DOCTYPE html>
 <style type="text/css">
@@ -79,7 +79,7 @@
         height: 31px;
         width: 115px;
     }
-    .student-login-label {
+    .teacher-login-label {
         position: fixed;
         top: 293px;
         left: 227px;
@@ -91,7 +91,7 @@
         top: 296px;
         left: 296px;
     }
-    .student-login-form {
+    .teacher-login-form {
         position: fixed;
         top: 348px;
         left: 227px;
@@ -127,12 +127,6 @@
             <asp:Image ID="Image1" img src="../imgs/HopeLogo_TransparentPng.png" runat="server" />
         <asp:Label ID="Label1" runat="server" Text="HOPE INTEGRATED SCHOOL" Font-Bold="False" Font-Size="16pt" Width="204px" Font-Names="Times New Roman"></asp:Label>
 
-            <asp:DropDownList ID="LoginDropDown" runat="server" OnSelectedIndexChanged="LoginDropDown_SelectedIndexChanged" AutoPostBack="True">
-                <asp:ListItem Selected="True">Student</asp:ListItem>
-                <asp:ListItem>Admin</asp:ListItem>
-                <asp:ListItem>Teacher</asp:ListItem>
-            </asp:DropDownList>
-
        </nav>
 </header>
 <head runat="server">
@@ -147,17 +141,12 @@
                     <asp:Label ID="SchoolLabel" runat="server" Font-Names="Arial" Font-Size="20pt" ForeColor="#5FA1EF">SCHOOL</asp:Label>
                     <asp:Label ID="HopeLabel" runat="server" Font-Names="Arial" Font-Size="20pt" ForeColor="#EFF182">HOPE</asp:Label>
                 </div>
-                <div class="student-login-label">
-
-                    <asp:Label ID="UserLoginLabel" runat="server" Font-Names="Arial" Font-Size="X-Large">Student Login</asp:Label>
-
-                </div>
-                <div class="student-login-form">
+                <div class="teacher-login-form">
 
                     <asp:TextBox ID="txtUser" runat="server" Width="286px" BorderStyle="Solid" BorderWidth="1px"></asp:TextBox>
                     <asp:TextBox ID="txtPass" runat="server" Width="286px" BorderStyle="Solid" BorderWidth="1px" TextMode="Password"></asp:TextBox>
 
-                    <asp:Button ID="btnLogin" runat="server" Text="Login" BackColor="#5FA1EF" Font-Names="Arial" Font-Size="Medium" ForeColor="White" OnClick="btnLogin_Click" />
+                    <asp:Button ID="btnLogin" runat="server" OnClick="btnLogin_Click"  Text="Login" BackColor="#5FA1EF" Font-Names="Arial" Font-Size="Medium" ForeColor="White" />
 
                 </div>
             </asp:Panel>

@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Group1._3_GradingSystem.AdminPages
+namespace Group1._3_GradingSystem.HomePage
 {
 
 
-	public partial class AdminLogin
+	public partial class LoginPage
 	{
 
 		/// <summary>
@@ -42,120 +42,93 @@ namespace Group1._3_GradingSystem.AdminPages
 		protected global::System.Web.UI.WebControls.Label Label1;
 
 		/// <summary>
-		/// Image2 control.
+		/// TLoginContainerPanel control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.Image Image2;
+		protected global::System.Web.UI.WebControls.Panel TLoginContainerPanel;
 
 		/// <summary>
-		/// DropDownList1 control.
+		/// TLoginFormPanel control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.DropDownList DropDownList1;
+		protected global::System.Web.UI.WebControls.Panel TLoginFormPanel;
 
 		/// <summary>
-		/// Image3 control.
+		/// IntegratedLabel control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.Image Image3;
+		protected global::System.Web.UI.WebControls.Label IntegratedLabel;
 
 		/// <summary>
-		/// Label2 control.
+		/// SchoolLabel control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.Label Label2;
+		protected global::System.Web.UI.WebControls.Label SchoolLabel;
 
 		/// <summary>
-		/// Label3 control.
+		/// HopeLabel control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.Label Label3;
+		protected global::System.Web.UI.WebControls.Label HopeLabel;
 
 		/// <summary>
-		/// Label4 control.
+		/// txtUser control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.Label Label4;
+		protected global::System.Web.UI.WebControls.TextBox txtUser;
 
 		/// <summary>
-		/// TextBox1 control.
+		/// txtPass control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox TextBox1;
+		protected global::System.Web.UI.WebControls.TextBox txtPass;
 
 		/// <summary>
-		/// TextBox2 control.
+		/// btnLogin control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox TextBox2;
+		protected global::System.Web.UI.WebControls.Button btnLogin;
 
 		/// <summary>
-		/// TextBox3 control.
+		/// HISIcon control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox TextBox3;
+		protected global::System.Web.UI.WebControls.Image HISIcon;
 
 		/// <summary>
-		/// Image4 control.
+		/// LoginImage control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.Image Image4;
-
-		/// <summary>
-		/// Image5 control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.Image Image5;
-
-		/// <summary>
-		/// Button1 control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.Button Button1;
-
-		/// <summary>
-		/// Image6 control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.Image Image6;
+		protected global::System.Web.UI.WebControls.Image LoginImage;
 	}
 }

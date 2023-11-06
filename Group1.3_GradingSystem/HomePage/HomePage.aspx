@@ -13,6 +13,7 @@
         left: 1130px;
         height: 32px;
         width: 33px;
+        right: 122px;
     }
     #Label1{
         position: fixed;
@@ -20,10 +21,12 @@
         left: 145px;
         width: 259px;
     }
-    #DropDownList1{
+    #btnLogin{
         position: fixed;
         top: 54px;
         left: 1171px;
+        height: 25px;
+        width: 64px;
     }
 
 </style>
@@ -38,13 +41,8 @@
             <asp:Image ID="Image1" img src="Image/hopeLogoWhiteBG_.png" runat="server" Height="94px" Width="103px" />
         </div>
         <asp:Label ID="Label1" runat="server" Text="HOPE INTERGRATED SCHOOL" Font-Names="Times New Roman"></asp:Label>
-        <asp:DropDownList ID="DropDownList1" runat="server" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged" AutoPostBack="True">
-            <asp:ListItem Selected="True">Login</asp:ListItem>
-            <asp:ListItem >Admin</asp:ListItem>
-            <asp:ListItem>Teacher</asp:ListItem>
-            <asp:ListItem>Student</asp:ListItem>
-        </asp:DropDownList>
         <asp:Image ID="Image2" img src="Image/ProfileIcon1%20(1).png" runat="server" />
+        <asp:Button ID="btnLogin" runat="server" Text="Login" OnClick="btnLogin_Click" />
     </form>
 </body>
 </html>
