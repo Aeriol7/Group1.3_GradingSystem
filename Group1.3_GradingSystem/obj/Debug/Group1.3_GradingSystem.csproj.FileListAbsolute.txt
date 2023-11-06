@@ -50,17 +50,6 @@ C:\Users\H2MOTOWORX\Desktop\Aeriol\PROJECT_SIA_1.3\Group1.3_GradingSystem\Group1
 C:\Users\H2MOTOWORX\Desktop\Aeriol\PROJECT_SIA_1.3\Group1.3_GradingSystem\Group1.3_GradingSystem\bin\roslyn\vbc.rsp
 C:\Users\H2MOTOWORX\Desktop\Aeriol\PROJECT_SIA_1.3\Group1.3_GradingSystem\Group1.3_GradingSystem\bin\roslyn\VBCSCompiler.exe
 C:\Users\H2MOTOWORX\Desktop\Aeriol\PROJECT_SIA_1.3\Group1.3_GradingSystem\Group1.3_GradingSystem\bin\roslyn\VBCSCompiler.exe.config
-C:\Users\H2MOTOWORX\Desktop\Aeriol\PROJECT_SIA_1.3\Group1.3_GradingSystem\Group1.3_GradingSystem\bin\Antlr3.Runtime.dll
-C:\Users\H2MOTOWORX\Desktop\Aeriol\PROJECT_SIA_1.3\Group1.3_GradingSystem\Group1.3_GradingSystem\bin\AspNet.ScriptManager.jQuery.dll
-C:\Users\H2MOTOWORX\Desktop\Aeriol\PROJECT_SIA_1.3\Group1.3_GradingSystem\Group1.3_GradingSystem\bin\Microsoft.AspNet.FriendlyUrls.dll
-C:\Users\H2MOTOWORX\Desktop\Aeriol\PROJECT_SIA_1.3\Group1.3_GradingSystem\Group1.3_GradingSystem\bin\Microsoft.AspNet.Web.Optimization.WebForms.dll
-C:\Users\H2MOTOWORX\Desktop\Aeriol\PROJECT_SIA_1.3\Group1.3_GradingSystem\Group1.3_GradingSystem\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll
-C:\Users\H2MOTOWORX\Desktop\Aeriol\PROJECT_SIA_1.3\Group1.3_GradingSystem\Group1.3_GradingSystem\bin\Microsoft.ScriptManager.MSAjax.dll
-C:\Users\H2MOTOWORX\Desktop\Aeriol\PROJECT_SIA_1.3\Group1.3_GradingSystem\Group1.3_GradingSystem\bin\Microsoft.ScriptManager.WebForms.dll
-C:\Users\H2MOTOWORX\Desktop\Aeriol\PROJECT_SIA_1.3\Group1.3_GradingSystem\Group1.3_GradingSystem\bin\Microsoft.Web.Infrastructure.dll
-C:\Users\H2MOTOWORX\Desktop\Aeriol\PROJECT_SIA_1.3\Group1.3_GradingSystem\Group1.3_GradingSystem\bin\Newtonsoft.Json.dll
-C:\Users\H2MOTOWORX\Desktop\Aeriol\PROJECT_SIA_1.3\Group1.3_GradingSystem\Group1.3_GradingSystem\bin\System.Web.Optimization.dll
-C:\Users\H2MOTOWORX\Desktop\Aeriol\PROJECT_SIA_1.3\Group1.3_GradingSystem\Group1.3_GradingSystem\bin\WebGrease.dll
 C:\Users\H2MOTOWORX\Desktop\Aeriol\PROJECT_SIA_1.3\Group1.3_GradingSystem\Group1.3_GradingSystem\bin\System.Web.Optimization.xml
 C:\Users\H2MOTOWORX\Desktop\Aeriol\PROJECT_SIA_1.3\Group1.3_GradingSystem\Group1.3_GradingSystem\bin\Newtonsoft.Json.xml
 C:\Users\H2MOTOWORX\Desktop\Aeriol\PROJECT_SIA_1.3\Group1.3_GradingSystem\Group1.3_GradingSystem\bin\Antlr3.Runtime.pdb
