@@ -21,10 +21,6 @@ namespace Group1._3_GradingSystem.TeacherPages
 			}
 			else if (LoginDropDown.SelectedIndex == 2)
 			{
-				Response.Redirect("~/TeacherPages/TeacherLoginPage.aspx");
-			}
-			else if (LoginDropDown.SelectedIndex == 3)
-			{
 				Response.Redirect("~/StudentPages/StudentLoginPage.aspx");
 			}
 		}
