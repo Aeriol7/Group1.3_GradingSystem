@@ -65,7 +65,7 @@
     }
 #Label9{
     position: fixed;
-        top: 526px;
+        top: 519px;
         left: 141px;
     }
 #Label11{
@@ -223,7 +223,6 @@
             <asp:HyperLink ID="Label6" runat="server" NavigateUrl="~/AdminPages/AdminStudent.aspx" Text="Students" ForeColor="#B03E3E" Font-Underline="False"></asp:HyperLink>
             <asp:HyperLink ID="Label7" runat="server" NavigateUrl="~/AdminPages/AdminSections.aspx" Text="Sections" ForeColor="#B03E3E" Font-Underline="False"></asp:HyperLink>
             <asp:HyperLink ID="Label8" runat="server" NavigateUrl="~/AdminPages/AdminSchoolYearCalendar.aspx" Text="School Year" ForeColor="#B03E3E" Font-Underline="False"></asp:HyperLink>
-            <asp:Label ID="Label9" runat="server" Text="Back-up" ForeColor="#B03E3E"></asp:Label>
             <asp:Label ID="Label11" runat="server" Text="Home      " Font-Names="Arial" ForeColor="#B03E3E" Font-Size="7pt"></asp:Label>
             <asp:Label ID="Label10" runat="server" Text="/          Dashboard" Font-Names="Arial" ForeColor="#B03E3E" Font-Size="7pt"></asp:Label>
 
@@ -256,7 +255,6 @@
             </asp:hyperlink>
 
 
-            <asp:Image ID="Image10" img src="HomeImages/🦆%20icon%20_data%20transfer%20upload_.png"  runat="server" />
             <asp:Label ID="Label12" runat="server" Text="/  Subjects" Font-Size="7pt" ForeColor="#B03E3E"></asp:Label>
             
             <asp:Label ID="Label13" runat="server" Text="/  Manage Subjects" Font-Size="7pt" ForeColor="#B03E3E"></asp:Label>
