@@ -206,6 +206,11 @@
         height: 88px;
         width: 218px;
     }
+#Button1{
+    position: fixed;
+        top: 65px;
+        left: 1243px;
+    }
 
 </style>
 
@@ -253,12 +258,12 @@
             
                 
                 
+            <asp:Button ID="Button1" runat="server" Text="Logout" OnClick="Button1_Click" />
+            
+                
+                
         </div>
         <asp:Label ID="Label1" runat="server" Text="HOPE INTERGRATED SCHOOL" Font-Names="Times New Roman"></asp:Label>
-        <asp:DropDownList ID="DropDownList1" runat="server">
-            <asp:ListItem>Admin</asp:ListItem>
-            <asp:ListItem>Logout</asp:ListItem>
-        </asp:DropDownList>
         <div style="height: 546px">
             <asp:HyperLink ID="Label2" runat="server" NavigateUrl="AdminHome.aspx" Text="Home" ForeColor="#B03E3E" Font-Underline="False" ></asp:HyperLink>
             <asp:HyperLink ID="Label3" runat="server" NavigateUrl="~/AdminPages/AdminDashboard.aspx" Text="Dashboard" ForeColor="#B03E3E" Font-Underline="False"></asp:HyperLink>
