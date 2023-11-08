@@ -195,6 +195,13 @@
         top: 522px;
         left: 1180px;
     }
+#GridView1{
+    position: fixed;
+        top: 238px;
+        left: 309px;
+        height: 275px;
+        width: 749px;
+    }
 </style>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -216,6 +223,7 @@
         <asp:Image ID="Image2" img src="../HomePage/Image/ProfileIcon1%20(1).png" runat="server" />
     
         <div style="height: 546px; width: 1437px;">
+
             <asp:HyperLink ID="Label2" runat="server" NavigateUrl="AdminHome.aspx" Text="Home" ForeColor="#B03E3E" Font-Underline="False" ></asp:HyperLink>
             <asp:HyperLink ID="Label3" runat="server" NavigateUrl="~/AdminPages/AdminDashboard.aspx" Text="Dashboard" ForeColor="#B03E3E" Font-Underline="False"></asp:HyperLink>
             <asp:HyperLink ID="Label4" runat="server" NavigateUrl="~/AdminPages/AdminSubjects.aspx" Text="Subjects" ForeColor="#B03E3E" Font-Underline="False"></asp:HyperLink>
@@ -273,6 +281,9 @@
             <asp:Button ID="Button4" runat="server" Text="Next" />
             
             <asp:Button ID="Button5" runat="server" Text="Previous" />
+            
+                        <asp:GridView ID="GridView1" runat="server">
+                        </asp:GridView>
             
         </div>
     </form>   

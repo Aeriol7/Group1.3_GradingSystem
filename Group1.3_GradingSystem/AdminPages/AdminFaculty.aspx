@@ -159,30 +159,30 @@
     }
 #Button1{
     position: fixed;
-        top: 201px;
-        left: 312px;
-        width: 147px;
+        top: 490px;
+        left: 768px;
+        width: 104px;
     }
 #Button2{
     position: fixed;
-        top: 201px;
-        left: 483px;
+        top: 490px;
+        left: 889px;
         width: 117px;
     }
 #Button3{
     position: fixed;
-        top: 201px;
-        left: 628px;
+        top: 529px;
+        left: 767px;
         width: 132px;
     }
 #TextBox1{
     position: fixed;
-        top: 253px;
-        left: 1159px;
+        top: 344px;
+        left: 1107px;
     }
 #Label15{
     position: fixed;
-        top: 255px;
+        top: 250px;
         left: 1086px;
     }
 #Button4{
@@ -192,8 +192,129 @@
     }
 #Button5{
     position: fixed;
-        top: 522px;
-        left: 1180px;
+        top: 527px;
+        left: 918px;
+        height: 31px;
+    }
+#GridView1{
+    position: fixed;
+        top: 252px;
+        left: 791px;
+        height: 142px;
+        width: 525px;
+    }
+#TextBox2{
+    position: fixed;
+        top: 427px;
+        left: 314px;
+    }
+    #TextBox2{
+    position: fixed;
+        top: 309px;
+        left: 1120px;
+    }
+#Label16{
+    position: fixed;
+        top: 210px;
+        left: 314px;
+    }
+#TextBox3{
+    position: fixed;
+        top: 207px;
+        left: 384px;
+    }
+#Label17{
+    position: fixed;
+        top: 301px;
+        left: 1090px;
+    }
+#TextBox4{
+    position: fixed;
+        top: 420px;
+        left: 407px;
+    }
+    #TextBox5{
+    position: fixed;
+        top: 254px;
+        left: 1103px;
+    }
+    #Label18{
+        position: fixed;
+        top: 421px;
+        left: 315px;
+    }
+    #Label19{
+        position: fixed;
+        top: 453px;
+        left: 316px;
+    }
+    #Label20{
+        position: fixed;
+        top: 485px;
+        left: 317px;
+    }
+    #TextBox6{
+        position: fixed;
+        top: 449px;
+        left: 850px;
+    }
+    #GridView2{
+    position: fixed;
+        top: 250px;
+        left: 760px;
+        height: 142px;
+        width: 424px;
+    }
+#GridView3{
+    position: fixed;
+        top: 250px;
+        left: 314px;
+        height: 142px;
+        width: 424px;
+    }
+    #Button9{
+    position: fixed;
+        top: 491px;
+        left: 311px;
+        width: 104px;
+    }
+#Button6{
+    position: fixed;
+        top: 491px;
+        left: 434px;
+        width: 117px;
+    }
+#Button7{
+    position: fixed;
+        top: 536px;
+        left: 311px;
+        width: 132px;
+    }
+#Button8{
+    position: fixed;
+        top: 536px;
+        left: 461px;
+        height: 31px;
+    }
+#TextBox7{
+    position: fixed;
+        top: 420px;
+        left: 852px;
+    }
+    #Label21{
+        position: fixed;
+        top: 423px;
+        left: 764px;
+    }
+    #Label20{
+        position: fixed;
+        top: 452px;
+        left: 764px;
+    }
+    #TextBox8{
+        position: fixed;
+        top: 453px;
+        left: 407px;
     }
     </style>
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -260,19 +381,47 @@
             
             <asp:Label ID="Label14" runat="server" ForeColor="#B03E3E" Text="Manage Faculty Members" Font-Names="Arial" Font-Size="17pt"></asp:Label>
             
-            <asp:Button ID="Button1" runat="server" Text="+  Add Record" />
+            <asp:Button ID="Button2" runat="server" Text="+ Update" />
             
-            <asp:Button ID="Button2" runat="server" Text="+ Button" />
+            <asp:Button ID="Button3" runat="server" Text="+ Delete" />
             
-            <asp:Button ID="Button3" runat="server" Text="+ Button" />
+            <asp:Button ID="Button5" runat="server" Text=" + Clear" />
             
-            <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+            <asp:Button ID="Button1" runat="server" Text="+  Add " />
             
-            <asp:Label ID="Label15" runat="server" Text="Search:"></asp:Label>
+            <asp:Label ID="Label16" runat="server" Text="Search:"></asp:Label>
             
-            <asp:Button ID="Button4" runat="server" Text="Next" />
+            <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
             
-            <asp:Button ID="Button5" runat="server" Text="Previous" />
+            <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
+            
+            <asp:Label ID="Label19" runat="server" Text="Password"></asp:Label>
+            
+            <asp:Label ID="Label18" runat="server" Text="Username"></asp:Label>
+            
+            <asp:TextBox ID="TextBox6" runat="server"></asp:TextBox>
+            
+            <asp:GridView ID="GridView2" runat="server">
+            </asp:GridView>
+            
+            <asp:GridView ID="GridView3" runat="server">
+            </asp:GridView>
+            
+            <asp:Button ID="Button6" runat="server" Text="+ Update" />
+            
+            <asp:Button ID="Button7" runat="server" Text="+ Delete" />
+            
+            <asp:Button ID="Button8" runat="server" Text=" + Clear" />
+            
+            <asp:Button ID="Button9" runat="server" Text="+  Add " />
+            
+            <asp:TextBox ID="TextBox7" runat="server"></asp:TextBox>
+            
+            <asp:Label ID="Label20" runat="server" Text="Lastname"></asp:Label>
+            
+            <asp:Label ID="Label21" runat="server" Text="Firstname"></asp:Label>
+            
+            <asp:TextBox ID="TextBox8" runat="server"></asp:TextBox>
             
         </div>
     </form>   
