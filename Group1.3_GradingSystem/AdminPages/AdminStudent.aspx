@@ -277,7 +277,7 @@
             
             <asp:Button ID="Button5" runat="server" Text="Previous" />
             
-            <asp:Button ID="Button6" runat="server" Text="Logout" />
+            <asp:Button ID="Button6" runat="server" Text="Logout" OnClick="Button6_Click" />
             
         </div>
     </form>   
