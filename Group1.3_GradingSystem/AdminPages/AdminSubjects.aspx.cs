@@ -16,6 +16,10 @@ namespace Group1._3_GradingSystem.AdminPages
         {
             
         }
-        
+
+        protected void Button6_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/HomePage/LoginPage.aspx");
+        }
     }
 }

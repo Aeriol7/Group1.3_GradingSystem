@@ -14,5 +14,10 @@ namespace Group1._3_GradingSystem.TeacherPages
 		{
 
 		}
-	}
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("/HomePage/LoginPage.aspx");
+        }
+    }
 }

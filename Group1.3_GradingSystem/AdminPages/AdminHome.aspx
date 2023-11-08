@@ -141,6 +141,11 @@
         height: 479px;
         width: 985px;
     }
+#Button1{
+    position: fixed;
+        top: 57px;
+        left: 1175px;
+    }
 </style>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -155,10 +160,7 @@
         </div>
         <asp:Label ID="Label1" runat="server" Text="HOPE INTERGRATED SCHOOL" Font-Names="Times New Roman"></asp:Label>
     <form id="form1" runat="server">
-        <asp:DropDownList ID="DropDownList1" runat="server">
-            <asp:ListItem>Admin</asp:ListItem>
-            <asp:ListItem>Logout</asp:ListItem>
-        </asp:DropDownList>
+        <asp:Button ID="Button1" runat="server" Text="Logout" OnClick="Button1_Click" />
         <asp:Image ID="Image2" img src="../HomePage/Image/ProfileIcon1%20(1).png" runat="server" />
     
     

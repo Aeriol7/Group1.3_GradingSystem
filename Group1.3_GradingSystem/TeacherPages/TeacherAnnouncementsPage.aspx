@@ -198,6 +198,11 @@
         height: 35px;
         width: 181px;
     }
+    #Button1{
+        position: fixed;
+        top: 39px;
+        left: 1204px;
+    }
     </style>
 <form id="form1" runat="server">
 <header style="height: 63px">
@@ -205,11 +210,9 @@
             <asp:Image ID="Image1" img src="../imgs/HopeLogo_TransparentPng.png" runat="server" />
         <asp:Label ID="Label1" runat="server" Text="HOPE INTEGRATED SCHOOL" Font-Bold="False" Font-Size="16pt" Width="204px" Font-Names="Times New Roman"></asp:Label>
 
-            <asp:DropDownList ID="LogoutDropDown" runat="server">
-                <asp:ListItem>Teacher</asp:ListItem>
-                <asp:ListItem>Logout</asp:ListItem>
-            </asp:DropDownList>
             <asp:Image ID="UserIcon" img src="../imgs/ProfileIcon1.png" runat="server" />
+            
+            <asp:Button ID="Button1" runat="server" Text="Logout" OnClick="Button1_Click" />
             
        </nav>
 </header>

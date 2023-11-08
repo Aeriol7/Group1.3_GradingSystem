@@ -195,6 +195,11 @@
         top: 522px;
         left: 1180px;
     }
+#Button6{
+    position: fixed;
+        top: 62px;
+        left: 1263px;
+    }
 </style>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -210,10 +215,6 @@
             <asp:Image ID="Image1" img src="../HomePage/Image/hopeLogoWhiteBG_.png" runat="server" Height="94px" Width="103px" />
         </div>
         <asp:Label ID="Label1" runat="server" Text="HOPE INTERGRATED SCHOOL" Font-Names="Times New Roman"></asp:Label>
-        <asp:DropDownList ID="DropDownList1" runat="server">
-            <asp:ListItem>Admin</asp:ListItem>
-            <asp:ListItem>Logout</asp:ListItem>
-        </asp:DropDownList>
         <asp:Image ID="Image2" img src="../HomePage/Image/ProfileIcon1%20(1).png" runat="server" />
     
         <div style="height: 546px; width: 1437px;">
@@ -275,6 +276,8 @@
             <asp:Button ID="Button4" runat="server" Text="Next" />
             
             <asp:Button ID="Button5" runat="server" Text="Previous" />
+            
+            <asp:Button ID="Button6" runat="server" Text="Logout" />
             
         </div>
     </form>   
