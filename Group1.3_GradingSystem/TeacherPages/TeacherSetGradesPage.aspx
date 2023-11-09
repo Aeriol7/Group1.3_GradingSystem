@@ -148,27 +148,27 @@
     }
     #SGAddRecord {
         position: fixed;
-        top: 169px;
-        left: 344px;
+        top: 446px;
+        left: 825px;
         width: 94px;
     }
     #SGButton1 {
         position: fixed;
-        top: 170px;
-        left: 465px;
+        top: 445px;
+        left: 956px;
         width: 91px;
     }
     #SGButton2 {
         position: fixed;
-        top: 170px;
-        left: 582px;
+        top: 446px;
+        left: 1077px;
         width: 91px;
     }
     #SGSearchLabel {
         position: fixed;
-        top: 210px;
-        left: 1018px;
-        bottom: 335px;
+        top: 260px;
+        left: 1104px;
+        bottom: 285px;
     }
     #SGSearchTxt {
         position: fixed;
@@ -188,15 +188,104 @@
     }
     .set-grades-table {
         position: fixed;
-        top: 243px;
-        left: 331px;
-        width: 934px;
+        top: 242px;
+        left: 332px;
+        width: 471px;
         height: 239px;
+    }
+    .set-grades-form {
+        position: fixed;
+        top: 245px;
+        left: 814px;
+        height: 239px;
+        width: 455px;
     }
     #Button1{
         position: fixed;
         top: 37px;
         left: 1207px;
+    }
+    #ddlSchoolYear {
+        position: fixed;
+        top: 216px;
+        left: 331px;
+        right: 877px;
+    }
+    #ddlGradeLevel {
+        position: fixed;
+        top: 216px;
+        left: 446px;
+    }
+    #ddlSection {
+        position: fixed;
+        top: 214px;
+        left: 616px;
+    }
+    #gvGrades {
+        position: fixed;
+        top: 245px;
+        left: 334px;
+        width: 465px;
+    }
+    #SGSearchLabel0 {
+        position: fixed;
+        top: 210px;
+        left: 1018px;
+        bottom: 335px;
+    }
+    #SGtxtStuID {
+        position: fixed;
+        top: 259px;
+        left: 1183px;
+        width: 70px;
+    }
+    #SGSearchLabel1 {
+        position: fixed;
+        top: 260px;
+        left: 817px;
+        }
+    #SGtxtLName {
+        position: fixed;
+        top: 294px;
+        left: 910px;
+        width: 176px;
+    }
+    #SGSearchLabel2 {
+        position: fixed;
+        top: 334px;
+        left: 842px;
+        }
+    #SGtxtFName {
+        position: fixed;
+        top: 259px;
+        left: 910px;
+        width: 176px;
+    }
+    #SGSearchLabel3 {
+        position: fixed;
+        top: 295px;
+        left: 819px;
+        }
+    #ddlQuarter {
+        position: fixed;
+        top: 335px;
+        left: 910px;
+    }
+    #SGSearchLabel4 {
+        position: fixed;
+        top: 371px;
+        left: 841px;
+        bottom: 174px;
+    }
+    #SGtxtGrades {
+        position: fixed;
+        top: 370px;
+        left: 911px;
+        width: 70px;
+    }
+    #cbINC {
+        position: fixed;
+
     }
     </style>
 <form id="form1" runat="server">
@@ -232,11 +321,35 @@
         <asp:Button ID="SGAddRecord" runat="server" Text="+ Add Record" BackColor="White" Font-Names="Arial" ForeColor="#983939" />
         <asp:Button ID="SGButton1" runat="server" Text="Button 1" BackColor="White" Font-Names="Arial" ForeColor="#983939" />
         <asp:Button ID="SGButton2" runat="server" Text="Button 2" BackColor="White" Font-Names="Arial" ForeColor="#983939" />
-        <asp:Label ID="SGSearchLabel" runat="server" Font-Names="Arial" ForeColor="#983939">Search:</asp:Label>
+        <asp:Label ID="SGSearchLabel" runat="server" Font-Names="Arial" ForeColor="#983939">Student ID:</asp:Label>
         <asp:TextBox ID="SGSearchTxt" runat="server" BorderStyle="Solid" BorderWidth="1px"></asp:TextBox>
-        <div class="set-grades-table"></div>
+        <div class="set-grades-table">
+            <asp:GridView ID="gvGrades" runat="server" Height="235px">
+            </asp:GridView>
+           
+        </div>
+        <div class="set-grades-form">
+            <asp:Label ID="SGSearchLabel0" runat="server" Font-Names="Arial" ForeColor="#983939">Search:</asp:Label>
+            <asp:TextBox ID="SGtxtStuID" runat="server" BorderStyle="Solid" BorderWidth="1px"></asp:TextBox>
+            <asp:Label ID="SGSearchLabel1" runat="server" Font-Names="Arial" ForeColor="#983939">First Name:</asp:Label>
+            <asp:TextBox ID="SGtxtLName" runat="server" BorderStyle="Solid" BorderWidth="1px"></asp:TextBox>
+            <asp:Label ID="SGSearchLabel2" runat="server" Font-Names="Arial" ForeColor="#983939">Quarter:</asp:Label>
+            <asp:TextBox ID="SGtxtFName" runat="server" BorderStyle="Solid" BorderWidth="1px"></asp:TextBox>
+            <asp:Label ID="SGSearchLabel3" runat="server" Font-Names="Arial" ForeColor="#983939">Last Name:</asp:Label>
+            <asp:Label ID="SGSearchLabel4" runat="server" Font-Names="Arial" ForeColor="#983939">Grades:</asp:Label>
+            <asp:TextBox ID="SGtxtGrades" runat="server" BorderStyle="Solid" BorderWidth="1px"></asp:TextBox>
+            <asp:DropDownList ID="ddlQuarter" runat="server">
+            </asp:DropDownList>
+        </div>
         <asp:Button ID="SGNext" runat="server" Text="Next" BackColor="White" Font-Names="Arial" ForeColor="#983939" />
         <asp:Button ID="SGPrev" runat="server" Text="Prev" BackColor="White" Font-Names="Arial" ForeColor="#983939" />
+        <asp:DropDownList ID="ddlSchoolYear" runat="server" Width="77px">
+        </asp:DropDownList>
+        <asp:DropDownList ID="ddlGradeLevel" runat="server">
+            <asp:ListItem>Select Grade Level</asp:ListItem>  
+        </asp:DropDownList>
+        <asp:DropDownList ID="ddlSection" runat="server">
+        </asp:DropDownList>
     </div>
      </form>
 </body>
