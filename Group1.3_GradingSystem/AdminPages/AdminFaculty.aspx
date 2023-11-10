@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AdminFaculty.aspx.cs" Inherits="Group1._3_GradingSystem.AdminPages.AdminFaculty" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AdminFaculty.aspx.cs" Inherits="Group1._3_GradingSystem.AdminPages.AdminFaculty" enableEventValidation="false"%>
 
 <!DOCTYPE html>
 <style>
@@ -325,6 +325,17 @@
         top: 57px;
         left: 1261px;
     }
+    #TextBox9{
+        position: fixed;
+        top: 437px;
+        left: 653px;
+        width: 42px;
+    }
+    #Label22{
+        position: fixed;
+        top: 438px;
+        left: 615px;
+    }
     </style>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
@@ -394,15 +405,13 @@
             
             <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
             
-            <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
-            
             <asp:Label ID="Label19" runat="server" Text="Password"></asp:Label>
             
             <asp:Label ID="Label18" runat="server" Text="Username"></asp:Label>
             
             <asp:TextBox ID="TextBox6" runat="server"></asp:TextBox>
             
-            <asp:GridView ID="GridView2" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None">
+            <asp:GridView OnPageIndexChanging="OnPageIndexChangingTeacher" ID="GridView2" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" AllowPaging="True" PageSize="4" OnSelectedIndexChanged="GridView2_SelectedIndexChanged">
                 <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                 <EditRowStyle BackColor="#999999" />
                 <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
@@ -426,11 +435,11 @@
             
             <asp:Button ID="Button8" runat="server" Text=" + Clear" />
             
-            <asp:Button ID="Button6" runat="server" Text="+ Update" />
+            <asp:Button ID="Button6" runat="server" Text="+ Update" OnClick="Button6_Click" />
             
-            <asp:Button ID="Button7" runat="server" Text="+ Delete" />
+            <asp:Button ID="Button7" runat="server" Text="+ Delete" OnClick="Button7_Click" />
             
-            <asp:GridView ID="GridView3" runat="server"  CellPadding="4" ForeColor="#333333" GridLines="None">
+            <asp:GridView OnSelectedIndexChanged="GridView3_SelectedIndexChanged" OnRowDataBound="GridView3_RowDataBound" OnPageIndexChanging="OnPageIndexChanging" ID="GridView3" runat="server"  CellPadding="4" ForeColor="#333333" GridLines="None" AllowPaging="True" PageSize="4">
                 <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                 <EditRowStyle BackColor="#999999" />
                 <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
@@ -442,6 +451,7 @@
                 <SortedAscendingHeaderStyle BackColor="#506C8C" />
                 <SortedDescendingCellStyle BackColor="#FFFDF8" />
                 <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+
             </asp:GridView>
             
             <asp:TextBox ID="TextBox7" runat="server"></asp:TextBox>
@@ -453,6 +463,12 @@
             <asp:TextBox ID="TextBox8" runat="server"></asp:TextBox>
             
             <asp:Button ID="Button10" runat="server" Text="Logout" OnClick="Button10_Click" />
+            
+            <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
+            
+            <asp:TextBox ID="TextBox9" runat="server"></asp:TextBox>
+            
+            <asp:Label ID="Label22" runat="server" Text="ID:"></asp:Label>
             
         </div>
     </form>   
