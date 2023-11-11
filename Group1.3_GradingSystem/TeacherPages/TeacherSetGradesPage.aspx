@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="TeacherSetGradesPage.aspx.cs" Inherits="Group1._3_GradingSystem.TeacherPages.TeacherSetGradesPage" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="TeacherSetGradesPage.aspx.cs" Inherits="Group1._3_GradingSystem.TeacherPages.TeacherSetGradesPage" enableEventValidation="false" %>
 
 <!DOCTYPE html>
 <style type="text/css">
@@ -148,8 +148,8 @@
     }
     #SGAddRecord {
         position: fixed;
-        top: 568px;
-        left: 640px;
+        top: 521px;
+        left: 656px;
         width: 94px;
     }
     #SGButton1 {
@@ -164,9 +164,9 @@
         left: 1077px;
         width: 91px;
     }
-    #SGSearchLabel {
+    #SGStudIDLabel {
         position: fixed;
-        top: 529px;
+        top: 483px;
         left: 624px;
         bottom: 16px;
     }
@@ -197,8 +197,8 @@
     }
     .set-grades-form {
         position: fixed;
-        top: 521px;
-        left: 333px;
+        top: 474px;
+        left: 340px;
         height: 239px;
         width: 455px;
     }
@@ -241,50 +241,51 @@
     }
     #SGtxtStuID {
         position: fixed;
-        top: 528px;
+        top: 483px;
         left: 706px;
         width: 70px;
     }
-    #SGSearchLabel1 {
+    #SGFNLabel {
         position: fixed;
-        top: 529px;
-        left: 349px;
+        top: 483px;
+        left: 350px;
         }
     #SGtxtLName {
         position: fixed;
-        top: 560px;
+        top: 512px;
         left: 434px;
         width: 176px;
     }
-    #SGSearchLabel2 {
+    #SGQRTLabel {
         position: fixed;
-        top: 591px;
-        left: 373px;
-        }
+        top: 540px;
+        left: 374px;
+        right: 855px;
+    }
     #SGtxtFName {
         position: fixed;
-        top: 528px;
+        top: 484px;
         left: 434px;
         width: 176px;
     }
-    #SGSearchLabel3 {
+    #SGLNLabel {
         position: fixed;
-        top: 560px;
-        left: 349px;
+        top: 512px;
+        left: 350px;
         }
     #ddlQuarter {
         position: fixed;
         top: 305px;
         left: 943px;
     }
-    #SGSearchLabel4 {
+    #SGGradesLabel {
         position: fixed;
-        top: 622px;
+        top: 569px;
         left: 373px;
     }
     #SGtxtGrades {
         position: fixed;
-        top: 622px;
+        top: 569px;
         left: 434px;
         width: 70px;
     }
@@ -294,7 +295,7 @@
     }
     #SGtxtQuarter {
         position: fixed;
-        top: 591px;
+        top: 541px;
         left: 434px;
         width: 70px;
     }
@@ -338,22 +339,34 @@
         <asp:DropDownList ID="ddlSection" runat="server" Height="22px" Width="120px">
         </asp:DropDownList>
         <div class="set-grades-table" style="height: 303px; overflow: auto;" >
-            <asp:GridView ID="gvGrades" runat="server">
+            <asp:GridView ID="gvGrades" runat="server" AllowPaging="True" PageSize="5" OnPageIndexChanging="OnPageIndexChanging" OnSelectedIndexChanged="gvGrades_SelectedIndexChanged"
+    OnRowDataBound="gvGrades_RowDataBound" CellPadding="4" ForeColor="#333333" GridLines="None">
+                <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                <EditRowStyle BackColor="#999999" />
+                <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+                <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+                <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
             </asp:GridView>
         </div>
         <div class="set-grades-form">
-            <asp:TextBox ID="SGtxtStuID" runat="server" BorderStyle="Solid" BorderWidth="1px"></asp:TextBox>
-            <asp:Label ID="SGSearchLabel1" runat="server" Font-Names="Arial" ForeColor="#983939">First Name:</asp:Label>
-            <asp:TextBox ID="SGtxtLName" runat="server" BorderStyle="Solid" BorderWidth="1px"></asp:TextBox>
+            <asp:Label ID="SGFNLabel" runat="server" Font-Names="Arial" ForeColor="#983939">First Name:</asp:Label>
             <asp:TextBox ID="SGtxtFName" runat="server" BorderStyle="Solid" BorderWidth="1px"></asp:TextBox>
-            <asp:Label ID="SGSearchLabel4" runat="server" Font-Names="Arial" ForeColor="#983939" Height="18px">Grades:</asp:Label>
-            <asp:Label ID="SGSearchLabel3" runat="server" Font-Names="Arial" ForeColor="#983939" BorderStyle="None">Last Name:</asp:Label>
-            <asp:Label ID="SGSearchLabel2" runat="server" Font-Names="Arial" ForeColor="#983939">Quarter:</asp:Label>
-            <asp:TextBox ID="SGtxtGrades" runat="server" BorderStyle="Solid" BorderWidth="1px"></asp:TextBox>
+            <asp:Label ID="SGLNLabel" runat="server" Font-Names="Arial" ForeColor="#983939" BorderStyle="None">Last Name:</asp:Label>
+            <asp:TextBox ID="SGtxtLName" runat="server" BorderStyle="Solid" BorderWidth="1px"></asp:TextBox>
+            <asp:Label ID="SGStudIDLabel" runat="server" Font-Names="Arial" ForeColor="#983939" Height="18px">Student ID:</asp:Label>
+            <asp:TextBox ID="SGtxtStuID" runat="server" BorderStyle="Solid" BorderWidth="1px"></asp:TextBox>
+            <asp:Label ID="SGQRTLabel" runat="server" Font-Names="Arial" ForeColor="#983939">Quarter:</asp:Label>
             <asp:TextBox ID="SGtxtQuarter" runat="server" BorderStyle="Solid" BorderWidth="1px"></asp:TextBox>
+            <asp:Label ID="SGGradesLabel" runat="server" Font-Names="Arial" ForeColor="#983939" Height="18px">Grades:</asp:Label>
+            <asp:TextBox ID="SGtxtGrades" runat="server" BorderStyle="Solid" BorderWidth="1px"></asp:TextBox>
         </div>
         
-        <asp:Label ID="SGSearchLabel" runat="server" Font-Names="Arial" ForeColor="#983939" Height="18px">Student ID:</asp:Label>
             
             <asp:Label ID="SGSearchLabel0" runat="server" Font-Names="Arial" ForeColor="#983939" Height="18px">Search:</asp:Label>
             

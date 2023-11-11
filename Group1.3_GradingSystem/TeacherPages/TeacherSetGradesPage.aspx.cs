@@ -16,10 +16,11 @@ namespace Group1._3_GradingSystem.TeacherPages
 
 		protected void Page_Load(object sender, EventArgs e)
 		{
-			GradeLevel();
-			SchoolYears();
-			Sections();
-			Grades();
+				GradeLevel();
+				SchoolYears();
+				Sections();
+				Grades();
+
 		}
 
 		public void GradeLevel()
@@ -64,8 +65,9 @@ namespace Group1._3_GradingSystem.TeacherPages
 
 		public void Grades()
 		{
+			
 			SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-O5EH83O;Initial Catalog=HIS_GradingSystem;Integrated Security=False;User Id=sa;Password=1234;MultipleActiveResultSets=True");
-			string com = "SELECT * FROM sections";
+			string com = "SELECT * FROM grades";
 			con.Open();
 			SqlDataAdapter adpt = new SqlDataAdapter(com, con);
 			DataTable dt = new DataTable();
@@ -79,6 +81,39 @@ namespace Group1._3_GradingSystem.TeacherPages
         {
             Response.Redirect("/HomePage/LoginPage.aspx");
         }
+
+		protected void OnPageIndexChanging(object sender, GridViewPageEventArgs e)
+		{
+			gvGrades.PageIndex = e.NewPageIndex;
+			this.Grades();
+		}
+
+		protected void gvGrades_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			//Get the selected row
+			GridViewRow row = gvGrades.Rows[gvGrades.SelectedIndex];
+			if (row != null)
+			{
+				//Change the cell index(1) of column as per your design
+				//Get the Selected row cell values here
+				GridViewRow gr = gvGrades.SelectedRow;
+				SGtxtStuID.Text = gr.Cells[0].Text;
+				SGtxtFName.Text = gr.Cells[1].Text;
+				SGtxtLName.Text = gr.Cells[2].Text;
+			}
+		}
+		protected void gvGrades_RowDataBound(object sender, System.Web.UI.WebControls.GridViewRowEventArgs e)
+		{
+			if (e.Row.RowType == DataControlRowType.DataRow)
+			{
+				//Change the mouse cursor to Hand symbol to show the user the cell is selectable
+				e.Row.Attributes["onmouseover"] = "this.style.cursor='hand';this.style.textDecoration='underline';this.style.cursor='Pointer'";
+				e.Row.Attributes["onmouseout"] = "this.style.textDecoration='none';";
+
+				//Attach the click event to each cells
+				e.Row.Attributes["onclick"] = ClientScript.GetPostBackClientHyperlink(this.gvGrades, "Select$" + e.Row.RowIndex);
+			}
+		}
 
 	}
 }

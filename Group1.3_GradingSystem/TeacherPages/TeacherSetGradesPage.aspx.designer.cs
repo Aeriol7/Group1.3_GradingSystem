@@ -204,31 +204,13 @@ namespace Group1._3_GradingSystem.TeacherPages
 		protected global::System.Web.UI.WebControls.GridView gvGrades;
 
 		/// <summary>
-		/// SGtxtStuID control.
+		/// SGFNLabel control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox SGtxtStuID;
-
-		/// <summary>
-		/// SGSearchLabel1 control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.Label SGSearchLabel1;
-
-		/// <summary>
-		/// SGtxtLName control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox SGtxtLName;
+		protected global::System.Web.UI.WebControls.Label SGFNLabel;
 
 		/// <summary>
 		/// SGtxtFName control.
@@ -240,40 +222,49 @@ namespace Group1._3_GradingSystem.TeacherPages
 		protected global::System.Web.UI.WebControls.TextBox SGtxtFName;
 
 		/// <summary>
-		/// SGSearchLabel4 control.
+		/// SGLNLabel control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.Label SGSearchLabel4;
+		protected global::System.Web.UI.WebControls.Label SGLNLabel;
 
 		/// <summary>
-		/// SGSearchLabel3 control.
+		/// SGtxtLName control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.Label SGSearchLabel3;
+		protected global::System.Web.UI.WebControls.TextBox SGtxtLName;
 
 		/// <summary>
-		/// SGSearchLabel2 control.
+		/// SGStudIDLabel control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.Label SGSearchLabel2;
+		protected global::System.Web.UI.WebControls.Label SGStudIDLabel;
 
 		/// <summary>
-		/// SGtxtGrades control.
+		/// SGtxtStuID control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox SGtxtGrades;
+		protected global::System.Web.UI.WebControls.TextBox SGtxtStuID;
+
+		/// <summary>
+		/// SGQRTLabel control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.Label SGQRTLabel;
 
 		/// <summary>
 		/// SGtxtQuarter control.
@@ -285,13 +276,22 @@ namespace Group1._3_GradingSystem.TeacherPages
 		protected global::System.Web.UI.WebControls.TextBox SGtxtQuarter;
 
 		/// <summary>
-		/// SGSearchLabel control.
+		/// SGGradesLabel control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.Label SGSearchLabel;
+		protected global::System.Web.UI.WebControls.Label SGGradesLabel;
+
+		/// <summary>
+		/// SGtxtGrades control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.TextBox SGtxtGrades;
 
 		/// <summary>
 		/// SGSearchLabel0 control.
