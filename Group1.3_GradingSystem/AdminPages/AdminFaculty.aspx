@@ -159,21 +159,22 @@
     }
 #Button1{
     position: fixed;
-        top: 490px;
-        left: 769px;
-        width: 89px;
+        top: 496px;
+        left: 765px;
+        width: 96px;
     }
 #Button2{
     position: fixed;
-        top: 489px;
-        left: 890px;
-        width: 84px;
+        top: 495px;
+        left: 885px;
+        width: 96px;
+        height: 29px;
     }
 #Button3{
     position: fixed;
-        top: 535px;
-        left: 771px;
-        width: 88px;
+        top: 537px;
+        left: 765px;
+        width: 96px;
     }
 #TextBox1{
     position: fixed;
@@ -192,10 +193,10 @@
     }
 #Button5{
     position: fixed;
-        top: 534px;
-        left: 890px;
-        height: 28px;
-        width: 78px;
+        top: 537px;
+        left: 884px;
+        height: 29px;
+        width: 96px;
     }
 #GridView1{
     position: fixed;
@@ -279,26 +280,28 @@
         left: 319px;
         width: 96px;
         height: 29px;
+        right: 882px;
     }
 #Button6{
     position: fixed;
         top: 495px;
-        left: 447px;
-        width: 88px;
+        left: 443px;
+        width: 96px;
         height: 29px;
     }
 #Button7{
     position: fixed;
-        top: 538px;
-        left: 317px;
-        width: 100px;
-        height: 32px;
+        top: 537px;
+        left: 320px;
+        width: 96px;
+        height: 29px;
     }
 #Button8{
     position: fixed;
-        top: 538px;
-        left: 444px;
+        top: 537px;
+        left: 442px;
         height: 29px;
+        width: 96px;
     }
 #TextBox7{
     position: fixed;
@@ -327,8 +330,8 @@
     }
     #TextBox9{
         position: fixed;
-        top: 437px;
-        left: 653px;
+        top: 435px;
+        left: 651px;
         width: 42px;
     }
     #Label22{
@@ -336,13 +339,52 @@
         top: 438px;
         left: 615px;
     }
+    #Panel1{
+        position: fixed;
+    }
+    .users{
+        position: fixed;
+        top: 235px;
+        left: 299px;
+        width: 440px;
+        height: 341px;
+        margin-top: 0px;
+    }
+    ..teachers{
+        position: fixed;
+        top: 233px;
+        left: 753px;
+        width: 440px;
+        height: 342px;
+    }
+    #TextBox10{
+        position: fixed;
+        top: 434px;
+        left: 1110px;
+        width: 74px;
+    }
+    #Label23{
+        position: fixed;
+        top: 439px;
+        left: 1074px;
+    }
+    #TextBox11{
+        position: fixed;
+        top: 207px;
+        left: 842px;
+    }
+    #Label24{
+        position: fixed;
+        top: 210px;
+        left: 777px;
+    }
     </style>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <title></title>
     
 </head>
-<body>
+<body style="height: 619px">
     
     <form id="form2" runat="server">
     
@@ -352,7 +394,7 @@
         <asp:Label ID="Label1" runat="server" Text="HOPE INTERGRATED SCHOOL" Font-Names="Times New Roman"></asp:Label>
         <asp:Image ID="Image2" img src="../HomePage/Image/ProfileIcon1%20(1).png" runat="server" />
     
-        <div style="height: 546px; width: 1437px;">
+        <div style="height: 597px; width: 1437px;">
             <asp:HyperLink ID="Label2" runat="server" NavigateUrl="AdminHome.aspx" Text="Home" ForeColor="#B03E3E" Font-Underline="False" ></asp:HyperLink>
             <asp:HyperLink ID="Label3" runat="server" NavigateUrl="~/AdminPages/AdminDashboard.aspx" Text="Dashboard" ForeColor="#B03E3E" Font-Underline="False"></asp:HyperLink>
             <asp:HyperLink ID="Label4" runat="server" NavigateUrl="~/AdminPages/AdminSubjects.aspx" Text="Subjects" ForeColor="#B03E3E" Font-Underline="False"></asp:HyperLink>
@@ -397,48 +439,35 @@
             
             <asp:Label ID="Label14" runat="server" ForeColor="#B03E3E" Text="Manage Faculty Members" Font-Names="Arial" Font-Size="17pt"></asp:Label>
             
-            <asp:Button ID="Button3" runat="server" Text="+ Delete" />
             
-            <asp:Button ID="Button1" runat="server" Text="+  Add " />
+            
+            
             
             <asp:Label ID="Label16" runat="server" Text="Search:"></asp:Label>
             
-            <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+            <asp:TextBox ID="TextBox3" runat="server" OnTextChanged="TextBox3_TextChanged" AutoPostBack="True"></asp:TextBox>
             
-            <asp:Label ID="Label19" runat="server" Text="Password"></asp:Label>
             
-            <asp:Label ID="Label18" runat="server" Text="Username"></asp:Label>
+            
+            
             
             <asp:TextBox ID="TextBox6" runat="server"></asp:TextBox>
             
-            <asp:GridView OnPageIndexChanging="OnPageIndexChangingTeacher" ID="GridView2" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" AllowPaging="True" PageSize="4" OnSelectedIndexChanged="GridView2_SelectedIndexChanged">
-                <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
-                <EditRowStyle BackColor="#999999" />
-                <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
-                <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
-                <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
-                <SortedAscendingCellStyle BackColor="#E9E7E2" />
-                <SortedAscendingHeaderStyle BackColor="#506C8C" />
-                <SortedDescendingCellStyle BackColor="#FFFDF8" />
-                <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
-            </asp:GridView>
-            
             <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:HIS_GradingSystemConnectionString %>" ProviderName="<%$ ConnectionStrings:HIS_GradingSystemConnectionString.ProviderName %>" SelectCommand="SELECT [user_id], [username], [password] FROM [users]"></asp:SqlDataSource>
             
-            &nbsp;<asp:Button ID="Button5" runat="server" Text=" + Clear" />
+            &nbsp;
             
-            <asp:Button ID="Button2" runat="server" Text="+ Update" />
             
-            <asp:Button ID="Button9" runat="server" Text="+  Add " OnClick="Button9_Click" />
             
-            <asp:Button ID="Button8" runat="server" Text=" + Clear" />
             
-            <asp:Button ID="Button6" runat="server" Text="+ Update" OnClick="Button6_Click" />
             
-            <asp:Button ID="Button7" runat="server" Text="+ Delete" OnClick="Button7_Click" />
             
+            
+            
+            
+            
+            
+            <div class ="users" aria-multiline="False">
             <asp:GridView OnSelectedIndexChanged="GridView3_SelectedIndexChanged" OnRowDataBound="GridView3_RowDataBound" OnPageIndexChanging="OnPageIndexChanging" ID="GridView3" runat="server"  CellPadding="4" ForeColor="#333333" GridLines="None" AllowPaging="True" PageSize="4">
                 <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                 <EditRowStyle BackColor="#999999" />
@@ -453,24 +482,84 @@
                 <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
 
             </asp:GridView>
-            
+
+                <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
+                <asp:TextBox ID="TextBox9" runat="server" Height="25px" Width="42px" Enabled="False"></asp:TextBox>
+                <asp:TextBox ID="TextBox8" runat="server"></asp:TextBox>
+
+
+                <asp:Label ID="Label18" runat="server" Text="Username:"></asp:Label>
+                <asp:Label ID="Label19" runat="server" Text="Password:"></asp:Label>
+                <asp:Label ID="Label22" runat="server" Text="ID:"></asp:Label>
+
+
+                <asp:Button ID="Button9" runat="server" Text="+  Add " OnClick="Button9_Click" />
+                <asp:Button ID="Button7" runat="server" Text="+ Delete" OnClick="Button7_Click" />
+                <asp:Button ID="Button6" runat="server" Text="+ Update" OnClick="Button6_Click" />
+                <asp:Button ID="Button8" runat="server" Text=" + Clear" OnClick="Button8_Click" />
+
+
+            </div>
             <asp:TextBox ID="TextBox7" runat="server"></asp:TextBox>
             
-            <asp:Label ID="Label20" runat="server" Text="Lastname"></asp:Label>
+            <asp:Label ID="Label20" runat="server" Text="Lastname:"></asp:Label>
             
-            <asp:Label ID="Label21" runat="server" Text="Firstname"></asp:Label>
-            
-            <asp:TextBox ID="TextBox8" runat="server"></asp:TextBox>
-            
+            <asp:Label ID="Label21" runat="server" Text="Firstname:"></asp:Label>
+
             <asp:Button ID="Button10" runat="server" Text="Logout" OnClick="Button10_Click" />
             
-            <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
+
             
-            <asp:TextBox ID="TextBox9" runat="server"></asp:TextBox>
             
-            <asp:Label ID="Label22" runat="server" Text="ID:"></asp:Label>
+            
+            
+            <div class ="teachers">
+            <asp:GridView OnSelectedIndexChanged="GridView2_SelectedIndexChanged" OnRowDataBound="GridView2_RowDataBound" OnPageIndexChanging="OnPageIndexChangingTeacher" ID="GridView2" runat="server" CellPadding="4" ForeColor="#333333" GridLines="None" AllowPaging="True" PageSize="4" >
+                <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                <EditRowStyle BackColor="#999999" />
+                <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+                <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+                <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+            </asp:GridView>
+
+
+                <asp:Button ID="Button1" runat="server" Text="+  Add " Height="29px" Width="96px" OnClick="Button1_Click" />
+                <asp:Button ID="Button2" runat="server" Text="+ Update" Height="29px" Width="96px" OnClick="Button2_Click" />
+                <asp:Button ID="Button3" runat="server" Text="+ Delete" Height="29px" Width="96px" OnClick="Button3_Click" />
+                <asp:Button ID="Button5" runat="server" Text=" + Clear" Height="29px" Width="96px" OnClick="Button5_Click" />
+
+
+
+
+            <asp:Label ID="Label23" runat="server" Text="ID:"></asp:Label>
+            
+            
+            
+
+            </div>
+            
+            
+            
+            <asp:TextBox ID="TextBox10" runat="server" Height="25px" Width="42px" Enabled="False"></asp:TextBox>
+            
+            
+            
+            <asp:TextBox ID="TextBox11" runat="server" OnTextChanged="TextBox11_TextChanged"></asp:TextBox>
+            
+            
+            
+            <asp:Label ID="Label24" runat="server" Text="Search:"></asp:Label>
+            
+            
             
         </div>
+
     </form>   
     
 </body>
