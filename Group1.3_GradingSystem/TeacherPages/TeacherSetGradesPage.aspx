@@ -146,10 +146,10 @@
         height: 40px;
         width: 197px;
     }
-    #SGAddRecord {
+    #SGSaveGrades {
         position: fixed;
-        top: 521px;
-        left: 656px;
+        top: 513px;
+        left: 655px;
         width: 94px;
     }
     #SGButton1 {
@@ -218,11 +218,16 @@
         position: fixed;
         top: 135px;
         left: 456px;
-    }
+        }
     #ddlSection {
         position: fixed;
         top: 135px;
-        left: 570px;
+        left: 582px;
+    }
+    #ddlSubjects {
+        position: fixed;
+        top: 135px;
+        left: 741px;
     }
     #gvGrades {
         position: fixed;
@@ -299,6 +304,11 @@
         left: 434px;
         width: 70px;
     }
+    #ddlSection0 {
+        position: fixed;
+        top: 135px;
+        left: 570px;
+    }
     </style>
 <form id="form1" runat="server">
 <header style="height: 63px">
@@ -330,13 +340,29 @@
     <asp:HyperLink ID="SetGradesLabel" runat="server" NavigateUrl="TeacherSetGradesPage.aspx" Font-Size="14pt" Text="Set Grades" Font-Underline="False"></asp:HyperLink>
     <div class="set-grades-container">
         <asp:Label ID="TSetGradesLabel" runat="server" Font-Bold="True" Font-Names="Arial" Font-Size="20pt" ForeColor="#983939">Set Grades</asp:Label>
-        <asp:Button ID="SGAddRecord" runat="server" Text="+ Add Record" BackColor="White" Font-Names="Arial" ForeColor="#983939" />
+        <asp:Label ID="SGSearchLabel0" runat="server" Font-Names="Arial" ForeColor="#983939" Height="18px">Search:</asp:Label>
         <asp:TextBox ID="SGSearchTxt" runat="server" BorderStyle="Solid" BorderWidth="1px"></asp:TextBox>
         <asp:DropDownList ID="ddlSchoolYear" runat="server" Width="85px" Height="22px">
         </asp:DropDownList>
-        <asp:DropDownList ID="ddlGradeLevel" runat="server" Width="80px" Height="22px">
+        <asp:DropDownList ID="ddlGradeLevel" runat="server" Width="105px" Height="22px" AutoPostBack = "true" OnSelectedIndexChanged="ddlGradeLevel_SelectedIndexChanged">
+            <asp:ListItem >Select Grade</asp:ListItem>
+            <asp:ListItem Value="1">Kinder</asp:ListItem>
+            <asp:ListItem>Grade 1</asp:ListItem>
+            <asp:ListItem>Grade 2</asp:ListItem>
+            <asp:ListItem>Grade 3</asp:ListItem>
+            <asp:ListItem>Grade 4</asp:ListItem>
+            <asp:ListItem>Grade 5</asp:ListItem>
+            <asp:ListItem>Grade 6</asp:ListItem>
+            <asp:ListItem>Grade 7</asp:ListItem>
+            <asp:ListItem>Grade 8</asp:ListItem>
+            <asp:ListItem>Grade 9</asp:ListItem>
+            <asp:ListItem>Grade 10</asp:ListItem>
+            <asp:ListItem>Grade 11</asp:ListItem>
+            <asp:ListItem>Grade 12</asp:ListItem>
         </asp:DropDownList>
-        <asp:DropDownList ID="ddlSection" runat="server" Height="22px" Width="120px">
+        <asp:DropDownList ID="ddlSection" runat="server" Height="22px" Width="125px" Enabled="False">
+        </asp:DropDownList>
+        <asp:DropDownList ID="ddlSubjects" runat="server" Height="22px" Width="125px" Enabled="False">
         </asp:DropDownList>
         <div class="set-grades-table" style="height: 303px; overflow: auto;" >
             <asp:GridView ID="gvGrades" runat="server" AllowPaging="True" PageSize="5" OnPageIndexChanging="OnPageIndexChanging" OnSelectedIndexChanged="gvGrades_SelectedIndexChanged"
@@ -365,11 +391,8 @@
             <asp:TextBox ID="SGtxtQuarter" runat="server" BorderStyle="Solid" BorderWidth="1px"></asp:TextBox>
             <asp:Label ID="SGGradesLabel" runat="server" Font-Names="Arial" ForeColor="#983939" Height="18px">Grades:</asp:Label>
             <asp:TextBox ID="SGtxtGrades" runat="server" BorderStyle="Solid" BorderWidth="1px"></asp:TextBox>
+            <asp:Button ID="SGSaveGrades" runat="server" Text="Save" BackColor="White" Font-Names="Arial" ForeColor="#983939" />
         </div>
-        
-            
-            <asp:Label ID="SGSearchLabel0" runat="server" Font-Names="Arial" ForeColor="#983939" Height="18px">Search:</asp:Label>
-            
     </div>
      </form>
 </body>

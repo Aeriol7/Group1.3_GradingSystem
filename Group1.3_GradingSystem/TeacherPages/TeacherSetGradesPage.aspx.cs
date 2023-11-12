@@ -6,6 +6,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Diagnostics.Tracing;
 
 namespace Group1._3_GradingSystem.TeacherPages
 {
@@ -16,9 +17,8 @@ namespace Group1._3_GradingSystem.TeacherPages
 
 		protected void Page_Load(object sender, EventArgs e)
 		{
-				GradeLevel();
 				SchoolYears();
-				Sections();
+				//Sections();
 				Grades();
 
 		}
@@ -75,6 +75,213 @@ namespace Group1._3_GradingSystem.TeacherPages
 			gvGrades.DataSource = dt;
 			gvGrades.DataBind();
 			con.Close();
+		}
+
+		protected void ddlGradeLevel_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			if (ddlGradeLevel.SelectedIndex == 0)
+			{
+				ddlSection.DataSource = string.Empty;
+				ddlSection.DataBind();
+				ddlSection.Enabled = false;
+			}
+			else if (ddlGradeLevel.SelectedIndex == 1)
+			{
+				SqlConnection con = new SqlConnection(conStr);
+				string com = "SELECT * FROM sections WHERE year_level_id=1";
+				SqlDataAdapter adpt = new SqlDataAdapter(com, con);
+				DataTable dt = new DataTable();
+				adpt.Fill(dt);
+				ddlSection.DataSource = dt;
+				ddlSection.DataTextField = "section";
+				ddlSection.DataValueField = "section_id";
+				ddlSection.DataBind();
+				ddlSection.Enabled = true;
+
+			}
+			else if (ddlGradeLevel.SelectedIndex == 2)
+			{
+				SqlConnection con = new SqlConnection(conStr);
+				string com = "SELECT * FROM sections WHERE year_level_id=2";
+				SqlDataAdapter adpt = new SqlDataAdapter(com, con);
+				DataTable dt = new DataTable();
+				adpt.Fill(dt);
+				ddlSection.DataSource = dt;
+				ddlSection.DataTextField = "section";
+				ddlSection.DataValueField = "section_id";
+				ddlSection.DataBind();
+				ddlSection.Enabled = true;
+			}
+			else if (ddlGradeLevel.SelectedIndex == 3)
+			{
+				SqlConnection con = new SqlConnection(conStr);
+				string com = "SELECT * FROM sections WHERE year_level_id=3";
+				SqlDataAdapter adpt = new SqlDataAdapter(com, con);
+				DataTable dt = new DataTable();
+				adpt.Fill(dt);
+				ddlSection.DataSource = dt;
+				ddlSection.DataTextField = "section";
+				ddlSection.DataValueField = "section_id";
+				ddlSection.DataBind();
+				ddlSection.Enabled = true;
+			}
+			else if (ddlGradeLevel.SelectedIndex == 4)
+			{
+				SqlConnection con = new SqlConnection(conStr);
+				string com = "SELECT * FROM sections WHERE year_level_id=4";
+				SqlDataAdapter adpt = new SqlDataAdapter(com, con);
+				DataTable dt = new DataTable();
+				adpt.Fill(dt);
+				ddlSection.DataSource = dt;
+				ddlSection.DataTextField = "section";
+				ddlSection.DataValueField = "section_id";
+				ddlSection.DataBind();
+				ddlSection.Enabled = true;
+			}
+			else if (ddlGradeLevel.SelectedIndex == 5)
+			{
+				SqlConnection con = new SqlConnection(conStr);
+				string com = "SELECT * FROM sections WHERE year_level_id=5";
+				SqlDataAdapter adpt = new SqlDataAdapter(com, con);
+				DataTable dt = new DataTable();
+				adpt.Fill(dt);
+				ddlSection.DataSource = dt;
+				ddlSection.DataTextField = "section";
+				ddlSection.DataValueField = "section_id";
+				ddlSection.DataBind();
+				ddlSection.Enabled = true;
+			}
+			else if (ddlGradeLevel.SelectedIndex == 6)
+			{
+				SqlConnection con = new SqlConnection(conStr);
+				string com = "SELECT * FROM sections WHERE year_level_id=6";
+				SqlDataAdapter adpt = new SqlDataAdapter(com, con);
+				DataTable dt = new DataTable();
+				adpt.Fill(dt);
+				ddlSection.DataSource = dt;
+				ddlSection.DataTextField = "section";
+				ddlSection.DataValueField = "section_id";
+				ddlSection.DataBind();
+				ddlSection.Enabled = true;
+			}
+			else if (ddlGradeLevel.SelectedIndex == 7)
+			{
+				SqlConnection con = new SqlConnection(conStr);
+				string com = "SELECT * FROM sections WHERE year_level_id=7";
+				SqlDataAdapter adpt = new SqlDataAdapter(com, con);
+				DataTable dt = new DataTable();
+				adpt.Fill(dt);
+				ddlSection.DataSource = dt;
+				ddlSection.DataTextField = "section";
+				ddlSection.DataValueField = "section_id";
+				ddlSection.DataBind();
+				ddlSection.Enabled = true;
+			}
+			else if (ddlGradeLevel.SelectedIndex == 8)
+			{
+				SqlConnection con = new SqlConnection(conStr);
+				string com = "SELECT * FROM sections WHERE year_level_id=8";
+				SqlDataAdapter adpt = new SqlDataAdapter(com, con);
+				DataTable dt = new DataTable();
+				adpt.Fill(dt);
+				ddlSection.DataSource = dt;
+				ddlSection.DataTextField = "section";
+				ddlSection.DataValueField = "section_id";
+				ddlSection.DataBind();
+				ddlSection.Enabled = true;
+			}
+			else if (ddlGradeLevel.SelectedIndex == 9)
+			{
+				SqlConnection con = new SqlConnection(conStr);
+				string com = "SELECT * FROM sections WHERE year_level_id=9";
+				SqlDataAdapter adpt = new SqlDataAdapter(com, con);
+				DataTable dt = new DataTable();
+				adpt.Fill(dt);
+				ddlSection.DataSource = dt;
+				ddlSection.DataTextField = "section";
+				ddlSection.DataValueField = "section_id";
+				ddlSection.DataBind();
+				ddlSection.Enabled = true;
+			}
+			else if (ddlGradeLevel.SelectedIndex == 10)
+			{
+				SqlConnection con = new SqlConnection(conStr);
+				string com = "SELECT * FROM sections WHERE year_level_id=10";
+				SqlDataAdapter adpt = new SqlDataAdapter(com, con);
+				DataTable dt = new DataTable();
+				adpt.Fill(dt);
+				ddlSection.DataSource = dt;
+				ddlSection.DataTextField = "section";
+				ddlSection.DataValueField = "section_id";
+				ddlSection.DataBind();
+				ddlSection.Enabled = true;
+			}
+			else if (ddlGradeLevel.SelectedIndex == 11)
+			{
+				SqlConnection con = new SqlConnection(conStr);
+				string com = "SELECT * FROM sections WHERE year_level_id=11";
+				SqlDataAdapter adpt = new SqlDataAdapter(com, con);
+				DataTable dt = new DataTable();
+				adpt.Fill(dt);
+				ddlSection.DataSource = dt;
+				ddlSection.DataTextField = "section";
+				ddlSection.DataValueField = "section_id";
+				ddlSection.DataBind();
+				ddlSection.Enabled = true;
+			}
+			else if (ddlGradeLevel.SelectedIndex == 12)
+			{
+				SqlConnection con = new SqlConnection(conStr);
+				string com = "SELECT * FROM sections WHERE year_level_id=12";
+				SqlDataAdapter adpt = new SqlDataAdapter(com, con);
+				DataTable dt = new DataTable();
+				adpt.Fill(dt);
+				ddlSection.DataSource = dt;
+				ddlSection.DataTextField = "section";
+				ddlSection.DataValueField = "section_id";
+				ddlSection.DataBind();
+				ddlSection.Enabled = true;
+			}
+			else if (ddlGradeLevel.SelectedIndex == 13)
+			{
+				SqlConnection con = new SqlConnection(conStr);
+				string com = "SELECT * FROM sections WHERE year_level_id=13";
+				SqlDataAdapter adpt = new SqlDataAdapter(com, con);
+				DataTable dt = new DataTable();
+				adpt.Fill(dt);
+				ddlSection.DataSource = dt;
+				ddlSection.DataTextField = "section";
+				ddlSection.DataValueField = "section_id";
+				ddlSection.DataBind();
+				ddlSection.Enabled = true;
+			}
+		}
+		protected void ddlSubjects_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			if (ddlSubjects.SelectedIndex == 0)
+			{
+				SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-O5EH83O;Initial Catalog=HIS_GradingSystem;Integrated Security=False;User Id=sa;Password=1234;MultipleActiveResultSets=True");
+				string com = "SELECT * FROM subjects WHERE year_level_id=1";
+				SqlDataAdapter adpt = new SqlDataAdapter(com, con);
+				DataTable dt = new DataTable();
+				adpt.Fill(dt);
+				ddlSubjects.DataSource = dt;
+				ddlSubjects.DataTextField = "subject";
+				ddlSubjects.DataValueField = "subject_id";
+				ddlSubjects.DataBind();
+			}
+			else if (ddlSubjects.SelectedIndex == 1)
+			{
+				SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-O5EH83O;Initial Catalog=HIS_GradingSystem;Integrated Security=False;User Id=sa;Password=1234;MultipleActiveResultSets=True");
+				string com = "SELECT * FROM subjects WHERE year_level_id=2";
+				SqlDataAdapter adpt = new SqlDataAdapter(com, con);
+				DataTable dt = new DataTable();
+				adpt.Fill(dt);
+				ddlSection.DataSource = dt;
+				ddlSection.DataTextField = "subject";
+				ddlSection.DataValueField = "subject_id";
+				ddlSection.DataBind();
+			}
 		}
 
 		protected void Button1_Click(object sender, EventArgs e)
