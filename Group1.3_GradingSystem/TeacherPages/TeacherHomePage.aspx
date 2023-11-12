@@ -169,7 +169,7 @@
         </asp:HyperLink>  
     <asp:HyperLink ID="SetGradesLabel" runat="server" NavigateUrl="TeacherSetGradesPage.aspx" Font-Size="14pt" Text="Set Grades" Font-Underline="False"></asp:HyperLink>
         <asp:Label ID="TeacherWelcomeLabel" runat="server" Font-Names="Arial" Font-Size="30pt">Welcome, </asp:Label>
-        <asp:Label ID="TeacherUser" runat="server" Font-Names="Arial" Font-Size="30pt">Teacher! </asp:Label>
+        <asp:Label ID="TeacherUser" runat="server" Font-Names="Arial" Font-Size="30pt"></asp:Label>
         <asp:Image ID="TeacherWelcome" img src="../imgs/Graphic1.png" runat="server" />
     </form>
 </body>
