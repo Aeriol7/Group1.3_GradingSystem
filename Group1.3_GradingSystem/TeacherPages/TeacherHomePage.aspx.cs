@@ -19,5 +19,10 @@ namespace Group1._3_GradingSystem.TeacherPages
         {
             Response.Redirect("/HomePage/LoginPage.aspx");
         }
-    }
+
+		protected void Page_Load(object sender, EventArgs e)
+		{
+			TeacherUser.Text = (string)Session["Username"];
+		}
+	}
 }

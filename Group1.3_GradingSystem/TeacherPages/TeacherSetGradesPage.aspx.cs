@@ -21,6 +21,7 @@ namespace Group1._3_GradingSystem.TeacherPages
 				//Sections();
 				Grades();
 
+
 		}
 
 		public void GradeLevel()
