@@ -249,22 +249,22 @@ namespace Group1._3_GradingSystem.TeacherPages
 		protected global::System.Web.UI.WebControls.TextBox SGtxtLName;
 
 		/// <summary>
-		/// SGStudIDLabel control.
+		/// SGGradeIDLabel control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.Label SGStudIDLabel;
+		protected global::System.Web.UI.WebControls.Label SGGradeIDLabel;
 
 		/// <summary>
-		/// SGtxtStuID control.
+		/// SGtxtGradeID control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox SGtxtStuID;
+		protected global::System.Web.UI.WebControls.TextBox SGtxtGradeID;
 
 		/// <summary>
 		/// SGQRTLabel control.
@@ -276,13 +276,13 @@ namespace Group1._3_GradingSystem.TeacherPages
 		protected global::System.Web.UI.WebControls.Label SGQRTLabel;
 
 		/// <summary>
-		/// SGtxtQuarter control.
+		/// ddlQuarter control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox SGtxtQuarter;
+		protected global::System.Web.UI.WebControls.DropDownList ddlQuarter;
 
 		/// <summary>
 		/// SGGradesLabel control.
