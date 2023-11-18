@@ -148,8 +148,8 @@
     }
     #SGSaveGrades {
         position: fixed;
-        top: 513px;
-        left: 655px;
+        top: 496px;
+        left: 649px;
         width: 94px;
     }
     #SGButton1 {
@@ -164,9 +164,9 @@
         left: 1077px;
         width: 91px;
     }
-    #SGStudIDLabel {
+    #SGGradeIDLabel {
         position: fixed;
-        top: 483px;
+        top: 425px;
         left: 624px;
         bottom: 16px;
     }
@@ -197,9 +197,9 @@
     }
     .set-grades-form {
         position: fixed;
-        top: 474px;
-        left: 340px;
-        height: 239px;
+        top: 419px;
+        left: 336px;
+        height: 169px;
         width: 455px;
     }
     #Button1{
@@ -231,12 +231,12 @@
     }
     #gvGrades {
         position: fixed;
-        top: 168px;
-        left: 340px;
+        top: 170px;
+        left: 339px;
         width: 924px;
         max-height: 291px;
         overflow-y: scroll;
-        height: 291px;
+        height: 240px;
     }
     #SGSearchLabel0 {
         position: fixed;
@@ -244,39 +244,39 @@
         left: 1018px;
         bottom: 381px;
     }
-    #SGtxtStuID {
+    #SGtxtGradeID {
         position: fixed;
-        top: 483px;
+        top: 425px;
         left: 706px;
         width: 70px;
     }
     #SGFNLabel {
         position: fixed;
-        top: 483px;
-        left: 350px;
+        top: 425px;
+        left: 351px;
         }
     #SGtxtLName {
         position: fixed;
-        top: 512px;
+        top: 457px;
         left: 434px;
         width: 176px;
     }
     #SGQRTLabel {
         position: fixed;
-        top: 540px;
+        top: 482px;
         left: 374px;
-        right: 855px;
+        right: 857px;
     }
     #SGtxtFName {
         position: fixed;
-        top: 484px;
-        left: 434px;
+        top: 425px;
+        left: 435px;
         width: 176px;
     }
     #SGLNLabel {
         position: fixed;
-        top: 512px;
-        left: 350px;
+        top: 455px;
+        left: 351px;
         }
     #ddlQuarter {
         position: fixed;
@@ -285,29 +285,36 @@
     }
     #SGGradesLabel {
         position: fixed;
-        top: 569px;
-        left: 373px;
+        top: 511px;
+        left: 374px;
     }
     #SGtxtGrades {
         position: fixed;
-        top: 569px;
-        left: 434px;
+        top: 512px;
+        left: 435px;
         width: 70px;
     }
     #cbINC {
         position: fixed;
 
     }
-    #SGtxtQuarter {
+    #ddlQuarter {
         position: fixed;
-        top: 541px;
-        left: 434px;
+        top: 482px;
+        left: 435px;
         width: 70px;
     }
     #ddlSection0 {
         position: fixed;
         top: 135px;
         left: 570px;
+    }
+    #ddlSchoolYear0 {
+        position: fixed;
+        top: 482px;
+        left: 434px;
+        width: 79px;
+        height: 15px;
     }
     </style>
 <form id="form1" runat="server">
@@ -325,7 +332,8 @@
 <head runat="server">
     <title></title>
 </head>
-<body style="height: 823px; width:1440px;"> 
+<body style="height: 823px; width:1440px;">
+    
     <asp:HyperLink ID="TeacherHomeHL" runat="server" NavigateUrl="TeacherHomePage.aspx" Font-Size="14pt" Font-Underline="False">
         <asp:Image ID="HomeIcon" img src="../imgs/icon_home.png" runat="server" Height="40px" />
         </asp:HyperLink>  
@@ -360,14 +368,29 @@
             <asp:ListItem>Grade 11</asp:ListItem>
             <asp:ListItem>Grade 12</asp:ListItem>
         </asp:DropDownList>
-        <asp:DropDownList ID="ddlSection" runat="server" Height="22px" Width="125px" Enabled="False">
+        <asp:DropDownList ID="ddlSection" runat="server" Height="22px" Width="125px" Enabled="False" AutoPostBack = "true" OnSelectedIndexChanged="ddlSection_SelectedIndexChanged">
+            <asp:ListItem>Select Section</asp:ListItem>
+            <asp:ListItem>Kinder-A</asp:ListItem>
+            <asp:ListItem>Grade 1-A</asp:ListItem>
+            <asp:ListItem>Grade 2-A</asp:ListItem>
+            <asp:ListItem>Grade 3-A</asp:ListItem>
+            <asp:ListItem>Grade 4-A</asp:ListItem>
+            <asp:ListItem>Grade 5-A</asp:ListItem>
+            <asp:ListItem>Grade 6-A</asp:ListItem>
+            <asp:ListItem>Grade 7-A</asp:ListItem>
+            <asp:ListItem>Grade 8-A</asp:ListItem>
+            <asp:ListItem>Grade 9-A</asp:ListItem>
+            <asp:ListItem>Grade 10-A</asp:ListItem>
+            <asp:ListItem>Grade 11-HUMSS</asp:ListItem>
+            <asp:ListItem>Grade 11-STEM</asp:ListItem>
+            <asp:ListItem>Grade 12-HUMSS</asp:ListItem>
+            <asp:ListItem>Grade 12-STEM</asp:ListItem>
         </asp:DropDownList>
-        <asp:DropDownList ID="ddlSubjects" runat="server" Height="22px" Width="125px" Enabled="False">
+        <asp:DropDownList ID="ddlSubjects" runat="server" Height="22px" Width="125px" Enabled="False"  AutoPostBack = "true" OnSelectedIndexChanged="ddlSubjects_SelectedIndexChanged">
         </asp:DropDownList>
-        <div class="set-grades-table" style="height: 303px; overflow: auto;" >
+        <div class="set-grades-table" style="height: 250px; overflow: auto;" >
             <asp:GridView ID="gvGrades" runat="server" AllowPaging="True" PageSize="5" OnPageIndexChanging="OnPageIndexChanging" OnSelectedIndexChanged="gvGrades_SelectedIndexChanged"
     OnRowDataBound="gvGrades_RowDataBound" CellPadding="4" ForeColor="#333333" GridLines="None">
-                <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
                 <EditRowStyle BackColor="#999999" />
                 <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
                 <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
@@ -385,14 +408,20 @@
             <asp:TextBox ID="SGtxtFName" runat="server" BorderStyle="Solid" BorderWidth="1px"></asp:TextBox>
             <asp:Label ID="SGLNLabel" runat="server" Font-Names="Arial" ForeColor="#983939" BorderStyle="None">Last Name:</asp:Label>
             <asp:TextBox ID="SGtxtLName" runat="server" BorderStyle="Solid" BorderWidth="1px"></asp:TextBox>
-            <asp:Label ID="SGStudIDLabel" runat="server" Font-Names="Arial" ForeColor="#983939" Height="18px">Student ID:</asp:Label>
-            <asp:TextBox ID="SGtxtStuID" runat="server" BorderStyle="Solid" BorderWidth="1px"></asp:TextBox>
+            <asp:Label ID="SGGradeIDLabel" runat="server" Font-Names="Arial" ForeColor="#983939" Height="18px">Grade ID:</asp:Label>
+            <asp:TextBox ID="SGtxtGradeID" runat="server" BorderStyle="Solid" BorderWidth="1px"></asp:TextBox>
             <asp:Label ID="SGQRTLabel" runat="server" Font-Names="Arial" ForeColor="#983939">Quarter:</asp:Label>
-            <asp:TextBox ID="SGtxtQuarter" runat="server" BorderStyle="Solid" BorderWidth="1px"></asp:TextBox>
+        <asp:DropDownList ID="ddlQuarter" runat="server" Width="110px" Height="22px" AutoPostBack="True">
+            <asp:ListItem>Select Quarter</asp:ListItem>
+            <asp:ListItem>1st</asp:ListItem>
+            <asp:ListItem>2nd</asp:ListItem>
+            <asp:ListItem>3rd</asp:ListItem>
+            <asp:ListItem>4th</asp:ListItem>
+        </asp:DropDownList>
             <asp:Label ID="SGGradesLabel" runat="server" Font-Names="Arial" ForeColor="#983939" Height="18px">Grades:</asp:Label>
             <asp:TextBox ID="SGtxtGrades" runat="server" BorderStyle="Solid" BorderWidth="1px"></asp:TextBox>
-            <asp:Button ID="SGSaveGrades" runat="server" Text="Save" BackColor="White" Font-Names="Arial" ForeColor="#983939" />
+            <asp:Button ID="SGSaveGrades" runat="server" Text="Save" BackColor="White" Font-Names="Arial" ForeColor="#983939" OnClick="SGSaveGrades_Click" />
         </div>
     </div>
-     </form>
 </body>
+</form>
