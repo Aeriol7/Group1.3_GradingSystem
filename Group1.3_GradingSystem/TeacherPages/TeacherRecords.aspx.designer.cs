@@ -11,7 +11,7 @@ namespace Group1._3_GradingSystem.TeacherPages
 {
 
 
-	public partial class TeacherAnnouncementsPage
+	public partial class TeacherRecords
 	{
 
 		/// <summary>
@@ -159,102 +159,174 @@ namespace Group1._3_GradingSystem.TeacherPages
 		protected global::System.Web.UI.WebControls.HyperLink SetGradesLabel;
 
 		/// <summary>
-		/// TCWelcomeAPanel control.
+		/// TSetGradesLabel control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.Panel TCWelcomeAPanel;
+		protected global::System.Web.UI.WebControls.Label TSetGradesLabel;
 
 		/// <summary>
-		/// TCWelcomeALabel control.
+		/// SGSearchLabel0 control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.Label TCWelcomeALabel;
+		protected global::System.Web.UI.WebControls.Label SGSearchLabel0;
 
 		/// <summary>
-		/// TeacherUser control.
+		/// SGSearchTxt control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.Label TeacherUser;
+		protected global::System.Web.UI.WebControls.TextBox SGSearchTxt;
 
 		/// <summary>
-		/// TCAnnouncementsList control.
+		/// ddlSchoolYear control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.Panel TCAnnouncementsList;
+		protected global::System.Web.UI.WebControls.DropDownList ddlSchoolYear;
 
 		/// <summary>
-		/// TCAnnouncementListLabel control.
+		/// ddlGradeLevel control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.Label TCAnnouncementListLabel;
+		protected global::System.Web.UI.WebControls.DropDownList ddlGradeLevel;
 
 		/// <summary>
-		/// TCAnnouncement1 control.
+		/// ddlSection control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.Panel TCAnnouncement1;
+		protected global::System.Web.UI.WebControls.DropDownList ddlSection;
 
 		/// <summary>
-		/// TCAnnouncement2 control.
+		/// ddlSubjects control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.Panel TCAnnouncement2;
+		protected global::System.Web.UI.WebControls.DropDownList ddlSubjects;
 
 		/// <summary>
-		/// TCAnnouncement3 control.
+		/// gvGrades control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.Panel TCAnnouncement3;
+		protected global::System.Web.UI.WebControls.GridView gvGrades;
 
 		/// <summary>
-		/// TCAnnouncement4 control.
+		/// SGFNLabel control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.Panel TCAnnouncement4;
+		protected global::System.Web.UI.WebControls.Label SGFNLabel;
 
 		/// <summary>
-		/// EventPanel control.
+		/// SGtxtFName control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.Panel EventPanel;
+		protected global::System.Web.UI.WebControls.TextBox SGtxtFName;
 
 		/// <summary>
-		/// EventLabel control.
+		/// SGLNLabel control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.Label EventLabel;
+		protected global::System.Web.UI.WebControls.Label SGLNLabel;
+
+		/// <summary>
+		/// SGtxtLName control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.TextBox SGtxtLName;
+
+		/// <summary>
+		/// SGGradeIDLabel control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.Label SGGradeIDLabel;
+
+		/// <summary>
+		/// SGtxtGradeID control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.TextBox SGtxtGradeID;
+
+		/// <summary>
+		/// SGQRTLabel control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.Label SGQRTLabel;
+
+		/// <summary>
+		/// ddlQuarter control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.DropDownList ddlQuarter;
+
+		/// <summary>
+		/// SGGradesLabel control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.Label SGGradesLabel;
+
+		/// <summary>
+		/// SGtxtGrades control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.TextBox SGtxtGrades;
+
+		/// <summary>
+		/// SGSaveGrades control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.Button SGSaveGrades;
 	}
 }

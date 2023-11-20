@@ -203,6 +203,26 @@
         top: 39px;
         left: 1204px;
     }
+#RecordsHL {
+    position: fixed;
+    text-align: center;
+    color: #B03E3E;
+    font-family: Inter;
+    font-size: 100px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    position: fixed;
+    top: 283px;
+    left: 148px;
+}
+#RecordsIcon {
+    position: fixed;
+    width: 48px;
+    height: 45px;
+    top: 273px;
+    left: 39px;
+}
     </style>
 <form id="form1" runat="server">
 <header style="height: 63px">
@@ -230,7 +250,10 @@
     <asp:HyperLink ID="TeacherAnnouncementLabel" runat="server" NavigateUrl="TeacherAnnouncementsPage.aspx" Text="Announcements" Font-Size="14pt" Font-Underline="False"></asp:HyperLink>
     <asp:HyperLink ID="SetGradesHL" runat="server" NavigateUrl="TeacherSetGradesPage.aspx" Font-Size="14pt" Font-Underline="False">
         <asp:Image ID="SetGradesIcon" runat="server" img="" src="../imgs/ic_sharp-rate-review.png" />
-        </asp:HyperLink>  
+        </asp:HyperLink> 
+        <asp:HyperLink ID="RecordsHL" runat="server" NavigateUrl="TeacherRecords.aspx" Font-Size="14pt" Text="Records" Font-Underline="False">
+        <asp:Image ID="RecordsIcon" runat="server" src="../imgs/icon-park_mail-review.png" />
+        </asp:HyperLink>
     <asp:HyperLink ID="SetGradesLabel" runat="server" NavigateUrl="TeacherSetGradesPage.aspx" Font-Size="14pt" Text="Set Grades" Font-Underline="False"></asp:HyperLink>
     <div class="welcome-announcements">
         <asp:Panel ID="TCWelcomeAPanel" runat="server" Height="36px" BorderStyle="Outset">
