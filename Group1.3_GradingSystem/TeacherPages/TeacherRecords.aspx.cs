@@ -10,7 +10,7 @@ using System.Diagnostics.Tracing;
 
 namespace Group1._3_GradingSystem.TeacherPages
 {
-	public partial class TeacherSetGradesPage : System.Web.UI.Page
+	public partial class TeacherRecords : System.Web.UI.Page
 	{
 
 		public string conStr = "Data Source=DESKTOP-O5EH83O;Initial Catalog=HIS_GradingSystem;Integrated Security=False;User Id=sa;Password=1234;MultipleActiveResultSets=True";

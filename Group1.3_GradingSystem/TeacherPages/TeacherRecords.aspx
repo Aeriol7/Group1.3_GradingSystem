@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="TeacherSetGradesPage.aspx.cs" Inherits="Group1._3_GradingSystem.TeacherPages.TeacherSetGradesPage" enableEventValidation="false" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="TeacherRecords.aspx.cs" Inherits="Group1._3_GradingSystem.TeacherPages.TeacherRecords" enableEventValidation="false" %>
 
 <!DOCTYPE html>
 <style type="text/css">
@@ -316,6 +316,20 @@
         width: 79px;
         height: 15px;
     }
+    #SetGradesLabel0 {
+        position: fixed;
+        text-align: center;
+        color: #B03E3E;
+        font-family: Inter;
+        font-size: 100px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        top: 278px;
+        left: 137px;
+        width: 91px;
+        right: 1057px;
+    }
 #RecordsHL {
     position: fixed;
     text-align: center;
@@ -353,7 +367,7 @@
     <title></title>
 </head>
 <body style="height: 823px; width:1440px; margin-left: 10px;">
-    <asp:HyperLink ID="TeacherHomeHL" runat="server" NavigateUrl="TeacherHomePage.aspx" Font-Size="14pt" Font-Underline="False">
+        <asp:HyperLink ID="TeacherHomeHL" runat="server" NavigateUrl="TeacherHomePage.aspx" Font-Size="14pt" Font-Underline="False">
         <asp:Image ID="HomeIcon" img src="../imgs/icon_home.png" runat="server" Height="40px" />
         </asp:HyperLink>  
     <asp:HyperLink ID="TeacherHomeLabel" runat="server" NavigateUrl="TeacherHomePage.aspx" Text="Home" Font-Size="14pt" Font-Underline="False"></asp:HyperLink>
@@ -369,7 +383,7 @@
         </asp:HyperLink>
     <asp:HyperLink ID="SetGradesLabel" runat="server" NavigateUrl="TeacherSetGradesPage.aspx" Font-Size="14pt" Text="Set Grades" Font-Underline="False"></asp:HyperLink>
     <div class="set-grades-container">
-        <asp:Label ID="TSetGradesLabel" runat="server" Font-Bold="True" Font-Names="Arial" Font-Size="20pt" ForeColor="#983939">Set Grades</asp:Label>
+        <asp:Label ID="TSetGradesLabel" runat="server" Font-Bold="True" Font-Names="Arial" Font-Size="20pt" ForeColor="#983939">Records</asp:Label>
         <asp:Label ID="SGSearchLabel0" runat="server" Font-Names="Arial" ForeColor="#983939" Height="18px">Search:</asp:Label>
         <asp:TextBox ID="SGSearchTxt" runat="server" BorderStyle="Solid" BorderWidth="1px"></asp:TextBox>
         <asp:DropDownList ID="ddlSchoolYear" runat="server" Width="85px" Height="22px">
@@ -446,4 +460,5 @@
         </div>
     </div>
 </body>
+    
 </form>
