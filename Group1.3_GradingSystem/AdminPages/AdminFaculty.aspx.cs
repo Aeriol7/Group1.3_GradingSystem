@@ -38,7 +38,7 @@ namespace Group1._3_GradingSystem.AdminPages
         public void teachers()
         {
             SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-4DSNP2P;Initial Catalog=HIS_GradingSystem;Integrated Security=False;User Id=sa;Password=1234;MultipleActiveResultSets=True");
-            string com = "SELECT * FROM Teacher";
+            string com = "SELECT * FROM teachers";
             con.Open();
             SqlDataAdapter adpt = new SqlDataAdapter(com, con);
             DataTable dt = new DataTable();
@@ -120,6 +120,8 @@ namespace Group1._3_GradingSystem.AdminPages
                 TextBox7.Text = gr.Cells[1].Text;
                 TextBox10.Text = gr.Cells[0].Text;
 
+                TextBox4.Text = string.Empty;
+                TextBox8.Text = string.Empty;
             }
         }
         protected void GridView3_SelectedIndexChanged(object sender, EventArgs e)
@@ -192,7 +194,7 @@ namespace Group1._3_GradingSystem.AdminPages
         {
             SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-4DSNP2P;Initial Catalog=HIS_GradingSystem;Integrated Security=False;User Id=sa;Password=1234;MultipleActiveResultSets=True");
             con.Open();
-            SqlCommand cmd = new SqlCommand("INSERT INTO [dbo]. [Teacher] (Firstname ,Lastname, user_id) VALUES  (@Firstname, @Lastname, @user_id)", con);
+            SqlCommand cmd = new SqlCommand("INSERT INTO [dbo]. [teachers] (Firstname ,Lastname, user_id) VALUES  (@Firstname, @Lastname, @user_id)", con);
 
             cmd.Parameters.AddWithValue("@Firstname", TextBox7.Text);
             cmd.Parameters.AddWithValue("@Lastname", TextBox6.Text);
@@ -212,7 +214,7 @@ namespace Group1._3_GradingSystem.AdminPages
         {
             SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-4DSNP2P;Initial Catalog=HIS_GradingSystem;Integrated Security=False;User Id=sa;Password=1234;MultipleActiveResultSets=True");
             con.Open();
-            SqlCommand cmd = new SqlCommand("UPDATE Teacher SET Firstname = @Firstname, Lastname = @Lastname WHERE user_id = @user_id", con);
+            SqlCommand cmd = new SqlCommand("UPDATE teachers SET Firstname = @Firstname, Lastname = @Lastname WHERE user_id = @user_id", con);
 
             cmd.Parameters.AddWithValue("@Firstname", TextBox7.Text);
             cmd.Parameters.AddWithValue("@Lastname", TextBox6.Text);
@@ -232,7 +234,7 @@ namespace Group1._3_GradingSystem.AdminPages
         {
             SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-4DSNP2P;Initial Catalog=HIS_GradingSystem;Integrated Security=False;User Id=sa;Password=1234;MultipleActiveResultSets=True");
             con.Open();
-            SqlCommand cmd = new SqlCommand("DELETE FROM Teacher WHERE ID = @ID", con);
+            SqlCommand cmd = new SqlCommand("DELETE FROM teachers WHERE ID = @ID", con);
 
             cmd.Parameters.AddWithValue("ID", TextBox10.Text);
             cmd.ExecuteNonQuery();
@@ -258,7 +260,7 @@ namespace Group1._3_GradingSystem.AdminPages
         protected void TextBox11_TextChanged(object sender, EventArgs e)
         {
             SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-4DSNP2P;Initial Catalog=HIS_GradingSystem;Integrated Security=False;User Id=sa;Password=1234;MultipleActiveResultSets=True");
-            string qry = "SELECT * FROM Teacher WHERE Firstname LIKE '%" + TextBox11.Text + "%'";
+            string qry = "SELECT * FROM teachers WHERE Firstname LIKE '%" + TextBox11.Text + "%'";
             con.Open();
             SqlDataAdapter ad = new SqlDataAdapter(qry, con);
             DataTable asd = new DataTable();
