@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -11,12 +13,152 @@ namespace Group1._3_GradingSystem.AdminPages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            students();
         }
 
         protected void Button6_Click(object sender, EventArgs e)
         {
             Response.Redirect("/HomePage/LoginPage.aspx");
+        }
+
+        public void students()
+        {
+            SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-4DSNP2P;Initial Catalog=HIS_GradingSystem;Integrated Security=False;User Id=sa;Password=1234;MultipleActiveResultSets=True");
+            string com = "SELECT * FROM students";
+            con.Open();
+            SqlDataAdapter adpt = new SqlDataAdapter(com, con);
+            DataTable dt = new DataTable();
+            adpt.Fill(dt);
+            GridView1.DataSource = dt;
+            GridView1.DataBind();
+            con.Close();
+        }
+
+        protected void GridView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            GridViewRow row = GridView1.Rows[GridView1.SelectedIndex];
+            if (row != null)
+            {
+
+                GridViewRow gr = GridView1.SelectedRow;
+                TextBox3.Text = gr.Cells[1].Text;
+                TextBox1.Text = gr.Cells[2].Text;
+                TextBox5.Text = gr.Cells[3].Text;
+                TextBox4.Text = gr.Cells[0].Text;
+                TextBox6.Text = gr.Cells[4].Text;
+                DropDownList3.SelectedValue = gr.Cells[5].Text;
+                DropDownList2.SelectedValue = gr.Cells[5].Text;
+            }
+        }
+
+        protected void GridView1_RowDataBound(object sender, System.Web.UI.WebControls.GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                //Change the mouse cursor to Hand symbol to show the user the cell is selectable
+                e.Row.Attributes["onmouseover"] = "this.style.cursor='hand';this.style.textDecoration='underline';this.style.cursor='Pointer'";
+                e.Row.Attributes["onmouseout"] = "this.style.textDecoration='none';";
+
+                //Attach the click event to each cells
+                e.Row.Attributes["onclick"] = ClientScript.GetPostBackClientHyperlink(this.GridView1, "Select$" + e.Row.RowIndex);
+            }
+        }
+
+        protected void OnPageIndexChangingstudents(object sender, GridViewPageEventArgs e)
+        {
+            GridView1.PageIndex = e.NewPageIndex;
+            this.students();
+        }
+
+        protected void Button1_Click(object sender, EventArgs e)
+        {
+            SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-4DSNP2P;Initial Catalog=HIS_GradingSystem;Integrated Security=False;User Id=sa;Password=1234;MultipleActiveResultSets=True");
+            con.Open();
+            SqlCommand cmd = new SqlCommand("INSERT INTO students (first_name, last_name, user_id, year_level_id, sections_id, school_year_id) VALUES  (@first_name, @last_name, @user_id, @year_level_id, @sections_id, @school_year_id)", con);
+
+            cmd.Parameters.AddWithValue("@first_name", TextBox3.Text);
+            cmd.Parameters.AddWithValue("@Last_name", TextBox1.Text);
+            cmd.Parameters.AddWithValue("@user_id", TextBox5.Text);
+            cmd.Parameters.AddWithValue("@school_year_id", TextBox6.Text);
+            cmd.Parameters.AddWithValue("@sections_id", DropDownList2.SelectedValue);
+            cmd.Parameters.AddWithValue("@year_level_id", DropDownList3.SelectedValue);
+            cmd.ExecuteNonQuery();
+            con.Close();
+
+            students();
+
+            TextBox3.Text = "";
+            TextBox1.Text = "";
+            TextBox5.Text = "";
+            TextBox6.Text = "";
+            DropDownList3.SelectedValue = null;
+            DropDownList2.SelectedValue = null;
+            ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Inserted Successfully');", true);
+        }
+
+        protected void Button3_Click(object sender, EventArgs e)
+        {
+            SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-4DSNP2P;Initial Catalog=HIS_GradingSystem;Integrated Security=False;User Id=sa;Password=1234;MultipleActiveResultSets=True");
+            con.Open();
+            SqlCommand cmd = new SqlCommand("UPDATE students SET first_name = @first_name, last_name = @last_name, user_id = @user_id, year_level_id = @year_level_id, sections_id = @sections_id, school_year_id = @school_year_id WHERE student_id = @student_id", con);
+
+            cmd.Parameters.AddWithValue("@first_name", TextBox3.Text);
+            cmd.Parameters.AddWithValue("@Last_name", TextBox1.Text);
+            cmd.Parameters.AddWithValue("@user_id", TextBox5.Text);
+            cmd.Parameters.AddWithValue("@student_id", TextBox4.Text);
+            cmd.Parameters.AddWithValue("@school_year_id", TextBox6.Text);
+            cmd.Parameters.AddWithValue("@year_level_id", DropDownList3.SelectedValue);
+            cmd.Parameters.AddWithValue("@sections_id", DropDownList2.SelectedValue);
+            cmd.ExecuteNonQuery();
+            con.Close();
+
+            students();
+
+            TextBox3.Text = "";
+            TextBox1.Text = "";
+            TextBox5.Text = "";
+            TextBox6.Text = "";
+            DropDownList3.SelectedValue = null;
+            DropDownList2.SelectedValue = null;
+            ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Updated Successfully');", true);
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-4DSNP2P;Initial Catalog=HIS_GradingSystem;Integrated Security=False;User Id=sa;Password=1234;MultipleActiveResultSets=True");
+            con.Open();
+            SqlCommand cmd = new SqlCommand("DELETE FROM students WHERE student_id = @student_id", con);
+
+            cmd.Parameters.AddWithValue("@student_id", TextBox4.Text);
+            cmd.ExecuteNonQuery();
+            con.Close();
+
+            clear();
+            students();
+            ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Deleted Successfully');", true);
+        }
+        protected void clear()
+        {
+            TextBox3.Text = String.Empty;
+            TextBox1.Text = String.Empty;
+            TextBox5.Text = String.Empty;
+            TextBox4.Text = String.Empty;
+            TextBox6.Text = String.Empty;
+        }
+
+        protected void Button7_Click(object sender, EventArgs e)
+        {
+            TextBox3.Text = String.Empty;
+            TextBox1.Text = String.Empty;
+            TextBox5.Text = String.Empty;
+            TextBox4.Text = String.Empty;
+            TextBox6.Text = String.Empty;
+            DropDownList3.SelectedValue = null;
+            DropDownList2.SelectedValue = null;
+
+
+            students();
+            ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Cleared Successfully');", true);
         }
     }
 }

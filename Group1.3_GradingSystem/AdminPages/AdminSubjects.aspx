@@ -246,14 +246,14 @@
     }
     #TextBox2{
         position: fixed;
-        top: 440px;
-        left: 406px;
+        top: 481px;
+        left: 612px;
         width: 76px;
     }
     #TextBox3{
         position: fixed;
-        top: 480px;
-        left: 434px;
+        top: 444px;
+        left: 442px;
         width: 147px;
     }
     #DropDownList1{
@@ -261,29 +261,29 @@
     }
     #Label16{
         position: fixed;
-        top: 441px;
-        left: 506px;
+        top: 484px;
+        left: 313px;
     }
     #Label17{
         position: fixed;
-        top: 521px;
-        left: 309px;
-        right: 881px;
+        top: 526px;
+        left: 316px;
+        right: 862px;
     }
     #Label18{
         position: fixed;
-        top: 440px;
-        left: 308px;
+        top: 483px;
+        left: 514px;
     }
     #Label19{
         position: fixed;
-        top: 479px;
-        left: 308px;
+        top: 443px;
+        left: 314px;
     }
     #TextBox4{
         position: fixed;
-        top: 440px;
-        left: 614px;
+        top: 482px;
+        left: 416px;
         width: 76px;
     }
     #Label20{
@@ -298,8 +298,8 @@
     }
 #Label21{
     position: fixed;
-        top: 563px;
-        left: 312px;
+        top: 561px;
+        left: 317px;
     }
 #DropDownList2{
     position: fixed;
@@ -428,8 +428,12 @@
                 
 
 
-                <asp:Label ID="Label16" runat="server" Text="Teacher ID:"></asp:Label>
                 <asp:Label ID="Label18" runat="server" Text="Subject ID:"></asp:Label>
+
+                
+
+
+                <asp:Label ID="Label16" runat="server" Text="Teacher ID:"></asp:Label>
                 <asp:Label ID="Label17" runat="server" Text="Year Level:"></asp:Label>
                 <asp:Label ID="Label19" runat="server" Text="Subject Name:"></asp:Label>
                 <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>

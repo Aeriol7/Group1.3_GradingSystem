@@ -88,7 +88,7 @@ namespace Group1._3_GradingSystem.AdminPages
                 e.Row.Attributes["onmouseout"] = "this.style.textDecoration='none';";
 
                 //Attach the click event to each cells
-                e.Row.Attributes["onclick"] = ClientScript.GetPostBackClientHyperlink(this.GridView3, "Select$" + e.Row.RowIndex);
+                e.Row.Attributes["onclick"] = ClientScript.GetPostBackClientHyperlink(this.GridView2, "Select$" + e.Row.RowIndex);
             }
         }
 

@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AdminStudent.aspx.cs" Inherits="Group1._3_GradingSystem.AdminPages.AdminStudent" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AdminStudent.aspx.cs" Inherits="Group1._3_GradingSystem.AdminPages.AdminStudent" enableEventValidation="false" %>
 
 <!DOCTYPE html>
 
@@ -23,8 +23,8 @@
 }
 #DropDownList1{
     position: fixed;
-    top: 57px;
-    left: 1268px;
+    top: 559px;
+    left: 425px;
 }
 #Label2{
     position: fixed;
@@ -177,13 +177,13 @@
     }
 #TextBox1{
     position: fixed;
-        top: 253px;
-        left: 1159px;
+        top: 488px;
+        left: 426px;
     }
 #Label15{
     position: fixed;
-        top: 255px;
-        left: 1086px;
+        top: 528px;
+        left: 340px;
     }
 #Button4{
     position: fixed;
@@ -199,6 +199,159 @@
     position: fixed;
         top: 62px;
         left: 1263px;
+    }
+    .subject {
+        position: fixed;
+        height: 508px;
+        width: 440px;
+        top: 232px;
+        left: 309px;
+    }
+#GridView3{
+    position: fixed;
+        top: 234px;
+        left: 311px;
+        height: 142px;
+        width: 424px;
+        bottom: 358px;
+    }
+#Button8{
+    position: fixed;
+        top: 640px;
+        left: 381px;
+        width: 147px;
+    }
+#Button10{
+    position: fixed;
+        top: 679px;
+        left: 381px;
+        width: 117px;
+    }
+#Button9{
+    position: fixed;
+        top: 640px;
+        left: 506px;
+        width: 132px;
+        right: 675px;
+    }
+#Label16{
+    position: fixed;
+        top: 255px;
+        left: 1086px;
+    }
+#Button7{
+    position: fixed;
+        top: 679px;
+        left: 506px;
+    }
+#Label15{
+    position: fixed;
+}
+#Label16{
+    position: fixed;
+        top: 450px;
+        left: 319px;
+    }
+#Label16{
+    position: fixed;
+}
+#Label17{
+    position: fixed;
+        top: 447px;
+        left: 604px;
+    }
+#Label17{
+    position: fixed;
+}
+#TextBox1{
+    position: fixed;
+}
+#TextBox2{
+    position: fixed;
+        top: 558px;
+        left: 425px;
+    }
+#TextBox2{
+    position: fixed;
+        width: 37px;
+    }
+#TextBox3{
+    position: fixed;
+        top: 448px;
+        left: 426px;
+    }
+#TextBox3{
+    position: fixed;
+}
+#Label18{
+    position: fixed;
+        top: 489px;
+        left: 319px;
+    }
+#Label18{
+    position: fixed;
+}
+#TextBox4{
+    position: fixed;
+        top: 444px;
+        left: 698px;
+    }
+#TextBox4{
+    position: fixed;
+        width: 37px;
+    }
+#Label19{
+    position: fixed;
+        top: 561px;
+        left: 319px;
+    }
+#Label19{
+    position: fixed;
+}
+#TextBox5{
+    position: fixed;
+        top: 525px;
+        left: 427px;
+    }
+#TextBox5{
+    position: fixed;
+        width: 37px;
+        right: 805px;
+    }
+#DropDownList3{
+    position: fixed;
+        top: 561px;
+        left: 424px;
+    }
+#Label20{
+    position: fixed;
+        top: 591px;
+        left: 319px;
+    }
+#Label20{
+    position: fixed;
+}
+#DropDownList2{
+    position: fixed;
+        top: 589px;
+        left: 424px;
+    }
+#Label21{
+    position: fixed;
+        top: 527px;
+        left: 485px;
+    }
+#Label21{
+    position: fixed;
+}
+#TextBox6{
+    position: fixed;
+        top: 527px;
+        left: 622px;
+    }
+#TextBox6{
+    position: fixed;
+        width: 37px;
     }
 </style>
 
@@ -217,7 +370,7 @@
         <asp:Label ID="Label1" runat="server" Text="HOPE INTERGRATED SCHOOL" Font-Names="Times New Roman"></asp:Label>
         <asp:Image ID="Image2" img src="../HomePage/Image/ProfileIcon1%20(1).png" runat="server" />
     
-        <div style="height: 546px; width: 1437px;">
+        <div style="height: 827px; width: 1437px;">
             <asp:HyperLink ID="Label2" runat="server" NavigateUrl="AdminHome.aspx" Text="Home" ForeColor="#B03E3E" Font-Underline="False" ></asp:HyperLink>
             <asp:HyperLink ID="Label3" runat="server" NavigateUrl="~/AdminPages/AdminDashboard.aspx" Text="Dashboard" ForeColor="#B03E3E" Font-Underline="False"></asp:HyperLink>
             <asp:HyperLink ID="Label4" runat="server" NavigateUrl="~/AdminPages/AdminSubjects.aspx" Text="Subjects" ForeColor="#B03E3E" Font-Underline="False"></asp:HyperLink>
@@ -259,25 +412,104 @@
 
             <asp:Label ID="Label12" runat="server" Text="/  Subjects" Font-Size="7pt" ForeColor="#B03E3E"></asp:Label>
             
-            <asp:Label ID="Label13" runat="server" Text="/  Manage Subjects" Font-Size="7pt" ForeColor="#B03E3E"></asp:Label>
+            <asp:Label ID="Label13" runat="server" Text="/  Manage Students" Font-Size="7pt" ForeColor="#B03E3E"></asp:Label>
             
             <asp:Label ID="Label14" runat="server" ForeColor="#B03E3E" Text="Manage Students" Font-Names="Arial" Font-Size="17pt"></asp:Label>
             
-            <asp:Button ID="Button1" runat="server" Text="+  Add Record" />
-            
-            <asp:Button ID="Button2" runat="server" Text="+ Button" />
-            
-            <asp:Button ID="Button3" runat="server" Text="+ Button" />
-            
-            <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
-            
-            <asp:Label ID="Label15" runat="server" Text="Search:"></asp:Label>
-            
-            <asp:Button ID="Button4" runat="server" Text="Next" />
-            
-            <asp:Button ID="Button5" runat="server" Text="Previous" />
-            
             <asp:Button ID="Button6" runat="server" Text="Logout" OnClick="Button6_Click" />
+            
+
+
+
+
+                <div class ="subject">
+
+            <asp:GridView OnSelectedIndexChanged="GridView1_SelectedIndexChanged" OnRowDataBound="GridView1_RowDataBound" OnPageIndexChanging="OnPageIndexChangingstudents" ID="GridView1" runat="server"  CellPadding="4" ForeColor="#333333" GridLines="None" AllowPaging="True" PageSize="4" Width="432px">
+                <AlternatingRowStyle BackColor="White" ForeColor="#284775"/>
+                <EditRowStyle BackColor="#999999" />
+                <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+                <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+                <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+
+                </asp:GridView>
+
+            
+
+            <asp:Button ID="Button9" runat="server" Text="Update" Width="96px" OnClick="Button3_Click" Height="29px" />
+            <asp:Button ID="Button10" runat="server" Text="Delete" Width="96px" Height="29px" OnClick="Button2_Click" />
+
+            <asp:Label ID="Label16" runat="server" Text="First Name:"></asp:Label>
+
+            <asp:Label ID="Label17" runat="server" Text="Student ID:"></asp:Label>
+
+            <asp:TextBox ID="TextBox3" runat="server"></asp:TextBox>
+
+            <asp:Label ID="Label18" runat="server" Text="Last Name:"></asp:Label>
+
+            <asp:TextBox ID="TextBox4" runat="server" Enabled="False"></asp:TextBox>
+
+            <asp:Label ID="Label21" runat="server" Text="School Year ID:"></asp:Label>
+
+            <asp:TextBox ID="TextBox6" runat="server"></asp:TextBox>
+
+            </div>
+
+
+
+            <asp:Button ID="Button8" runat="server" Text="Add" Height="29px" Width="96px" OnClick="Button1_Click" />
+            <asp:Button ID="Button7" runat="server" Text="Clear" Width="96px" Height="29px" OnClick="Button7_Click" />
+
+            <asp:Label ID="Label15" runat="server" Text="User ID:"></asp:Label>
+
+            <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
+
+            <asp:Label ID="Label19" runat="server" Text="Year Level:"></asp:Label>
+
+            <asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
+
+            <asp:Label ID="Label20" runat="server" Text="Section ID:"></asp:Label>
+
+                    <asp:DropDownList ID="DropDownList2" runat="server" Height="25px" Width="167px">
+                        <asp:ListItem Value="0">Select Section ID</asp:ListItem>
+                        <asp:ListItem Value="1">Kinder-A</asp:ListItem>
+                        <asp:ListItem Value="2">Grade 1-A</asp:ListItem>
+                        <asp:ListItem Value="3">Grade 2-A</asp:ListItem>
+                        <asp:ListItem Value="4">Grade 3-A</asp:ListItem>
+                        <asp:ListItem Value="5">Grade 4-A</asp:ListItem>
+                        <asp:ListItem Value="6">Grade 5-A</asp:ListItem>
+                        <asp:ListItem Value="7">Grade 6-A</asp:ListItem>
+                        <asp:ListItem Value="8">Grade 7-A</asp:ListItem>
+                        <asp:ListItem Value="9">Grade 8-A</asp:ListItem>
+                        <asp:ListItem Value="10">Grade 9-A</asp:ListItem>
+                        <asp:ListItem Value="11">Grade 10-A</asp:ListItem>
+                        <asp:ListItem Value="12">Grade 11-HUMSS</asp:ListItem>
+                        <asp:ListItem Value="13">Grade 11-STEM</asp:ListItem>
+                        <asp:ListItem Value="14">Grade 12-HUMSS</asp:ListItem>
+                        <asp:ListItem Value="15">Grade 12-STEM</asp:ListItem>
+                       </asp:DropDownList>
+            
+            <asp:DropDownList ID="DropDownList3" runat="server" Height="25px" Width="167px">
+                <asp:ListItem Value="0">Select Grade Level</asp:ListItem>
+                <asp:ListItem Value="1">Kinder</asp:ListItem>
+                <asp:ListItem Value="2">Grade 1</asp:ListItem>
+                <asp:ListItem Value="3">Grade 2</asp:ListItem>
+                <asp:ListItem Value="4">Grade 3</asp:ListItem>
+                <asp:ListItem Value="5">Grade 4</asp:ListItem>
+                <asp:ListItem Value="6">Grade 5</asp:ListItem>
+                <asp:ListItem Value="7">Grade 6</asp:ListItem>
+                <asp:ListItem Value="8">Grade 7</asp:ListItem>
+                <asp:ListItem Value="9">Grade 8</asp:ListItem>
+                <asp:ListItem Value="10">Grade 9</asp:ListItem>
+                <asp:ListItem Value="11">Grade 10</asp:ListItem>
+                <asp:ListItem Value="12">Grade 11</asp:ListItem>
+                <asp:ListItem Value="13">Grade 12</asp:ListItem>
+            </asp:DropDownList>
             
         </div>
     </form>   

@@ -120,8 +120,7 @@ namespace Group1._3_GradingSystem.AdminPages
                 TextBox7.Text = gr.Cells[1].Text;
                 TextBox10.Text = gr.Cells[0].Text;
 
-                TextBox4.Text = string.Empty;
-                TextBox8.Text = string.Empty;
+                
             }
         }
         protected void GridView3_SelectedIndexChanged(object sender, EventArgs e)
