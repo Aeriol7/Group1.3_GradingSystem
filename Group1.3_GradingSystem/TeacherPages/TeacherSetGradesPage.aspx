@@ -372,43 +372,16 @@
         <asp:Label ID="TSetGradesLabel" runat="server" Font-Bold="True" Font-Names="Arial" Font-Size="20pt" ForeColor="#983939">Set Grades</asp:Label>
         <asp:Label ID="SGSearchLabel0" runat="server" Font-Names="Arial" ForeColor="#983939" Height="18px">Search:</asp:Label>
         <asp:TextBox ID="SGSearchTxt" runat="server" BorderStyle="Solid" BorderWidth="1px"></asp:TextBox>
-        <asp:DropDownList ID="ddlSchoolYear" runat="server" Width="85px" Height="22px">
+        <asp:DropDownList ID="ddlSchoolYear" runat="server" Width="95px" Height="22px" AutoPostBack="True" OnSelectedIndexChanged="ddlSchoolYear_SelectedIndexChanged">
         </asp:DropDownList>
-        <asp:DropDownList ID="ddlGradeLevel" runat="server" Width="105px" Height="22px" AutoPostBack = "true" OnSelectedIndexChanged="ddlGradeLevel_SelectedIndexChanged">
-            <asp:ListItem >Select Grade</asp:ListItem>
-            <asp:ListItem Value="1">Kinder</asp:ListItem>
-            <asp:ListItem>Grade 1</asp:ListItem>
-            <asp:ListItem>Grade 2</asp:ListItem>
-            <asp:ListItem>Grade 3</asp:ListItem>
-            <asp:ListItem>Grade 4</asp:ListItem>
-            <asp:ListItem>Grade 5</asp:ListItem>
-            <asp:ListItem>Grade 6</asp:ListItem>
-            <asp:ListItem>Grade 7</asp:ListItem>
-            <asp:ListItem>Grade 8</asp:ListItem>
-            <asp:ListItem>Grade 9</asp:ListItem>
-            <asp:ListItem>Grade 10</asp:ListItem>
-            <asp:ListItem>Grade 11</asp:ListItem>
-            <asp:ListItem>Grade 12</asp:ListItem>
+        <asp:DropDownList ID="ddlGradeLevel" runat="server" Width="105px" Height="22px" AutoPostBack = "true" OnSelectedIndexChanged="ddlGradeLevel_SelectedIndexChanged" Enabled="False">
+            <asp:ListItem Value="0">Select Grade</asp:ListItem>
         </asp:DropDownList>
-        <asp:DropDownList ID="ddlSection" runat="server" Height="22px" Width="125px" Enabled="False" AutoPostBack = "true" OnSelectedIndexChanged="ddlSection_SelectedIndexChanged">
-            <asp:ListItem>Select Section</asp:ListItem>
-            <asp:ListItem>Kinder-A</asp:ListItem>
-            <asp:ListItem>Grade 1-A</asp:ListItem>
-            <asp:ListItem>Grade 2-A</asp:ListItem>
-            <asp:ListItem>Grade 3-A</asp:ListItem>
-            <asp:ListItem>Grade 4-A</asp:ListItem>
-            <asp:ListItem>Grade 5-A</asp:ListItem>
-            <asp:ListItem>Grade 6-A</asp:ListItem>
-            <asp:ListItem>Grade 7-A</asp:ListItem>
-            <asp:ListItem>Grade 8-A</asp:ListItem>
-            <asp:ListItem>Grade 9-A</asp:ListItem>
-            <asp:ListItem>Grade 10-A</asp:ListItem>
-            <asp:ListItem>Grade 11-HUMSS</asp:ListItem>
-            <asp:ListItem>Grade 11-STEM</asp:ListItem>
-            <asp:ListItem>Grade 12-HUMSS</asp:ListItem>
-            <asp:ListItem>Grade 12-STEM</asp:ListItem>
+        <asp:DropDownList ID="ddlSection" runat="server" Height="22px" Width="130px" Enabled="False" AutoPostBack = "true" OnSelectedIndexChanged="ddlSection_SelectedIndexChanged">
+            <asp:ListItem Value="0">Select Section</asp:ListItem>
         </asp:DropDownList>
         <asp:DropDownList ID="ddlSubjects" runat="server" Height="22px" Width="125px" Enabled="False"  AutoPostBack = "true" OnSelectedIndexChanged="ddlSubjects_SelectedIndexChanged">
+            <asp:ListItem Value="0">Select Subject</asp:ListItem>
         </asp:DropDownList>
         <div class="set-grades-table" style="height: 250px; overflow: auto;" >
             <asp:GridView ID="gvGrades" runat="server" AllowPaging="True" PageSize="5" OnPageIndexChanging="OnPageIndexChanging" OnSelectedIndexChanged="gvGrades_SelectedIndexChanged"
@@ -433,12 +406,8 @@
             <asp:Label ID="SGGradeIDLabel" runat="server" Font-Names="Arial" ForeColor="#983939" Height="18px">Grade ID:</asp:Label>
             <asp:TextBox ID="SGtxtGradeID" runat="server" BorderStyle="Solid" BorderWidth="1px"></asp:TextBox>
             <asp:Label ID="SGQRTLabel" runat="server" Font-Names="Arial" ForeColor="#983939">Quarter:</asp:Label>
-        <asp:DropDownList ID="ddlQuarter" runat="server" Width="110px" Height="22px" AutoPostBack="True">
+        <asp:DropDownList ID="ddlQuarter" runat="server" Width="110px" Height="22px" AutoPostBack="True" AppendDataBoundItems="True">
             <asp:ListItem>Select Quarter</asp:ListItem>
-            <asp:ListItem>1st</asp:ListItem>
-            <asp:ListItem>2nd</asp:ListItem>
-            <asp:ListItem>3rd</asp:ListItem>
-            <asp:ListItem>4th</asp:ListItem>
         </asp:DropDownList>
             <asp:Label ID="SGGradesLabel" runat="server" Font-Names="Arial" ForeColor="#983939" Height="18px">Grades:</asp:Label>
             <asp:TextBox ID="SGtxtGrades" runat="server" BorderStyle="Solid" BorderWidth="1px"></asp:TextBox>
