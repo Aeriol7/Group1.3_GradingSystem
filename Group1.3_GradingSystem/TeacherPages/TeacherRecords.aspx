@@ -172,9 +172,9 @@
     }
     #SGSearchTxt {
         position: fixed;
-        top: 138px;
-        left: 1084px;
-        width: 176px;
+        top: 140px;
+        left: 1118px;
+        width: 144px;
     }
     #SGNext {
         position: fixed;
@@ -210,9 +210,9 @@
     #ddlSchoolYear {
         position: fixed;
         top: 135px;
-        left: 334px;
-        width: 79px;
-        height: 15px;
+        left: 338px;
+        width: 93px;
+        height: 18px;
     }
     #ddlGradeLevel {
         position: fixed;
@@ -227,7 +227,8 @@
     #ddlSubjects {
         position: fixed;
         top: 135px;
-        left: 741px;
+        left: 723px;
+        right: 437px;
     }
     #gvGrades {
         position: fixed;
@@ -240,9 +241,9 @@
     }
     #SGSearchLabel0 {
         position: fixed;
-        top: 139px;
-        left: 1018px;
-        bottom: 381px;
+        top: 141px;
+        left: 1052px;
+        bottom: 379px;
     }
     #SGtxtGradeID {
         position: fixed;
@@ -350,6 +351,13 @@
     top: 273px;
     left: 39px;
 }
+#ddlSchoolWork{
+    position: fixed;
+        left: 864px;
+        height: 18px;
+        width: 176px;
+        top: 135px;
+    }
     </style>
 <form id="form1" runat="server">
 <header style="height: 63px">
@@ -386,7 +394,8 @@
         <asp:Label ID="TSetGradesLabel" runat="server" Font-Bold="True" Font-Names="Arial" Font-Size="20pt" ForeColor="#983939">Records</asp:Label>
         <asp:Label ID="SGSearchLabel0" runat="server" Font-Names="Arial" ForeColor="#983939" Height="18px">Search:</asp:Label>
         <asp:TextBox ID="SGSearchTxt" runat="server" BorderStyle="Solid" BorderWidth="1px"></asp:TextBox>
-        <asp:DropDownList ID="ddlSchoolYear" runat="server" Width="85px" Height="22px">
+        <asp:DropDownList ID="ddlSchoolYear" runat="server" Height="22px">
+            <asp:ListItem>Select S.Y.</asp:ListItem>
         </asp:DropDownList>
         <asp:DropDownList ID="ddlGradeLevel" runat="server" Width="105px" Height="22px" AutoPostBack = "true" OnSelectedIndexChanged="ddlGradeLevel_SelectedIndexChanged">
             <asp:ListItem >Select Grade</asp:ListItem>
@@ -404,7 +413,7 @@
             <asp:ListItem>Grade 11</asp:ListItem>
             <asp:ListItem>Grade 12</asp:ListItem>
         </asp:DropDownList>
-        <asp:DropDownList ID="ddlSection" runat="server" Height="22px" Width="125px" Enabled="False" AutoPostBack = "true" OnSelectedIndexChanged="ddlSection_SelectedIndexChanged">
+        <asp:DropDownList ID="ddlSection" runat="server" Height="22px" Width="125px" Enabled="False" AutoPostBack = "True" OnSelectedIndexChanged="ddlSection_SelectedIndexChanged">
             <asp:ListItem>Select Section</asp:ListItem>
             <asp:ListItem>Kinder-A</asp:ListItem>
             <asp:ListItem>Grade 1-A</asp:ListItem>
@@ -423,7 +432,14 @@
             <asp:ListItem>Grade 12-STEM</asp:ListItem>
         </asp:DropDownList>
         <asp:DropDownList ID="ddlSubjects" runat="server" Height="22px" Width="125px" Enabled="False"  AutoPostBack = "true" OnSelectedIndexChanged="ddlSubjects_SelectedIndexChanged">
+            <asp:ListItem>Select Subject</asp:ListItem>
         </asp:DropDownList>
+        <asp:DropDownList ID="ddlSchoolWork" runat="server" AutoPostBack="True" Height="22px" OnSelectedIndexChanged="ddlSchoolWork_SelectedIndexChanged">
+            <asp:ListItem>Select School Work Type</asp:ListItem>
+            <asp:ListItem Value="1">Written Work</asp:ListItem>
+            <asp:ListItem Value="2">Performance Task</asp:ListItem>
+            <asp:ListItem Value="3">Quarterly Assessment</asp:ListItem>
+</asp:DropDownList>
         <div class="set-grades-table" style="height: 250px; overflow: auto;" >
             <asp:GridView ID="gvGrades" runat="server" AllowPaging="True" PageSize="5" OnPageIndexChanging="OnPageIndexChanging" OnSelectedIndexChanged="gvGrades_SelectedIndexChanged"
     OnRowDataBound="gvGrades_RowDataBound" CellPadding="4" ForeColor="#333333" GridLines="None">
@@ -458,6 +474,7 @@
             <asp:TextBox ID="SGtxtGrades" runat="server" BorderStyle="Solid" BorderWidth="1px"></asp:TextBox>
             <asp:Button ID="SGSaveGrades" runat="server" Text="Save" BackColor="White" Font-Names="Arial" ForeColor="#983939" OnClick="SGSaveGrades_Click" />
         </div>
+        
     </div>
 </body>
     
