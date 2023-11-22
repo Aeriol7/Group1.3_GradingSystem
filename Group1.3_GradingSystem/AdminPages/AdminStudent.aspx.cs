@@ -14,6 +14,7 @@ namespace Group1._3_GradingSystem.AdminPages
         protected void Page_Load(object sender, EventArgs e)
         {
             students();
+            sections();
         }
 
         protected void Button6_Click(object sender, EventArgs e)
@@ -24,7 +25,7 @@ namespace Group1._3_GradingSystem.AdminPages
         public void students()
         {
             SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-4DSNP2P;Initial Catalog=HIS_GradingSystem;Integrated Security=False;User Id=sa;Password=1234;MultipleActiveResultSets=True");
-            string com = "SELECT * FROM students";
+            string com = "SELECT students.student_id, students.first_name, students.last_name, users.user_id, year_levels.year_level, sections.section, school_years.school_year FROM students\r\nINNER JOIN users ON students.user_id=users.user_id\r\nINNER JOIN year_levels ON students.year_level_id=year_levels.year_level_id\r\nINNER JOIN sections ON students.section_id=sections.section_id\r\nINNER JOIN school_years ON students.school_year_id=school_years.school_year_id";
             con.Open();
             SqlDataAdapter adpt = new SqlDataAdapter(com, con);
             DataTable dt = new DataTable();
@@ -45,8 +46,8 @@ namespace Group1._3_GradingSystem.AdminPages
                 TextBox1.Text = gr.Cells[2].Text;
                 TextBox5.Text = gr.Cells[3].Text;
                 TextBox4.Text = gr.Cells[0].Text;
-                TextBox6.Text = gr.Cells[4].Text;
-                DropDownList3.SelectedValue = gr.Cells[5].Text;
+                DropDownList3.SelectedValue = gr.Cells[4].Text;
+                DropDownList4.SelectedValue = gr.Cells[5].Text;
                 DropDownList2.SelectedValue = gr.Cells[5].Text;
             }
         }
@@ -74,14 +75,14 @@ namespace Group1._3_GradingSystem.AdminPages
         {
             SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-4DSNP2P;Initial Catalog=HIS_GradingSystem;Integrated Security=False;User Id=sa;Password=1234;MultipleActiveResultSets=True");
             con.Open();
-            SqlCommand cmd = new SqlCommand("INSERT INTO students (first_name, last_name, user_id, year_level_id, sections_id, school_year_id) VALUES  (@first_name, @last_name, @user_id, @year_level_id, @sections_id, @school_year_id)", con);
+            SqlCommand cmd = new SqlCommand("INSERT INTO students (first_name, last_name, user_id, year_level_id, section_id, school_year_id) VALUES  (@first_name, @last_name, @user_id, @year_level_id, @sections_id, @school_year_id)", con);
 
             cmd.Parameters.AddWithValue("@first_name", TextBox3.Text);
             cmd.Parameters.AddWithValue("@Last_name", TextBox1.Text);
             cmd.Parameters.AddWithValue("@user_id", TextBox5.Text);
-            cmd.Parameters.AddWithValue("@school_year_id", TextBox6.Text);
+            cmd.Parameters.AddWithValue("@school_year_id", DropDownList3.SelectedValue);
             cmd.Parameters.AddWithValue("@sections_id", DropDownList2.SelectedValue);
-            cmd.Parameters.AddWithValue("@year_level_id", DropDownList3.SelectedValue);
+            cmd.Parameters.AddWithValue("@year_level_id", DropDownList4.SelectedValue);
             cmd.ExecuteNonQuery();
             con.Close();
 
@@ -90,8 +91,8 @@ namespace Group1._3_GradingSystem.AdminPages
             TextBox3.Text = "";
             TextBox1.Text = "";
             TextBox5.Text = "";
-            TextBox6.Text = "";
             DropDownList3.SelectedValue = null;
+            DropDownList4.SelectedValue = null;
             DropDownList2.SelectedValue = null;
             ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Inserted Successfully');", true);
         }
@@ -100,14 +101,14 @@ namespace Group1._3_GradingSystem.AdminPages
         {
             SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-4DSNP2P;Initial Catalog=HIS_GradingSystem;Integrated Security=False;User Id=sa;Password=1234;MultipleActiveResultSets=True");
             con.Open();
-            SqlCommand cmd = new SqlCommand("UPDATE students SET first_name = @first_name, last_name = @last_name, user_id = @user_id, year_level_id = @year_level_id, sections_id = @sections_id, school_year_id = @school_year_id WHERE student_id = @student_id", con);
+            SqlCommand cmd = new SqlCommand("UPDATE students SET first_name = @first_name, last_name = @last_name, user_id = @user_id, year_level_id = @year_level_id, section_id = @sections_id, school_year_id = @school_year_id WHERE student_id = @student_id", con);
 
             cmd.Parameters.AddWithValue("@first_name", TextBox3.Text);
             cmd.Parameters.AddWithValue("@Last_name", TextBox1.Text);
             cmd.Parameters.AddWithValue("@user_id", TextBox5.Text);
             cmd.Parameters.AddWithValue("@student_id", TextBox4.Text);
-            cmd.Parameters.AddWithValue("@school_year_id", TextBox6.Text);
-            cmd.Parameters.AddWithValue("@year_level_id", DropDownList3.SelectedValue);
+            cmd.Parameters.AddWithValue("@school_year_id", DropDownList3.SelectedValue);
+            cmd.Parameters.AddWithValue("@year_level_id", DropDownList4.SelectedValue);
             cmd.Parameters.AddWithValue("@sections_id", DropDownList2.SelectedValue);
             cmd.ExecuteNonQuery();
             con.Close();
@@ -117,7 +118,7 @@ namespace Group1._3_GradingSystem.AdminPages
             TextBox3.Text = "";
             TextBox1.Text = "";
             TextBox5.Text = "";
-            TextBox6.Text = "";
+            DropDownList4.SelectedValue = null;
             DropDownList3.SelectedValue = null;
             DropDownList2.SelectedValue = null;
             ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Updated Successfully');", true);
@@ -143,7 +144,9 @@ namespace Group1._3_GradingSystem.AdminPages
             TextBox1.Text = String.Empty;
             TextBox5.Text = String.Empty;
             TextBox4.Text = String.Empty;
-            TextBox6.Text = String.Empty;
+            DropDownList4.SelectedValue = null;
+            DropDownList3.SelectedValue = null;
+            DropDownList2.SelectedValue = null;
         }
 
         protected void Button7_Click(object sender, EventArgs e)
@@ -152,13 +155,52 @@ namespace Group1._3_GradingSystem.AdminPages
             TextBox1.Text = String.Empty;
             TextBox5.Text = String.Empty;
             TextBox4.Text = String.Empty;
-            TextBox6.Text = String.Empty;
+            DropDownList4.SelectedValue = null;
             DropDownList3.SelectedValue = null;
             DropDownList2.SelectedValue = null;
 
 
             students();
             ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Cleared Successfully');", true);
+        }
+        public void sections()
+        {
+            SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-4DSNP2P;Initial Catalog=HIS_GradingSystem;Integrated Security=False;User Id=sa;Password=1234;MultipleActiveResultSets=True");
+            string com = "SELECT * FROM sections";
+            con.Open();
+            SqlDataAdapter adpt = new SqlDataAdapter(com, con);
+            DataTable dt = new DataTable();
+            adpt.Fill(dt);
+            GridView2.DataSource = dt;
+            GridView2.DataBind();
+            con.Close();
+        }
+        protected void GridView2_RowDataBound(object sender, System.Web.UI.WebControls.GridViewRowEventArgs e)
+        {
+            if (e.Row.RowType == DataControlRowType.DataRow)
+            {
+                //Change the mouse cursor to Hand symbol to show the user the cell is selectable
+                e.Row.Attributes["onmouseover"] = "this.style.cursor='hand';this.style.textDecoration='underline';this.style.cursor='Pointer'";
+                e.Row.Attributes["onmouseout"] = "this.style.textDecoration='none';";
+
+                //Attach the click event to each cells
+                e.Row.Attributes["onclick"] = ClientScript.GetPostBackClientHyperlink(this.GridView2, "Select$" + e.Row.RowIndex);
+            }
+        }
+        protected void OnPageIndexChangingsections(object sender, GridViewPageEventArgs e)
+        {
+            GridView2.PageIndex = e.NewPageIndex;
+            this.sections();
+        }
+
+        protected void GridView2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            GridViewRow row = GridView2.Rows[GridView2.SelectedIndex];
+            if (row != null)
+            {
+
+                GridViewRow gr = GridView2.SelectedRow;
+            }
         }
     }
 }

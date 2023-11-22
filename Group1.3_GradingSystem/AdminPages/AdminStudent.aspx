@@ -204,8 +204,8 @@
         position: fixed;
         height: 508px;
         width: 440px;
-        top: 232px;
-        left: 309px;
+        top: 231px;
+        left: 313px;
     }
 #GridView3{
     position: fixed;
@@ -277,7 +277,7 @@
     }
 #TextBox3{
     position: fixed;
-        top: 448px;
+        top: 452px;
         left: 426px;
     }
 #TextBox3{
@@ -293,8 +293,8 @@
 }
 #TextBox4{
     position: fixed;
-        top: 444px;
-        left: 698px;
+        top: 446px;
+        left: 701px;
     }
 #TextBox4{
     position: fixed;
@@ -320,13 +320,15 @@
     }
 #DropDownList3{
     position: fixed;
-        top: 561px;
-        left: 424px;
+        top: 527px;
+        left: 620px;
+        width: 104px;
+        right: 553px;
     }
 #Label20{
     position: fixed;
-        top: 591px;
-        left: 319px;
+        top: 593px;
+        left: 344px;
     }
 #Label20{
     position: fixed;
@@ -338,8 +340,8 @@
     }
 #Label21{
     position: fixed;
-        top: 527px;
-        left: 485px;
+        top: 576px;
+        left: 787px;
     }
 #Label21{
     position: fixed;
@@ -347,11 +349,109 @@
 #TextBox6{
     position: fixed;
         top: 527px;
-        left: 622px;
+        left: 624px;
     }
 #TextBox6{
     position: fixed;
+        width: 74px;
+    }
+#Button12{
+    position: fixed;
+        top: 679px;
+        left: 381px;
+        width: 117px;
+    }
+#Button11{
+    position: fixed;
+        top: 640px;
+        left: 506px;
+        width: 132px;
+        right: 675px;
+    }
+#Label22{
+    position: fixed;
+        top: 255px;
+        left: 1086px;
+    }
+#Label22{
+    position: fixed;
+        top: 586px;
+        left: 97px;
+    }
+#Label22{
+    position: fixed;
+}
+#Label23{
+    position: fixed;
+        top: 287px;
+        left: 758px;
+    }
+#Label23{
+    position: fixed;
+}
+#TextBox7{
+    position: fixed;
+        top: 448px;
+        left: 426px;
+    }
+#TextBox7{
+    position: fixed;
+}
+#Label24{
+    position: fixed;
+        top: 547px;
+        left: 152px;
+    }
+#Label24{
+    position: fixed;
+}
+#TextBox8{
+    position: fixed;
+        top: 438px;
+        left: 837px;
+    }
+#TextBox8{
+    position: fixed;
         width: 37px;
+    }
+#Label25{
+    position: fixed;
+        top: 527px;
+        left: 511px;
+    }
+#Label25{
+    position: fixed;
+}
+#TextBox9{
+    position: fixed;
+        top: 557px;
+        left: 792px;
+    }
+#TextBox9{
+    position: fixed;
+        width: 37px;
+    }
+    .sections {
+        position: fixed;
+        height: 508px;
+        width: 439px;
+        top: 233px;
+        left: 976px;
+    }
+    #GridView1{
+        position: fixed;
+        top: 237px;
+        left: 315px;
+    }
+    #GridView2{
+    position: fixed;
+    top: 237px;
+    left: 982px;
+}
+#DropDownList4{
+    position: fixed;
+        top: 561px;
+        left: 424px;
     }
 </style>
 
@@ -454,11 +554,7 @@
 
             <asp:TextBox ID="TextBox4" runat="server" Enabled="False"></asp:TextBox>
 
-            <asp:Label ID="Label21" runat="server" Text="School Year ID:"></asp:Label>
-
-            <asp:TextBox ID="TextBox6" runat="server"></asp:TextBox>
-
-            </div>
+            
 
 
 
@@ -473,10 +569,10 @@
 
             <asp:TextBox ID="TextBox5" runat="server"></asp:TextBox>
 
-            <asp:Label ID="Label20" runat="server" Text="Section ID:"></asp:Label>
+            <asp:Label ID="Label20" runat="server" Text="Section:"></asp:Label>
 
                     <asp:DropDownList ID="DropDownList2" runat="server" Height="25px" Width="167px">
-                        <asp:ListItem Value="0">Select Section ID</asp:ListItem>
+                        <asp:ListItem Value="0">Select Section</asp:ListItem>
                         <asp:ListItem Value="1">Kinder-A</asp:ListItem>
                         <asp:ListItem Value="2">Grade 1-A</asp:ListItem>
                         <asp:ListItem Value="3">Grade 2-A</asp:ListItem>
@@ -494,7 +590,61 @@
                         <asp:ListItem Value="15">Grade 12-STEM</asp:ListItem>
                        </asp:DropDownList>
             
-            <asp:DropDownList ID="DropDownList3" runat="server" Height="25px" Width="167px">
+            <asp:DropDownList ID="DropDownList3" runat="server" Height="25px">
+                <asp:ListItem Value="0">Select S.Y</asp:ListItem>
+                <asp:ListItem Value="1">2023-2024</asp:ListItem>
+                <asp:ListItem Value="2">2024-2025</asp:ListItem>
+                <asp:ListItem Value="3">2025-2026</asp:ListItem>
+                <asp:ListItem Value="4">2026-2027</asp:ListItem>
+                <asp:ListItem Value="5">2027-2028</asp:ListItem>
+            </asp:DropDownList>
+            
+                    <asp:Button ID="Button11" runat="server" Text="Update" Width="96px" OnClick="Button3_Click" Height="29px" />
+<asp:Button ID="Button12" runat="server" Text="Delete" Width="96px" Height="29px" OnClick="Button2_Click" />
+
+<asp:Label ID="Label25" runat="server" Text="School Year:"></asp:Label>
+
+                    
+
+
+               
+
+                
+
+            
+
+            
+
+            </div>
+
+
+
+            <div class ="sections">
+
+
+                <asp:GridView OnRowDataBound="GridView2_RowDataBound" OnPageIndexChanging="OnPageIndexChangingsections" ID="GridView2" runat="server"  CellPadding="4" ForeColor="#333333" GridLines="None" AllowPaging="True" PageSize="4" Width="432px" Height="102px" OnSelectedIndexChanged="GridView2_SelectedIndexChanged">
+                <AlternatingRowStyle BackColor="White" ForeColor="#284775"/>
+                <EditRowStyle BackColor="#999999" />
+                <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+                <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+                <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+
+                </asp:GridView>
+
+
+
+
+            </div>
+
+
+        
+            <asp:DropDownList ID="DropDownList4" runat="server" Height="25px" Width="167px">
                 <asp:ListItem Value="0">Select Grade Level</asp:ListItem>
                 <asp:ListItem Value="1">Kinder</asp:ListItem>
                 <asp:ListItem Value="2">Grade 1</asp:ListItem>
@@ -511,7 +661,8 @@
                 <asp:ListItem Value="13">Grade 12</asp:ListItem>
             </asp:DropDownList>
             
-        </div>
+                    
+        
     </form>   
     
 </body>

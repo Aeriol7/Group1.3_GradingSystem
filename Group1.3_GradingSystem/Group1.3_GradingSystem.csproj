@@ -294,6 +294,8 @@
     <Content Include="StudentPages\StudentViewGradesPage.aspx" />
     <Content Include="TeacherPages\TeacherAnnouncementsPage.aspx" />
     <Content Include="TeacherPages\TeacherHomePage.aspx" />
+    <Content Include="TeacherPages\TeacherLoginPage.aspx" />
+    <Content Include="TeacherPages\TeacherRecords.aspx" />
     <Content Include="TeacherPages\TeacherSetGradesPage.aspx" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
@@ -440,6 +442,20 @@
     </Compile>
     <Compile Include="TeacherPages\TeacherHomePage.aspx.designer.cs">
       <DependentUpon>TeacherHomePage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherPages\TeacherLoginPage.aspx.cs">
+      <DependentUpon>TeacherLoginPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TeacherPages\TeacherLoginPage.aspx.designer.cs">
+      <DependentUpon>TeacherLoginPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TeacherPages\TeacherRecords.aspx.cs">
+      <DependentUpon>TeacherRecords.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TeacherPages\TeacherRecords.aspx.designer.cs">
+      <DependentUpon>TeacherRecords.aspx</DependentUpon>
     </Compile>
     <Compile Include="TeacherPages\TeacherSetGradesPage.aspx.cs">
       <DependentUpon>TeacherSetGradesPage.aspx</DependentUpon>

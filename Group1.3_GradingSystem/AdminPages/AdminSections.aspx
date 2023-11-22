@@ -258,7 +258,7 @@
 
             <asp:Label ID="Label12" runat="server" Text="/  Subjects" Font-Size="7pt" ForeColor="#B03E3E"></asp:Label>
             
-            <asp:Label ID="Label13" runat="server" Text="/  Manage Subjects" Font-Size="7pt" ForeColor="#B03E3E"></asp:Label>
+            <asp:Label ID="Label13" runat="server" Text="/  Manage Sections" Font-Size="7pt" ForeColor="#B03E3E"></asp:Label>
             
             <asp:Label ID="Label14" runat="server" ForeColor="#B03E3E" Text="Manage Sections" Font-Names="Arial" Font-Size="17pt"></asp:Label>
             
