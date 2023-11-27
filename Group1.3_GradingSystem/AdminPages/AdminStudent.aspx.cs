@@ -124,7 +124,7 @@ namespace Group1._3_GradingSystem.AdminPages
             ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Updated Successfully');", true);
         }
 
-        protected void Button2_Click(object sender, EventArgs e)
+        protected void Button10_Click(object sender, EventArgs e)
         {
             SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-4DSNP2P;Initial Catalog=HIS_GradingSystem;Integrated Security=False;User Id=sa;Password=1234;MultipleActiveResultSets=True");
             con.Open();
@@ -201,6 +201,16 @@ namespace Group1._3_GradingSystem.AdminPages
 
                 GridViewRow gr = GridView2.SelectedRow;
             }
+        }
+
+        protected void Button11_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void Button8_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -103,7 +103,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
-    <Content Include="AdminPages\AdminDashboard.aspx" />
     <Content Include="AdminPages\AdminFaculty.aspx" />
     <Content Include="AdminPages\AdminHome.aspx" />
     <Content Include="AdminPages\AdminSchoolYearCalendar.aspx" />
@@ -303,13 +302,6 @@
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AdminPages\AdminDashboard.aspx.cs">
-      <DependentUpon>AdminDashboard.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="AdminPages\AdminDashboard.aspx.designer.cs">
-      <DependentUpon>AdminDashboard.aspx</DependentUpon>
-    </Compile>
     <Compile Include="AdminPages\AdminFaculty.aspx.cs">
       <DependentUpon>AdminFaculty.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

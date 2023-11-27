@@ -35,33 +35,34 @@
    position: fixed;
         top: 231px;
         left: 140px;
+        bottom: 525px;
     }
 #Label4{
     position: fixed;
-        top: 283px;
-        left: 141px;
+        top: 228px;
+        left: 140px;
     }
 #Label5{
     position: fixed;
-        top: 339px;
+        top: 272px;
         left: 141px;
         height: 24px;
     }
 #Label6{
     position: fixed;
-        top: 386px;
-        left: 141px;
-        bottom: 167px;
+        top: 315px;
+        left: 140px;
+        bottom: 444px;
     }
 #Label7{
     position: fixed;
-        top: 429px;
-        left: 141px;
+        top: 359px;
+        left: 139px;
     }
 #Label8{
     position: fixed;
-        top: 476px;
-        left: 141px;
+        top: 403px;
+        left: 137px;
     }
 #Label9{
     position: fixed;
@@ -95,36 +96,37 @@
     }
 #Image5{
     position: fixed;
-        top: 283px;
-        left: 85px;
+        top: 226px;
+        left: 88px;
         height: 27px;
         width: 25px;
     }
 #Image6{
     position: fixed;
-        top: 337px;
-        left: 84px;
+        top: 271px;
+        left: 89px;
         height: 27px;
         width: 24px;
     }
 #Image7{
     position: fixed;
-        top: 385px;
-        left: 84px;
+        top: 311px;
+        left: 89px;
         height: 29px;
         width: 28px;
     }
 #Image8{
    position: fixed;
-        top: 429px;
-        left: 85px;
+        top: 358px;
+        left: 88px;
         height: 26px;
         width: 26px;
+        bottom: 411px;
     }
 #Image9{
     position: fixed;
-        top: 475px;
-        left: 85px;
+        top: 404px;
+        left: 90px;
         height: 24px;
         width: 23px;
     }
@@ -324,22 +326,17 @@
     
         <div style="height: 884px; width: 1437px;">
 
-            <asp:HyperLink ID="Label2" runat="server" NavigateUrl="AdminHome.aspx" Text="Home" ForeColor="#B03E3E" Font-Underline="False" ></asp:HyperLink>
-            <asp:HyperLink ID="Label3" runat="server" NavigateUrl="~/AdminPages/AdminDashboard.aspx" Text="Dashboard" ForeColor="#B03E3E" Font-Underline="False"></asp:HyperLink>
-            <asp:HyperLink ID="Label4" runat="server" NavigateUrl="~/AdminPages/AdminSubjects.aspx" Text="Subjects" ForeColor="#B03E3E" Font-Underline="False"></asp:HyperLink>
-            <asp:HyperLink ID="Label5" runat="server" NavigateUrl="~/AdminPages/AdminFaculty.aspx" Text="Faculty" ForeColor="#B03E3E" Font-Underline="False"></asp:HyperLink>
-            <asp:HyperLink ID="Label6" runat="server" NavigateUrl="~/AdminPages/AdminStudent.aspx" Text="Students" ForeColor="#B03E3E" Font-Underline="False"></asp:HyperLink>
-            <asp:HyperLink ID="Label7" runat="server" NavigateUrl="~/AdminPages/AdminSections.aspx" Text="Sections" ForeColor="#B03E3E" Font-Underline="False"></asp:HyperLink>
-            <asp:HyperLink ID="Label8" runat="server" NavigateUrl="~/AdminPages/AdminSchoolYearCalendar.aspx" Text="School Year" ForeColor="#B03E3E" Font-Underline="False"></asp:HyperLink>
+                                   <asp:HyperLink ID="Label2" runat="server" NavigateUrl="AdminHome.aspx" Text="Home" ForeColor="#B03E3E" Font-Underline="False" ></asp:HyperLink>
+<asp:HyperLink ID="Label4" runat="server" NavigateUrl="~/AdminPages/AdminSubjects.aspx" Text="Subjects" ForeColor="#B03E3E" Font-Underline="False"></asp:HyperLink>
+<asp:HyperLink ID="Label5" runat="server" NavigateUrl="~/AdminPages/AdminFaculty.aspx" Text="Faculty" ForeColor="#B03E3E" Font-Underline="False"></asp:HyperLink>
+<asp:HyperLink ID="Label6" runat="server" NavigateUrl="~/AdminPages/AdminStudent.aspx" Text="Students" ForeColor="#B03E3E" Font-Underline="False"></asp:HyperLink>
+<asp:HyperLink ID="Label7" runat="server" NavigateUrl="~/AdminPages/AdminSections.aspx" Text="Sections" ForeColor="#B03E3E" Font-Underline="False"></asp:HyperLink>
+<asp:HyperLink ID="Label8" runat="server" NavigateUrl="~/AdminPages/AdminSchoolYearCalendar.aspx" Text="School Year" ForeColor="#B03E3E" Font-Underline="False"></asp:HyperLink>
             <asp:Label ID="Label11" runat="server" Text="Home      " Font-Names="Arial" ForeColor="#B03E3E" Font-Size="7pt"></asp:Label>
             <asp:Label ID="Label10" runat="server" Text="/          Dashboard" Font-Names="Arial" ForeColor="#B03E3E" Font-Size="7pt"></asp:Label>
 
-            <asp:hyperlink id="link" runat="server" NavigateUrl="~/AdminPages/AdminHome.aspx">
-            <asp:Image ID="Image3" img src="HomeImages/🦆%20icon%20_home_.png" runat="server" />
-            </asp:hyperlink>
-
-<asp:hyperlink id="Hyperlink1" runat="server" NavigateUrl="~/AdminPages/AdminDashboard.aspx">
-<asp:Image ID="Image4" img src="HomeImages/🦆%20icon%20_dashboard_.png"  runat="server" />
+                                                <asp:hyperlink id="link" runat="server" NavigateUrl="~/AdminPages/AdminHome.aspx">
+<asp:Image ID="Image3" img src="HomeImages/🦆%20icon%20_home_.png" runat="server" />
 </asp:hyperlink>
 
 <asp:hyperlink id="Hyperlink2" runat="server" NavigateUrl="~/AdminPages/AdminSubjects.aspx">
@@ -359,8 +356,8 @@
 </asp:hyperlink>
 
 <asp:hyperlink id="Hyperlink6" runat="server" NavigateUrl="~/AdminPages/AdminSchoolYearCalendar.aspx">
-<asp:Image ID="Image9" img src="HomeImages/🦆%20icon%20_calendar_.png"  runat="server" />
-</asp:hyperlink>
+    <asp:Image ID="Image9" img src="HomeImages/🦆%20icon%20_calendar_.png"  runat="server" />
+<</asp:hyperlink>
 
             <asp:Label ID="Label12" runat="server" Text="/  Subjects" Font-Size="7pt" ForeColor="#B03E3E"></asp:Label>
             
@@ -479,6 +476,8 @@
                 <asp:ListItem Value="13">Grade 12</asp:ListItem>
             </asp:DropDownList>
             <asp:Label ID="Label21" runat="server" Text="Section ID:"></asp:Label>
+            
+
             
         </div>
     </form>   

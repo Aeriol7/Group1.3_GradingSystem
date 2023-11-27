@@ -35,33 +35,34 @@
    position: fixed;
         top: 231px;
         left: 140px;
+        bottom: 525px;
     }
 #Label4{
     position: fixed;
-        top: 283px;
-        left: 141px;
+        top: 228px;
+        left: 140px;
     }
 #Label5{
     position: fixed;
-        top: 339px;
+        top: 272px;
         left: 141px;
         height: 24px;
     }
 #Label6{
     position: fixed;
-        top: 386px;
-        left: 141px;
-        bottom: 167px;
+        top: 315px;
+        left: 140px;
+        bottom: 444px;
     }
 #Label7{
     position: fixed;
-        top: 429px;
-        left: 141px;
+        top: 359px;
+        left: 139px;
     }
 #Label8{
     position: fixed;
-        top: 476px;
-        left: 141px;
+        top: 403px;
+        left: 137px;
     }
 #Label9{
     position: fixed;
@@ -95,35 +96,35 @@
     }
 #Image5{
     position: fixed;
-        top: 283px;
-        left: 85px;
+        top: 224px;
+        left: 83px;
         height: 27px;
         width: 25px;
     }
 #Image6{
     position: fixed;
-        top: 337px;
-        left: 84px;
+        top: 271px;
+        left: 83px;
         height: 27px;
         width: 24px;
     }
 #Image7{
     position: fixed;
-        top: 385px;
-        left: 84px;
+        top: 314px;
+        left: 83px;
         height: 29px;
         width: 28px;
     }
 #Image8{
    position: fixed;
-        top: 429px;
-        left: 85px;
+        top: 358px;
+        left: 84px;
         height: 26px;
         width: 26px;
     }
 #Image9{
     position: fixed;
-        top: 475px;
+        top: 401px;
         left: 85px;
         height: 24px;
         width: 23px;
@@ -357,8 +358,8 @@
     }
 #Button12{
     position: fixed;
-        top: 679px;
-        left: 381px;
+        top: 658px;
+        left: 719px;
         width: 117px;
     }
 #Button11{
@@ -471,22 +472,17 @@
         <asp:Image ID="Image2" img src="../HomePage/Image/ProfileIcon1%20(1).png" runat="server" />
     
         <div style="height: 827px; width: 1437px;">
-            <asp:HyperLink ID="Label2" runat="server" NavigateUrl="AdminHome.aspx" Text="Home" ForeColor="#B03E3E" Font-Underline="False" ></asp:HyperLink>
-            <asp:HyperLink ID="Label3" runat="server" NavigateUrl="~/AdminPages/AdminDashboard.aspx" Text="Dashboard" ForeColor="#B03E3E" Font-Underline="False"></asp:HyperLink>
-            <asp:HyperLink ID="Label4" runat="server" NavigateUrl="~/AdminPages/AdminSubjects.aspx" Text="Subjects" ForeColor="#B03E3E" Font-Underline="False"></asp:HyperLink>
-            <asp:HyperLink ID="Label5" runat="server" NavigateUrl="~/AdminPages/AdminFaculty.aspx" Text="Faculty" ForeColor="#B03E3E" Font-Underline="False"></asp:HyperLink>
-            <asp:HyperLink ID="Label6" runat="server" NavigateUrl="~/AdminPages/AdminStudent.aspx" Text="Students" ForeColor="#B03E3E" Font-Underline="False"></asp:HyperLink>
-            <asp:HyperLink ID="Label7" runat="server" NavigateUrl="~/AdminPages/AdminSections.aspx" Text="Sections" ForeColor="#B03E3E" Font-Underline="False"></asp:HyperLink>
-            <asp:HyperLink ID="Label8" runat="server" NavigateUrl="~/AdminPages/AdminSchoolYearCalendar.aspx" Text="School Year" ForeColor="#B03E3E" Font-Underline="False"></asp:HyperLink>
+                                   <asp:HyperLink ID="Label2" runat="server" NavigateUrl="AdminHome.aspx" Text="Home" ForeColor="#B03E3E" Font-Underline="False" ></asp:HyperLink>
+<asp:HyperLink ID="Label4" runat="server" NavigateUrl="~/AdminPages/AdminSubjects.aspx" Text="Subjects" ForeColor="#B03E3E" Font-Underline="False"></asp:HyperLink>
+<asp:HyperLink ID="Label5" runat="server" NavigateUrl="~/AdminPages/AdminFaculty.aspx" Text="Faculty" ForeColor="#B03E3E" Font-Underline="False"></asp:HyperLink>
+<asp:HyperLink ID="Label6" runat="server" NavigateUrl="~/AdminPages/AdminStudent.aspx" Text="Students" ForeColor="#B03E3E" Font-Underline="False"></asp:HyperLink>
+<asp:HyperLink ID="Label7" runat="server" NavigateUrl="~/AdminPages/AdminSections.aspx" Text="Sections" ForeColor="#B03E3E" Font-Underline="False"></asp:HyperLink>
+<asp:HyperLink ID="Label8" runat="server" NavigateUrl="~/AdminPages/AdminSchoolYearCalendar.aspx" Text="School Year" ForeColor="#B03E3E" Font-Underline="False"></asp:HyperLink>
             <asp:Label ID="Label11" runat="server" Text="Home      " Font-Names="Arial" ForeColor="#B03E3E" Font-Size="7pt"></asp:Label>
             <asp:Label ID="Label10" runat="server" Text="/          Dashboard" Font-Names="Arial" ForeColor="#B03E3E" Font-Size="7pt"></asp:Label>
 
-            <asp:hyperlink id="link" runat="server" NavigateUrl="~/AdminPages/AdminHome.aspx">
+                                    <asp:hyperlink id="link" runat="server" NavigateUrl="~/AdminPages/AdminHome.aspx">
 <asp:Image ID="Image3" img src="HomeImages/🦆%20icon%20_home_.png" runat="server" />
-</asp:hyperlink>
-
-<asp:hyperlink id="Hyperlink1" runat="server" NavigateUrl="~/AdminPages/AdminDashboard.aspx">
-<asp:Image ID="Image4" img src="HomeImages/🦆%20icon%20_dashboard_.png"  runat="server" />
 </asp:hyperlink>
 
 <asp:hyperlink id="Hyperlink2" runat="server" NavigateUrl="~/AdminPages/AdminSubjects.aspx">
@@ -542,7 +538,7 @@
             
 
             <asp:Button ID="Button9" runat="server" Text="Update" Width="96px" OnClick="Button3_Click" Height="29px" />
-            <asp:Button ID="Button10" runat="server" Text="Delete" Width="96px" Height="29px" OnClick="Button2_Click" />
+            <asp:Button ID="Button10" runat="server" Text="Delete" Width="96px" Height="29px" OnClick="Button10_Click" />
 
             <asp:Label ID="Label16" runat="server" Text="First Name:"></asp:Label>
 
@@ -599,8 +595,7 @@
                 <asp:ListItem Value="5">2027-2028</asp:ListItem>
             </asp:DropDownList>
             
-                    <asp:Button ID="Button11" runat="server" Text="Update" Width="96px" OnClick="Button3_Click" Height="29px" />
-<asp:Button ID="Button12" runat="server" Text="Delete" Width="96px" Height="29px" OnClick="Button2_Click" />
+                    <asp:Button ID="Button11" runat="server" Text="Update" Width="96px" OnClick="Button11_Click" Height="29px" />
 
 <asp:Label ID="Label25" runat="server" Text="School Year:"></asp:Label>
 
