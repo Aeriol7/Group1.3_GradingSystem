@@ -126,7 +126,7 @@
         right: 831px;
     }
     #form1 {
-        height: 824px;
+        height: 583px;
     }
     .nav-tree-view {
         height: 379px;
@@ -135,9 +135,9 @@
     .set-grades-container {
         position: fixed;
         top: 85px;
-        left: 318px;
+        left: 316px;
         width: 960px;
-        height: 696px;
+        height: 517px;
     }
     #TSetGradesLabel {
         position: fixed;
@@ -148,8 +148,8 @@
     }
     #SGSaveGrades {
         position: fixed;
-        top: 496px;
-        left: 649px;
+        top: 537px;
+        left: 1150px;
         width: 94px;
     }
     #SGButton1 {
@@ -164,16 +164,16 @@
         left: 1077px;
         width: 91px;
     }
-    #SGGradeIDLabel {
+    #SRRecordIDLabel {
         position: fixed;
-        top: 425px;
-        left: 624px;
-        bottom: 16px;
+        top: 426px;
+        left: 356px;
+        bottom: 94px;
     }
     #SGSearchTxt {
         position: fixed;
-        top: 140px;
-        left: 1118px;
+        top: 90px;
+        left: 1119px;
         width: 144px;
     }
     #SGNext {
@@ -197,10 +197,10 @@
     }
     .set-grades-form {
         position: fixed;
-        top: 419px;
-        left: 336px;
+        top: 420px;
+        left: 341px;
         height: 169px;
-        width: 455px;
+        width: 924px;
     }
     #Button1{
         position: fixed;
@@ -216,21 +216,21 @@
     }
     #ddlGradeLevel {
         position: fixed;
-        top: 135px;
-        left: 456px;
+        top: 134px;
+        left: 445px;
         }
     #ddlSection {
         position: fixed;
-        top: 135px;
-        left: 582px;
+        top: 133px;
+        left: 565px;
     }
     #ddlSubjects {
         position: fixed;
-        top: 135px;
-        left: 723px;
-        right: 437px;
+        top: 132px;
+        left: 717px;
+        right: 443px;
     }
-    #gvGrades {
+    #gvRecords {
         position: fixed;
         top: 170px;
         left: 339px;
@@ -241,95 +241,76 @@
     }
     #SGSearchLabel0 {
         position: fixed;
-        top: 141px;
-        left: 1052px;
-        bottom: 379px;
+        top: 91px;
+        left: 1058px;
+        bottom: 454px;
     }
-    #SGtxtGradeID {
+    #SRtxtRecordID {
         position: fixed;
-        top: 425px;
-        left: 706px;
+        top: 426px;
+        left: 433px;
         width: 70px;
+        right: 776px;
     }
-    #SGFNLabel {
-        position: fixed;
-        top: 425px;
-        left: 351px;
-        }
-    #SGtxtLName {
-        position: fixed;
-        top: 457px;
-        left: 434px;
-        width: 176px;
-    }
-    #SGQRTLabel {
-        position: fixed;
-        top: 482px;
-        left: 374px;
-        right: 857px;
-    }
-    #SGtxtFName {
-        position: fixed;
-        top: 425px;
-        left: 435px;
-        width: 176px;
-    }
-    #SGLNLabel {
+    #SRFNLabel {
         position: fixed;
         top: 455px;
-        left: 351px;
+        left: 348px;
         }
-    #ddlQuarter {
+    #SRtxtLName {
+        position: fixed;
+        top: 478px;
+        left: 433px;
+        width: 176px;
+    }
+    #SRQRTLabel {
+        position: fixed;
+        top: 503px;
+        left: 373px;
+        right: 858px;
+    }
+    #SRtxtFName {
+        position: fixed;
+        top: 453px;
+        left: 433px;
+        width: 176px;
+    }
+    #SRLNLabel {
+        position: fixed;
+        top: 480px;
+        left: 349px;
+        }
+    #ddlAmnt {
         position: fixed;
         top: 305px;
         left: 943px;
     }
     #SGGradesLabel {
         position: fixed;
-        top: 511px;
-        left: 374px;
+        top: 502px;
+        left: 383px;
     }
     #SGtxtGrades {
         position: fixed;
-        top: 512px;
-        left: 435px;
+        top: 501px;
+        left: 433px;
         width: 70px;
     }
     #cbINC {
         position: fixed;
 
     }
-    #ddlQuarter {
+    #ddlAmnt {
         position: fixed;
-        top: 482px;
-        left: 435px;
+        top: 422px;
+        left: 817px;
         width: 70px;
+        right: 353px;
     }
     #ddlSection0 {
         position: fixed;
         top: 135px;
         left: 570px;
-    }
-    #ddlSchoolYear0 {
-        position: fixed;
-        top: 482px;
-        left: 434px;
-        width: 79px;
-        height: 15px;
-    }
-    #SetGradesLabel0 {
-        position: fixed;
-        text-align: center;
-        color: #B03E3E;
-        font-family: Inter;
-        font-size: 100px;
-        font-style: normal;
-        font-weight: 700;
-        line-height: normal;
-        top: 278px;
-        left: 137px;
-        width: 91px;
-        right: 1057px;
     }
 #RecordsHL {
     position: fixed;
@@ -353,10 +334,54 @@
 }
 #ddlSchoolWork{
     position: fixed;
-        left: 864px;
+        left: 1007px;
         height: 18px;
         width: 176px;
-        top: 135px;
+        top: 131px;
+    }
+    #SRAmntLabel {
+        position: fixed;
+        top: 424px;
+        left: 796px;
+        right: 343px;
+    }
+    #ddlQuarter {
+        position: fixed;
+        top: 131px;
+        left: 873px;
+        width: 70px;
+    }
+    #SGGradesLabel0 {
+        position: fixed;
+        top: 423px;
+        left: 640px;
+        width: 205px;
+        height: 19px;
+        margin-bottom: 0px;
+    }
+    #SRtxtTotalScore {
+        position: fixed;
+        top: 475px;
+        left: 817px;
+        width: 70px;
+    }
+    #SRSWNoLabel {
+        position: fixed;
+        top: 451px;
+        left: 690px;
+        bottom: 69px;
+    }
+    #SRTotalScoreLabel {
+        position: fixed;
+        top: 477px;
+        left: 727px;
+        bottom: 43px;
+    }
+    #SRtxtSWNo {
+        position: fixed;
+        top: 449px;
+        left: 817px;
+        width: 70px;
     }
     </style>
 <form id="form1" runat="server">
@@ -374,7 +399,7 @@
 <head runat="server">
     <title></title>
 </head>
-<body style="height: 823px; width:1440px; margin-left: 10px;">
+<body style="height: 584px; width:1277px; margin-left: 10px;">
         <asp:HyperLink ID="TeacherHomeHL" runat="server" NavigateUrl="TeacherHomePage.aspx" Font-Size="14pt" Font-Underline="False">
         <asp:Image ID="HomeIcon" img src="../imgs/icon_home.png" runat="server" Height="40px" />
         </asp:HyperLink>  
@@ -394,24 +419,8 @@
         <asp:Label ID="TSetGradesLabel" runat="server" Font-Bold="True" Font-Names="Arial" Font-Size="20pt" ForeColor="#983939">Records</asp:Label>
         <asp:Label ID="SGSearchLabel0" runat="server" Font-Names="Arial" ForeColor="#983939" Height="18px">Search:</asp:Label>
         <asp:TextBox ID="SGSearchTxt" runat="server" BorderStyle="Solid" BorderWidth="1px"></asp:TextBox>
-        <asp:DropDownList ID="ddlSchoolYear" runat="server" Height="22px">
-            <asp:ListItem>Select S.Y.</asp:ListItem>
-        </asp:DropDownList>
         <asp:DropDownList ID="ddlGradeLevel" runat="server" Width="105px" Height="22px" AutoPostBack = "true" OnSelectedIndexChanged="ddlGradeLevel_SelectedIndexChanged">
-            <asp:ListItem >Select Grade</asp:ListItem>
-            <asp:ListItem Value="1">Kinder</asp:ListItem>
-            <asp:ListItem>Grade 1</asp:ListItem>
-            <asp:ListItem>Grade 2</asp:ListItem>
-            <asp:ListItem>Grade 3</asp:ListItem>
-            <asp:ListItem>Grade 4</asp:ListItem>
-            <asp:ListItem>Grade 5</asp:ListItem>
-            <asp:ListItem>Grade 6</asp:ListItem>
-            <asp:ListItem>Grade 7</asp:ListItem>
-            <asp:ListItem>Grade 8</asp:ListItem>
-            <asp:ListItem>Grade 9</asp:ListItem>
-            <asp:ListItem>Grade 10</asp:ListItem>
-            <asp:ListItem>Grade 11</asp:ListItem>
-            <asp:ListItem>Grade 12</asp:ListItem>
+            <asp:ListItem >Select Level</asp:ListItem>
         </asp:DropDownList>
         <asp:DropDownList ID="ddlSection" runat="server" Height="22px" Width="125px" Enabled="False" AutoPostBack = "True" OnSelectedIndexChanged="ddlSection_SelectedIndexChanged">
             <asp:ListItem>Select Section</asp:ListItem>
@@ -434,15 +443,15 @@
         <asp:DropDownList ID="ddlSubjects" runat="server" Height="22px" Width="125px" Enabled="False"  AutoPostBack = "true" OnSelectedIndexChanged="ddlSubjects_SelectedIndexChanged">
             <asp:ListItem>Select Subject</asp:ListItem>
         </asp:DropDownList>
-        <asp:DropDownList ID="ddlSchoolWork" runat="server" AutoPostBack="True" Height="22px" OnSelectedIndexChanged="ddlSchoolWork_SelectedIndexChanged">
+        <asp:DropDownList ID="ddlSchoolWork" runat="server" AutoPostBack="True" Height="22px" OnSelectedIndexChanged="ddlSchoolWork_SelectedIndexChanged" Enabled="False">
             <asp:ListItem>Select School Work Type</asp:ListItem>
             <asp:ListItem Value="1">Written Work</asp:ListItem>
             <asp:ListItem Value="2">Performance Task</asp:ListItem>
             <asp:ListItem Value="3">Quarterly Assessment</asp:ListItem>
 </asp:DropDownList>
         <div class="set-grades-table" style="height: 250px; overflow: auto;" >
-            <asp:GridView ID="gvGrades" runat="server" AllowPaging="True" PageSize="5" OnPageIndexChanging="OnPageIndexChanging" OnSelectedIndexChanged="gvGrades_SelectedIndexChanged"
-    OnRowDataBound="gvGrades_RowDataBound" CellPadding="4" ForeColor="#333333" GridLines="None">
+            <asp:GridView ID="gvRecords" runat="server" AllowPaging="True" PageSize="5" OnPageIndexChanging="OnPageIndexChanging" OnSelectedIndexChanged="gvRecords_SelectedIndexChanged"
+    OnRowDataBound="gvRecords_RowDataBound" CellPadding="4" ForeColor="#333333" GridLines="None">
                 <EditRowStyle BackColor="#999999" />
                 <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
                 <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
@@ -456,25 +465,38 @@
             </asp:GridView>
         </div>
         <div class="set-grades-form">
-            <asp:Label ID="SGFNLabel" runat="server" Font-Names="Arial" ForeColor="#983939">First Name:</asp:Label>
-            <asp:TextBox ID="SGtxtFName" runat="server" BorderStyle="Solid" BorderWidth="1px"></asp:TextBox>
-            <asp:Label ID="SGLNLabel" runat="server" Font-Names="Arial" ForeColor="#983939" BorderStyle="None">Last Name:</asp:Label>
-            <asp:TextBox ID="SGtxtLName" runat="server" BorderStyle="Solid" BorderWidth="1px"></asp:TextBox>
-            <asp:Label ID="SGGradeIDLabel" runat="server" Font-Names="Arial" ForeColor="#983939" Height="18px">Grade ID:</asp:Label>
-            <asp:TextBox ID="SGtxtGradeID" runat="server" BorderStyle="Solid" BorderWidth="1px"></asp:TextBox>
-            <asp:Label ID="SGQRTLabel" runat="server" Font-Names="Arial" ForeColor="#983939">Quarter:</asp:Label>
-        <asp:DropDownList ID="ddlQuarter" runat="server" Width="110px" Height="22px" AutoPostBack="True">
-            <asp:ListItem>Select Quarter</asp:ListItem>
-            <asp:ListItem>1st</asp:ListItem>
-            <asp:ListItem>2nd</asp:ListItem>
-            <asp:ListItem>3rd</asp:ListItem>
-            <asp:ListItem>4th</asp:ListItem>
+            <asp:Label ID="SRFNLabel" runat="server" Font-Names="Arial" ForeColor="#983939">First Name:</asp:Label>
+            <asp:TextBox ID="SRtxtFName" runat="server" BorderStyle="Solid" BorderWidth="1px"></asp:TextBox>
+            <asp:Label ID="SRLNLabel" runat="server" Font-Names="Arial" ForeColor="#983939" BorderStyle="None">Last Name:</asp:Label>
+            <asp:TextBox ID="SRtxtLName" runat="server" BorderStyle="Solid" BorderWidth="1px"></asp:TextBox>
+            <asp:Label ID="SRRecordIDLabel" runat="server" Font-Names="Arial" ForeColor="#983939" Height="18px">Record ID:</asp:Label>
+            <asp:TextBox ID="SRtxtRecordID" runat="server" BorderStyle="Solid" BorderWidth="1px"></asp:TextBox>
+        <asp:DropDownList ID="ddlAmnt" runat="server" Width="115px" Height="22px" AutoPostBack="True">
+            <asp:ListItem>Select Amount </asp:ListItem>
+            <asp:ListItem>1</asp:ListItem>
+            <asp:ListItem>2</asp:ListItem>
+            <asp:ListItem>3</asp:ListItem>
+            <asp:ListItem>4</asp:ListItem>
+            <asp:ListItem>5</asp:ListItem>
         </asp:DropDownList>
-            <asp:Label ID="SGGradesLabel" runat="server" Font-Names="Arial" ForeColor="#983939" Height="18px">Grades:</asp:Label>
+            <asp:Label ID="SGGradesLabel" runat="server" Font-Names="Arial" ForeColor="#983939" Height="18px">Score:</asp:Label>
             <asp:TextBox ID="SGtxtGrades" runat="server" BorderStyle="Solid" BorderWidth="1px"></asp:TextBox>
+            <asp:Label ID="SRTotalScoreLabel" runat="server" Font-Names="Arial" ForeColor="#983939" Height="18px">Total Score:</asp:Label>
+            <asp:TextBox ID="SRtxtTotalScore" runat="server" BorderStyle="Solid" BorderWidth="1px"></asp:TextBox>
             <asp:Button ID="SGSaveGrades" runat="server" Text="Save" BackColor="White" Font-Names="Arial" ForeColor="#983939" OnClick="SGSaveGrades_Click" />
+            <asp:Label ID="SRSWNoLabel" runat="server" Font-Names="Arial" ForeColor="#983939" Height="18px">School Work No.:</asp:Label>
+            <asp:TextBox ID="SRtxtSWNo" runat="server" BorderStyle="Solid" BorderWidth="1px"></asp:TextBox>
+            <asp:Label ID="SGGradesLabel0" runat="server" Font-Names="Arial" ForeColor="#983939">Amount of School Work:</asp:Label>
         </div>
-        
+        <asp:DropDownList ID="ddlSchoolYear" runat="server" Width="95px" Height="22px" AutoPostBack="True" OnSelectedIndexChanged="ddlSchoolYear_SelectedIndexChanged">
+        </asp:DropDownList>
+        <asp:DropDownList ID="ddlQuarter" runat="server" Width="110px" Height="22px" AutoPostBack="True" Enabled="False" OnSelectedIndexChanged="ddlQuarter_SelectedIndexChanged">
+    <asp:ListItem>Select Quarter</asp:ListItem>
+    <asp:ListItem Value="1">1st</asp:ListItem>
+    <asp:ListItem Value="2">2nd</asp:ListItem>
+    <asp:ListItem Value="3">3rd</asp:ListItem>
+    <asp:ListItem Value="4">4th</asp:ListItem>
+</asp:DropDownList>
     </div>
 </body>
     
