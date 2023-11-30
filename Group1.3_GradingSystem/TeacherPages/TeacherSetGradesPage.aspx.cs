@@ -39,8 +39,9 @@ namespace Group1._3_GradingSystem.TeacherPages
 				"grades.first_quarter, grades.second_quarter, grades.third_quarter, grades.fourth_quarter, grades.average, grades.remarks FROM grades " +
 				"INNER JOIN students ON grades.student_id=students.student_id " +
 				"INNER JOIN subjects ON grades.subject_id=subjects.subject_id " +
-				"WHERE subjects.subject_id=@subjectid", con);
+				"WHERE subjects.subject_id=@subjectid AND subjects.teacher_id=@teacherid", con);
 			cmd.Parameters.AddWithValue("@subjectid", ddlSubjects.SelectedValue);
+			cmd.Parameters.AddWithValue("@teacherid", Session["CurrentUser"]);
 			SqlDataAdapter adpt = new SqlDataAdapter(cmd);
 			DataTable dt = new DataTable();
 			adpt.Fill(dt);
