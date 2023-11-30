@@ -58,6 +58,7 @@ namespace Group1._3_GradingSystem.AdminPages
                 TextBox4.Text = gr.Cells[3].Text;
                 DropDownList1.SelectedValue = gr.Cells[2].Text;
                 DropDownList2.SelectedValue = gr.Cells[2].Text;
+                DropDownList3.SelectedValue = gr.Cells[4].Text;
             }
         }
 
@@ -96,12 +97,13 @@ namespace Group1._3_GradingSystem.AdminPages
         {
             SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-4DSNP2P;Initial Catalog=HIS_GradingSystem;Integrated Security=False;User Id=sa;Password=1234;MultipleActiveResultSets=True");
             con.Open();
-            SqlCommand cmd = new SqlCommand("INSERT INTO subjects (subject_name, year_level_id, teacher_id, section_id) VALUES  (@subject_name, @year_level_id, @teacher_id, @section_id)", con);
+            SqlCommand cmd = new SqlCommand("INSERT INTO subjects (subject_name, year_level_id, teacher_id, section_id, subject_category_id) VALUES  (@subject_name, @year_level_id, @teacher_id, @section_id, @category)", con);
 
             cmd.Parameters.AddWithValue("@subject_name", TextBox3.Text);
             cmd.Parameters.AddWithValue("@teacher_id", TextBox4.Text);
             cmd.Parameters.AddWithValue("@year_level_id", DropDownList1.SelectedValue);
             cmd.Parameters.AddWithValue("@section_id", DropDownList2.SelectedValue);
+            cmd.Parameters.AddWithValue("@category", DropDownList3.SelectedValue);
             cmd.ExecuteNonQuery();
             con.Close();
 
@@ -117,13 +119,14 @@ namespace Group1._3_GradingSystem.AdminPages
         {
             SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-4DSNP2P;Initial Catalog=HIS_GradingSystem;Integrated Security=False;User Id=sa;Password=1234;MultipleActiveResultSets=True");
             con.Open();
-            SqlCommand cmd = new SqlCommand("UPDATE subjects SET subject_name = @subject_name, teacher_id = @teacher_id, year_level_id = @year_level_id, section_id = @section_id WHERE subject_id = @subject_id", con);
+            SqlCommand cmd = new SqlCommand("UPDATE subjects SET subject_name = @subject_name, teacher_id = @teacher_id, year_level_id = @year_level_id, section_id = @section_id, subject_category_id = @category WHERE subject_id = @subject_id", con);
 
             cmd.Parameters.AddWithValue("@subject_name", TextBox3.Text);
             cmd.Parameters.AddWithValue("@teacher_id", TextBox4.Text);
+            cmd.Parameters.AddWithValue("@subject_id", TextBox2.Text);
             cmd.Parameters.AddWithValue("@year_level_id", DropDownList1.SelectedValue);
             cmd.Parameters.AddWithValue("@section_id", DropDownList2.SelectedValue);
-            cmd.Parameters.AddWithValue("@subject_id", TextBox2.Text);
+            cmd.Parameters.AddWithValue("@category", DropDownList3.SelectedValue); 
             cmd.ExecuteNonQuery();
             con.Close();
 

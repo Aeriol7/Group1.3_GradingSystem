@@ -25,7 +25,7 @@ namespace Group1._3_GradingSystem.AdminPages
         public void students()
         {
             SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-4DSNP2P;Initial Catalog=HIS_GradingSystem;Integrated Security=False;User Id=sa;Password=1234;MultipleActiveResultSets=True");
-            string com = "SELECT students.student_id, students.first_name, students.last_name, users.user_id, year_levels.year_level, sections.section, school_years.school_year FROM students\r\nINNER JOIN users ON students.user_id=users.user_id\r\nINNER JOIN year_levels ON students.year_level_id=year_levels.year_level_id\r\nINNER JOIN sections ON students.section_id=sections.section_id\r\nINNER JOIN school_years ON students.school_year_id=school_years.school_year_id";
+            string com = "SELECT * FROM students";
             con.Open();
             SqlDataAdapter adpt = new SqlDataAdapter(com, con);
             DataTable dt = new DataTable();

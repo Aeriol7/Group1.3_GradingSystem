@@ -161,28 +161,28 @@
     }
 #Button1{
     position: fixed;
-        top: 626px;
-        left: 396px;
+        top: 668px;
+        left: 394px;
         width: 147px;
-        right: 828px;
+        right: 787px;
     }
 #Button2{
     position: fixed;
-        top: 665px;
-        left: 397px;
+        top: 722px;
+        left: 394px;
         width: 117px;
-        right: 827px;
+        right: 787px;
     }
 #Button3{
     position: fixed;
-        top: 627px;
-        left: 552px;
+        top: 670px;
+        left: 547px;
         width: 132px;
     }
 #TextBox1{
     position: fixed;
-        top: 202px;
-        left: 843px;
+        top: 198px;
+        left: 1039px;
     }
 #Label15{
     position: fixed;
@@ -214,10 +214,10 @@
     }
     .subject {
         position: fixed;
-        height: 508px;
+        height: 571px;
         width: 440px;
         top: 229px;
-        left: 302px;
+        left: 303px;
     }
 #GridView3{
     position: fixed;
@@ -229,8 +229,8 @@
     }
 #Button7{
     position: fixed;
-        top: 664px;
-        left: 552px;
+        top: 721px;
+        left: 546px;
     }
     .teacher {
         height: 428px;
@@ -238,13 +238,13 @@
     }
     .teacher{
         position: fixed;
-        top: 232px;
-        left: 766px;
+        top: 230px;
+        left: 957px;
     }
     #GridView2{
         position: fixed;
-        top: 235px;
-        left: 772px;
+        top: 236px;
+        left: 967px;
     }
     #TextBox2{
         position: fixed;
@@ -290,8 +290,8 @@
     }
     #Label20{
     position: fixed;
-        top: 205px;
-        left: 776px;
+        top: 201px;
+        left: 975px;
     }
 #TextBox5{
     position: fixed;
@@ -300,13 +300,23 @@
     }
 #Label21{
     position: fixed;
-        top: 561px;
-        left: 317px;
+        top: 563px;
+        left: 341px;
     }
 #DropDownList2{
     position: fixed;
         top: 559px;
         left: 416px;
+    }
+    #Label22{
+    position: fixed;
+        top: 598px;
+        left: 329px;
+    }
+    #DropDownList3{
+    position: fixed;
+        top: 597px;
+        left: 415px;
     }
     </style>
 
@@ -331,7 +341,7 @@
 <asp:HyperLink ID="Label5" runat="server" NavigateUrl="~/AdminPages/AdminFaculty.aspx" Text="Faculty" ForeColor="#B03E3E" Font-Underline="False"></asp:HyperLink>
 <asp:HyperLink ID="Label6" runat="server" NavigateUrl="~/AdminPages/AdminStudent.aspx" Text="Students" ForeColor="#B03E3E" Font-Underline="False"></asp:HyperLink>
 <asp:HyperLink ID="Label7" runat="server" NavigateUrl="~/AdminPages/AdminSections.aspx" Text="Sections" ForeColor="#B03E3E" Font-Underline="False"></asp:HyperLink>
-<asp:HyperLink ID="Label8" runat="server" NavigateUrl="~/AdminPages/AdminSchoolYearCalendar.aspx" Text="School Year" ForeColor="#B03E3E" Font-Underline="False"></asp:HyperLink>
+
             <asp:Label ID="Label11" runat="server" Text="Home      " Font-Names="Arial" ForeColor="#B03E3E" Font-Size="7pt"></asp:Label>
             <asp:Label ID="Label10" runat="server" Text="/          Dashboard" Font-Names="Arial" ForeColor="#B03E3E" Font-Size="7pt"></asp:Label>
 
@@ -355,9 +365,7 @@
 <asp:Image ID="Image8" img src="HomeImages/🦆%20icon%20_grid%20three%20up_.png"  runat="server" />
 </asp:hyperlink>
 
-<asp:hyperlink id="Hyperlink6" runat="server" NavigateUrl="~/AdminPages/AdminSchoolYearCalendar.aspx">
-    <asp:Image ID="Image9" img src="HomeImages/🦆%20icon%20_calendar_.png"  runat="server" />
-<</asp:hyperlink>
+
 
             <asp:Label ID="Label12" runat="server" Text="/  Subjects" Font-Size="7pt" ForeColor="#B03E3E"></asp:Label>
             
@@ -399,6 +407,15 @@
 
             <asp:Label ID="Label15" runat="server" Text="Search:"></asp:Label>
 
+                    <asp:DropDownList ID="DropDownList3" runat="server" Height="25px" Width="167px">
+                        <asp:ListItem Value="0">Select Category</asp:ListItem>
+                        <asp:ListItem Value="1">Language, AP, EsP</asp:ListItem>
+                        <asp:ListItem Value="2">Science, Math</asp:ListItem>
+                        <asp:ListItem Value="3">MAPEH, EPP/TLE</asp:ListItem>
+                        <asp:ListItem Value="4">Academic Subject</asp:ListItem>
+                        <asp:ListItem Value="5">Research, Work Immersion</asp:ListItem>
+                       </asp:DropDownList>
+            
             </div>
 
 
@@ -475,7 +492,11 @@
                 <asp:ListItem Value="12">Grade 11</asp:ListItem>
                 <asp:ListItem Value="13">Grade 12</asp:ListItem>
             </asp:DropDownList>
-            <asp:Label ID="Label21" runat="server" Text="Section ID:"></asp:Label>
+            <asp:Label ID="Label21" runat="server" Text="Section:"></asp:Label>
+            
+
+            
+            <asp:Label ID="Label22" runat="server" Text="Category:"></asp:Label>
             
 
             
