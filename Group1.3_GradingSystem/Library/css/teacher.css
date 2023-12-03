@@ -1,0 +1,154 @@
+﻿#Panel1 {
+    position: fixed;
+}
+
+#Image1 {
+    position: fixed;
+    margin-right: 15px;
+    margin-left: 15px;
+    top: 14px;
+    left: 12px;
+    width: 58px;
+    height: 58px;
+}
+
+#LogoutDropDown {
+    position: fixed;
+    top: 35px;
+    left: 1211px;
+}
+
+#UserIcon {
+    position: fixed;
+    top: 26px;
+    left: 1137px;
+    height: 40px;
+    width: 40px;
+    right: 108px;
+}
+
+#Label1 {
+    position: fixed;
+    top: 20px;
+    left: 105px;
+}
+
+#NavPanel {
+    position: fixed;
+}
+
+#HomeIcon {
+    position: fixed;
+    top: 88px;
+    left: 38px;
+    width: 44px;
+    height: 43px;
+}
+
+#TeacherHomeLabel {
+    position: fixed;
+    top: 98px;
+    left: 160px;
+    height: 28px;
+    width: 54px;
+    text-align: center;
+    color: #B03E3E;
+    font-family: Inter;
+    font-size: 100px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+#AnnouncementIcon {
+    position: fixed;
+    width: 48px;
+    top: 149px;
+    left: 37px;
+    height: 45px;
+}
+
+#TeacherAnnouncementLabel {
+    position: fixed;
+    text-align: center;
+    color: #B03E3E;
+    font-family: Inter;
+    font-size: 100px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    top: 159px;
+    left: 122px;
+}
+
+#SetGradesIcon {
+    position: fixed;
+    top: 212px;
+    left: 39px;
+    right: 1203px;
+    height: 43px;
+}
+
+#SetGradesLabel {
+    position: fixed;
+    text-align: center;
+    color: #B03E3E;
+    font-family: Inter;
+    font-size: 100px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    top: 221px;
+    left: 137px;
+    width: 91px;
+    right: 1057px;
+}
+
+.teacher-home-image {
+    position: fixed;
+    height: 464px;
+    width: 994px;
+    top: 86px;
+    left: 278px;
+}
+
+#TCWelcomeALabel {
+    position: fixed;
+    top: 96px;
+    left: 580px;
+    color: #B03E3E;
+}
+
+#TeacherUser {
+    position: fixed;
+    color: #47D466;
+    top: 96px;
+    left: 940px;
+}
+
+#TeacherWelcomeLabel {
+    position: fixed;
+    top: 89px;
+    left: 274px;
+    height: 45px;
+    width: 180px;
+    color: #D44747;
+    right: 831px;
+}
+
+#form1 {
+    height: 583px;
+}
+
+.nav-tree-view {
+    height: 379px;
+    width: 254px;
+}
+
+.teacher-side-bar {
+    position: fixed;
+    top: 76px;
+    left: -7px;
+    height: 524px;
+    width: 321px;
+}

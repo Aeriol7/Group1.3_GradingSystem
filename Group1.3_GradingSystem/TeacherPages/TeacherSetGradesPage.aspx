@@ -1,102 +1,9 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="TeacherSetGradesPage.aspx.cs" Inherits="Group1._3_GradingSystem.TeacherPages.TeacherSetGradesPage" enableEventValidation="false" %>
 
 <!DOCTYPE html>
-<style type="text/css">
-    #Panel1{
-        position: fixed;
-    }
-    #Image1 {
-        position: fixed;
-        margin-right: 15px;
-        margin-left: 15px;
-        top: 14px;
-        left: 12px;
-        width: 58px;
-        height: 58px;
-    }
-    #LogoutDropDown {
-        position: fixed;
-        top: 35px;
-        left: 1211px;
-    }
-    #UserIcon {
-        position: fixed;
-        top: 26px;
-        left: 1137px;
-        height: 40px;
-        width: 40px;
-        right: 108px;
-    }
-    #Label1 {
-        position: fixed;
-        top: 20px;
-        left: 105px;
-    }
-    #NavPanel {
-        position: fixed;
-
-    }
-    #HomeIcon {
-        position: fixed;
-        top: 88px;
-        left: 38px;
-        width: 44px;
-        height: 43px;
-    }
-    #TeacherHomeLabel {
-        position: fixed;
-        top: 98px;
-        left: 160px;
-        height: 28px;
-        width: 54px;
-        text-align: center;
-        color: #B03E3E;
-        font-family: Inter;
-        font-size: 100px;
-        font-style: normal;
-        font-weight: 700;
-        line-height: normal;
-    }
-    #AnnouncementIcon {
-        position: fixed;
-        width: 48px;
-        top: 149px;
-        left: 37px;
-        height: 45px;
-    }
-    #TeacherAnnouncementLabel {
-        position: fixed;
-        text-align: center;
-        color: #B03E3E;
-        font-family: Inter;
-        font-size: 100px;
-        font-style: normal;
-        font-weight: 700;
-        line-height: normal;
-        top: 159px;
-        left: 122px;
-    }
-    #SetGradesIcon {
-        position: fixed;
-        top: 212px;
-        left: 39px;
-        right: 1203px;
-        height: 43px;
-    }
-    #SetGradesLabel {
-        position: fixed;
-        text-align: center;
-        color: #B03E3E;
-        font-family: Inter;
-        font-size: 100px;
-        font-style: normal;
-        font-weight: 700;
-        line-height: normal;
-        top: 221px;
-        left: 137px;
-        width: 91px;
-        right: 1057px;
-    }
+<head runat="server">
+    <title>Teacher Records</title>
+    <link href="../Library/css/teacher.css" rel="stylesheet" />&nbsp;</head><style type="text/css">
     .teacher-home-image {
         position: fixed;
         height: 464px;
@@ -349,9 +256,7 @@
             
        </nav>
 </header>
-<head runat="server">
-    <title></title>
-</head>
+
 <body style="height: 823px; width:1440px; margin-left: 10px;">
     <asp:HyperLink ID="TeacherHomeHL" runat="server" NavigateUrl="TeacherHomePage.aspx" Font-Size="14pt" Font-Underline="False">
         <asp:Image ID="HomeIcon" img src="../imgs/icon_home.png" runat="server" Height="40px" />
