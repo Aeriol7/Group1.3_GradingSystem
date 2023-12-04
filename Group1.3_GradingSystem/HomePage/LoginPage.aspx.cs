@@ -51,10 +51,6 @@ namespace Group1._3_GradingSystem.HomePage
 			{
 				ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Invalid Login');", true);
 			}
-
-			
 		}
-
-
 	}
 }

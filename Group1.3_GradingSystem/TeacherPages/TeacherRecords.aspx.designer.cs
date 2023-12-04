@@ -258,6 +258,24 @@ namespace Group1._3_GradingSystem.TeacherPages
 		protected global::System.Web.UI.WebControls.Label SRLNLabel;
 
 		/// <summary>
+		/// TRUpdateTable control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.Button TRUpdateTable;
+
+		/// <summary>
+		/// TRDeleteRecords control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.Button TRDeleteRecords;
+
+		/// <summary>
 		/// SRtxtLName control.
 		/// </summary>
 		/// <remarks>
@@ -283,15 +301,6 @@ namespace Group1._3_GradingSystem.TeacherPages
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
 		protected global::System.Web.UI.WebControls.TextBox SRtxtRecordID;
-
-		/// <summary>
-		/// ddlAmnt control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.DropDownList ddlAmnt;
 
 		/// <summary>
 		/// SGGradesLabel control.
@@ -348,13 +357,13 @@ namespace Group1._3_GradingSystem.TeacherPages
 		protected global::System.Web.UI.WebControls.Label SRSWNoLabel;
 
 		/// <summary>
-		/// SRtxtSWNo control.
+		/// ddlSWNo control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox SRtxtSWNo;
+		protected global::System.Web.UI.WebControls.DropDownList ddlSWNo;
 
 		/// <summary>
 		/// SGGradesLabel0 control.
@@ -364,6 +373,15 @@ namespace Group1._3_GradingSystem.TeacherPages
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
 		protected global::System.Web.UI.WebControls.Label SGGradesLabel0;
+
+		/// <summary>
+		/// TRInsertRecords control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.Button TRInsertRecords;
 
 		/// <summary>
 		/// ddlSchoolYear control.
@@ -382,5 +400,14 @@ namespace Group1._3_GradingSystem.TeacherPages
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
 		protected global::System.Web.UI.WebControls.DropDownList ddlQuarter;
+
+		/// <summary>
+		/// ddlAmnt control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.DropDownList ddlAmnt;
 	}
 }

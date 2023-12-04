@@ -61,12 +61,12 @@
 </asp:DropDownList>
     <div class="set-grades-table" style="height: 250px; overflow: auto;" >
             <asp:GridView ID="gvRecords" runat="server" AllowPaging="True" PageSize="5" OnPageIndexChanging="OnPageIndexChanging" OnSelectedIndexChanged="gvRecords_SelectedIndexChanged"
-                OnRowDataBound="gvRecords_RowDataBound" CellPadding="4" ForeColor="#333333" GridLines="None">
+                OnRowDataBound="gvRecords_RowDataBound" CellPadding="0" ForeColor="#333333">
                 <EditRowStyle BackColor="#999999" />
                 <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
                 <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
                 <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
-                <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+                <RowStyle BackColor="#F7F6F3" ForeColor="#333333" HorizontalAlign="Center" />
                 <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
                 <SortedAscendingCellStyle BackColor="#E9E7E2" />
                 <SortedAscendingHeaderStyle BackColor="#506C8C" />
@@ -78,25 +78,21 @@
             <asp:Label ID="SRFNLabel" runat="server" Font-Names="Arial" ForeColor="#983939">First Name:</asp:Label>
             <asp:TextBox ID="SRtxtFName" runat="server" BorderStyle="Solid" BorderWidth="1px"></asp:TextBox>
             <asp:Label ID="SRLNLabel" runat="server" Font-Names="Arial" ForeColor="#983939" BorderStyle="None">Last Name:</asp:Label>
+            <asp:Button ID="TRUpdateTable" runat="server" Text="Update" BackColor="White" Font-Names="Arial" ForeColor="#983939" Height="21px" Width="94px" />
+            <asp:Button ID="TRDeleteRecords" runat="server" Text="Delete Records" BackColor="White" Font-Names="Arial" ForeColor="#983939" Height="21px" Width="94px" />
             <asp:TextBox ID="SRtxtLName" runat="server" BorderStyle="Solid" BorderWidth="1px"></asp:TextBox>
             <asp:Label ID="SRRecordIDLabel" runat="server" Font-Names="Arial" ForeColor="#983939" Height="18px">Record ID:</asp:Label>
             <asp:TextBox ID="SRtxtRecordID" runat="server" BorderStyle="Solid" BorderWidth="1px"></asp:TextBox>
-        <asp:DropDownList ID="ddlAmnt" runat="server" Width="115px" Height="22px" AutoPostBack="True">
-            <asp:ListItem>Select Amount </asp:ListItem>
-            <asp:ListItem>1</asp:ListItem>
-            <asp:ListItem>2</asp:ListItem>
-            <asp:ListItem>3</asp:ListItem>
-            <asp:ListItem>4</asp:ListItem>
-            <asp:ListItem>5</asp:ListItem>
-        </asp:DropDownList>
             <asp:Label ID="SGGradesLabel" runat="server" Font-Names="Arial" ForeColor="#983939" Height="18px">Score:</asp:Label>
             <asp:TextBox ID="SGtxtGrades" runat="server" BorderStyle="Solid" BorderWidth="1px"></asp:TextBox>
             <asp:Label ID="SRTotalScoreLabel" runat="server" Font-Names="Arial" ForeColor="#983939" Height="18px">Total Score:</asp:Label>
             <asp:TextBox ID="SRtxtTotalScore" runat="server" BorderStyle="Solid" BorderWidth="1px"></asp:TextBox>
-            <asp:Button ID="SGSaveGrades" runat="server" Text="Save" BackColor="White" Font-Names="Arial" ForeColor="#983939" OnClick="SGSaveGrades_Click" />
+            <asp:Button ID="SGSaveGrades" runat="server" Text="Save" BackColor="White" Font-Names="Arial" ForeColor="#983939" />
             <asp:Label ID="SRSWNoLabel" runat="server" Font-Names="Arial" ForeColor="#983939" Height="18px">School Work No.:</asp:Label>
-            <asp:TextBox ID="SRtxtSWNo" runat="server" BorderStyle="Solid" BorderWidth="1px"></asp:TextBox>
+        <asp:DropDownList ID="ddlSWNo" runat="server" Width="90px" Height="22px" AutoPostBack="True">
+        </asp:DropDownList>
             <asp:Label ID="SGGradesLabel0" runat="server" Font-Names="Arial" ForeColor="#983939">Amount of School Work:</asp:Label>
+            <asp:Button ID="TRInsertRecords" runat="server" Text="Insert Records" BackColor="White" Font-Names="Arial" ForeColor="#983939" OnClick="TRInsertRecords_Click" Height="21px" Width="94px" />
     </div>
         <asp:DropDownList ID="ddlSchoolYear" runat="server" Width="95px" Height="22px" AutoPostBack="True" OnSelectedIndexChanged="ddlSchoolYear_SelectedIndexChanged">
         </asp:DropDownList>
@@ -106,6 +102,14 @@
             <asp:ListItem Value="2">2nd</asp:ListItem>
             <asp:ListItem Value="3">3rd</asp:ListItem>
             <asp:ListItem Value="4">4th</asp:ListItem>
+        </asp:DropDownList>
+        <asp:DropDownList ID="ddlAmnt" runat="server" Width="115px" Height="22px" AutoPostBack="True">
+            <asp:ListItem>Select Amount </asp:ListItem>
+            <asp:ListItem>1</asp:ListItem>
+            <asp:ListItem>2</asp:ListItem>
+            <asp:ListItem>3</asp:ListItem>
+            <asp:ListItem>4</asp:ListItem>
+            <asp:ListItem>5</asp:ListItem>
         </asp:DropDownList>
     </div>
 </body>
