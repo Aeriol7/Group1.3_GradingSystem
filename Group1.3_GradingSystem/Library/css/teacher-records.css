@@ -16,8 +16,8 @@
 
 #SGSaveGrades {
 	position: fixed;
-	top: 537px;
-	left: 1150px;
+	top: 541px;
+	left: 522px;
 	width: 94px;
 }
 
@@ -114,7 +114,7 @@
 
 #gvRecords {
 	position: fixed;
-	top: 170px;
+	top: 168px;
 	left: 339px;
 	width: 924px;
 	max-height: 291px;
@@ -195,10 +195,10 @@
 
 #ddlAmnt {
 	position: fixed;
-	top: 422px;
-	left: 817px;
+	top: 421px;
+	left: 815px;
 	width: 70px;
-	right: 353px;
+	right: 355px;
 }
 
 #ddlSection0 {
@@ -286,4 +286,27 @@
 	top: 449px;
 	left: 817px;
 	width: 70px;
+}
+
+#TRUpdateTable {
+	position: fixed;
+    top: 422px;
+    left: 948px;
+}
+#ddlSWNo {
+	position: fixed;
+    top: 449px;
+    left: 815px;
+    width: 74px;
+}
+#TRInsertRecords {
+	position: fixed;
+    top: 485px;
+    left: 1137px;
+    bottom: 57px;
+}
+#TRDeleteRecords {
+	position: fixed;
+    top: 521px;
+    left: 1137px;
 }

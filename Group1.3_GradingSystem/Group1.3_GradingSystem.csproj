@@ -212,6 +212,8 @@
     <Content Include="imgs\material-symbols_print.png" />
     <Content Include="imgs\mdi_announcement.png" />
     <Content Include="imgs\ProfileIcon1.png" />
+    <Content Include="Library\css\teacher-records.css" />
+    <Content Include="Library\css\teacher.css" />
     <Content Include="obj\Debug\Group1.3_GradingSystem.csproj.FileListAbsolute.txt" />
     <Content Include="obj\Debug\Group1.3_GradingSystem.dll" />
     <Content Include="obj\Debug\Group1.3_GradingSystem.pdb" />
