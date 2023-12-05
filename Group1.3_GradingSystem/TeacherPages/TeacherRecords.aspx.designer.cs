@@ -267,15 +267,6 @@ namespace Group1._3_GradingSystem.TeacherPages
 		protected global::System.Web.UI.WebControls.Button TRUpdateTable;
 
 		/// <summary>
-		/// TRDeleteRecords control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.Button TRDeleteRecords;
-
-		/// <summary>
 		/// SRtxtLName control.
 		/// </summary>
 		/// <remarks>
@@ -312,13 +303,13 @@ namespace Group1._3_GradingSystem.TeacherPages
 		protected global::System.Web.UI.WebControls.Label SGGradesLabel;
 
 		/// <summary>
-		/// SGtxtGrades control.
+		/// SRtxtGrades control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox SGtxtGrades;
+		protected global::System.Web.UI.WebControls.TextBox SRtxtGrades;
 
 		/// <summary>
 		/// SRTotalScoreLabel control.
@@ -339,13 +330,13 @@ namespace Group1._3_GradingSystem.TeacherPages
 		protected global::System.Web.UI.WebControls.TextBox SRtxtTotalScore;
 
 		/// <summary>
-		/// SGSaveGrades control.
+		/// TRSaveGrades control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.Button SGSaveGrades;
+		protected global::System.Web.UI.WebControls.Button TRSaveGrades;
 
 		/// <summary>
 		/// SRSWNoLabel control.
