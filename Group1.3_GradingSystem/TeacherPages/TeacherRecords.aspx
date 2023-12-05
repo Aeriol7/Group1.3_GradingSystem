@@ -78,23 +78,28 @@
             <asp:Label ID="SRFNLabel" runat="server" Font-Names="Arial" ForeColor="#983939">First Name:</asp:Label>
             <asp:TextBox ID="SRtxtFName" runat="server" BorderStyle="Solid" BorderWidth="1px"></asp:TextBox>
             <asp:Label ID="SRLNLabel" runat="server" Font-Names="Arial" ForeColor="#983939" BorderStyle="None">Last Name:</asp:Label>
-            <asp:Button ID="TRUpdateTable" runat="server" Text="Update" BackColor="White" Font-Names="Arial" ForeColor="#983939" Height="21px" Width="94px" />
-            <asp:Button ID="TRDeleteRecords" runat="server" Text="Delete Records" BackColor="White" Font-Names="Arial" ForeColor="#983939" Height="21px" Width="94px" />
+            <asp:Button ID="TRUpdateTable" runat="server" Text="Update" BackColor="White" Font-Names="Arial" ForeColor="#983939" Height="21px" Width="94px" OnClick="UpdateTable_Click" />
             <asp:TextBox ID="SRtxtLName" runat="server" BorderStyle="Solid" BorderWidth="1px"></asp:TextBox>
             <asp:Label ID="SRRecordIDLabel" runat="server" Font-Names="Arial" ForeColor="#983939" Height="18px">Record ID:</asp:Label>
             <asp:TextBox ID="SRtxtRecordID" runat="server" BorderStyle="Solid" BorderWidth="1px"></asp:TextBox>
             <asp:Label ID="SGGradesLabel" runat="server" Font-Names="Arial" ForeColor="#983939" Height="18px">Score:</asp:Label>
-            <asp:TextBox ID="SGtxtGrades" runat="server" BorderStyle="Solid" BorderWidth="1px"></asp:TextBox>
+            <asp:TextBox ID="SRtxtGrades" runat="server" BorderStyle="Solid" BorderWidth="1px"></asp:TextBox>
             <asp:Label ID="SRTotalScoreLabel" runat="server" Font-Names="Arial" ForeColor="#983939" Height="18px">Total Score:</asp:Label>
             <asp:TextBox ID="SRtxtTotalScore" runat="server" BorderStyle="Solid" BorderWidth="1px"></asp:TextBox>
-            <asp:Button ID="SGSaveGrades" runat="server" Text="Save" BackColor="White" Font-Names="Arial" ForeColor="#983939" />
+            <asp:Button ID="TRSaveGrades" runat="server" Text="Save" BackColor="White" Font-Names="Arial" ForeColor="#983939" OnClick="TRSaveGrades_Click" />
             <asp:Label ID="SRSWNoLabel" runat="server" Font-Names="Arial" ForeColor="#983939" Height="18px">School Work No.:</asp:Label>
         <asp:DropDownList ID="ddlSWNo" runat="server" Width="90px" Height="22px" AutoPostBack="True">
         </asp:DropDownList>
             <asp:Label ID="SGGradesLabel0" runat="server" Font-Names="Arial" ForeColor="#983939">Amount of School Work:</asp:Label>
-            <asp:Button ID="TRInsertRecords" runat="server" Text="Insert Records" BackColor="White" Font-Names="Arial" ForeColor="#983939" OnClick="TRInsertRecords_Click" Height="21px" Width="94px" />
+            <asp:Button ID="TRInsertRecords" runat="server" Text="Insert Records" BackColor="White" Font-Names="Arial" ForeColor="#983939" OnClick="TRInsertRecords_Click" Height="21px" Width="100px" />
     </div>
         <asp:DropDownList ID="ddlSchoolYear" runat="server" Width="95px" Height="22px" AutoPostBack="True" OnSelectedIndexChanged="ddlSchoolYear_SelectedIndexChanged">
+            <asp:ListItem>Select S.Y.</asp:ListItem>
+            <asp:ListItem Value="1">2023-2024</asp:ListItem>
+            <asp:ListItem Value="2">2024-2025</asp:ListItem>
+            <asp:ListItem Value="3">2025-2026</asp:ListItem>
+            <asp:ListItem Value="4">2026-2027</asp:ListItem>
+            <asp:ListItem Value="5">2027-2028</asp:ListItem>
         </asp:DropDownList>
         <asp:DropDownList ID="ddlQuarter" runat="server" Width="110px" Height="22px" AutoPostBack="True" Enabled="False" OnSelectedIndexChanged="ddlQuarter_SelectedIndexChanged">
             <asp:ListItem>Select Quarter</asp:ListItem>
