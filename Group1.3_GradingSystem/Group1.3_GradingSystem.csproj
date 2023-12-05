@@ -103,6 +103,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="About.aspx" />
+    <Content Include="AdminPages\AdminApproval.aspx" />
     <Content Include="AdminPages\AdminFaculty.aspx" />
     <Content Include="AdminPages\AdminHome.aspx" />
     <Content Include="AdminPages\AdminSections.aspx" />
@@ -303,6 +304,13 @@
     <Content Include="Site.Mobile.Master" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AdminPages\AdminApproval.aspx.cs">
+      <DependentUpon>AdminApproval.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AdminPages\AdminApproval.aspx.designer.cs">
+      <DependentUpon>AdminApproval.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AdminPages\AdminFaculty.aspx.cs">
       <DependentUpon>AdminFaculty.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
