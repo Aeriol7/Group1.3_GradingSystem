@@ -15,7 +15,7 @@ namespace Group1._3_GradingSystem.HomePage
 		public void btnLogin_Click(object sender, EventArgs e)
 		{
 
-			SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-O5EH83O;Initial Catalog=HIS_GradingSystem;Integrated Security=False;User Id=sa;Password=1234;MultipleActiveResultSets=True");
+			SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-4DSNP2P;Initial Catalog=HIS_GradingSystem;Integrated Security=False;User Id=sa;Password=1234;MultipleActiveResultSets=True");
 			SqlCommand cmd = new SqlCommand("SELECT * FROM users WHERE username=@username and password=@password", con);
 			cmd.Parameters.AddWithValue("@username", txtUser.Text);
 			cmd.Parameters.AddWithValue("@password", txtPass.Text);
@@ -51,6 +51,10 @@ namespace Group1._3_GradingSystem.HomePage
 			{
 				ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Invalid Login');", true);
 			}
+
+			
 		}
+
+
 	}
 }
