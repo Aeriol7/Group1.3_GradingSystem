@@ -3,7 +3,10 @@
 <!DOCTYPE html>
 <head runat="server">
     <title>Teacher Records</title>
-    <link href="../Library/css/teacher.css" rel="stylesheet" />&nbsp;</head><style type="text/css">
+    <link href="../Library/css/teacher.css" rel="stylesheet" />
+    <p>
+        n</p>
+    &nbsp;</head><style type="text/css">
     .teacher-home-image {
         position: fixed;
         height: 464px;

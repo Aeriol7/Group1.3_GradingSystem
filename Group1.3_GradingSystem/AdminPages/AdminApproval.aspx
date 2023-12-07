@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AdminApproval.aspx.cs" Inherits="Group1._3_GradingSystem.AdminPages.AdminApproval" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="AdminApproval.aspx.cs" Inherits="Group1._3_GradingSystem.AdminPages.AdminApproval" enableEventValidation="false" %>
 
 <!DOCTYPE html>
 
@@ -54,8 +54,8 @@ position: fixed;
 }
 #AApproval{
     position: fixed;
-        top: 407px;
-        left: 141px;
+        top: 402px;
+        left: 134px;
     }
 #IHome{
     position: fixed;
@@ -157,7 +157,57 @@ position: fixed;
         top: 114px;
         left: 403px;
     }
+.Grade{
+    position: fixed;
+            top: 186px;
+            left: 260px;
+            width: 986px;
+            height: 411px;
+        }
     
+    #gvGrades {
+        position: fixed;
+        top: 256px;
+        left: 291px;
+        width: 924px;
+        max-height: 291px;
+        overflow-y: scroll;
+        height: 240px;
+    }
+
+        
+    #ddlSchoolYear {
+        position: fixed;
+        top: 192px;
+        left: 307px;
+        width: 104px;
+        height: 15px;
+    }
+    #ddlSubject{
+        position: fixed;
+        top: 190px;
+        left: 1062px;
+        }
+    #ddlTeacher {
+        position: fixed;
+        top: 192px;
+        left: 455px;
+        }
+    #ddlSection {
+        position: fixed;
+        top: 190px;
+        left: 881px;
+            width: 119px;
+        }
+    #ddlGradeLevel {
+        position: fixed;
+        top: 191px;
+        left: 671px;
+            width: 136px;
+            right: 470px;
+        }
+    
+        
     </style>
 </head>
 <body style="height: 615px">
@@ -183,30 +233,22 @@ position: fixed;
             <asp:hyperlink id="link" runat="server" NavigateUrl="~/AdminPages/AdminHome.aspx">
             <asp:Image ID="IHome" img src="HomeImages/🦆%20icon%20_home_.png" runat="server" />
             </asp:hyperlink>
-
             <asp:hyperlink id="Hyperlink2" runat="server" NavigateUrl="~/AdminPages/AdminSubjects.aspx">
             <asp:Image ID="IBook" img src="HomeImages/🦆%20icon%20_book_.png"  runat="server" />
             </asp:hyperlink>
-
             <asp:hyperlink id="Hyperlink3" runat="server" NavigateUrl="~/AdminPages/AdminFaculty.aspx">
             <asp:Image ID="IClipboard" img src="HomeImages/🦆%20icon%20_clipboard_.png"  runat="server" />
             </asp:hyperlink>
-
             <asp:hyperlink id="Hyperlink4" runat="server" NavigateUrl="~/AdminPages/AdminStudent.aspx">
             <asp:Image ID="IPeople" img src="HomeImages/🦆%20icon%20_people_.png"  runat="server" />
             </asp:hyperlink>
-
             <asp:hyperlink id="Hyperlink5" runat="server" NavigateUrl="~/AdminPages/AdminSections.aspx">
             <asp:Image ID="IThree" img src="HomeImages/🦆%20icon%20_grid%20three%20up_.png"  runat="server" />
             </asp:hyperlink>
-
-
             <asp:hyperlink id="Hyperlink1" runat="server" NavigateUrl="~/AdminPages/AdminApproval.aspx">
             <asp:Image ID="IApproval" img src="HomeImages/🦆%20icon%20_dashboard_.png" runat="server" />
             </asp:hyperlink>
 
-            
-            
             <asp:Label ID="Label14" runat="server" ForeColor="#B03E3E" Text="Manage Admin Approval" Font-Names="Arial" Font-Size="17pt"></asp:Label>
             <asp:Label ID="Label13" runat="server" Text="/  Manage Admin Approval" Font-Size="7pt" ForeColor="#B03E3E"></asp:Label>
             <asp:Label ID="Label12" runat="server" Text="/  Subjects" Font-Size="7pt" ForeColor="#B03E3E"></asp:Label>
@@ -215,7 +257,55 @@ position: fixed;
 
 
 
+        
+
+
+
         </div>
+
+        </div>
+
+        <div = class = "Grade">
+
+
+            <asp:GridView ID="gvGrades" runat="server" AllowPaging="True" OnPageIndexChanging="OnPageIndexChanging" OnSelectedIndexChanged="gvGrades_SelectedIndexChanged"
+    OnRowDataBound="gvGrades_RowDataBound"  PageSize="5" CellPadding="4" ForeColor="#333333" GridLines="None">
+                <EditRowStyle BackColor="#999999" />
+                <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+                <RowStyle BackColor="#F7F6F3" ForeColor="#333333" />
+                <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+            </asp:GridView>
+
+
+        <asp:DropDownList ID="ddlSchoolYear" runat="server" Height="22px" AutoPostBack="True" OnSelectedIndexChanged="ddlSchoolYear_SelectedIndexChanged">
+            <asp:ListItem Value="0">Select S.Y</asp:ListItem>
+            <asp:ListItem Value="1">2023-2024</asp:ListItem>
+            <asp:ListItem Value="2">2024-2025</asp:ListItem>
+            <asp:ListItem Value="3">2025-2026</asp:ListItem>
+            <asp:ListItem Value="4">2026-2027</asp:ListItem>
+            <asp:ListItem Value="5">2027-2028</asp:ListItem>
+        </asp:DropDownList>
+        <asp:DropDownList ID="ddlSubject" runat="server" Width="135px" Height="22px" AutoPostBack = "true" Enabled="False" OnSelectedIndexChanged="ddlSubject_SelectedIndexChanged">
+            <asp:ListItem Value="0">Select Subject</asp:ListItem>
+        </asp:DropDownList>
+        <asp:DropDownList ID="ddlTeacher" runat="server" Width="144px" Height="22px" AutoPostBack = "true" Enabled="False" OnSelectedIndexChanged="ddlTeacher_SelectedIndexChanged">
+            <asp:ListItem Value="0">Select Teacher</asp:ListItem>
+        </asp:DropDownList>
+
+
+            <asp:DropDownList ID="ddlSection" runat="server" Height="22px" AutoPostBack = "true" Enabled="False" OnSelectedIndexChanged="ddlSection_SelectedIndexChanged" Width="135px">
+            <asp:ListItem Value="0">Select Section</asp:ListItem>
+            </asp:DropDownList>
+
+            <asp:DropDownList ID="ddlGradeLevel" runat="server" AutoPostBack="True" Enabled="False" OnSelectedIndexChanged="ddlGradeLevel_SelectedIndexChanged">
+                <asp:ListItem Value="0">Select Grade</asp:ListItem>
+            </asp:DropDownList>
 
         </div>
 
