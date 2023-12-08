@@ -37,9 +37,9 @@
 
 #SRRecordIDLabel {
 	position: fixed;
-	top: 426px;
-	left: 356px;
-	bottom: 94px;
+	top: 428px;
+	left: 354px;
+	bottom: 92px;
 }
 
 #SGSearchTxt {
@@ -309,4 +309,14 @@
 	position: fixed;
     top: 521px;
     left: 1137px;
+}
+#TRNoRecordsLabel {
+	position: fixed;
+    top: 263px;
+    left: 786px;
+}
+#TRUpdateTS {
+	position: fixed;
+    top: 475px;
+    left: 947px;
 }

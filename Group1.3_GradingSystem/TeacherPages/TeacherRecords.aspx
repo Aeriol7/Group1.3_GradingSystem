@@ -60,6 +60,7 @@
             <asp:ListItem Value="3">Quarterly Assessment</asp:ListItem>
 </asp:DropDownList>
     <div class="set-grades-table" style="height: 250px; overflow: auto;" >
+            <asp:Label ID="TRNoRecordsLabel" runat="server"></asp:Label>
             <asp:GridView ID="gvRecords" runat="server" AllowPaging="True" PageSize="5" OnPageIndexChanging="OnPageIndexChanging" OnSelectedIndexChanged="gvRecords_SelectedIndexChanged"
                 OnRowDataBound="gvRecords_RowDataBound" CellPadding="0" ForeColor="#333333">
                 <EditRowStyle BackColor="#999999" />
@@ -92,6 +93,7 @@
         </asp:DropDownList>
             <asp:Label ID="SGGradesLabel0" runat="server" Font-Names="Arial" ForeColor="#983939">Amount of School Work:</asp:Label>
             <asp:Button ID="TRInsertRecords" runat="server" Text="Insert Records" BackColor="White" Font-Names="Arial" ForeColor="#983939" OnClick="TRInsertRecords_Click" Height="21px" Width="100px" />
+            <asp:Button ID="TRUpdateTS" runat="server" Text="Update" BackColor="White" Font-Names="Arial" ForeColor="#983939" Height="21px" Width="94px" OnClick="UpdateTS_Click" />
     </div>
         <asp:DropDownList ID="ddlSchoolYear" runat="server" Width="95px" Height="22px" AutoPostBack="True" OnSelectedIndexChanged="ddlSchoolYear_SelectedIndexChanged">
             <asp:ListItem>Select S.Y.</asp:ListItem>
@@ -109,12 +111,6 @@
             <asp:ListItem Value="4">4th</asp:ListItem>
         </asp:DropDownList>
         <asp:DropDownList ID="ddlAmnt" runat="server" Width="115px" Height="22px" AutoPostBack="True">
-            <asp:ListItem>Select Amount </asp:ListItem>
-            <asp:ListItem>1</asp:ListItem>
-            <asp:ListItem>2</asp:ListItem>
-            <asp:ListItem>3</asp:ListItem>
-            <asp:ListItem>4</asp:ListItem>
-            <asp:ListItem>5</asp:ListItem>
         </asp:DropDownList>
     </div>
 </body>
