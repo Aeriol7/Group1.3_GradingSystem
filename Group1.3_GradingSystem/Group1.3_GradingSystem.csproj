@@ -290,7 +290,6 @@
     <Content Include="Scripts\WebForms\WebParts.js" />
     <Content Include="Scripts\WebForms\WebUIValidation.js" />
     <Content Include="Site.Master" />
-    <Content Include="StudentPages\StudentAnnouncementsPage.aspx" />
     <Content Include="StudentPages\StudentHomePage.aspx" />
     <Content Include="StudentPages\StudentViewGradesPage.aspx" />
     <Content Include="TeacherPages\TeacherAnnouncementsPage.aspx" />
@@ -401,13 +400,6 @@
     </Compile>
     <Compile Include="Site.Mobile.Master.designer.cs">
       <DependentUpon>Site.Mobile.Master</DependentUpon>
-    </Compile>
-    <Compile Include="StudentPages\StudentAnnouncementsPage.aspx.cs">
-      <DependentUpon>StudentAnnouncementsPage.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="StudentPages\StudentAnnouncementsPage.aspx.designer.cs">
-      <DependentUpon>StudentAnnouncementsPage.aspx</DependentUpon>
     </Compile>
     <Compile Include="StudentPages\StudentHomePage.aspx.cs">
       <DependentUpon>StudentHomePage.aspx</DependentUpon>

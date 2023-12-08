@@ -58,7 +58,7 @@ namespace Group1._3_GradingSystem.AdminPages
                 TextBox4.Text = gr.Cells[3].Text;
                 DropDownList1.SelectedValue = gr.Cells[2].Text;
                 DropDownList2.SelectedValue = gr.Cells[2].Text;
-                DropDownList3.SelectedValue = gr.Cells[4].Text;
+                DropDownList3.SelectedValue = gr.Cells[5].Text;
             }
         }
 

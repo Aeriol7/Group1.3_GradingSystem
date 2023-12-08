@@ -176,8 +176,8 @@ position: fixed;
 }
 #AApproval{
     position: fixed;
-        top: 407px;
-        left: 141px;
+        top: 409px;
+        left: 133px;
     }
 #IHome{
     position: fixed;

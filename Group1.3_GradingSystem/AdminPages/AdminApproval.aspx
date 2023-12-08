@@ -159,10 +159,10 @@ position: fixed;
     }
 .Grade{
     position: fixed;
-            top: 186px;
+            top: 168px;
             left: 260px;
             width: 986px;
-            height: 411px;
+            height: 515px;
         }
     
     #gvGrades {
@@ -190,8 +190,8 @@ position: fixed;
         }
     #ddlTeacher {
         position: fixed;
-        top: 192px;
-        left: 455px;
+        top: 191px;
+        left: 474px;
         }
     #ddlSection {
         position: fixed;
@@ -206,13 +206,56 @@ position: fixed;
             width: 136px;
             right: 470px;
         }
-    
+    #TBLastname{
+        position: fixed;
+            top: 619px;
+            left: 395px;
+            right: 714px;
+        }
         
+    #TBGradeID{
+        position: fixed;
+            top: 525px;
+            left: 397px;
+            right: 712px;
+        }
+        
+    #TBFirstname{
+        position: fixed;
+            top: 571px;
+            left: 396px;
+            right: 713px;
+        }
+    #LGradeid{
+        position: fixed;
+            top: 525px;
+            left: 311px;
+        }
+    #LFN{
+        position: fixed;
+            top: 573px;
+            left: 307px;
+        }
+    #LLN{
+        position: fixed;
+            top: 622px;
+            left: 308px;
+        }
+    #DDLApprove{
+        position: fixed;
+            top: 524px;
+            left: 633px;
+        }
+    #BSave{
+        position: fixed;
+            top: 587px;
+            left: 666px;
+        }
     </style>
 </head>
-<body style="height: 615px">
+<body style="height: 693px">
     <form id="form1" runat="server">
-        <div style="height: 615px">
+        <div style="height: 687px">
     
         <div>
             <asp:Image ID="Image1" img src="../HomePage/Image/hopeLogoWhiteBG_.png" runat="server" Height="94px" Width="103px" />
@@ -222,7 +265,7 @@ position: fixed;
         <asp:Image ID="Image2" img src="../HomePage/Image/ProfileIcon1%20(1).png" runat="server" />
     
     
-        <div style="height: 570px">
+        <div style="height: 664px">
             <asp:HyperLink ID="AHome" runat="server" NavigateUrl="AdminHome.aspx" Text="Home" ForeColor="#B03E3E" Font-Underline="False" ></asp:HyperLink>
             <asp:HyperLink ID="ASubj" runat="server" NavigateUrl="~/AdminPages/AdminSubjects.aspx" Text="Subjects" ForeColor="#B03E3E" Font-Underline="False"></asp:HyperLink>
             <asp:HyperLink ID="AFaculty" runat="server" NavigateUrl="~/AdminPages/AdminFaculty.aspx" Text="Faculty" ForeColor="#B03E3E" Font-Underline="False"></asp:HyperLink>
@@ -250,16 +293,6 @@ position: fixed;
             </asp:hyperlink>
 
             <asp:Label ID="Label14" runat="server" ForeColor="#B03E3E" Text="Manage Admin Approval" Font-Names="Arial" Font-Size="17pt"></asp:Label>
-            <asp:Label ID="Label13" runat="server" Text="/  Manage Admin Approval" Font-Size="7pt" ForeColor="#B03E3E"></asp:Label>
-            <asp:Label ID="Label12" runat="server" Text="/  Subjects" Font-Size="7pt" ForeColor="#B03E3E"></asp:Label>
-            <asp:Label ID="Label10" runat="server" Text="/          Dashboard" Font-Names="Arial" ForeColor="#B03E3E" Font-Size="7pt"></asp:Label>
-            <asp:Label ID="Label11" runat="server" Text="Home      " Font-Names="Arial" ForeColor="#B03E3E" Font-Size="7pt"></asp:Label>
-
-
-
-        
-
-
 
         </div>
 
@@ -268,8 +301,8 @@ position: fixed;
         <div = class = "Grade">
 
 
-            <asp:GridView ID="gvGrades" runat="server" AllowPaging="True" OnPageIndexChanging="OnPageIndexChanging" OnSelectedIndexChanged="gvGrades_SelectedIndexChanged"
-    OnRowDataBound="gvGrades_RowDataBound"  PageSize="5" CellPadding="4" ForeColor="#333333" GridLines="None">
+                <asp:GridView ID="gvGrades" runat="server" AllowPaging="True" OnPageIndexChanging="OnPageIndexChanging" OnSelectedIndexChanged="gvGrades_SelectedIndexChanged"
+                 OnRowDataBound="gvGrades_RowDataBound"  PageSize="5" CellPadding="4" ForeColor="#333333" GridLines="None">
                 <EditRowStyle BackColor="#999999" />
                 <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
                 <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
@@ -280,23 +313,23 @@ position: fixed;
                 <SortedAscendingHeaderStyle BackColor="#506C8C" />
                 <SortedDescendingCellStyle BackColor="#FFFDF8" />
                 <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
-            </asp:GridView>
+                </asp:GridView>
 
 
-        <asp:DropDownList ID="ddlSchoolYear" runat="server" Height="22px" AutoPostBack="True" OnSelectedIndexChanged="ddlSchoolYear_SelectedIndexChanged">
+            <asp:DropDownList ID="ddlSchoolYear" runat="server" Height="22px" AutoPostBack="True" OnSelectedIndexChanged="ddlSchoolYear_SelectedIndexChanged">
             <asp:ListItem Value="0">Select S.Y</asp:ListItem>
             <asp:ListItem Value="1">2023-2024</asp:ListItem>
             <asp:ListItem Value="2">2024-2025</asp:ListItem>
             <asp:ListItem Value="3">2025-2026</asp:ListItem>
             <asp:ListItem Value="4">2026-2027</asp:ListItem>
             <asp:ListItem Value="5">2027-2028</asp:ListItem>
-        </asp:DropDownList>
-        <asp:DropDownList ID="ddlSubject" runat="server" Width="135px" Height="22px" AutoPostBack = "true" Enabled="False" OnSelectedIndexChanged="ddlSubject_SelectedIndexChanged">
+            </asp:DropDownList>
+            <asp:DropDownList ID="ddlSubject" runat="server" Width="135px" Height="22px" AutoPostBack = "true" Enabled="False" OnSelectedIndexChanged="ddlSubject_SelectedIndexChanged">
             <asp:ListItem Value="0">Select Subject</asp:ListItem>
-        </asp:DropDownList>
-        <asp:DropDownList ID="ddlTeacher" runat="server" Width="144px" Height="22px" AutoPostBack = "true" Enabled="False" OnSelectedIndexChanged="ddlTeacher_SelectedIndexChanged">
+            </asp:DropDownList>
+            <asp:DropDownList ID="ddlTeacher" runat="server" Width="144px" Height="22px" AutoPostBack = "true" Enabled="False" OnSelectedIndexChanged="ddlTeacher_SelectedIndexChanged">
             <asp:ListItem Value="0">Select Teacher</asp:ListItem>
-        </asp:DropDownList>
+            </asp:DropDownList>
 
 
             <asp:DropDownList ID="ddlSection" runat="server" Height="22px" AutoPostBack = "true" Enabled="False" OnSelectedIndexChanged="ddlSection_SelectedIndexChanged" Width="135px">
@@ -304,8 +337,30 @@ position: fixed;
             </asp:DropDownList>
 
             <asp:DropDownList ID="ddlGradeLevel" runat="server" AutoPostBack="True" Enabled="False" OnSelectedIndexChanged="ddlGradeLevel_SelectedIndexChanged">
-                <asp:ListItem Value="0">Select Grade</asp:ListItem>
+            <asp:ListItem Value="0">Select Grade</asp:ListItem>
             </asp:DropDownList>
+
+
+
+            <asp:TextBox ID="TBFirstname" runat="server" Enabled="False" Width="160px"></asp:TextBox>
+            <asp:TextBox ID="TBLastname" runat="server" Enabled="False" Width="160px"></asp:TextBox>
+            <asp:TextBox ID="TBGradeID" runat="server" Enabled="False" Width="160px"></asp:TextBox>
+
+
+            <asp:Label ID="LGradeid" runat="server" Text="Grade ID:"></asp:Label>
+            <asp:Label ID="LFN" runat="server" Text="Firstname:"></asp:Label>
+            <asp:Label ID="LLN" runat="server" Text="Lastname:"></asp:Label>
+            
+            
+            <asp:DropDownList ID="DDLApprove" runat="server">
+                <asp:ListItem Value="0">Select Status</asp:ListItem>
+                <asp:ListItem Value="1">Approved</asp:ListItem>
+                <asp:ListItem Value="2">Declined</asp:ListItem>
+                <asp:ListItem Value="3">Pending</asp:ListItem>
+            </asp:DropDownList>
+            
+            <asp:Button ID="BSave" runat="server" Text="Save" OnClick="BSave_Click1" />
+
 
         </div>
 

@@ -87,33 +87,6 @@ namespace Group1._3_GradingSystem.StudentPages
         protected global::System.Web.UI.WebControls.HyperLink StudentHomeLabel;
 
         /// <summary>
-        /// StudentAnnouncementshL control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink StudentAnnouncementshL;
-
-        /// <summary>
-        /// AnnouncementIcon control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Image AnnouncementIcon;
-
-        /// <summary>
-        /// StudentAnnouncementLabel control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HyperLink StudentAnnouncementLabel;
-
-        /// <summary>
         /// HyperLink1 control.
         /// </summary>
         /// <remarks>

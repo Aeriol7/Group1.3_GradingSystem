@@ -79,9 +79,9 @@
     }
     #ViewGradesIcon {
     position: fixed;
-    top: 212px;
-    left: 39px;
-    right: 1203px;
+    top: 161px;
+    left: 45px;
+    right: 1189px;
     height: 43px;
     }
     #ViewGradesLabel {
@@ -93,10 +93,10 @@
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-    top: 208px;
-    left: 141px;
+    top: 156px;
+    left: 142px;
     width: 91px;
-    right: 1053px;
+    right: 1044px;
     }
     .Student-home-image {
         position: fixed;
@@ -161,10 +161,7 @@
         <asp:Image ID="HomeIcon" img src="../imgs/icon_home.png" runat="server" Height="40px" />
         </asp:HyperLink>
     <asp:HyperLink ID="StudentHomeLabel"  runat="server" NavigateUrl="StudentHomePage.aspx" Font-Size="14pt" Font-Underline="False">Home</asp:HyperLink>
-    <asp:HyperLink ID="StudentAnnouncementshL" NavigateUrl="StudentAnnouncementsPage.aspx" runat="server" Font-Size="14pt" Font-Underline="False">    
-        <asp:Image ID="AnnouncementIcon" img src="../imgs/mdi_announcement.png" runat="server" />
-        </asp:HyperLink>
-    <asp:HyperLink ID="StudentAnnouncementLabel" NavigateUrl="StudentAnnouncementsPage.aspx" runat="server" Font-Size="14pt" Font-Underline="False">Announcements</asp:HyperLink>
+
     <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="StudentViewGradesPage.aspx" Font-Size="14pt" Font-Underline="False">
         <asp:Image ID="ViewGradesIcon" runat="server" img="" src="../imgs/ic_sharp-rate-review.png" />
         </asp:HyperLink>

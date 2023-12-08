@@ -160,9 +160,70 @@ namespace Group1._3_GradingSystem.AdminPages
                 //Change the cell index(1) of column as per your design
                 //Get the Selected row cell values here
                 GridViewRow gr = gvGrades.SelectedRow;
+                TBGradeID.Text = gr.Cells[0].Text;
+                TBFirstname.Text = gr.Cells[2].Text;
+                TBLastname.Text = gr.Cells[3].Text;
 
 
-                
+            }
+        }
+
+        
+        protected void BSave_Click1(object sender, EventArgs e)
+        {
+            if (DDLApprove.SelectedIndex == 1) 
+            {
+                SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-4DSNP2P;Initial Catalog=HIS_GradingSystem;Integrated Security=False;User Id=sa;Password=1234;MultipleActiveResultSets=True");
+                con.Open();
+                SqlCommand cmd = new SqlCommand("UPDATE grades SET approval = 'Approved' WHERE grades_id = @grades", con);
+
+                cmd.Parameters.AddWithValue("@grades", TBGradeID.Text);
+                cmd.ExecuteNonQuery();
+                con.Close();
+
+                Grades();
+
+                TBGradeID.Text = "";
+                TBFirstname.Text = "";
+                TBLastname.Text = "";
+                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Updated Successfully');", true);
+
+            }
+            else if (DDLApprove.SelectedIndex == 2)
+            {
+                SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-4DSNP2P;Initial Catalog=HIS_GradingSystem;Integrated Security=False;User Id=sa;Password=1234;MultipleActiveResultSets=True");
+                con.Open();
+                SqlCommand cmd = new SqlCommand("UPDATE grades SET approval = 'Declined' WHERE grades_id = @grades", con);
+
+                cmd.Parameters.AddWithValue("@grades", TBGradeID.Text);
+                cmd.ExecuteNonQuery();
+                con.Close();
+
+                Grades();
+
+                TBGradeID.Text = "";
+                TBFirstname.Text = "";
+                TBLastname.Text = "";
+                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Updated Successfully');", true);
+
+            }
+            else if (DDLApprove.SelectedIndex == 3)
+            {
+                SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-4DSNP2P;Initial Catalog=HIS_GradingSystem;Integrated Security=False;User Id=sa;Password=1234;MultipleActiveResultSets=True");
+                con.Open();
+                SqlCommand cmd = new SqlCommand("UPDATE grades SET approval = 'Pending' WHERE grades_id = @grades", con);
+
+                cmd.Parameters.AddWithValue("@grades", TBGradeID.Text);
+                cmd.ExecuteNonQuery();
+                con.Close();
+
+                Grades();
+
+                TBGradeID.Text = "";
+                TBFirstname.Text = "";
+                TBLastname.Text = "";
+                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Updated Successfully');", true);
+
             }
         }
     }

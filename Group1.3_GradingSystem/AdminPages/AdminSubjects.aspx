@@ -77,7 +77,6 @@
 #Label10{
     position: fixed;
         top: 115px;
-        left: 350px;
         width: 77px;
     }
 #Image3{
@@ -347,8 +346,8 @@ position: fixed;
 }
 #AApproval{
     position: fixed;
-        top: 407px;
-        left: 141px;
+        top: 410px;
+        left: 134px;
     }
 #IHome{
     position: fixed;
@@ -443,13 +442,6 @@ position: fixed;
 </asp:hyperlink>
 
 
-             <asp:Label ID="Label11" runat="server" Text="Home      " Font-Names="Arial" ForeColor="#B03E3E" Font-Size="7pt"></asp:Label>
- <asp:Label ID="Label10" runat="server" Text="/          Dashboard" Font-Names="Arial" ForeColor="#B03E3E" Font-Size="7pt"></asp:Label>
-
-            <asp:Label ID="Label12" runat="server" Text="/  Subjects" Font-Size="7pt" ForeColor="#B03E3E"></asp:Label>
-            
-            <asp:Label ID="Label13" runat="server" Text="/  Manage Subjects" Font-Size="7pt" ForeColor="#B03E3E"></asp:Label>
-            
             <asp:Label ID="Label14" runat="server" ForeColor="#B03E3E" Text="Manage Subjects" Font-Names="Arial" Font-Size="17pt"></asp:Label>
             
             <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
