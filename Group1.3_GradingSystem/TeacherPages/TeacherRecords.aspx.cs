@@ -24,258 +24,282 @@ namespace Group1._3_GradingSystem.TeacherPages
 
 		public void WrittenWorks()
 		{
-			SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-O5EH83O;Initial Catalog=HIS_GradingSystem;Integrated Security=False;User Id=sa;Password=1234;MultipleActiveResultSets=True");
-			SqlCommand cmd = new SqlCommand("SELECT * FROM written_works WHERE subject_id=@subjectid AND teacher_id=@teacherid AND section_id=@sectionid", con);
+			SqlConnection con = new SqlConnection(conStr);
+			SqlCommand cmd = new SqlCommand("SELECT * FROM written_works WHERE subject_id=@subjectid AND teacher_id=@teacherid AND section_id=@sectionid AND school_year_id=@syid", con);
 			cmd.Parameters.AddWithValue("@subjectid", ddlSubjects.SelectedValue);
 			cmd.Parameters.AddWithValue("@teacherid", Session["CurrentUser"]);
 			cmd.Parameters.AddWithValue("@sectionid", ddlSection.SelectedValue);
+			cmd.Parameters.AddWithValue("@syid", ddlSchoolYear.SelectedValue);
 			SqlDataAdapter adpt = new SqlDataAdapter(cmd);
 			DataTable dt = new DataTable();
 			adpt.Fill(dt);
 			con.Close();
 
-			if (dt.Rows[0][24].ToString() == "1")
+			if (dt.Rows.Count <= 0)
 			{
-				SqlCommand cmdww = new SqlCommand("SELECT written_works.written_work_id, quarters.quarter, students.first_name, students.last_name, " +
-						"written_works.ww_1_score, written_works.ww_1_total_score, ww_final_grade FROM written_works " +
-					"INNER JOIN students ON written_works.student_id=students.student_id " +
-					"INNER JOIN quarters ON written_works.quarter_id=quarters.quarter_id " +
-					"WHERE written_works.subject_id=@subjectid AND written_works.teacher_id=@teacherid AND written_works.section_id=@sectionid AND written_works.quarter_id=@quarterid", con);
-				cmdww.Parameters.AddWithValue("@subjectid", ddlSubjects.SelectedValue);
-				cmdww.Parameters.AddWithValue("@teacherid", Session["CurrentUser"]);
-				cmdww.Parameters.AddWithValue("@sectionid", ddlSection.SelectedValue);
-				cmdww.Parameters.AddWithValue("@quarterid", ddlQuarter.SelectedValue);
-				SqlDataAdapter adptww = new SqlDataAdapter(cmdww);
-				DataTable dtww = new DataTable();
-				adptww.Fill(dtww);
-				gvRecords.DataSource = dtww;
+				gvRecords.DataSource = null;
 				gvRecords.DataBind();
-				ddlSWNo.Items.Clear();
-				ddlSWNo.Items.Insert(0, new ListItem("Select No.", "0"));
-				ddlSWNo.Items.Insert(1, new ListItem("1", "1"));
-				ddlSWNo.SelectedIndex = 0;
-				con.Close();
+				TRNoRecordsLabel.Text = "No Records";
 			}
-			else if (dt.Rows[0][24].ToString() == "2")
+			else if (dt.Rows.Count > 0)
 			{
-				SqlCommand cmdww = new SqlCommand("SELECT written_works.written_work_id, quarters.quarter, students.first_name, students.last_name, " +
-						"written_works.ww_1_score, written_works.ww_1_total_score, " +
-						"written_works.ww_2_score, written_works.ww_2_total_score, ww_final_grade FROM written_works " +
-					"INNER JOIN students ON written_works.student_id=students.student_id " +
-					"INNER JOIN quarters ON written_works.quarter_id=quarters.quarter_id " +
-					"WHERE written_works.subject_id=@subjectid AND written_works.teacher_id=@teacherid AND written_works.section_id=@sectionid AND written_works.quarter_id=@quarterid", con);
-				cmdww.Parameters.AddWithValue("@subjectid", ddlSubjects.SelectedValue);
-				cmdww.Parameters.AddWithValue("@teacherid", Session["CurrentUser"]);
-				cmdww.Parameters.AddWithValue("@sectionid", ddlSection.SelectedValue);
-				cmdww.Parameters.AddWithValue("@quarterid", ddlQuarter.SelectedValue);
-				SqlDataAdapter adptww = new SqlDataAdapter(cmdww);
-				DataTable dtww = new DataTable();
-				adptww.Fill(dtww);
-				gvRecords.DataSource = dtww;
-				gvRecords.DataBind();
-				ddlSWNo.Items.Clear();
-				ddlSWNo.Items.Insert(0, new ListItem("Select No.", "0"));
-				ddlSWNo.Items.Insert(1, new ListItem("1", "1"));
-				ddlSWNo.Items.Insert(2, new ListItem("2", "2"));
-				ddlSWNo.SelectedIndex = 0;
-				con.Close();
+				if (dt.Rows[0][24].ToString() == "1")
+				{
+					SqlCommand cmdww = new SqlCommand("SELECT written_works.written_work_id, quarters.quarter, students.first_name, students.last_name, " +
+							"written_works.ww_1_score, written_works.ww_1_total_score, ww_final_grade FROM written_works " +
+						"INNER JOIN students ON written_works.student_id=students.student_id " +
+						"INNER JOIN quarters ON written_works.quarter_id=quarters.quarter_id " +
+						"WHERE written_works.subject_id=@subjectid AND written_works.teacher_id=@teacherid AND written_works.section_id=@sectionid AND written_works.quarter_id=@quarterid AND written_works.school_year_id=@syid", con);
+					cmdww.Parameters.AddWithValue("@subjectid", ddlSubjects.SelectedValue);
+					cmdww.Parameters.AddWithValue("@teacherid", Session["CurrentUser"]);
+					cmdww.Parameters.AddWithValue("@sectionid", ddlSection.SelectedValue);
+					cmdww.Parameters.AddWithValue("@quarterid", ddlQuarter.SelectedValue);
+					cmdww.Parameters.AddWithValue("@syid", ddlSchoolYear.SelectedValue);
+					SqlDataAdapter adptww = new SqlDataAdapter(cmdww);
+					DataTable dtww = new DataTable();
+					adptww.Fill(dtww);
+					gvRecords.DataSource = dtww;
+					gvRecords.DataBind();
+					ddlSWNo.Items.Clear();
+					ddlSWNo.Items.Insert(0, new ListItem("Select No.", "0"));
+					ddlSWNo.Items.Insert(1, new ListItem("1", "1"));
+					ddlSWNo.SelectedIndex = 0;
+					con.Close();
+				}
+				else if (dt.Rows[0][24].ToString() == "2")
+				{
+					SqlCommand cmdww = new SqlCommand("SELECT written_works.written_work_id, quarters.quarter, students.first_name, students.last_name, " +
+							"written_works.ww_1_score, written_works.ww_1_total_score, " +
+							"written_works.ww_2_score, written_works.ww_2_total_score, ww_final_grade FROM written_works " +
+						"INNER JOIN students ON written_works.student_id=students.student_id " +
+						"INNER JOIN quarters ON written_works.quarter_id=quarters.quarter_id " +
+						"WHERE written_works.subject_id=@subjectid AND written_works.teacher_id=@teacherid AND written_works.section_id=@sectionid AND written_works.quarter_id=@quarterid AND written_works.school_year_id=@syid", con);
+					cmdww.Parameters.AddWithValue("@subjectid", ddlSubjects.SelectedValue);
+					cmdww.Parameters.AddWithValue("@teacherid", Session["CurrentUser"]);
+					cmdww.Parameters.AddWithValue("@sectionid", ddlSection.SelectedValue);
+					cmdww.Parameters.AddWithValue("@quarterid", ddlQuarter.SelectedValue);
+					cmdww.Parameters.AddWithValue("@syid", ddlSchoolYear.SelectedValue);
+					SqlDataAdapter adptww = new SqlDataAdapter(cmdww);
+					DataTable dtww = new DataTable();
+					adptww.Fill(dtww);
+					gvRecords.DataSource = dtww;
+					gvRecords.DataBind();
+					ddlSWNo.Items.Clear();
+					ddlSWNo.Items.Insert(0, new ListItem("Select No.", "0"));
+					ddlSWNo.Items.Insert(1, new ListItem("1", "1"));
+					ddlSWNo.Items.Insert(2, new ListItem("2", "2"));
+					ddlSWNo.SelectedIndex = 0;
+					con.Close();
+				}
+				else if (dt.Rows[0][24].ToString() == "3")
+				{
+					SqlCommand cmdww = new SqlCommand("SELECT written_works.written_work_id, quarters.quarter, students.first_name, students.last_name, " +
+							"written_works.ww_1_score, written_works.ww_1_total_score, " +
+							"written_works.ww_2_score, written_works.ww_2_total_score, " +
+							"written_works.ww_3_score, written_works.ww_3_total_score, ww_final_grade FROM written_works " +
+						"INNER JOIN students ON written_works.student_id=students.student_id " +
+						"INNER JOIN quarters ON written_works.quarter_id=quarters.quarter_id " +
+						"WHERE written_works.subject_id=@subjectid AND written_works.teacher_id=@teacherid AND written_works.section_id=@sectionid AND written_works.quarter_id=@quarterid AND written_works.school_year_id=@syid", con);
+					cmdww.Parameters.AddWithValue("@subjectid", ddlSubjects.SelectedValue);
+					cmdww.Parameters.AddWithValue("@teacherid", Session["CurrentUser"]);
+					cmdww.Parameters.AddWithValue("@sectionid", ddlSection.SelectedValue);
+					cmdww.Parameters.AddWithValue("@quarterid", ddlQuarter.SelectedValue);
+					cmdww.Parameters.AddWithValue("@syid", ddlSchoolYear.SelectedValue);
+					SqlDataAdapter adptww = new SqlDataAdapter(cmdww);
+					DataTable dtww = new DataTable();
+					adptww.Fill(dtww);
+					gvRecords.DataSource = dtww;
+					gvRecords.DataBind();
+					ddlSWNo.Items.Clear();
+					ddlSWNo.Items.Insert(0, new ListItem("Select No.", "0"));
+					ddlSWNo.Items.Insert(1, new ListItem("1", "1"));
+					ddlSWNo.Items.Insert(2, new ListItem("2", "2"));
+					ddlSWNo.Items.Insert(3, new ListItem("3", "3"));
+					ddlSWNo.SelectedIndex = 0;
+					con.Close();
+				}
+				else if (dt.Rows[0][24].ToString() == "4")
+				{
+					SqlCommand cmdww = new SqlCommand("SELECT written_works.written_work_id, quarters.quarter, students.first_name, students.last_name, " +
+							"written_works.ww_1_score, written_works.ww_1_total_score, " +
+							"written_works.ww_2_score, written_works.ww_2_total_score, " +
+							"written_works.ww_3_score, written_works.ww_3_total_score, " +
+							"written_works.ww_4_score, written_works.ww_4_total_score, ww_final_grade FROM written_works " +
+						"INNER JOIN students ON written_works.student_id=students.student_id " +
+						"INNER JOIN quarters ON written_works.quarter_id=quarters.quarter_id " +
+						"WHERE written_works.subject_id=@subjectid AND written_works.teacher_id=@teacherid AND written_works.section_id=@sectionid AND written_works.quarter_id=@quarterid AND written_works.school_year_id=@syid", con);
+					cmdww.Parameters.AddWithValue("@subjectid", ddlSubjects.SelectedValue);
+					cmdww.Parameters.AddWithValue("@teacherid", Session["CurrentUser"]);
+					cmdww.Parameters.AddWithValue("@sectionid", ddlSection.SelectedValue);
+					cmdww.Parameters.AddWithValue("@quarterid", ddlQuarter.SelectedValue);
+					cmdww.Parameters.AddWithValue("@syid", ddlSchoolYear.SelectedValue);
+					SqlDataAdapter adptww = new SqlDataAdapter(cmdww);
+					DataTable dtww = new DataTable();
+					adptww.Fill(dtww);
+					gvRecords.DataSource = dtww;
+					gvRecords.DataBind();
+					ddlSWNo.Items.Clear();
+					ddlSWNo.Items.Insert(0, new ListItem("Select No.", "0"));
+					ddlSWNo.Items.Insert(1, new ListItem("1", "1"));
+					ddlSWNo.Items.Insert(2, new ListItem("2", "2"));
+					ddlSWNo.Items.Insert(3, new ListItem("3", "3"));
+					ddlSWNo.Items.Insert(4, new ListItem("4", "4"));
+					ddlSWNo.SelectedIndex = 0;
+					con.Close();
+				}
+				else if (dt.Rows[0][24].ToString() == "5")
+				{
+					SqlCommand cmdww = new SqlCommand("SELECT written_works.written_work_id, quarters.quarter, students.first_name, students.last_name, " +
+							"written_works.ww_1_score, written_works.ww_1_total_score, " +
+							"written_works.ww_2_score, written_works.ww_2_total_score, " +
+							"written_works.ww_3_score, written_works.ww_3_total_score, " +
+							"written_works.ww_4_score, written_works.ww_4_total_score, " +
+							"written_works.ww_5_score, written_works.ww_5_total_score, ww_final_grade FROM written_works " +
+						"INNER JOIN students ON written_works.student_id=students.student_id " +
+						"INNER JOIN quarters ON written_works.quarter_id=quarters.quarter_id " +
+						"WHERE written_works.subject_id=@subjectid AND written_works.teacher_id=@teacherid AND written_works.section_id=@sectionid AND written_works.quarter_id=@quarterid AND written_works.school_year_id=@syid", con);
+					cmdww.Parameters.AddWithValue("@subjectid", ddlSubjects.SelectedValue);
+					cmdww.Parameters.AddWithValue("@teacherid", Session["CurrentUser"]);
+					cmdww.Parameters.AddWithValue("@sectionid", ddlSection.SelectedValue);
+					cmdww.Parameters.AddWithValue("@quarterid", ddlQuarter.SelectedValue);
+					cmdww.Parameters.AddWithValue("@syid", ddlSchoolYear.SelectedValue);
+					SqlDataAdapter adptww = new SqlDataAdapter(cmdww);
+					DataTable dtww = new DataTable();
+					adptww.Fill(dtww);
+					gvRecords.DataSource = dtww;
+					gvRecords.DataBind();
+					ddlSWNo.Items.Clear();
+					ddlSWNo.Items.Insert(0, new ListItem("Select No.", "0"));
+					ddlSWNo.Items.Insert(1, new ListItem("1", "1"));
+					ddlSWNo.Items.Insert(2, new ListItem("2", "2"));
+					ddlSWNo.Items.Insert(3, new ListItem("3", "3"));
+					ddlSWNo.Items.Insert(4, new ListItem("4", "4"));
+					ddlSWNo.Items.Insert(5, new ListItem("5", "5"));
+					ddlSWNo.SelectedIndex = 0;
+					con.Close();
+				}
 			}
-			else if (dt.Rows[0][24].ToString() == "3")
-			{
-				SqlCommand cmdww = new SqlCommand("SELECT written_works.written_work_id, quarters.quarter, students.first_name, students.last_name, " +
-						"written_works.ww_1_score, written_works.ww_1_total_score, " +
-						"written_works.ww_2_score, written_works.ww_2_total_score, " +
-						"written_works.ww_3_score, written_works.ww_3_total_score, ww_final_grade FROM written_works " +
-					"INNER JOIN students ON written_works.student_id=students.student_id " +
-					"INNER JOIN quarters ON written_works.quarter_id=quarters.quarter_id " +
-					"WHERE written_works.subject_id=@subjectid AND written_works.teacher_id=@teacherid AND written_works.section_id=@sectionid AND written_works.quarter_id=@quarterid", con);
-				cmdww.Parameters.AddWithValue("@subjectid", ddlSubjects.SelectedValue);
-				cmdww.Parameters.AddWithValue("@teacherid", Session["CurrentUser"]);
-				cmdww.Parameters.AddWithValue("@sectionid", ddlSection.SelectedValue);
-				cmdww.Parameters.AddWithValue("@quarterid", ddlQuarter.SelectedValue);
-				SqlDataAdapter adptww = new SqlDataAdapter(cmdww);
-				DataTable dtww = new DataTable();
-				adptww.Fill(dtww);
-				gvRecords.DataSource = dtww;
-				gvRecords.DataBind();
-				ddlSWNo.Items.Clear();
-				ddlSWNo.Items.Insert(0, new ListItem("Select No.", "0"));
-				ddlSWNo.Items.Insert(1, new ListItem("1", "1"));
-				ddlSWNo.Items.Insert(2, new ListItem("2", "2"));
-				ddlSWNo.Items.Insert(3, new ListItem("3", "3"));
-				ddlSWNo.SelectedIndex = 0;
-				con.Close();
-			}
-			else if (dt.Rows[0][24].ToString() == "4")
-			{
-				SqlCommand cmdww = new SqlCommand("SELECT written_works.written_work_id, quarters.quarter, students.first_name, students.last_name, " +
-						"written_works.ww_1_score, written_works.ww_1_total_score, " +
-						"written_works.ww_2_score, written_works.ww_2_total_score, " +
-						"written_works.ww_3_score, written_works.ww_3_total_score, " +
-						"written_works.ww_4_score, written_works.ww_4_total_score, ww_final_grade FROM written_works " +
-					"INNER JOIN students ON written_works.student_id=students.student_id " +
-					"INNER JOIN quarters ON written_works.quarter_id=quarters.quarter_id " +
-					"WHERE written_works.subject_id=@subjectid AND written_works.teacher_id=@teacherid AND written_works.section_id=@sectionid AND written_works.quarter_id=@quarterid", con);
-				cmdww.Parameters.AddWithValue("@subjectid", ddlSubjects.SelectedValue);
-				cmdww.Parameters.AddWithValue("@teacherid", Session["CurrentUser"]);
-				cmdww.Parameters.AddWithValue("@sectionid", ddlSection.SelectedValue);
-				cmdww.Parameters.AddWithValue("@quarterid", ddlQuarter.SelectedValue);
-				SqlDataAdapter adptww = new SqlDataAdapter(cmdww);
-				DataTable dtww = new DataTable();
-				adptww.Fill(dtww);
-				gvRecords.DataSource = dtww;
-				gvRecords.DataBind();
-				ddlSWNo.Items.Clear();
-				ddlSWNo.Items.Insert(0, new ListItem("Select No.", "0"));
-				ddlSWNo.Items.Insert(1, new ListItem("1", "1"));
-				ddlSWNo.Items.Insert(2, new ListItem("2", "2"));
-				ddlSWNo.Items.Insert(3, new ListItem("3", "3"));
-				ddlSWNo.Items.Insert(4, new ListItem("4", "4"));
-				ddlSWNo.SelectedIndex = 0;
-				con.Close();
-			}
-			else if (dt.Rows[0][24].ToString() == "5")
-			{
-				SqlCommand cmdww = new SqlCommand("SELECT written_works.written_work_id, quarters.quarter, students.first_name, students.last_name, " +
-						"written_works.ww_1_score, written_works.ww_1_total_score, " +
-						"written_works.ww_2_score, written_works.ww_2_total_score, " +
-						"written_works.ww_3_score, written_works.ww_3_total_score, " +
-						"written_works.ww_4_score, written_works.ww_4_total_score, " +
-						"written_works.ww_5_score, written_works.ww_5_total_score, ww_final_grade FROM written_works " +
-					"INNER JOIN students ON written_works.student_id=students.student_id " +
-					"INNER JOIN quarters ON written_works.quarter_id=quarters.quarter_id " +
-					"WHERE written_works.subject_id=@subjectid AND written_works.teacher_id=@teacherid AND written_works.section_id=@sectionid AND written_works.quarter_id=@quarterid", con);
-				cmdww.Parameters.AddWithValue("@subjectid", ddlSubjects.SelectedValue);
-				cmdww.Parameters.AddWithValue("@teacherid", Session["CurrentUser"]);
-				cmdww.Parameters.AddWithValue("@sectionid", ddlSection.SelectedValue);
-				cmdww.Parameters.AddWithValue("@quarterid", ddlQuarter.SelectedValue);
-				SqlDataAdapter adptww = new SqlDataAdapter(cmdww);
-				DataTable dtww = new DataTable();
-				adptww.Fill(dtww);
-				gvRecords.DataSource = dtww;
-				gvRecords.DataBind();
-				ddlSWNo.Items.Clear();
-				ddlSWNo.Items.Insert(0, new ListItem("Select No.", "0"));
-				ddlSWNo.Items.Insert(1, new ListItem("1", "1"));
-				ddlSWNo.Items.Insert(2, new ListItem("2", "2"));
-				ddlSWNo.Items.Insert(3, new ListItem("3", "3"));
-				ddlSWNo.Items.Insert(4, new ListItem("4", "4"));
-				ddlSWNo.Items.Insert(5, new ListItem("5", "5"));
-				ddlSWNo.SelectedIndex = 0;
-				con.Close();
-			}
-		}
-
-		public void Clear()
-		{
-			SRtxtFName.Text = string.Empty;
-			SRtxtLName.Text = string.Empty;
-			SRtxtRecordID.Text = string.Empty;
-
-				
 		}
 		public void PerformanceTasks()
 		{
-			SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-O5EH83O;Initial Catalog=HIS_GradingSystem;Integrated Security=False;User Id=sa;Password=1234;MultipleActiveResultSets=True");
-			SqlCommand cmd2 = new SqlCommand("SELECT * FROM performance_tasks WHERE subject_id=@subjectid AND teacher_id=@teacherid AND section_id=@sectionid", con);
+			SqlConnection con = new SqlConnection(conStr);
+			SqlCommand cmd2 = new SqlCommand("SELECT * FROM performance_tasks WHERE subject_id=@subjectid AND teacher_id=@teacherid AND section_id=@sectionid AND school_year_id=@syid", con);
 			cmd2.Parameters.AddWithValue("@subjectid", ddlSubjects.SelectedValue);
 			cmd2.Parameters.AddWithValue("@teacherid", Session["CurrentUser"]);
 			cmd2.Parameters.AddWithValue("@sectionid", ddlSection.SelectedValue);
+			cmd2.Parameters.AddWithValue("@syid", ddlSchoolYear.SelectedValue);
 			SqlDataAdapter adpt2 = new SqlDataAdapter(cmd2);
 			DataTable dt2 = new DataTable();
 			adpt2.Fill(dt2);
 			con.Close();
 
-			if (dt2.Rows[0][18].ToString() == "1")
+			if (dt2.Rows.Count <= 0)
 			{
-				SqlCommand cmdpt = new SqlCommand("SELECT performance_tasks.performance_task_id, quarters.quarter, students.first_name, students.last_name, " +
-					"performance_tasks.pt_1_score, performance_tasks.pt_1_total_score, pt_final_grade FROM performance_tasks " +
-					"INNER JOIN students ON performance_tasks.student_id=students.student_id " +
-					"INNER JOIN quarters ON performance_tasks.quarter_id=quarters.quarter_id " +
-					"WHERE performance_tasks.subject_id=@subjectid AND performance_tasks.teacher_id=@teacherid AND performance_tasks.section_id=@sectionid AND performance_tasks.quarter_id=@quarterid", con);
-				cmdpt.Parameters.AddWithValue("@subjectid", ddlSubjects.SelectedValue);
-				cmdpt.Parameters.AddWithValue("@teacherid", Session["CurrentUser"]);
-				cmdpt.Parameters.AddWithValue("@sectionid", ddlSection.SelectedValue);
-				cmdpt.Parameters.AddWithValue("@quarterid", ddlQuarter.SelectedValue);
-				SqlDataAdapter adptpt = new SqlDataAdapter(cmdpt);
-				DataTable dtpt = new DataTable();
-				adptpt.Fill(dtpt);
-				gvRecords.DataSource = dtpt;
+				gvRecords.DataSource = null;
 				gvRecords.DataBind();
-				con.Close();
+				TRNoRecordsLabel.Text = "No Records";
 			}
-			else if (dt2.Rows[0][18].ToString() == "2")
+			else if (dt2.Rows.Count > 0)
 			{
-				SqlCommand cmdpt = new SqlCommand("SELECT performance_tasks.performance_task_id, quarters.quarter, students.first_name, students.last_name, " +
-					"performance_tasks.pt_1_score, performance_tasks.pt_1_total_score, " +
-					"performance_tasks.pt_2_score, performance_tasks.pt_2_total_score, performance_tasks.pt_final_grade FROM performance_tasks " +
-					"INNER JOIN students ON performance_tasks.student_id=students.student_id " +
-					"INNER JOIN quarters ON performance_tasks.quarter_id=quarters.quarter_id " +
-					"WHERE performance_tasks.subject_id=@subjectid AND performance_tasks.teacher_id=@teacherid AND performance_tasks.section_id=@sectionid AND performance_tasks.quarter_id=@quarterid", con);
-				cmdpt.Parameters.AddWithValue("@subjectid", ddlSubjects.SelectedValue);
-				cmdpt.Parameters.AddWithValue("@teacherid", Session["CurrentUser"]);
-				cmdpt.Parameters.AddWithValue("@sectionid", ddlSection.SelectedValue);
-				cmdpt.Parameters.AddWithValue("@quarterid", ddlQuarter.SelectedValue);
-				SqlDataAdapter adptpt = new SqlDataAdapter(cmdpt);
-				DataTable dtpt = new DataTable();
-				adptpt.Fill(dtpt);
-				gvRecords.DataSource = dtpt;
-				gvRecords.DataBind();
-				con.Close();
-			}
-			else if (dt2.Rows[0][18].ToString() == "3")
-			{
-				SqlCommand cmdpt = new SqlCommand("SELECT performance_tasks.performance_task_id, quarters.quarter, students.first_name, students.last_name, " +
-					"performance_tasks.pt_1_score, performance_tasks.pt_1_total_score, " +
-					"performance_tasks.pt_2_score, performance_tasks.pt_2_total_score, " +
-					"performance_tasks.pt_3_score, performance_tasks.pt_3_total_score, performance_tasks.pt_final_grade FROM performance_tasks " +
-					"INNER JOIN students ON performance_tasks.student_id=students.student_id " +
-					"INNER JOIN quarters ON performance_tasks.quarter_id=quarters.quarter_id " +
-					"WHERE performance_tasks.subject_id=@subjectid AND performance_tasks.teacher_id=@teacherid AND performance_tasks.section_id=@sectionid AND performance_tasks.quarter_id=@quarterid", con);
-				cmdpt.Parameters.AddWithValue("@subjectid", ddlSubjects.SelectedValue);
-				cmdpt.Parameters.AddWithValue("@teacherid", Session["CurrentUser"]);
-				cmdpt.Parameters.AddWithValue("@sectionid", ddlSection.SelectedValue);
-				cmdpt.Parameters.AddWithValue("@quarterid", ddlQuarter.SelectedValue);
-				SqlDataAdapter adptpt = new SqlDataAdapter(cmdpt);
-				DataTable dtpt = new DataTable();
-				adptpt.Fill(dtpt);
-				gvRecords.DataSource = dtpt;
-				gvRecords.DataBind();
-				con.Close();
+				if (dt2.Rows[0][18].ToString() == "1")
+				{
+					SqlCommand cmdpt = new SqlCommand("SELECT performance_tasks.performance_task_id, quarters.quarter, students.first_name, students.last_name, " +
+						"performance_tasks.pt_1_score, performance_tasks.pt_1_total_score, pt_final_grade FROM performance_tasks " +
+						"INNER JOIN students ON performance_tasks.student_id=students.student_id " +
+						"INNER JOIN quarters ON performance_tasks.quarter_id=quarters.quarter_id " +
+						"WHERE performance_tasks.subject_id=@subjectid AND performance_tasks.teacher_id=@teacherid AND performance_tasks.section_id=@sectionid AND performance_tasks.quarter_id=@quarterid AND performance_tasks.school_year_id=@syid", con);
+					cmdpt.Parameters.AddWithValue("@subjectid", ddlSubjects.SelectedValue);
+					cmdpt.Parameters.AddWithValue("@teacherid", Session["CurrentUser"]);
+					cmdpt.Parameters.AddWithValue("@sectionid", ddlSection.SelectedValue);
+					cmdpt.Parameters.AddWithValue("@quarterid", ddlQuarter.SelectedValue);
+					cmdpt.Parameters.AddWithValue("@syid", ddlSchoolYear.SelectedValue);
+					SqlDataAdapter adptpt = new SqlDataAdapter(cmdpt);
+					DataTable dtpt = new DataTable();
+					adptpt.Fill(dtpt);
+					gvRecords.DataSource = dtpt;
+					gvRecords.DataBind();
+					con.Close();
+				}
+				else if (dt2.Rows[0][18].ToString() == "2")
+				{
+					SqlCommand cmdpt = new SqlCommand("SELECT performance_tasks.performance_task_id, quarters.quarter, students.first_name, students.last_name, " +
+						"performance_tasks.pt_1_score, performance_tasks.pt_1_total_score, " +
+						"performance_tasks.pt_2_score, performance_tasks.pt_2_total_score, performance_tasks.pt_final_grade FROM performance_tasks " +
+						"INNER JOIN students ON performance_tasks.student_id=students.student_id " +
+						"INNER JOIN quarters ON performance_tasks.quarter_id=quarters.quarter_id " +
+						"WHERE performance_tasks.subject_id=@subjectid AND performance_tasks.teacher_id=@teacherid AND performance_tasks.section_id=@sectionid AND performance_tasks.quarter_id=@quarterid AND performance_tasks.school_year_id=@syid", con);
+					cmdpt.Parameters.AddWithValue("@subjectid", ddlSubjects.SelectedValue);
+					cmdpt.Parameters.AddWithValue("@teacherid", Session["CurrentUser"]);
+					cmdpt.Parameters.AddWithValue("@sectionid", ddlSection.SelectedValue);
+					cmdpt.Parameters.AddWithValue("@quarterid", ddlQuarter.SelectedValue);
+					cmdpt.Parameters.AddWithValue("@syid", ddlSchoolYear.SelectedValue);
+					SqlDataAdapter adptpt = new SqlDataAdapter(cmdpt);
+					DataTable dtpt = new DataTable();
+					adptpt.Fill(dtpt);
+					gvRecords.DataSource = dtpt;
+					gvRecords.DataBind();
+					con.Close();
+				}
+				else if (dt2.Rows[0][18].ToString() == "3")
+				{
+					SqlCommand cmdpt = new SqlCommand("SELECT performance_tasks.performance_task_id, quarters.quarter, students.first_name, students.last_name, " +
+						"performance_tasks.pt_1_score, performance_tasks.pt_1_total_score, " +
+						"performance_tasks.pt_2_score, performance_tasks.pt_2_total_score, " +
+						"performance_tasks.pt_3_score, performance_tasks.pt_3_total_score, performance_tasks.pt_final_grade FROM performance_tasks " +
+						"INNER JOIN students ON performance_tasks.student_id=students.student_id " +
+						"INNER JOIN quarters ON performance_tasks.quarter_id=quarters.quarter_id " +
+						"WHERE performance_tasks.subject_id=@subjectid AND performance_tasks.teacher_id=@teacherid AND performance_tasks.section_id=@sectionid AND performance_tasks.quarter_id=@quarterid AND performance_tasks.school_year_id=@syid", con);
+					cmdpt.Parameters.AddWithValue("@subjectid", ddlSubjects.SelectedValue);
+					cmdpt.Parameters.AddWithValue("@teacherid", Session["CurrentUser"]);
+					cmdpt.Parameters.AddWithValue("@sectionid", ddlSection.SelectedValue);
+					cmdpt.Parameters.AddWithValue("@quarterid", ddlQuarter.SelectedValue);
+					cmdpt.Parameters.AddWithValue("@syid", ddlSchoolYear.SelectedValue);
+					SqlDataAdapter adptpt = new SqlDataAdapter(cmdpt);
+					DataTable dtpt = new DataTable();
+					adptpt.Fill(dtpt);
+					gvRecords.DataSource = dtpt;
+					gvRecords.DataBind();
+					con.Close();
+				}
 			}
 		}
-
 		public void QuarterlyAssessments()
 		{
-			SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-O5EH83O;Initial Catalog=HIS_GradingSystem;Integrated Security=False;User Id=sa;Password=1234;MultipleActiveResultSets=True");
-			SqlCommand cmd3 = new SqlCommand("SELECT quarterly_test_scores.quarterly_test_id, quarters.quarter, students.first_name, students.last_name, " +
-					"quarterly_test_scores.score, quarterly_test_scores.total_score, quarterly_test_scores.final_score FROM quarterly_test_scores " +
-					"INNER JOIN students ON quarterly_test_scores.student_id=students.student_id " +
-					"INNER JOIN quarters ON quarterly_test_scores.quarter_id=quarters.quarter_id " +
-					"WHERE quarterly_test_scores.subject_id=@subjectid AND quarterly_test_scores.teacher_id=@teacherid AND quarterly_test_scores.section_id=@sectionid AND quarterly_test_scores.quarter_id=@quarter", con);
+			SqlConnection con = new SqlConnection(conStr);
+			SqlCommand cmd3 = new SqlCommand("SELECT * FROM quarterly_test_scores WHERE subject_id=@subjectid AND teacher_id=@teacherid AND section_id=@sectionid AND school_year_id=@syid", con);
 			cmd3.Parameters.AddWithValue("@subjectid", ddlSubjects.SelectedValue);
 			cmd3.Parameters.AddWithValue("@teacherid", Session["CurrentUser"]);
 			cmd3.Parameters.AddWithValue("@sectionid", ddlSection.SelectedValue);
-			cmd3.Parameters.AddWithValue("@quarter", ddlQuarter.SelectedValue);
+			cmd3.Parameters.AddWithValue("@syid", ddlSchoolYear.SelectedValue);
 			SqlDataAdapter adpt3 = new SqlDataAdapter(cmd3);
 			DataTable dt3 = new DataTable();
 			adpt3.Fill(dt3);
-			gvRecords.DataSource = dt3;
-			gvRecords.DataBind();
 			con.Close();
-		}
-
-		public void GradeLevel()
-		{
-			SqlConnection con = new SqlConnection(conStr);
-			string com = "SELECT * FROM year_levels";
-			SqlDataAdapter adpt = new SqlDataAdapter(com, con);
-			DataTable dt = new DataTable();
-			adpt.Fill(dt);
-			ddlGradeLevel.DataSource = dt;
-			ddlGradeLevel.DataTextField = "year_level";
-			ddlGradeLevel.DataValueField = "year_level_id";
-			ddlGradeLevel.DataBind();
+			if (dt3.Rows.Count <= 0)
+			{
+				gvRecords.DataSource = null;
+				gvRecords.DataBind();
+				TRNoRecordsLabel.Text = "No Records";
+			}
+			else if (dt3.Rows.Count > 0)
+			{
+				SqlCommand cmdqt = new SqlCommand("SELECT quarterly_test_scores.quarterly_test_id, quarters.quarter, students.first_name, students.last_name, " +
+						"quarterly_test_scores.score, quarterly_test_scores.total_score, quarterly_test_scores.final_score FROM quarterly_test_scores " +
+						"INNER JOIN students ON quarterly_test_scores.student_id=students.student_id " +
+						"INNER JOIN quarters ON quarterly_test_scores.quarter_id=quarters.quarter_id " +
+						"WHERE quarterly_test_scores.subject_id=@subjectid AND quarterly_test_scores.teacher_id=@teacherid AND quarterly_test_scores.section_id=@sectionid AND quarterly_test_scores.quarter_id=@quarter AND quarterly_test_scores.school_year_id=@syid", con);
+				cmdqt.Parameters.AddWithValue("@subjectid", ddlSubjects.SelectedValue);
+				cmdqt.Parameters.AddWithValue("@teacherid", Session["CurrentUser"]);
+				cmdqt.Parameters.AddWithValue("@sectionid", ddlSection.SelectedValue);
+				cmdqt.Parameters.AddWithValue("@quarter", ddlQuarter.SelectedValue);
+				cmdqt.Parameters.AddWithValue("@syid", ddlSchoolYear.SelectedValue);
+				SqlDataAdapter adptqt = new SqlDataAdapter(cmdqt);
+				DataTable dtqt = new DataTable();
+				adptqt.Fill(dtqt);
+				gvRecords.DataSource = dtqt;
+				gvRecords.DataBind();
+				con.Close();
+			}
 		}
 		protected void ddlSchoolYear_SelectedIndexChanged(object sender, EventArgs e)
 		{
@@ -296,7 +320,7 @@ namespace Group1._3_GradingSystem.TeacherPages
 		}
 		protected void ddlGradeLevel_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-O5EH83O;Initial Catalog=HIS_GradingSystem;Integrated Security=False;User Id=sa;Password=1234;MultipleActiveResultSets=True");
+			SqlConnection con = new SqlConnection(conStr);
 			SqlCommand cmd = new SqlCommand("SELECT * FROM sections WHERE year_level_id=@yearlevelid", con);
 			cmd.Parameters.AddWithValue("@yearlevelid", ddlGradeLevel.SelectedValue);
 			SqlDataAdapter adpt = new SqlDataAdapter(cmd);
@@ -313,7 +337,7 @@ namespace Group1._3_GradingSystem.TeacherPages
 		}
 		protected void ddlSection_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-O5EH83O;Initial Catalog=HIS_GradingSystem;Integrated Security=False;User Id=sa;Password=1234;MultipleActiveResultSets=True");
+			SqlConnection con = new SqlConnection(conStr);
 			SqlCommand cmd = new SqlCommand("SELECT * FROM subjects WHERE teacher_id=@teacherid AND year_level_id=@yearlevelid", con);
 			cmd.Parameters.AddWithValue("@teacherid", Session["CurrentUser"]);
 			cmd.Parameters.AddWithValue("@yearlevelid", ddlGradeLevel.SelectedValue);
@@ -344,242 +368,335 @@ namespace Group1._3_GradingSystem.TeacherPages
 		{
 			if (ddlSchoolWork.SelectedIndex == 1)
 			{
-				SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-O5EH83O;Initial Catalog=HIS_GradingSystem;Integrated Security=False;User Id=sa;Password=1234;MultipleActiveResultSets=True");
-				SqlCommand cmd1 = new SqlCommand("SELECT * FROM written_works WHERE subject_id=@subjectid AND teacher_id=@teacherid AND section_id=@sectionid", con);
-				cmd1.Parameters.AddWithValue("@subjectid", ddlSubjects.SelectedValue);
-				cmd1.Parameters.AddWithValue("@teacherid", Session["CurrentUser"]);
-				cmd1.Parameters.AddWithValue("@sectionid", ddlSection.SelectedValue);
-				SqlDataAdapter adpt1 = new SqlDataAdapter(cmd1);
-				DataTable dt1 = new DataTable();
-				adpt1.Fill(dt1);
+				SqlConnection con = new SqlConnection(conStr);
+				SqlCommand cmd = new SqlCommand("SELECT * FROM written_works WHERE subject_id=@subjectid AND teacher_id=@teacherid AND section_id=@sectionid AND school_year_id=@syid", con);
+				cmd.Parameters.AddWithValue("@subjectid", ddlSubjects.SelectedValue);
+				cmd.Parameters.AddWithValue("@teacherid", Session["CurrentUser"]);
+				cmd.Parameters.AddWithValue("@sectionid", ddlSection.SelectedValue);
+				cmd.Parameters.AddWithValue("@syid", ddlSchoolYear.SelectedValue);
+				SqlDataAdapter adpt = new SqlDataAdapter(cmd);
+				DataTable dt = new DataTable();
+				adpt.Fill(dt);
+				ddlAmnt.Items.Clear();
+				ddlAmnt.Items.Insert(0, new ListItem("Select Amount", "0"));
+				ddlAmnt.Items.Insert(1, new ListItem("1", "1"));
+				ddlAmnt.Items.Insert(2, new ListItem("2", "2"));
+				ddlAmnt.Items.Insert(3, new ListItem("3", "3"));
+				ddlAmnt.Items.Insert(4, new ListItem("4", "4"));
+				ddlAmnt.Items.Insert(5, new ListItem("5", "5"));
+				ddlAmnt.SelectedIndex = 0;
+				ddlAmnt.Enabled = true;
 				con.Close();
-				
-				if (dt1.Rows[0][24].ToString() == "1")
+
+				if (dt.Rows.Count <= 0)
 				{
-					SqlCommand cmdww = new SqlCommand("SELECT written_works.written_work_id, quarters.quarter, students.first_name, students.last_name, " +
-						"written_works.ww_1_score, written_works.ww_1_total_score, ww_final_grade FROM written_works " +
-						"INNER JOIN students ON written_works.student_id=students.student_id " +
-						"INNER JOIN quarters ON written_works.quarter_id=quarters.quarter_id " +
-						"WHERE written_works.subject_id=@subjectid AND written_works.teacher_id=@teacherid AND written_works.section_id=@sectionid AND written_works.quarter_id=@quarterid", con);
-					cmdww.Parameters.AddWithValue("@subjectid", ddlSubjects.SelectedValue);
-					cmdww.Parameters.AddWithValue("@teacherid", Session["CurrentUser"]);
-					cmdww.Parameters.AddWithValue("@sectionid", ddlSection.SelectedValue);
-					cmdww.Parameters.AddWithValue("@quarterid", ddlQuarter.SelectedValue);
-					SqlDataAdapter adptww = new SqlDataAdapter(cmdww);
-					DataTable dtww = new DataTable();
-					adptww.Fill(dtww);
-					gvRecords.DataSource = dtww;
+					gvRecords.DataSource = null;
 					gvRecords.DataBind();
-					ddlSWNo.Items.Clear();
-					ddlSWNo.Items.Insert(0, new ListItem("Select No.", "0"));
-					ddlSWNo.Items.Insert(1, new ListItem("1", "1"));
-					ddlSWNo.SelectedIndex = 0;
-					con.Close();
+					TRNoRecordsLabel.Text = "No Records";
 				}
-				else if (dt1.Rows[0][24].ToString() == "2")
+				else if (dt.Rows.Count > 0)
 				{
-					SqlCommand cmdww = new SqlCommand("SELECT written_works.written_work_id, quarters.quarter, students.first_name, students.last_name, " +
-						"written_works.ww_1_score, written_works.ww_1_total_score, " +
-						"written_works.ww_2_score, written_works.ww_2_total_score, ww_final_grade FROM written_works " +
-						"INNER JOIN students ON written_works.student_id=students.student_id " +
-						"INNER JOIN quarters ON written_works.quarter_id=quarters.quarter_id " +
-						"WHERE written_works.subject_id=@subjectid AND written_works.teacher_id=@teacherid AND written_works.section_id=@sectionid AND written_works.quarter_id=@quarterid", con);
-					cmdww.Parameters.AddWithValue("@subjectid", ddlSubjects.SelectedValue);
-					cmdww.Parameters.AddWithValue("@teacherid", Session["CurrentUser"]);
-					cmdww.Parameters.AddWithValue("@sectionid", ddlSection.SelectedValue);
-					cmdww.Parameters.AddWithValue("@quarterid", ddlQuarter.SelectedValue);
-					SqlDataAdapter adptww = new SqlDataAdapter(cmdww);
-					DataTable dtww = new DataTable();
-					adptww.Fill(dtww);
-					gvRecords.DataSource = dtww;
-					gvRecords.DataBind();
-					ddlSWNo.Items.Clear();
-					ddlSWNo.Items.Insert(0, new ListItem("Select No.", "0"));
-					ddlSWNo.Items.Insert(1, new ListItem("1", "1"));
-					ddlSWNo.Items.Insert(2, new ListItem("2", "2"));
-					ddlSWNo.SelectedIndex = 0;
-					con.Close();
-				}
-				else if (dt1.Rows[0][24].ToString() == "3")
-				{
-					SqlCommand cmdww = new SqlCommand("SELECT written_works.written_work_id, quarters.quarter, students.first_name, students.last_name, " +
-						"written_works.ww_1_score, written_works.ww_1_total_score, " +
-						"written_works.ww_2_score, written_works.ww_2_total_score, " +
-						"written_works.ww_3_score, written_works.ww_3_total_score, ww_final_grade FROM written_works " +
-						"INNER JOIN students ON written_works.student_id=students.student_id " +
-						"INNER JOIN quarters ON written_works.quarter_id=quarters.quarter_id " +
-						"WHERE written_works.subject_id=@subjectid AND written_works.teacher_id=@teacherid AND written_works.section_id=@sectionid AND written_works.quarter_id=@quarterid", con);
-					cmdww.Parameters.AddWithValue("@subjectid", ddlSubjects.SelectedValue);
-					cmdww.Parameters.AddWithValue("@teacherid", Session["CurrentUser"]);
-					cmdww.Parameters.AddWithValue("@sectionid", ddlSection.SelectedValue);
-					cmdww.Parameters.AddWithValue("@quarterid", ddlQuarter.SelectedValue);
-					SqlDataAdapter adptww = new SqlDataAdapter(cmdww);
-					DataTable dtww = new DataTable();
-					adptww.Fill(dtww);
-					gvRecords.DataSource = dtww;
-					gvRecords.DataBind();
-					ddlSWNo.Items.Clear();
-					ddlSWNo.Items.Insert(0, new ListItem("Select No.", "0"));
-					ddlSWNo.Items.Insert(1, new ListItem("1", "1"));
-					ddlSWNo.Items.Insert(2, new ListItem("2", "2"));
-					ddlSWNo.Items.Insert(3, new ListItem("3", "3"));
-					ddlSWNo.SelectedIndex = 0;
-					con.Close();
-				}
-				else if (dt1.Rows[0][24].ToString() == "4")
-				{
-					SqlCommand cmdww = new SqlCommand("SELECT written_works.written_work_id, quarters.quarter, students.first_name, students.last_name, " +
-						"written_works.ww_1_score, written_works.ww_1_total_score, " +
-						"written_works.ww_2_score, written_works.ww_2_total_score, " +
-						"written_works.ww_3_score, written_works.ww_3_total_score, " +
-						"written_works.ww_4_score, written_works.ww_4_total_score, ww_final_grade FROM written_works " +
-						"INNER JOIN students ON written_works.student_id=students.student_id " +
-						"INNER JOIN quarters ON written_works.quarter_id=quarters.quarter_id " +
-						"WHERE written_works.subject_id=@subjectid AND written_works.teacher_id=@teacherid AND written_works.section_id=@sectionid AND written_works.quarter_id=@quarterid", con);
-					cmdww.Parameters.AddWithValue("@subjectid", ddlSubjects.SelectedValue);
-					cmdww.Parameters.AddWithValue("@teacherid", Session["CurrentUser"]);
-					cmdww.Parameters.AddWithValue("@sectionid", ddlSection.SelectedValue);
-					cmdww.Parameters.AddWithValue("@quarterid", ddlQuarter.SelectedValue);
-					SqlDataAdapter adptww = new SqlDataAdapter(cmdww);
-					DataTable dtww = new DataTable();
-					adptww.Fill(dtww);
-					gvRecords.DataSource = dtww;
-					gvRecords.DataBind();
-					ddlSWNo.Items.Clear();
-					ddlSWNo.Items.Insert(0, new ListItem("Select No.", "0"));
-					ddlSWNo.Items.Insert(1, new ListItem("1", "1"));
-					ddlSWNo.Items.Insert(2, new ListItem("2", "2"));
-					ddlSWNo.Items.Insert(3, new ListItem("3", "3"));
-					ddlSWNo.Items.Insert(4, new ListItem("4", "4"));
-					ddlSWNo.SelectedIndex = 0;
-					con.Close();
-				}
-				else if (dt1.Rows[0][24].ToString() == "5")
-				{
-					SqlCommand cmdww = new SqlCommand("SELECT written_works.written_work_id, quarters.quarter, students.first_name, students.last_name, " +
-						"written_works.ww_1_score, written_works.ww_1_total_score, " +
-						"written_works.ww_2_score, written_works.ww_2_total_score, " +
-						"written_works.ww_3_score, written_works.ww_3_total_score, " +
-						"written_works.ww_4_score, written_works.ww_4_total_score, " +
-						"written_works.ww_5_score, written_works.ww_5_total_score, ww_final_grade FROM written_works " +
-						"INNER JOIN students ON written_works.student_id=students.student_id " +
-						"INNER JOIN quarters ON written_works.quarter_id=quarters.quarter_id " +
-						"WHERE written_works.subject_id=@subjectid AND written_works.teacher_id=@teacherid AND written_works.section_id=@sectionid AND written_works.quarter_id=@quarterid", con);
-					cmdww.Parameters.AddWithValue("@subjectid", ddlSubjects.SelectedValue);
-					cmdww.Parameters.AddWithValue("@teacherid", Session["CurrentUser"]);
-					cmdww.Parameters.AddWithValue("@sectionid", ddlSection.SelectedValue);
-					cmdww.Parameters.AddWithValue("@quarterid", ddlQuarter.SelectedValue);
-					SqlDataAdapter adptww = new SqlDataAdapter(cmdww);
-					DataTable dtww = new DataTable();
-					adptww.Fill(dtww);
-					gvRecords.DataSource = dtww;
-					gvRecords.DataBind();
-					ddlSWNo.Items.Clear();
-					ddlSWNo.Items.Insert(0, new ListItem("Select No.", "0"));
-					ddlSWNo.Items.Insert(1, new ListItem("1", "1"));
-					ddlSWNo.Items.Insert(2, new ListItem("2", "2"));
-					ddlSWNo.Items.Insert(3, new ListItem("3", "3"));
-					ddlSWNo.Items.Insert(4, new ListItem("4", "4"));
-					ddlSWNo.Items.Insert(5, new ListItem("5", "5"));
-					ddlSWNo.SelectedIndex = 0;
-					con.Close();
+					if (dt.Rows[0][24].ToString() == "1")
+					{
+						SqlCommand cmdww = new SqlCommand("SELECT written_works.written_work_id, quarters.quarter, students.first_name, students.last_name, " +
+								"written_works.ww_1_score, written_works.ww_1_total_score, ww_final_grade FROM written_works " +
+							"INNER JOIN students ON written_works.student_id=students.student_id " +
+							"INNER JOIN quarters ON written_works.quarter_id=quarters.quarter_id " +
+							"WHERE written_works.subject_id=@subjectid AND written_works.teacher_id=@teacherid AND written_works.section_id=@sectionid AND written_works.quarter_id=@quarterid AND written_works.school_year_id=@syid", con);
+						cmdww.Parameters.AddWithValue("@subjectid", ddlSubjects.SelectedValue);
+						cmdww.Parameters.AddWithValue("@teacherid", Session["CurrentUser"]);
+						cmdww.Parameters.AddWithValue("@sectionid", ddlSection.SelectedValue);
+						cmdww.Parameters.AddWithValue("@quarterid", ddlQuarter.SelectedValue);
+						cmdww.Parameters.AddWithValue("@syid", ddlSchoolYear.SelectedValue);
+						SqlDataAdapter adptww = new SqlDataAdapter(cmdww);
+						DataTable dtww = new DataTable();
+						adptww.Fill(dtww);
+						gvRecords.DataSource = dtww;
+						gvRecords.DataBind();
+						ddlSWNo.Items.Clear();
+						ddlSWNo.Enabled = true;
+						ddlSWNo.Items.Insert(0, new ListItem("Select No.", "0"));
+						ddlSWNo.Items.Insert(1, new ListItem("1", "1"));
+						ddlSWNo.SelectedIndex = 0;
+						con.Close();
+					}
+					else if (dt.Rows[0][24].ToString() == "2")
+					{
+						SqlCommand cmdww = new SqlCommand("SELECT written_works.written_work_id, quarters.quarter, students.first_name, students.last_name, " +
+								"written_works.ww_1_score, written_works.ww_1_total_score, " +
+								"written_works.ww_2_score, written_works.ww_2_total_score, ww_final_grade FROM written_works " +
+							"INNER JOIN students ON written_works.student_id=students.student_id " +
+							"INNER JOIN quarters ON written_works.quarter_id=quarters.quarter_id " +
+							"WHERE written_works.subject_id=@subjectid AND written_works.teacher_id=@teacherid AND written_works.section_id=@sectionid AND written_works.quarter_id=@quarterid AND written_works.school_year_id=@syid", con);
+						cmdww.Parameters.AddWithValue("@subjectid", ddlSubjects.SelectedValue);
+						cmdww.Parameters.AddWithValue("@teacherid", Session["CurrentUser"]);
+						cmdww.Parameters.AddWithValue("@sectionid", ddlSection.SelectedValue);
+						cmdww.Parameters.AddWithValue("@quarterid", ddlQuarter.SelectedValue);
+						cmdww.Parameters.AddWithValue("@syid", ddlSchoolYear.SelectedValue);
+						SqlDataAdapter adptww = new SqlDataAdapter(cmdww);
+						DataTable dtww = new DataTable();
+						adptww.Fill(dtww);
+						gvRecords.DataSource = dtww;
+						gvRecords.DataBind();
+						ddlSWNo.Items.Clear();
+						ddlSWNo.Enabled = true;
+						ddlSWNo.Items.Insert(0, new ListItem("Select No.", "0"));
+						ddlSWNo.Items.Insert(1, new ListItem("1", "1"));
+						ddlSWNo.Items.Insert(2, new ListItem("2", "2"));
+						ddlSWNo.SelectedIndex = 0;
+						con.Close();
+					}
+					else if (dt.Rows[0][24].ToString() == "3")
+					{
+						SqlCommand cmdww = new SqlCommand("SELECT written_works.written_work_id, quarters.quarter, students.first_name, students.last_name, " +
+								"written_works.ww_1_score, written_works.ww_1_total_score, " +
+								"written_works.ww_2_score, written_works.ww_2_total_score, " +
+								"written_works.ww_3_score, written_works.ww_3_total_score, ww_final_grade FROM written_works " +
+							"INNER JOIN students ON written_works.student_id=students.student_id " +
+							"INNER JOIN quarters ON written_works.quarter_id=quarters.quarter_id " +
+							"WHERE written_works.subject_id=@subjectid AND written_works.teacher_id=@teacherid AND written_works.section_id=@sectionid AND written_works.quarter_id=@quarterid AND written_works.school_year_id=@syid", con);
+						cmdww.Parameters.AddWithValue("@subjectid", ddlSubjects.SelectedValue);
+						cmdww.Parameters.AddWithValue("@teacherid", Session["CurrentUser"]);
+						cmdww.Parameters.AddWithValue("@sectionid", ddlSection.SelectedValue);
+						cmdww.Parameters.AddWithValue("@quarterid", ddlQuarter.SelectedValue);
+						cmdww.Parameters.AddWithValue("@syid", ddlSchoolYear.SelectedValue);
+						SqlDataAdapter adptww = new SqlDataAdapter(cmdww);
+						DataTable dtww = new DataTable();
+						adptww.Fill(dtww);
+						gvRecords.DataSource = dtww;
+						gvRecords.DataBind();
+						ddlSWNo.Items.Clear();
+						ddlSWNo.Enabled = true;
+						ddlSWNo.Items.Insert(0, new ListItem("Select No.", "0"));
+						ddlSWNo.Items.Insert(1, new ListItem("1", "1"));
+						ddlSWNo.Items.Insert(2, new ListItem("2", "2"));
+						ddlSWNo.Items.Insert(3, new ListItem("3", "3"));
+						ddlSWNo.SelectedIndex = 0;
+						con.Close();
+					}
+					else if (dt.Rows[0][24].ToString() == "4")
+					{
+						SqlCommand cmdww = new SqlCommand("SELECT written_works.written_work_id, quarters.quarter, students.first_name, students.last_name, " +
+								"written_works.ww_1_score, written_works.ww_1_total_score, " +
+								"written_works.ww_2_score, written_works.ww_2_total_score, " +
+								"written_works.ww_3_score, written_works.ww_3_total_score, " +
+								"written_works.ww_4_score, written_works.ww_4_total_score, ww_final_grade FROM written_works " +
+							"INNER JOIN students ON written_works.student_id=students.student_id " +
+							"INNER JOIN quarters ON written_works.quarter_id=quarters.quarter_id " +
+							"WHERE written_works.subject_id=@subjectid AND written_works.teacher_id=@teacherid AND written_works.section_id=@sectionid AND written_works.quarter_id=@quarterid AND written_works.school_year_id=@syid", con);
+						cmdww.Parameters.AddWithValue("@subjectid", ddlSubjects.SelectedValue);
+						cmdww.Parameters.AddWithValue("@teacherid", Session["CurrentUser"]);
+						cmdww.Parameters.AddWithValue("@sectionid", ddlSection.SelectedValue);
+						cmdww.Parameters.AddWithValue("@quarterid", ddlQuarter.SelectedValue);
+						cmdww.Parameters.AddWithValue("@syid", ddlSchoolYear.SelectedValue);
+						SqlDataAdapter adptww = new SqlDataAdapter(cmdww);
+						DataTable dtww = new DataTable();
+						adptww.Fill(dtww);
+						gvRecords.DataSource = dtww;
+						gvRecords.DataBind();
+						ddlSWNo.Items.Clear();
+						ddlSWNo.Enabled = true;
+						ddlSWNo.Items.Insert(0, new ListItem("Select No.", "0"));
+						ddlSWNo.Items.Insert(1, new ListItem("1", "1"));
+						ddlSWNo.Items.Insert(2, new ListItem("2", "2"));
+						ddlSWNo.Items.Insert(3, new ListItem("3", "3"));
+						ddlSWNo.Items.Insert(4, new ListItem("4", "4"));
+						ddlSWNo.SelectedIndex = 0;
+						con.Close();
+					}
+					else if (dt.Rows[0][24].ToString() == "5")
+					{
+						SqlCommand cmdww = new SqlCommand("SELECT written_works.written_work_id, quarters.quarter, students.first_name, students.last_name, " +
+								"written_works.ww_1_score, written_works.ww_1_total_score, " +
+								"written_works.ww_2_score, written_works.ww_2_total_score, " +
+								"written_works.ww_3_score, written_works.ww_3_total_score, " +
+								"written_works.ww_4_score, written_works.ww_4_total_score, " +
+								"written_works.ww_5_score, written_works.ww_5_total_score, ww_final_grade FROM written_works " +
+							"INNER JOIN students ON written_works.student_id=students.student_id " +
+							"INNER JOIN quarters ON written_works.quarter_id=quarters.quarter_id " +
+							"WHERE written_works.subject_id=@subjectid AND written_works.teacher_id=@teacherid AND written_works.section_id=@sectionid AND written_works.quarter_id=@quarterid AND written_works.school_year_id=@syid", con);
+						cmdww.Parameters.AddWithValue("@subjectid", ddlSubjects.SelectedValue);
+						cmdww.Parameters.AddWithValue("@teacherid", Session["CurrentUser"]);
+						cmdww.Parameters.AddWithValue("@sectionid", ddlSection.SelectedValue);
+						cmdww.Parameters.AddWithValue("@quarterid", ddlQuarter.SelectedValue);
+						cmdww.Parameters.AddWithValue("@syid", ddlSchoolYear.SelectedValue);
+						SqlDataAdapter adptww = new SqlDataAdapter(cmdww);
+						DataTable dtww = new DataTable();
+						adptww.Fill(dtww);
+						gvRecords.DataSource = dtww;
+						gvRecords.DataBind();
+						ddlSWNo.Items.Clear();
+						ddlSWNo.Enabled = true;
+						ddlSWNo.Items.Insert(0, new ListItem("Select No.", "0"));
+						ddlSWNo.Items.Insert(1, new ListItem("1", "1"));
+						ddlSWNo.Items.Insert(2, new ListItem("2", "2"));
+						ddlSWNo.Items.Insert(3, new ListItem("3", "3"));
+						ddlSWNo.Items.Insert(4, new ListItem("4", "4"));
+						ddlSWNo.Items.Insert(5, new ListItem("5", "5"));
+						ddlSWNo.SelectedIndex = 0;
+						con.Close();
+					}
 				}
 			}
 			else if (ddlSchoolWork.SelectedIndex == 2)
 			{
-				SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-O5EH83O;Initial Catalog=HIS_GradingSystem;Integrated Security=False;User Id=sa;Password=1234;MultipleActiveResultSets=True");
-				SqlCommand cmd2 = new SqlCommand("SELECT * FROM performance_tasks WHERE subject_id=@subjectid AND teacher_id=@teacherid AND section_id=@sectionid", con);
+				SqlConnection con = new SqlConnection(conStr);
+				SqlCommand cmd2 = new SqlCommand("SELECT * FROM performance_tasks WHERE subject_id=@subjectid AND teacher_id=@teacherid AND section_id=@sectionid AND school_year_id=@syid", con);
 				cmd2.Parameters.AddWithValue("@subjectid", ddlSubjects.SelectedValue);
 				cmd2.Parameters.AddWithValue("@teacherid", Session["CurrentUser"]);
 				cmd2.Parameters.AddWithValue("@sectionid", ddlSection.SelectedValue);
+				cmd2.Parameters.AddWithValue("@syid", ddlSchoolYear.SelectedValue);
 				SqlDataAdapter adpt2 = new SqlDataAdapter(cmd2);
-				DataTable dt2= new DataTable();
+				DataTable dt2 = new DataTable();
 				adpt2.Fill(dt2);
+				ddlAmnt.Items.Clear();
+				ddlAmnt.Items.Insert(0, new ListItem("Select Amount", "0"));
+				ddlAmnt.Items.Insert(1, new ListItem("1", "1"));
+				ddlAmnt.Items.Insert(2, new ListItem("2", "2"));
+				ddlAmnt.Items.Insert(3, new ListItem("3", "3"));
+				ddlAmnt.SelectedIndex = 0;
+				ddlAmnt.Enabled = true;
 				con.Close();
 
-				if (dt2.Rows[0][18].ToString() == "1")
+				if (dt2.Rows.Count <= 0)
 				{
-					SqlCommand cmdpt = new SqlCommand("SELECT performance_tasks.performance_task_id, quarters.quarter, students.first_name, students.last_name, " +
-						"performance_tasks.pt_1_score, performance_tasks.pt_1_total_score, pt_final_grade FROM performance_tasks " +
-						"INNER JOIN students ON performance_tasks.student_id=students.student_id " +
-						"INNER JOIN quarters ON performance_tasks.quarter_id=quarters.quarter_id " +
-						"WHERE performance_tasks.subject_id=@subjectid AND performance_tasks.teacher_id=@teacherid AND performance_tasks.section_id=@sectionid AND performance_tasks.quarter_id=@quarterid", con);
-					cmdpt.Parameters.AddWithValue("@subjectid", ddlSubjects.SelectedValue);
-					cmdpt.Parameters.AddWithValue("@teacherid", Session["CurrentUser"]);
-					cmdpt.Parameters.AddWithValue("@sectionid", ddlSection.SelectedValue);
-					cmdpt.Parameters.AddWithValue("@quarterid", ddlQuarter.SelectedValue);
-					SqlDataAdapter adptpt = new SqlDataAdapter(cmdpt);
-					DataTable dtpt = new DataTable();
-					adptpt.Fill(dtpt);
-					gvRecords.DataSource = dtpt;
+					gvRecords.DataSource = null;
 					gvRecords.DataBind();
-					con.Close();
+					TRNoRecordsLabel.Text = "No Records";
 				}
-				else if (dt2.Rows[0][18].ToString() == "2")
+				else if (dt2.Rows.Count > 0)
 				{
-					SqlCommand cmdpt = new SqlCommand("SELECT performance_tasks.performance_task_id, quarters.quarter, students.first_name, students.last_name, " +
-						"performance_tasks.pt_1_score, performance_tasks.pt_1_total_score, " +
-						"performance_tasks.pt_2_score, performance_tasks.pt_2_total_score, performance_tasks.pt_final_grade FROM performance_tasks " +
-						"INNER JOIN students ON performance_tasks.student_id=students.student_id " +
-						"INNER JOIN quarters ON performance_tasks.quarter_id=quarters.quarter_id " +
-						"WHERE performance_tasks.subject_id=@subjectid AND performance_tasks.teacher_id=@teacherid AND performance_tasks.section_id=@sectionid AND performance_tasks.quarter_id=@quarterid", con);
-					cmdpt.Parameters.AddWithValue("@subjectid", ddlSubjects.SelectedValue);
-					cmdpt.Parameters.AddWithValue("@teacherid", Session["CurrentUser"]);
-					cmdpt.Parameters.AddWithValue("@sectionid", ddlSection.SelectedValue);
-					cmdpt.Parameters.AddWithValue("@quarterid", ddlQuarter.SelectedValue);
-					SqlDataAdapter adptpt = new SqlDataAdapter(cmdpt);
-					DataTable dtpt = new DataTable();
-					adptpt.Fill(dtpt);
-					gvRecords.DataSource = dtpt;
-					gvRecords.DataBind();
-					con.Close();
-				}
-				else if (dt2.Rows[0][18].ToString() == "3")
-				{
-					SqlCommand cmdpt = new SqlCommand("SELECT performance_tasks.performance_task_id, quarters.quarter, students.first_name, students.last_name, " +
-						"performance_tasks.pt_1_score, performance_tasks.pt_1_total_score, " +
-						"performance_tasks.pt_2_score, performance_tasks.pt_2_total_score, " +
-						"performance_tasks.pt_3_score, performance_tasks.pt_3_total_score, performance_tasks.pt_final_grade FROM performance_tasks " +
-						"INNER JOIN students ON performance_tasks.student_id=students.student_id " +
-						"INNER JOIN quarters ON performance_tasks.quarter_id=quarters.quarter_id " +
-						"WHERE performance_tasks.subject_id=@subjectid AND performance_tasks.teacher_id=@teacherid AND performance_tasks.section_id=@sectionid AND performance_tasks.quarter_id=@quarterid", con);
-					cmdpt.Parameters.AddWithValue("@subjectid", ddlSubjects.SelectedValue);
-					cmdpt.Parameters.AddWithValue("@teacherid", Session["CurrentUser"]);
-					cmdpt.Parameters.AddWithValue("@sectionid", ddlSection.SelectedValue);
-					cmdpt.Parameters.AddWithValue("@quarterid", ddlQuarter.SelectedValue);
-					SqlDataAdapter adptpt = new SqlDataAdapter(cmdpt);
-					DataTable dtpt = new DataTable();
-					adptpt.Fill(dtpt);
-					gvRecords.DataSource = dtpt;
-					gvRecords.DataBind();
-					con.Close();
+					if (dt2.Rows[0][18].ToString() == "1")
+					{
+						SqlCommand cmdpt = new SqlCommand("SELECT performance_tasks.performance_task_id, quarters.quarter, students.first_name, students.last_name, " +
+							"performance_tasks.pt_1_score, performance_tasks.pt_1_total_score, pt_final_grade FROM performance_tasks " +
+							"INNER JOIN students ON performance_tasks.student_id=students.student_id " +
+							"INNER JOIN quarters ON performance_tasks.quarter_id=quarters.quarter_id " +
+							"WHERE performance_tasks.subject_id=@subjectid AND performance_tasks.teacher_id=@teacherid AND performance_tasks.section_id=@sectionid AND performance_tasks.quarter_id=@quarterid AND performance_tasks.school_year_id=@syid", con);
+						cmdpt.Parameters.AddWithValue("@subjectid", ddlSubjects.SelectedValue);
+						cmdpt.Parameters.AddWithValue("@teacherid", Session["CurrentUser"]);
+						cmdpt.Parameters.AddWithValue("@sectionid", ddlSection.SelectedValue);
+						cmdpt.Parameters.AddWithValue("@quarterid", ddlQuarter.SelectedValue);
+						cmdpt.Parameters.AddWithValue("@syid", ddlSchoolYear.SelectedValue);
+						SqlDataAdapter adptpt = new SqlDataAdapter(cmdpt);
+						DataTable dtpt = new DataTable();
+						adptpt.Fill(dtpt);
+						gvRecords.DataSource = dtpt;
+						gvRecords.DataBind();
+						ddlSWNo.Items.Clear();
+						ddlSWNo.Enabled = true;
+						ddlSWNo.Items.Insert(0, new ListItem("Select No.", "0"));
+						ddlSWNo.Items.Insert(1, new ListItem("1", "1"));
+						ddlSWNo.SelectedIndex = 0;
+						con.Close();
+					}
+					else if (dt2.Rows[0][18].ToString() == "2")
+					{
+						SqlCommand cmdpt = new SqlCommand("SELECT performance_tasks.performance_task_id, quarters.quarter, students.first_name, students.last_name, " +
+							"performance_tasks.pt_1_score, performance_tasks.pt_1_total_score, " +
+							"performance_tasks.pt_2_score, performance_tasks.pt_2_total_score, performance_tasks.pt_final_grade FROM performance_tasks " +
+							"INNER JOIN students ON performance_tasks.student_id=students.student_id " +
+							"INNER JOIN quarters ON performance_tasks.quarter_id=quarters.quarter_id " +
+							"WHERE performance_tasks.subject_id=@subjectid AND performance_tasks.teacher_id=@teacherid AND performance_tasks.section_id=@sectionid AND performance_tasks.quarter_id=@quarterid AND performance_tasks.school_year_id=@syid", con);
+						cmdpt.Parameters.AddWithValue("@subjectid", ddlSubjects.SelectedValue);
+						cmdpt.Parameters.AddWithValue("@teacherid", Session["CurrentUser"]);
+						cmdpt.Parameters.AddWithValue("@sectionid", ddlSection.SelectedValue);
+						cmdpt.Parameters.AddWithValue("@quarterid", ddlQuarter.SelectedValue);
+						cmdpt.Parameters.AddWithValue("@syid", ddlSchoolYear.SelectedValue);
+						SqlDataAdapter adptpt = new SqlDataAdapter(cmdpt);
+						DataTable dtpt = new DataTable();
+						adptpt.Fill(dtpt);
+						gvRecords.DataSource = dtpt;
+						gvRecords.DataBind();
+						ddlSWNo.Items.Clear();
+						ddlSWNo.Enabled = true;
+						ddlSWNo.Items.Insert(0, new ListItem("Select No.", "0"));
+						ddlSWNo.Items.Insert(1, new ListItem("1", "1"));
+						ddlSWNo.Items.Insert(2, new ListItem("2", "2"));
+						ddlSWNo.SelectedIndex = 0;
+						con.Close();
+					}
+					else if (dt2.Rows[0][18].ToString() == "3")
+					{
+						SqlCommand cmdpt = new SqlCommand("SELECT performance_tasks.performance_task_id, quarters.quarter, students.first_name, students.last_name, " +
+							"performance_tasks.pt_1_score, performance_tasks.pt_1_total_score, " +
+							"performance_tasks.pt_2_score, performance_tasks.pt_2_total_score, " +
+							"performance_tasks.pt_3_score, performance_tasks.pt_3_total_score, performance_tasks.pt_final_grade FROM performance_tasks " +
+							"INNER JOIN students ON performance_tasks.student_id=students.student_id " +
+							"INNER JOIN quarters ON performance_tasks.quarter_id=quarters.quarter_id " +
+							"WHERE performance_tasks.subject_id=@subjectid AND performance_tasks.teacher_id=@teacherid AND performance_tasks.section_id=@sectionid AND performance_tasks.quarter_id=@quarterid AND performance_tasks.school_year_id=@syid", con);
+						cmdpt.Parameters.AddWithValue("@subjectid", ddlSubjects.SelectedValue);
+						cmdpt.Parameters.AddWithValue("@teacherid", Session["CurrentUser"]);
+						cmdpt.Parameters.AddWithValue("@sectionid", ddlSection.SelectedValue);
+						cmdpt.Parameters.AddWithValue("@quarterid", ddlQuarter.SelectedValue);
+						cmdpt.Parameters.AddWithValue("@syid", ddlSchoolYear.SelectedValue);
+						SqlDataAdapter adptpt = new SqlDataAdapter(cmdpt);
+						DataTable dtpt = new DataTable();
+						adptpt.Fill(dtpt);
+						gvRecords.DataSource = dtpt;
+						gvRecords.DataBind();
+						ddlSWNo.Items.Clear();
+						ddlSWNo.Enabled = true;
+						ddlSWNo.Items.Insert(0, new ListItem("Select No.", "0"));
+						ddlSWNo.Items.Insert(1, new ListItem("1", "1"));
+						ddlSWNo.Items.Insert(2, new ListItem("2", "2"));
+						ddlSWNo.Items.Insert(3, new ListItem("3", "3"));
+						ddlSWNo.SelectedIndex = 0;
+						con.Close();
+					}
 				}
 			}
 			else if (ddlSchoolWork.SelectedIndex == 3)
 			{
-				SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-O5EH83O;Initial Catalog=HIS_GradingSystem;Integrated Security=False;User Id=sa;Password=1234;MultipleActiveResultSets=True");
-				SqlCommand cmd3 = new SqlCommand("SELECT quarterly_test_scores.quarterly_test_id, quarters.quarter, students.first_name, students.last_name, " +
-					"quarterly_test_scores.score, quarterly_test_scores.total_score, quarterly_test_scores.final_score FROM quarterly_test_scores " +
-					"INNER JOIN students ON quarterly_test_scores.student_id=students.student_id " +
-					"INNER JOIN quarters ON quarterly_test_scores.quarter_id=quarters.quarter_id " +
-					"WHERE quarterly_test_scores.subject_id=@subjectid AND quarterly_test_scores.teacher_id=@teacherid AND quarterly_test_scores.section_id=@sectionid AND quarterly_test_scores.quarter_id=@quarter", con);
+				SqlConnection con = new SqlConnection(conStr);
+				SqlCommand cmd3 = new SqlCommand("SELECT * FROM quarterly_test_scores WHERE subject_id=@subjectid AND teacher_id=@teacherid AND section_id=@sectionid AND school_year_id=@syid", con);
 				cmd3.Parameters.AddWithValue("@subjectid", ddlSubjects.SelectedValue);
 				cmd3.Parameters.AddWithValue("@teacherid", Session["CurrentUser"]);
 				cmd3.Parameters.AddWithValue("@sectionid", ddlSection.SelectedValue);
-				cmd3.Parameters.AddWithValue("@quarter", ddlQuarter.SelectedValue);
+				cmd3.Parameters.AddWithValue("@syid", ddlSchoolYear.SelectedValue);
 				SqlDataAdapter adpt3 = new SqlDataAdapter(cmd3);
 				DataTable dt3 = new DataTable();
 				adpt3.Fill(dt3);
-				gvRecords.DataSource = dt3;
+				ddlAmnt.Items.Clear();
+				ddlAmnt.Items.Insert(0, new ListItem("Select Amount", "0"));
+				ddlAmnt.SelectedIndex = 0;
+				ddlAmnt.Enabled = false;
+				ddlSWNo.Items.Clear();
+				ddlSWNo.Items.Insert(0, new ListItem("Select No.", "0"));
+				ddlSWNo.SelectedIndex = 0;
+				ddlSWNo.Enabled = false;
+				con.Close();
+				if (dt3.Rows.Count <= 0)
+				{
+					gvRecords.DataSource = null;
+					gvRecords.DataBind();
+					TRNoRecordsLabel.Text = "No Records";
+				}
+				else if (dt3.Rows.Count > 0)
+				{
+				SqlCommand cmdqt = new SqlCommand("SELECT quarterly_test_scores.quarterly_test_id, quarters.quarter, students.first_name, students.last_name, " +
+						"quarterly_test_scores.score, quarterly_test_scores.total_score, quarterly_test_scores.final_score FROM quarterly_test_scores " +
+						"INNER JOIN students ON quarterly_test_scores.student_id=students.student_id " +
+						"INNER JOIN quarters ON quarterly_test_scores.quarter_id=quarters.quarter_id " +
+						"WHERE quarterly_test_scores.subject_id=@subjectid AND quarterly_test_scores.teacher_id=@teacherid AND quarterly_test_scores.section_id=@sectionid AND quarterly_test_scores.quarter_id=@quarter AND quarterly_test_scores.school_year_id=@syid", con);
+				cmdqt.Parameters.AddWithValue("@subjectid", ddlSubjects.SelectedValue);
+				cmdqt.Parameters.AddWithValue("@teacherid", Session["CurrentUser"]);
+				cmdqt.Parameters.AddWithValue("@sectionid", ddlSection.SelectedValue);
+				cmdqt.Parameters.AddWithValue("@quarter", ddlQuarter.SelectedValue);
+				cmdqt.Parameters.AddWithValue("@syid", ddlSchoolYear.SelectedValue);
+				SqlDataAdapter adptqt = new SqlDataAdapter(cmdqt);
+				DataTable dtqt = new DataTable();
+				adptqt.Fill(dtqt);
+				gvRecords.DataSource = dtqt;
 				gvRecords.DataBind();
 				con.Close();
+				}
 			}
 		}
 		protected void Button1_Click(object sender, EventArgs e)
         {
             Response.Redirect("/HomePage/LoginPage.aspx");
         }
-
 		protected void OnPageIndexChanging(object sender, GridViewPageEventArgs e)
 		{
 			if (ddlSchoolWork.SelectedIndex == 1)
@@ -598,7 +715,6 @@ namespace Group1._3_GradingSystem.TeacherPages
 				this.QuarterlyAssessments();
 			}
 		}
-
 		protected void gvRecords_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			GridViewRow row = gvRecords.Rows[gvRecords.SelectedIndex];
@@ -621,11 +737,9 @@ namespace Group1._3_GradingSystem.TeacherPages
 				//Attach the click event to each cells
 				e.Row.Attributes["onclick"] = ClientScript.GetPostBackClientHyperlink(this.gvRecords, "Select$" + e.Row.RowIndex);
 			}
-
-
 			if (ddlSchoolWork.SelectedIndex == 1)
 			{
-				SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-O5EH83O;Initial Catalog=HIS_GradingSystem;Integrated Security=False;User Id=sa;Password=1234;MultipleActiveResultSets=True");
+				SqlConnection con = new SqlConnection(conStr);
 				SqlCommand cmd1 = new SqlCommand("SELECT * FROM written_works WHERE subject_id=@subjectid AND teacher_id=@teacherid AND section_id=@sectionid", con);
 				cmd1.Parameters.AddWithValue("@subjectid", ddlSubjects.SelectedValue);
 				cmd1.Parameters.AddWithValue("@teacherid", Session["CurrentUser"]);
@@ -722,7 +836,7 @@ namespace Group1._3_GradingSystem.TeacherPages
 			}
 			else if (ddlSchoolWork.SelectedIndex == 2)
 			{
-				SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-O5EH83O;Initial Catalog=HIS_GradingSystem;Integrated Security=False;User Id=sa;Password=1234;MultipleActiveResultSets=True");
+				SqlConnection con = new SqlConnection(conStr);
 				SqlCommand cmd2 = new SqlCommand("SELECT * FROM performance_tasks WHERE subject_id=@subjectid AND teacher_id=@teacherid AND section_id=@sectionid", con);
 				cmd2.Parameters.AddWithValue("@subjectid", ddlSubjects.SelectedValue);
 				cmd2.Parameters.AddWithValue("@teacherid", Session["CurrentUser"]);
@@ -796,7 +910,7 @@ namespace Group1._3_GradingSystem.TeacherPages
 		{
 			if (ddlSchoolWork.SelectedIndex == 1)
 			{
-				SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-O5EH83O;Initial Catalog=HIS_GradingSystem;Integrated Security=False;User Id=sa;Password=1234;MultipleActiveResultSets=True");
+				SqlConnection con = new SqlConnection(conStr);
 				SqlCommand cmd1 = new SqlCommand("SELECT * FROM written_works WHERE subject_id=@subjectid AND teacher_id=@teacherid AND section_id=@sectionid", con);
 				cmd1.Parameters.AddWithValue("@subjectid", ddlSubjects.SelectedValue);
 				cmd1.Parameters.AddWithValue("@teacherid", Session["CurrentUser"]);
@@ -813,11 +927,7 @@ namespace Group1._3_GradingSystem.TeacherPages
 						"INNER JOIN subject_categories ON subjects.subject_category_id=subject_categories.subject_category_id " +
 						"WHERE subject_id=written_works.subject_id)), 2) from written_works WHERE written_work_id=@wwid", con);
 					cmdww.Parameters.AddWithValue("@wwid", SRtxtRecordID.Text);
-					SqlDataAdapter adptww = new SqlDataAdapter(cmdww);
-					DataTable dtww = new DataTable();
-					adptww.Fill(dtww);
-					gvRecords.DataSource = dtww;
-					gvRecords.DataBind();
+					cmdww.ExecuteNonQuery();
 					ddlSWNo.Items.Clear();
 					ddlSWNo.Items.Insert(0, new ListItem("Select No.", "0"));
 					ddlSWNo.Items.Insert(1, new ListItem("1", "1"));
@@ -831,11 +941,7 @@ namespace Group1._3_GradingSystem.TeacherPages
 						"INNER JOIN subject_categories ON subjects.subject_category_id=subject_categories.subject_category_id " +
 						"WHERE subject_id=written_works.subject_id), 2) from written_works WHERE written_work_id=@wwid", con);
 					cmdww.Parameters.AddWithValue("@wwid", SRtxtRecordID.Text);
-					SqlDataAdapter adptww = new SqlDataAdapter(cmdww);
-					DataTable dtww = new DataTable();
-					adptww.Fill(dtww);
-					gvRecords.DataSource = dtww;
-					gvRecords.DataBind();
+					cmdww.ExecuteNonQuery();
 					ddlSWNo.Items.Clear();
 					ddlSWNo.Items.Insert(0, new ListItem("Select No.", "0"));
 					ddlSWNo.Items.Insert(1, new ListItem("1", "1"));
@@ -850,11 +956,7 @@ namespace Group1._3_GradingSystem.TeacherPages
 						"INNER JOIN subject_categories ON subjects.subject_category_id=subject_categories.subject_category_id " +
 						"WHERE subject_id=written_works.subject_id), 2) from written_works WHERE written_work_id=@wwid", con);
 					cmdww.Parameters.AddWithValue("@wwid", SRtxtRecordID.Text);
-					SqlDataAdapter adptww = new SqlDataAdapter(cmdww);
-					DataTable dtww = new DataTable();
-					adptww.Fill(dtww);
-					gvRecords.DataSource = dtww;
-					gvRecords.DataBind();
+					cmdww.ExecuteNonQuery();
 					ddlSWNo.Items.Clear();
 					ddlSWNo.Items.Insert(0, new ListItem("Select No.", "0"));
 					ddlSWNo.Items.Insert(1, new ListItem("1", "1"));
@@ -871,11 +973,7 @@ namespace Group1._3_GradingSystem.TeacherPages
 						"INNER JOIN subject_categories ON subjects.subject_category_id=subject_categories.subject_category_id " +
 						"WHERE subject_id=written_works.subject_id), 2) from written_works WHERE written_work_id=@wwid", con);
 					cmdww.Parameters.AddWithValue("@wwid", SRtxtRecordID.Text);
-					SqlDataAdapter adptww = new SqlDataAdapter(cmdww);
-					DataTable dtww = new DataTable();
-					adptww.Fill(dtww);
-					gvRecords.DataSource = dtww;
-					gvRecords.DataBind();
+					cmdww.ExecuteNonQuery();
 					ddlSWNo.Items.Clear();
 					ddlSWNo.Items.Insert(0, new ListItem("Select No.", "0"));
 					ddlSWNo.Items.Insert(1, new ListItem("1", "1"));
@@ -893,11 +991,7 @@ namespace Group1._3_GradingSystem.TeacherPages
 						"INNER JOIN subject_categories ON subjects.subject_category_id=subject_categories.subject_category_id " +
 						"WHERE subject_id=written_works.subject_id), 2) from written_works WHERE written_work_id=@wwid", con);
 					cmdww.Parameters.AddWithValue("@wwid", SRtxtRecordID.Text);
-					SqlDataAdapter adptww = new SqlDataAdapter(cmdww);
-					DataTable dtww = new DataTable();
-					adptww.Fill(dtww);
-					gvRecords.DataSource = dtww;
-					gvRecords.DataBind();
+					cmdww.ExecuteNonQuery();
 					ddlSWNo.Items.Clear();
 					ddlSWNo.Items.Insert(0, new ListItem("Select No.", "0"));
 					ddlSWNo.Items.Insert(1, new ListItem("1", "1"));
@@ -914,7 +1008,7 @@ namespace Group1._3_GradingSystem.TeacherPages
 		{
 			if (ddlSchoolWork.SelectedIndex == 2)
 			{
-				SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-O5EH83O;Initial Catalog=HIS_GradingSystem;Integrated Security=False;User Id=sa;Password=1234;MultipleActiveResultSets=True");
+				SqlConnection con = new SqlConnection(conStr);
 				SqlCommand cmd2 = new SqlCommand("SELECT * FROM performance_tasks WHERE subject_id=@subjectid AND teacher_id=@teacherid AND section_id=@sectionid", con);
 				cmd2.Parameters.AddWithValue("@subjectid", ddlSubjects.SelectedValue);
 				cmd2.Parameters.AddWithValue("@teacherid", Session["CurrentUser"]);
@@ -931,11 +1025,7 @@ namespace Group1._3_GradingSystem.TeacherPages
 						"INNER JOIN subject_categories ON subjects.subject_category_id=subject_categories.subject_category_id " +
 						"WHERE subject_id=performance_tasks.subject_id)), 2) from performance_tasks WHERE performance_task_id=@ptid", con);
 					cmdpt.Parameters.AddWithValue("@ptid", SRtxtRecordID.Text);
-					SqlDataAdapter adptpt = new SqlDataAdapter(cmdpt);
-					DataTable dtpt = new DataTable();
-					adptpt.Fill(dtpt);
-					gvRecords.DataSource = dtpt;
-					gvRecords.DataBind();
+					cmdpt.ExecuteNonQuery();
 					con.Close();
 				}
 				else if (dt2.Rows[0][18].ToString() == "2")
@@ -945,11 +1035,7 @@ namespace Group1._3_GradingSystem.TeacherPages
 						"INNER JOIN subject_categories ON subjects.subject_category_id=subject_categories.subject_category_id " +
 						"WHERE subject_id=performance_tasks.subject_id), 2) from performance_tasks WHERE performance_task_id=@ptid", con);
 					cmdpt.Parameters.AddWithValue("@ptid", SRtxtRecordID.Text);
-					SqlDataAdapter adptpt = new SqlDataAdapter(cmdpt);
-					DataTable dtpt = new DataTable();
-					adptpt.Fill(dtpt);
-					gvRecords.DataSource = dtpt;
-					gvRecords.DataBind();
+					cmdpt.ExecuteNonQuery();
 					con.Close();
 				}
 				else if (dt2.Rows[0][18].ToString() == "3")
@@ -959,11 +1045,7 @@ namespace Group1._3_GradingSystem.TeacherPages
 						"INNER JOIN subject_categories ON subjects.subject_category_id=subject_categories.subject_category_id " +
 						"WHERE subject_id=performance_tasks.subject_id), 2) from performance_tasks WHERE performance_task_id=@ptid", con);
 					cmdpt.Parameters.AddWithValue("@ptid", SRtxtRecordID.Text);
-					SqlDataAdapter adptpt = new SqlDataAdapter(cmdpt);
-					DataTable dtpt = new DataTable();
-					adptpt.Fill(dtpt);
-					gvRecords.DataSource = dtpt;
-					gvRecords.DataBind();
+					cmdpt.ExecuteNonQuery();
 					con.Close();
 				}
 			}
@@ -980,7 +1062,7 @@ namespace Group1._3_GradingSystem.TeacherPages
 				cmd.ExecuteNonQuery();
 				con.Close();
 
-				SRtxtGrades.Text = string.Empty;
+				SRtxtTotalScore.Text = string.Empty;
 				SRtxtRecordID.Text = string.Empty;
 				SRtxtFName.Text = string.Empty;
 				SRtxtLName.Text = string.Empty;
@@ -997,7 +1079,7 @@ namespace Group1._3_GradingSystem.TeacherPages
 				cmd.ExecuteNonQuery();
 				con.Close();
 
-				SRtxtGrades.Text = string.Empty;
+				SRtxtTotalScore.Text = string.Empty;
 				SRtxtRecordID.Text = string.Empty;
 				SRtxtFName.Text = string.Empty;
 				SRtxtLName.Text = string.Empty;
@@ -1016,11 +1098,25 @@ namespace Group1._3_GradingSystem.TeacherPages
 					"FROM students WHERE section_id=@sectionid" +
 					"AND NOT EXISTS(SELECT student_id FROM written_works " +
 					"WHERE written_works.student_id = students.student_id)", con);
+				SqlCommand cmd1 = new SqlCommand("INSERT INTO grades (student_id, subject_id, school_year_id, year_level_id, section_id, teacher_id) " +
+					"SELECT student_id, @subjectid, school_year_id, year_level_id, section_id, @teacherid," +
+					"FROM students WHERE section_id=@sectionid" +
+					"AND NOT EXISTS(SELECT student_id FROM grades " +
+					"WHERE grades.student_id = students.student_id)", con);
+				SqlCommand cmd2 = new SqlCommand("INSERT INTO partial_grades (student_id, subject_id, school_year_id, year_level_id, section_id, teacher_id) " +
+					"SELECT student_id, @subjectid, school_year_id, year_level_id, section_id, @teacherid," +
+					"FROM students WHERE section_id=@sectionid" +
+					"AND NOT EXISTS(SELECT student_id FROM grades " +
+					"WHERE grades.student_id = students.student_id)", con);
 				cmd.Parameters.AddWithValue("@quarterid", ddlQuarter.SelectedValue);
 				cmd.Parameters.AddWithValue("@subjectid", ddlSubjects.SelectedValue);
 				cmd.Parameters.AddWithValue("@sectionid", ddlSection.SelectedValue);
 				cmd.Parameters.AddWithValue("@teacherid", Session["CurrentUser"]);
+				cmd1.Parameters.AddWithValue("@subjectid", ddlSubjects.SelectedValue);
+				cmd1.Parameters.AddWithValue("@sectionid", ddlSection.SelectedValue);
+				cmd1.Parameters.AddWithValue("@teacherid", Session["CurrentUser"]);
 				cmd.ExecuteNonQuery();
+				cmd1.ExecuteNonQuery();
 				con.Close();
 				WrittenWorks();
 			}
@@ -1033,11 +1129,20 @@ namespace Group1._3_GradingSystem.TeacherPages
 					"FROM students WHERE section_id=@sectionid" +
 					"AND NOT EXISTS(SELECT student_id FROM performance_tasks " +
 					"WHERE performance_tasks.student_id = students.student_id)", con);
+				SqlCommand cmd1 = new SqlCommand("INSERT INTO grades (student_id, subject_id, school_year_id, year_level_id, section_id, teacher_id) " +
+									"SELECT student_id, @subjectid, school_year_id, year_level_id, section_id, @teacherid," +
+									"FROM students WHERE section_id=@sectionid" +
+									"AND NOT EXISTS(SELECT student_id FROM grades " +
+									"WHERE grades.student_id = students.student_id)", con);
 				cmd.Parameters.AddWithValue("@quarterid", ddlQuarter.SelectedValue);
 				cmd.Parameters.AddWithValue("@subjectid", ddlSubjects.SelectedValue);
 				cmd.Parameters.AddWithValue("@sectionid", ddlSection.SelectedValue);
 				cmd.Parameters.AddWithValue("@teacherid", Session["CurrentUser"]);
+				cmd1.Parameters.AddWithValue("@subjectid", ddlSubjects.SelectedValue);
+				cmd1.Parameters.AddWithValue("@sectionid", ddlSection.SelectedValue);
+				cmd1.Parameters.AddWithValue("@teacherid", Session["CurrentUser"]);
 				cmd.ExecuteNonQuery();
+				cmd1.ExecuteNonQuery();
 				con.Close();
 				PerformanceTasks();
 			}
@@ -1050,11 +1155,20 @@ namespace Group1._3_GradingSystem.TeacherPages
 					"FROM students WHERE section_id=@sectionid " +
 					"AND NOT EXISTS(SELECT student_id FROM quarterly_test_scores " +
 					"WHERE quarterly_test_scores.student_id = students.student_id)", con);
+				SqlCommand cmd1 = new SqlCommand("INSERT INTO grades (student_id, subject_id, school_year_id, year_level_id, section_id, teacher_id) " +
+					"SELECT student_id, @subjectid, school_year_id, year_level_id, section_id, @teacherid," +
+					"FROM students WHERE section_id=@sectionid" +
+					"AND NOT EXISTS(SELECT student_id FROM grades " +
+					"WHERE grades.student_id = students.student_id)", con);
 				cmd.Parameters.AddWithValue("@quarterid", ddlQuarter.SelectedValue);
 				cmd.Parameters.AddWithValue("@subjectid", ddlSubjects.SelectedValue);
 				cmd.Parameters.AddWithValue("@sectionid", ddlSection.SelectedValue);
 				cmd.Parameters.AddWithValue("@teacherid", Session["CurrentUser"]);
+				cmd1.Parameters.AddWithValue("@subjectid", ddlSubjects.SelectedValue);
+				cmd1.Parameters.AddWithValue("@sectionid", ddlSection.SelectedValue);
+				cmd1.Parameters.AddWithValue("@teacherid", Session["CurrentUser"]);
 				cmd.ExecuteNonQuery();
+				cmd1.ExecuteNonQuery();
 				con.Close();
 				QuarterlyAssessments();
 			}
@@ -1063,38 +1177,258 @@ namespace Group1._3_GradingSystem.TeacherPages
 		{
 			if (ddlSchoolWork.SelectedIndex == 1)
 			{
-				SqlConnection con = new SqlConnection(conStr);
-				con.Open();
-				SqlCommand cmd = new SqlCommand("UPDATE written_works SET ww_@swno_score=@score WHERE written_work_id=@recordid)", con);
-				cmd.Parameters.AddWithValue("@swno", ddlSWNo.SelectedValue);
-				cmd.Parameters.AddWithValue("@score", SRtxtGrades.Text);
-				cmd.Parameters.AddWithValue("@recordid", SRtxtRecordID.Text);
-				cmd.ExecuteNonQuery();
-				con.Close();
-				WrittenWorks();
+				if (ddlSWNo.SelectedValue == "1")
+				{
+					SqlConnection con = new SqlConnection(conStr);
+					con.Open();
+					SqlCommand cmd = new SqlCommand("UPDATE written_works SET ww_1_score=@score WHERE written_work_id=@recordid", con);
+					cmd.Parameters.AddWithValue("@score", SRtxtGrades.Text);
+					cmd.Parameters.AddWithValue("@recordid", SRtxtRecordID.Text);
+					cmd.ExecuteNonQuery();
+					con.Close();
+					SRtxtGrades.Text = string.Empty;
+					WW_FinalGrade();
+					WrittenWorks();
+				}
+				else if (ddlSWNo.SelectedValue == "2")
+				{
+					SqlConnection con = new SqlConnection(conStr);
+					con.Open();
+					SqlCommand cmd = new SqlCommand("UPDATE written_works SET ww_2_score=@score WHERE written_work_id=@recordid", con);
+					cmd.Parameters.AddWithValue("@score", SRtxtGrades.Text);
+					cmd.Parameters.AddWithValue("@recordid", SRtxtRecordID.Text);
+					cmd.ExecuteNonQuery();
+					con.Close();
+					SRtxtGrades.Text = string.Empty;
+					WW_FinalGrade();
+					WrittenWorks();
+				}
+				else if (ddlSWNo.SelectedValue == "3")
+				{
+					SqlConnection con = new SqlConnection(conStr);
+					con.Open();
+					SqlCommand cmd = new SqlCommand("UPDATE written_works SET ww_3_score=@score WHERE written_work_id=@recordid", con);
+					cmd.Parameters.AddWithValue("@score", SRtxtGrades.Text);
+					cmd.Parameters.AddWithValue("@recordid", SRtxtRecordID.Text);
+					cmd.ExecuteNonQuery();
+					con.Close();
+					SRtxtGrades.Text = string.Empty;
+					WW_FinalGrade();
+					WrittenWorks();
+				}
+				else if (ddlSWNo.SelectedValue == "4")
+				{
+					SqlConnection con = new SqlConnection(conStr);
+					con.Open();
+					SqlCommand cmd = new SqlCommand("UPDATE written_works SET ww_4_score=@score WHERE written_work_id=@recordid", con);
+					cmd.Parameters.AddWithValue("@score", SRtxtGrades.Text);
+					cmd.Parameters.AddWithValue("@recordid", SRtxtRecordID.Text);
+					cmd.ExecuteNonQuery();
+					con.Close();
+					SRtxtGrades.Text = string.Empty;
+					WW_FinalGrade();
+					WrittenWorks();
+				}
+				else if (ddlSWNo.SelectedValue == "5")
+				{
+					SqlConnection con = new SqlConnection(conStr);
+					con.Open();
+					SqlCommand cmd = new SqlCommand("UPDATE written_works SET ww_5_score=@score WHERE written_work_id=@recordid", con);
+					cmd.Parameters.AddWithValue("@score", SRtxtGrades.Text);
+					cmd.Parameters.AddWithValue("@recordid", SRtxtRecordID.Text);
+					cmd.ExecuteNonQuery();
+					con.Close();
+					SRtxtGrades.Text = string.Empty;
+					WW_FinalGrade();
+					WrittenWorks();
+				}
 			}
 			else if (ddlSchoolWork.SelectedIndex == 2)
 			{
-				SqlConnection con = new SqlConnection(conStr);
-				con.Open();
-				SqlCommand cmd = new SqlCommand("UPDATE performance_tasks SET ww_@swno_score=@score WHERE performance_task_id=@recordid)", con);
-				cmd.Parameters.AddWithValue("@swno", ddlSWNo.SelectedValue);
-				cmd.Parameters.AddWithValue("@score", SRtxtGrades.Text);
-				cmd.Parameters.AddWithValue("@recordid", SRtxtRecordID.Text);
-				cmd.ExecuteNonQuery();
-				con.Close();
-				PerformanceTasks();
+				if (ddlSWNo.SelectedValue == "1")
+				{
+					SqlConnection con = new SqlConnection(conStr);
+					con.Open();
+					SqlCommand cmd = new SqlCommand("UPDATE performance_tasks SET pt_1_score=@score WHERE performance_task_id=@recordid", con);
+					cmd.Parameters.AddWithValue("@score", SRtxtGrades.Text);
+					cmd.Parameters.AddWithValue("@recordid", SRtxtRecordID.Text);
+					cmd.ExecuteNonQuery();
+					con.Close();
+					SRtxtGrades.Text = string.Empty;
+					PT_FinalGrade();
+					PerformanceTasks();
+				}
+				else if (ddlSWNo.SelectedValue == "2")
+				{
+					SqlConnection con = new SqlConnection(conStr);
+					con.Open();
+					SqlCommand cmd = new SqlCommand("UPDATE performance_tasks SET pt_2_score=@score WHERE performance_task_id=@recordid", con);
+					cmd.Parameters.AddWithValue("@score", SRtxtGrades.Text);
+					cmd.Parameters.AddWithValue("@recordid", SRtxtRecordID.Text);
+					cmd.ExecuteNonQuery();
+					con.Close();
+					SRtxtGrades.Text = string.Empty;
+					PT_FinalGrade();
+					PerformanceTasks();
+				}
+				else if (ddlSWNo.SelectedValue == "3")
+				{
+					SqlConnection con = new SqlConnection(conStr);
+					con.Open();
+					SqlCommand cmd = new SqlCommand("UPDATE performance_tasks SET pt_3_score=@score WHERE performance_task_id=@recordid", con);
+					cmd.Parameters.AddWithValue("@score", SRtxtGrades.Text);
+					cmd.Parameters.AddWithValue("@recordid", SRtxtRecordID.Text);
+					cmd.ExecuteNonQuery();
+					con.Close();
+					SRtxtGrades.Text = string.Empty;
+					PT_FinalGrade();
+					PerformanceTasks();
+				}
 			}
 			else if (ddlSchoolWork.SelectedIndex == 3)
 			{
 				SqlConnection con = new SqlConnection(conStr);
 				con.Open();
-				SqlCommand cmd = new SqlCommand("UPDATE quarterly_test_scores SET score=@score WHERE quarterly_test_id=@recordid)", con);
-				cmd.Parameters.AddWithValue("@swno", ddlSWNo.SelectedValue);
+				SqlCommand cmd = new SqlCommand("UPDATE quarterly_test_scores SET score=@score WHERE quarterly_test_id=@recordid", con);
 				cmd.Parameters.AddWithValue("@score", SRtxtGrades.Text);
 				cmd.Parameters.AddWithValue("@recordid", SRtxtRecordID.Text);
 				cmd.ExecuteNonQuery();
 				con.Close();
+				SRtxtGrades.Text = string.Empty;
+				QuarterlyAssessments();
+			}
+		}
+		protected void UpdateTS_Click(object sender, EventArgs e)
+		{
+			if (ddlSchoolWork.SelectedIndex == 1)
+			{
+				if (ddlSWNo.SelectedValue == "1")
+				{
+					SqlConnection con = new SqlConnection(conStr);
+					con.Open();
+					SqlCommand cmd = new SqlCommand("UPDATE written_works SET ww_1_total_score=@tscore WHERE subject_id=@subjectid AND section_id=@sectionid", con);
+					cmd.Parameters.AddWithValue("@tscore", SRtxtTotalScore.Text);
+					cmd.Parameters.AddWithValue("@subjectid", ddlSubjects.SelectedValue);
+					cmd.Parameters.AddWithValue("@sectionid", ddlSection.SelectedValue);
+					cmd.ExecuteNonQuery();
+					con.Close();
+					SRtxtTotalScore.Text = string.Empty;
+					WW_FinalGrade();
+					WrittenWorks();
+				}
+				else if (ddlSWNo.SelectedValue == "2")
+				{
+					SqlConnection con = new SqlConnection(conStr);
+					con.Open();
+					SqlCommand cmd = new SqlCommand("UPDATE written_works SET ww_2_total_score=@tscore WHERE subject_id=@subjectid AND section_id=@sectionid", con);
+					cmd.Parameters.AddWithValue("@tscore", SRtxtTotalScore.Text);
+					cmd.Parameters.AddWithValue("@subjectid", ddlSubjects.SelectedValue);
+					cmd.Parameters.AddWithValue("@sectionid", ddlSection.SelectedValue);
+					cmd.ExecuteNonQuery();
+					con.Close();
+					SRtxtTotalScore.Text = string.Empty;
+					WW_FinalGrade();
+					WrittenWorks();
+				}
+				else if (ddlSWNo.SelectedValue == "3")
+				{
+					SqlConnection con = new SqlConnection(conStr);
+					con.Open();
+					SqlCommand cmd = new SqlCommand("UPDATE written_works SET ww_3_total_score=@tscore WHERE subject_id=@subjectid AND section_id=@sectionid", con);
+					cmd.Parameters.AddWithValue("@tscore", SRtxtTotalScore.Text);
+					cmd.Parameters.AddWithValue("@subjectid", ddlSubjects.SelectedValue);
+					cmd.Parameters.AddWithValue("@sectionid", ddlSection.SelectedValue);
+					cmd.ExecuteNonQuery();
+					con.Close();
+					SRtxtTotalScore.Text = string.Empty;
+					WW_FinalGrade();
+					WrittenWorks();
+				}
+				else if (ddlSWNo.SelectedValue == "4")
+				{
+					SqlConnection con = new SqlConnection(conStr);
+					con.Open();
+					SqlCommand cmd = new SqlCommand("UPDATE written_works SET ww_4_total_score=@tscore WHERE subject_id=@subjectid AND section_id=@sectionid", con);
+					cmd.Parameters.AddWithValue("@tscore", SRtxtTotalScore.Text);
+					cmd.Parameters.AddWithValue("@subjectid", ddlSubjects.SelectedValue);
+					cmd.Parameters.AddWithValue("@sectionid", ddlSection.SelectedValue);
+					cmd.ExecuteNonQuery();
+					con.Close();
+					SRtxtTotalScore.Text = string.Empty;
+					WW_FinalGrade();
+					WrittenWorks();
+				}
+				else if (ddlSWNo.SelectedValue == "5")
+				{
+					SqlConnection con = new SqlConnection(conStr);
+					con.Open();
+					SqlCommand cmd = new SqlCommand("UPDATE written_works SET ww_5_total_score=@score WHERE subject_id=@subjectid AND section_id=@sectionid", con);
+					cmd.Parameters.AddWithValue("@tscore", SRtxtTotalScore.Text);
+					cmd.Parameters.AddWithValue("@subjectid", ddlSubjects.SelectedValue);
+					cmd.Parameters.AddWithValue("@sectionid", ddlSection.SelectedValue);
+					cmd.ExecuteNonQuery();
+					con.Close();
+					SRtxtTotalScore.Text = string.Empty;
+					WW_FinalGrade();
+					WrittenWorks();
+				}
+			}
+			else if (ddlSchoolWork.SelectedIndex == 2)
+			{
+				if (ddlSWNo.SelectedValue == "1")
+				{
+					SqlConnection con = new SqlConnection(conStr);
+					con.Open();
+					SqlCommand cmd = new SqlCommand("UPDATE performance_tasks SET pt_1_total_score=@tscore WHERE subject_id=@subjectid AND section_id=@sectionid", con);
+					cmd.Parameters.AddWithValue("@tscore", SRtxtTotalScore.Text);
+					cmd.Parameters.AddWithValue("@subjectid", ddlSubjects.SelectedValue);
+					cmd.Parameters.AddWithValue("@sectionid", ddlSection.SelectedValue);
+					cmd.ExecuteNonQuery();
+					con.Close();
+					SRtxtTotalScore.Text = string.Empty;
+					PT_FinalGrade();
+					PerformanceTasks();
+				}
+				else if (ddlSWNo.SelectedValue == "2")
+				{
+					SqlConnection con = new SqlConnection(conStr);
+					con.Open();
+					SqlCommand cmd = new SqlCommand("UPDATE performance_tasks SET pt_2_total_score=@tscore WHERE subject_id=@subjectid AND section_id=@sectionid", con);
+					cmd.Parameters.AddWithValue("@tscore", SRtxtTotalScore.Text);
+					cmd.Parameters.AddWithValue("@subjectid", ddlSubjects.SelectedValue);
+					cmd.Parameters.AddWithValue("@sectionid", ddlSection.SelectedValue);
+					cmd.ExecuteNonQuery();
+					con.Close();
+					SRtxtTotalScore.Text = string.Empty;
+					PT_FinalGrade();
+					PerformanceTasks();
+				}
+				else if (ddlSWNo.SelectedValue == "3")
+				{
+					SqlConnection con = new SqlConnection(conStr);
+					con.Open();
+					SqlCommand cmd = new SqlCommand("UPDATE performance_tasks SET pt_3_total_score=@tscore WHERE subject_id=@subjectid AND section_id=@sectionid", con);
+					cmd.Parameters.AddWithValue("@tscore", SRtxtTotalScore.Text);
+					cmd.Parameters.AddWithValue("@subjectid", ddlSubjects.SelectedValue);
+					cmd.Parameters.AddWithValue("@sectionid", ddlSection.SelectedValue);
+					cmd.ExecuteNonQuery();
+					con.Close();
+					SRtxtTotalScore.Text = string.Empty;
+					PT_FinalGrade();
+					PerformanceTasks();
+				}
+			}
+			else if (ddlSchoolWork.SelectedIndex == 3)
+			{
+				SqlConnection con = new SqlConnection(conStr);
+				con.Open();
+				SqlCommand cmd = new SqlCommand("UPDATE quarterly_test_scores SET total_score=@tscore WHERE subject_id=@subjectid AND section_id=@sectionid", con);
+				cmd.Parameters.AddWithValue("@tscore", SRtxtTotalScore.Text);
+				cmd.Parameters.AddWithValue("@subjectid", ddlSubjects.SelectedValue);
+				cmd.Parameters.AddWithValue("@sectionid", ddlSection.SelectedValue);
+				cmd.ExecuteNonQuery();
+				con.Close();
+				SRtxtTotalScore.Text = string.Empty;
 				QuarterlyAssessments();
 			}
 		}
