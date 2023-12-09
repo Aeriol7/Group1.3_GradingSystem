@@ -118,41 +118,6 @@ namespace Group1._3_GradingSystem.TeacherPages
 			this.Grades();
 		}
 
-		protected void gvGrades_SelectedIndexChanged(object sender, EventArgs e)
-		{
-			//Get the selected row
-			GridViewRow row = gvGrades.Rows[gvGrades.SelectedIndex];
-			if (row != null)
-			{
-				//Change the cell index(1) of column as per your design
-				//Get the Selected row cell values here
-				GridViewRow gr = gvGrades.SelectedRow;
-				SGtxtGradeID.Text = gr.Cells[0].Text;
-				SGtxtFName.Text = gr.Cells[2].Text;
-				SGtxtLName.Text = gr.Cells[3].Text;
-
-				if (ddlQuarter.SelectedIndex == 1)
-				{
-					SGtxtGrades.Text = gr.Cells[4].Text;
-				}
-				else if (ddlQuarter.SelectedIndex == 2)
-				{
-					SGtxtGrades.Text = gr.Cells[5].Text;
-				}
-				else if (ddlQuarter.SelectedIndex == 3)
-				{
-					SGtxtGrades.Text = gr.Cells[6].Text;
-				}
-				else if (ddlQuarter.SelectedIndex == 4)
-				{
-					SGtxtGrades.Text = gr.Cells[7].Text;
-				}
-				else if (ddlQuarter.SelectedIndex == 0)
-				{
-					
-				}
-			}
-		}
 		protected void gvGrades_RowDataBound(object sender, System.Web.UI.WebControls.GridViewRowEventArgs e)
 		{
 			if (e.Row.RowType == DataControlRowType.DataRow)
@@ -180,100 +145,19 @@ namespace Group1._3_GradingSystem.TeacherPages
 			}
 		}
 
-		public void Remarks()
-		{
+		//public void Remarks()
+		//{
 
-			SqlConnection con = new SqlConnection(conStr);
-			con.Open();
-			SqlCommand cmd1 = new SqlCommand("IF (SELECT average from grades WHERE grades_id=@gradeid) >= 75" +
-				"UPDATE grades SET remarks='PASSED' WHERE grades_id=@gradeid " +
-				"ELSE " +
-				"UPDATE grades SET remarks='FAILED' WHERE grades_id=@gradeid", con);
-			cmd1.Parameters.AddWithValue("@gradeid", SGtxtGradeID.Text);
-			cmd1.ExecuteNonQuery();
-			con.Close();
+		//	SqlConnection con = new SqlConnection(conStr);
+		//	con.Open();
+		//	SqlCommand cmd1 = new SqlCommand("IF (SELECT average from grades WHERE grades_id=@gradeid) >= 75" +
+		//		"UPDATE grades SET remarks='PASSED' WHERE grades_id=@gradeid " +
+		//		"ELSE " +
+		//		"UPDATE grades SET remarks='FAILED' WHERE grades_id=@gradeid", con);
+		//	cmd1.Parameters.AddWithValue("@gradeid", SGtxtGradeID.Text);
+		//	cmd1.ExecuteNonQuery();
+		//	con.Close();
 			
-		}
-
-		protected void SGSaveGrades_Click(object sender, EventArgs e)
-		{
-			if (ddlQuarter.Text == "1st")
-			{
-				SqlConnection con = new SqlConnection(conStr);
-				con.Open();
-				SqlCommand cmd = new SqlCommand("UPDATE grades SET first_quarter = @1stgrade WHERE grades_id = @gradeid", con);
-				cmd.Parameters.AddWithValue("@1stgrade", SGtxtGrades.Text);
-				cmd.Parameters.AddWithValue("@gradeid", SGtxtGradeID.Text);
-				cmd.ExecuteNonQuery();
-				con.Close();
-
-				Grades();
-
-				SGtxtGrades.Text = string.Empty; 
-				SGtxtGradeID.Text = string.Empty;
-				SGtxtFName.Text = string.Empty;
-				SGtxtLName.Text = string.Empty;
-				ddlQuarter.SelectedIndex = 0;
-				ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Inserted Successfully');", true);
-			}
-			else if (ddlQuarter.Text == "2nd")
-			{
-				SqlConnection con = new SqlConnection(conStr);
-				con.Open();
-				SqlCommand cmd = new SqlCommand("UPDATE grades SET second_quarter = @2ndgrade WHERE grades_id = @gradeid", con);
-				cmd.Parameters.AddWithValue("@2ndgrade", SGtxtGrades.Text);
-				cmd.Parameters.AddWithValue("@gradeid", SGtxtGradeID.Text);
-				cmd.ExecuteNonQuery();
-				con.Close();
-
-				Grades();
-
-				SGtxtGrades.Text = string.Empty;
-				SGtxtGradeID.Text = string.Empty;
-				SGtxtFName.Text = string.Empty;
-				SGtxtLName.Text = string.Empty;
-				ddlQuarter.SelectedIndex = 0;
-				ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Inserted Successfully');", true);
-			}
-			else if (ddlQuarter.Text == "3rd")
-			{
-				SqlConnection con = new SqlConnection(conStr);
-				con.Open();
-				SqlCommand cmd = new SqlCommand("UPDATE grades SET third_quarter = @3rdgrade WHERE grades_id = @gradeid", con);
-				cmd.Parameters.AddWithValue("@3rdgrade", SGtxtGrades.Text);
-				cmd.Parameters.AddWithValue("@gradeid", SGtxtGradeID.Text);
-				cmd.ExecuteNonQuery();
-				con.Close();
-
-				Grades();
-
-				SGtxtGrades.Text = string.Empty;
-				SGtxtGradeID.Text = string.Empty;
-				SGtxtFName.Text = string.Empty;
-				SGtxtLName.Text = string.Empty;
-				ddlQuarter.SelectedIndex = 0;
-				ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Inserted Successfully');", true);
-			}
-			else if (ddlQuarter.Text == "4th")
-			{
-				SqlConnection con = new SqlConnection(conStr);
-				con.Open();
-				SqlCommand cmd = new SqlCommand("UPDATE grades SET fourth_quarter = @4thgrade WHERE grades_id = @gradeid", con);
-				cmd.Parameters.AddWithValue("@4thgrade", SGtxtGrades.Text);
-				cmd.Parameters.AddWithValue("@gradeid", SGtxtGradeID.Text);
-				cmd.ExecuteNonQuery();
-				con.Close();
-
-				Remarks();
-				Grades();
-
-				SGtxtGrades.Text = string.Empty;
-				SGtxtGradeID.Text = string.Empty;
-				SGtxtFName.Text = string.Empty;
-				SGtxtLName.Text = string.Empty;
-				ddlQuarter.SelectedIndex = 0;
-				ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Inserted Successfully');", true);
-			}
-		}
+		//}
 	}
 }
