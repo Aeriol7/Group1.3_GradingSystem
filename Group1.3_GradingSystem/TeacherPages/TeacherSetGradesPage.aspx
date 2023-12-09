@@ -289,8 +289,7 @@
             <asp:ListItem Value="0">Select Subject</asp:ListItem>
         </asp:DropDownList>
         <div class="set-grades-table" style="height: 250px; overflow: auto;" >
-            <asp:GridView ID="gvGrades" runat="server" AllowPaging="True" PageSize="5" OnPageIndexChanging="OnPageIndexChanging" OnSelectedIndexChanged="gvGrades_SelectedIndexChanged"
-    OnRowDataBound="gvGrades_RowDataBound" CellPadding="4" ForeColor="#333333" GridLines="None">
+            <asp:GridView ID="gvGrades" runat="server" AllowPaging="True" PageSize="5" OnPageIndexChanging="OnPageIndexChanging" OnRowDataBound="gvGrades_RowDataBound" CellPadding="4" ForeColor="#333333" GridLines="None">
                 <EditRowStyle BackColor="#999999" />
                 <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
                 <HeaderStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
@@ -303,7 +302,7 @@
                 <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
             </asp:GridView>
         </div>
-        <div class="set-grades-form">
+        <%--<div class="set-grades-form">
             <asp:Label ID="SGFNLabel" runat="server" Font-Names="Arial" ForeColor="#983939">First Name:</asp:Label>
             <asp:TextBox ID="SGtxtFName" runat="server" BorderStyle="Solid" BorderWidth="1px"></asp:TextBox>
             <asp:Label ID="SGLNLabel" runat="server" Font-Names="Arial" ForeColor="#983939" BorderStyle="None">Last Name:</asp:Label>
@@ -317,7 +316,7 @@
             <asp:Label ID="SGGradesLabel" runat="server" Font-Names="Arial" ForeColor="#983939" Height="18px">Grades:</asp:Label>
             <asp:TextBox ID="SGtxtGrades" runat="server" BorderStyle="Solid" BorderWidth="1px"></asp:TextBox>
             <asp:Button ID="SGSaveGrades" runat="server" Text="Save" BackColor="White" Font-Names="Arial" ForeColor="#983939" OnClick="SGSaveGrades_Click" />
-        </div>
+        </div>--%>
     </div>
 </body>
 </form>

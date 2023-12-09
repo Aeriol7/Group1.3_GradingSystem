@@ -25,7 +25,8 @@ namespace Group1._3_GradingSystem.TeacherPages
 		public void WrittenWorks()
 		{
 			SqlConnection con = new SqlConnection(conStr);
-			SqlCommand cmd = new SqlCommand("SELECT * FROM written_works WHERE subject_id=@subjectid AND teacher_id=@teacherid AND section_id=@sectionid AND school_year_id=@syid", con);
+			SqlCommand cmd = new SqlCommand("SELECT * FROM written_works WHERE subject_id=@subjectid AND teacher_id=@teacherid AND section_id=@sectionid AND school_year_id=@syid AND quarter_id=@quarterid", con);
+			cmd.Parameters.AddWithValue("@quarterid", ddlQuarter.SelectedValue);
 			cmd.Parameters.AddWithValue("@subjectid", ddlSubjects.SelectedValue);
 			cmd.Parameters.AddWithValue("@teacherid", Session["CurrentUser"]);
 			cmd.Parameters.AddWithValue("@sectionid", ddlSection.SelectedValue);
@@ -183,7 +184,8 @@ namespace Group1._3_GradingSystem.TeacherPages
 		public void PerformanceTasks()
 		{
 			SqlConnection con = new SqlConnection(conStr);
-			SqlCommand cmd2 = new SqlCommand("SELECT * FROM performance_tasks WHERE subject_id=@subjectid AND teacher_id=@teacherid AND section_id=@sectionid AND school_year_id=@syid", con);
+			SqlCommand cmd2 = new SqlCommand("SELECT * FROM performance_tasks WHERE subject_id=@subjectid AND teacher_id=@teacherid AND section_id=@sectionid AND school_year_id=@syid AND quarter_id=@quarterid", con);
+			cmd2.Parameters.AddWithValue("@quarterid", ddlQuarter.SelectedValue);
 			cmd2.Parameters.AddWithValue("@subjectid", ddlSubjects.SelectedValue);
 			cmd2.Parameters.AddWithValue("@teacherid", Session["CurrentUser"]);
 			cmd2.Parameters.AddWithValue("@sectionid", ddlSection.SelectedValue);
@@ -266,7 +268,8 @@ namespace Group1._3_GradingSystem.TeacherPages
 		public void QuarterlyAssessments()
 		{
 			SqlConnection con = new SqlConnection(conStr);
-			SqlCommand cmd3 = new SqlCommand("SELECT * FROM quarterly_test_scores WHERE subject_id=@subjectid AND teacher_id=@teacherid AND section_id=@sectionid AND school_year_id=@syid", con);
+			SqlCommand cmd3 = new SqlCommand("SELECT * FROM quarterly_test_scores WHERE subject_id=@subjectid AND teacher_id=@teacherid AND section_id=@sectionid AND school_year_id=@syid AND quarter_id=@quarterid", con);
+			cmd3.Parameters.AddWithValue("@quarterid", ddlQuarter.SelectedValue);
 			cmd3.Parameters.AddWithValue("@subjectid", ddlSubjects.SelectedValue);
 			cmd3.Parameters.AddWithValue("@teacherid", Session["CurrentUser"]);
 			cmd3.Parameters.AddWithValue("@sectionid", ddlSection.SelectedValue);
@@ -369,7 +372,8 @@ namespace Group1._3_GradingSystem.TeacherPages
 			if (ddlSchoolWork.SelectedIndex == 1)
 			{
 				SqlConnection con = new SqlConnection(conStr);
-				SqlCommand cmd = new SqlCommand("SELECT * FROM written_works WHERE subject_id=@subjectid AND teacher_id=@teacherid AND section_id=@sectionid AND school_year_id=@syid", con);
+				SqlCommand cmd = new SqlCommand("SELECT * FROM written_works WHERE subject_id=@subjectid AND teacher_id=@teacherid AND section_id=@sectionid AND school_year_id=@syid AND quarter_id=@quarterid", con);
+				cmd.Parameters.AddWithValue("@quarterid", ddlQuarter.SelectedValue);
 				cmd.Parameters.AddWithValue("@subjectid", ddlSubjects.SelectedValue);
 				cmd.Parameters.AddWithValue("@teacherid", Session["CurrentUser"]);
 				cmd.Parameters.AddWithValue("@sectionid", ddlSection.SelectedValue);
@@ -541,7 +545,8 @@ namespace Group1._3_GradingSystem.TeacherPages
 			else if (ddlSchoolWork.SelectedIndex == 2)
 			{
 				SqlConnection con = new SqlConnection(conStr);
-				SqlCommand cmd2 = new SqlCommand("SELECT * FROM performance_tasks WHERE subject_id=@subjectid AND teacher_id=@teacherid AND section_id=@sectionid AND school_year_id=@syid", con);
+				SqlCommand cmd2 = new SqlCommand("SELECT * FROM performance_tasks WHERE subject_id=@subjectid AND teacher_id=@teacherid AND section_id=@sectionid AND school_year_id=@syid AND quarter_id=@quarterid", con);
+				cmd2.Parameters.AddWithValue("@quarterid", ddlQuarter.SelectedValue);
 				cmd2.Parameters.AddWithValue("@subjectid", ddlSubjects.SelectedValue);
 				cmd2.Parameters.AddWithValue("@teacherid", Session["CurrentUser"]);
 				cmd2.Parameters.AddWithValue("@sectionid", ddlSection.SelectedValue);
@@ -649,7 +654,8 @@ namespace Group1._3_GradingSystem.TeacherPages
 			else if (ddlSchoolWork.SelectedIndex == 3)
 			{
 				SqlConnection con = new SqlConnection(conStr);
-				SqlCommand cmd3 = new SqlCommand("SELECT * FROM quarterly_test_scores WHERE subject_id=@subjectid AND teacher_id=@teacherid AND section_id=@sectionid AND school_year_id=@syid", con);
+				SqlCommand cmd3 = new SqlCommand("SELECT * FROM quarterly_test_scores WHERE subject_id=@subjectid AND teacher_id=@teacherid AND section_id=@sectionid AND school_year_id=@syid AND quarter_id=@quarterid", con);
+				cmd3.Parameters.AddWithValue("@quarterid", ddlQuarter.SelectedValue);
 				cmd3.Parameters.AddWithValue("@subjectid", ddlSubjects.SelectedValue);
 				cmd3.Parameters.AddWithValue("@teacherid", Session["CurrentUser"]);
 				cmd3.Parameters.AddWithValue("@sectionid", ddlSection.SelectedValue);
@@ -740,7 +746,9 @@ namespace Group1._3_GradingSystem.TeacherPages
 			if (ddlSchoolWork.SelectedIndex == 1)
 			{
 				SqlConnection con = new SqlConnection(conStr);
-				SqlCommand cmd1 = new SqlCommand("SELECT * FROM written_works WHERE subject_id=@subjectid AND teacher_id=@teacherid AND section_id=@sectionid", con);
+				con.Open();
+				SqlCommand cmd1 = new SqlCommand("SELECT * FROM written_works WHERE subject_id=@subjectid AND teacher_id=@teacherid AND section_id=@sectionid AND quarter_id=@quarterid", con);
+				cmd1.Parameters.AddWithValue("@quarterid", ddlQuarter.SelectedValue);
 				cmd1.Parameters.AddWithValue("@subjectid", ddlSubjects.SelectedValue);
 				cmd1.Parameters.AddWithValue("@teacherid", Session["CurrentUser"]);
 				cmd1.Parameters.AddWithValue("@sectionid", ddlSection.SelectedValue);
@@ -837,7 +845,9 @@ namespace Group1._3_GradingSystem.TeacherPages
 			else if (ddlSchoolWork.SelectedIndex == 2)
 			{
 				SqlConnection con = new SqlConnection(conStr);
-				SqlCommand cmd2 = new SqlCommand("SELECT * FROM performance_tasks WHERE subject_id=@subjectid AND teacher_id=@teacherid AND section_id=@sectionid", con);
+				con.Open();
+				SqlCommand cmd2 = new SqlCommand("SELECT * FROM performance_tasks WHERE subject_id=@subjectid AND teacher_id=@teacherid AND section_id=@sectionid AND qua4ter_id=@quarterid", con);
+				cmd2.Parameters.AddWithValue("@quarterid", ddlQuarter.SelectedValue);
 				cmd2.Parameters.AddWithValue("@subjectid", ddlSubjects.SelectedValue);
 				cmd2.Parameters.AddWithValue("@teacherid", Session["CurrentUser"]);
 				cmd2.Parameters.AddWithValue("@sectionid", ddlSection.SelectedValue);
@@ -911,7 +921,9 @@ namespace Group1._3_GradingSystem.TeacherPages
 			if (ddlSchoolWork.SelectedIndex == 1)
 			{
 				SqlConnection con = new SqlConnection(conStr);
-				SqlCommand cmd1 = new SqlCommand("SELECT * FROM written_works WHERE subject_id=@subjectid AND teacher_id=@teacherid AND section_id=@sectionid", con);
+				con.Open();
+				SqlCommand cmd1 = new SqlCommand("SELECT * FROM written_works WHERE subject_id=@subjectid AND teacher_id=@teacherid AND section_id=@sectionid AND quarter_id=@quarterid", con);
+				cmd1.Parameters.AddWithValue("@quarterid", ddlQuarter.SelectedValue);
 				cmd1.Parameters.AddWithValue("@subjectid", ddlSubjects.SelectedValue);
 				cmd1.Parameters.AddWithValue("@teacherid", Session["CurrentUser"]);
 				cmd1.Parameters.AddWithValue("@sectionid", ddlSection.SelectedValue);
@@ -922,6 +934,7 @@ namespace Group1._3_GradingSystem.TeacherPages
 
 				if (dt1.Rows[0][24].ToString() == "1")
 				{
+					con.Open();
 					SqlCommand cmdww = new SqlCommand("UPDATE written_works SET ww_final_grade = ROUND((written_works.ww_1_final_score * " +
 						"(SELECT subject_categories.written_work_percentage FROM subjects " +
 						"INNER JOIN subject_categories ON subjects.subject_category_id=subject_categories.subject_category_id " +
@@ -936,6 +949,7 @@ namespace Group1._3_GradingSystem.TeacherPages
 				}
 				else if (dt1.Rows[0][24].ToString() == "2")
 				{
+					con.Open();
 					SqlCommand cmdww = new SqlCommand("UPDATE written_works SET ww_final_grade = ROUND(((written_works.ww_1_final_score + written_works.ww_2_final_score) / " +
 						"written_works.ww_total_amount) * (SELECT subject_categories.written_work_percentage FROM subjects " +
 						"INNER JOIN subject_categories ON subjects.subject_category_id=subject_categories.subject_category_id " +
@@ -951,6 +965,7 @@ namespace Group1._3_GradingSystem.TeacherPages
 				}
 				else if (dt1.Rows[0][24].ToString() == "3")
 				{
+					con.Open();
 					SqlCommand cmdww = new SqlCommand("UPDATE written_works SET ww_final_grade = ROUND(((written_works.ww_1_final_score + written_works.ww_2_final_score + written_works.ww_3_final_score) / " +
 						"written_works.ww_total_amount) * (SELECT subject_categories.written_work_percentage FROM subjects " +
 						"INNER JOIN subject_categories ON subjects.subject_category_id=subject_categories.subject_category_id " +
@@ -967,6 +982,7 @@ namespace Group1._3_GradingSystem.TeacherPages
 				}
 				else if (dt1.Rows[0][24].ToString() == "4")
 				{
+					con.Open();
 					SqlCommand cmdww = new SqlCommand("UPDATE written_works SET ww_final_grade = ROUND(((written_works.ww_1_final_score + written_works.ww_2_final_score + " +
 						"written_works.ww_3_final_score + written_works.ww_4_final_score) / " +
 						"written_works.ww_total_amount) * (SELECT subject_categories.written_work_percentage FROM subjects " +
@@ -985,6 +1001,7 @@ namespace Group1._3_GradingSystem.TeacherPages
 				}
 				else if (dt1.Rows[0][24].ToString() == "5")
 				{
+					con.Open();
 					SqlCommand cmdww = new SqlCommand("UPDATE written_works SET ww_final_grade = ROUND(((written_works.ww_1_final_score + written_works.ww_2_final_score + " +
 						"written_works.ww_3_final_score + written_works.ww_4_final_score + written_works.ww_5_final_score) / " +
 						"written_works.ww_total_amount) * (SELECT subject_categories.written_work_percentage FROM subjects " +
@@ -1009,8 +1026,10 @@ namespace Group1._3_GradingSystem.TeacherPages
 			if (ddlSchoolWork.SelectedIndex == 2)
 			{
 				SqlConnection con = new SqlConnection(conStr);
-				SqlCommand cmd2 = new SqlCommand("SELECT * FROM performance_tasks WHERE subject_id=@subjectid AND teacher_id=@teacherid AND section_id=@sectionid", con);
+				con.Open();
+				SqlCommand cmd2 = new SqlCommand("SELECT * FROM performance_tasks WHERE subject_id=@subjectid AND teacher_id=@teacherid AND section_id=@sectionid AND quarter_id=@quarterid", con);
 				cmd2.Parameters.AddWithValue("@subjectid", ddlSubjects.SelectedValue);
+				cmd2.Parameters.AddWithValue("@quarterid", ddlQuarter.SelectedValue);
 				cmd2.Parameters.AddWithValue("@teacherid", Session["CurrentUser"]);
 				cmd2.Parameters.AddWithValue("@sectionid", ddlSection.SelectedValue);
 				SqlDataAdapter adpt2 = new SqlDataAdapter(cmd2);
@@ -1020,6 +1039,7 @@ namespace Group1._3_GradingSystem.TeacherPages
 
 				if (dt2.Rows[0][18].ToString() == "1")
 				{
+					con.Open();
 					SqlCommand cmdpt = new SqlCommand("UPDATE performance_tasks SET pt_final_grade = ROUND((performance_tasks.pt_1_final_score * " + 
 						"(SELECT subject_categories.performance_task_percentage FROM subjects " + 
 						"INNER JOIN subject_categories ON subjects.subject_category_id=subject_categories.subject_category_id " +
@@ -1030,6 +1050,7 @@ namespace Group1._3_GradingSystem.TeacherPages
 				}
 				else if (dt2.Rows[0][18].ToString() == "2")
 				{
+					con.Open();
 					SqlCommand cmdpt = new SqlCommand("UPDATE performance_tasks SET pt_final_grade = ROUND(((performance_tasks.pt_1_final_score + performance_tasks.pt_2_final_score) / " +
 						"performance_tasks.pt_total_amount) * (SELECT subject_categories.performance_task_percentage FROM subjects " +
 						"INNER JOIN subject_categories ON subjects.subject_category_id=subject_categories.subject_category_id " +
@@ -1040,6 +1061,7 @@ namespace Group1._3_GradingSystem.TeacherPages
 				}
 				else if (dt2.Rows[0][18].ToString() == "3")
 				{
+					con.Open();
 					SqlCommand cmdpt = new SqlCommand("UPDATE performance_tasks SET pt_final_grade = ROUND(((performance_tasks.pt_1_final_score + performance_tasks.pt_2_final_score +  performance_tasks.pt_3_final_score) / " +
 						"performance_tasks.pt_total_amount) * (SELECT subject_categories.performance_task_percentage FROM subjects " +
 						"INNER JOIN subject_categories ON subjects.subject_category_id=subject_categories.subject_category_id " +
@@ -1056,7 +1078,8 @@ namespace Group1._3_GradingSystem.TeacherPages
 			{
 				SqlConnection con = new SqlConnection(conStr);
 				con.Open();
-				SqlCommand cmd = new SqlCommand("UPDATE written_works SET ww_total_amount=@amount WHERE section_id=@sectionid", con);
+				SqlCommand cmd = new SqlCommand("UPDATE written_works SET ww_total_amount=@amount WHERE section_id=@sectionid AND quarter_id=@quarterid", con);
+				cmd.Parameters.AddWithValue("@quarterid", ddlQuarter.SelectedValue);
 				cmd.Parameters.AddWithValue("@amount", ddlAmnt.SelectedValue);
 				cmd.Parameters.AddWithValue("@sectionid", ddlSection.SelectedValue);
 				cmd.ExecuteNonQuery();
@@ -1073,7 +1096,8 @@ namespace Group1._3_GradingSystem.TeacherPages
 			{
 				SqlConnection con = new SqlConnection(conStr);
 				con.Open();
-				SqlCommand cmd = new SqlCommand("UPDATE performance_tasks SET pt_total_amount=@amount WHERE section_id=@sectionid", con);
+				SqlCommand cmd = new SqlCommand("UPDATE performance_tasks SET pt_total_amount=@amount WHERE section_id=@sectionid AND quarter_id=@quarterid", con);
+				cmd.Parameters.AddWithValue("@quarterid", ddlQuarter.SelectedValue);
 				cmd.Parameters.AddWithValue("@amount", ddlAmnt.SelectedValue);
 				cmd.Parameters.AddWithValue("@sectionid", ddlSection.SelectedValue);
 				cmd.ExecuteNonQuery();
@@ -1095,17 +1119,12 @@ namespace Group1._3_GradingSystem.TeacherPages
 				con.Open();
 				SqlCommand cmd = new SqlCommand("INSERT INTO written_works (quarter_id, student_id, subject_id, school_year_id, year_level_id, section_id, teacher_id, ww_total_amount) " +
 					"SELECT @quarterid, student_id, @subjectid, school_year_id, year_level_id, section_id, @teacherid, 1 " +
-					"FROM students WHERE section_id=@sectionid" +
-					"AND NOT EXISTS(SELECT student_id FROM written_works " +
-					"WHERE written_works.student_id = students.student_id)", con);
+					"FROM students WHERE section_id=@sectionid " +
+					"AND NOT EXISTS(SELECT student_id, quarter_id FROM written_works " +
+					"WHERE written_works.student_id = students.student_id AND written_works.quarter_id=@quarterid)", con);
 				SqlCommand cmd1 = new SqlCommand("INSERT INTO grades (student_id, subject_id, school_year_id, year_level_id, section_id, teacher_id) " +
-					"SELECT student_id, @subjectid, school_year_id, year_level_id, section_id, @teacherid," +
-					"FROM students WHERE section_id=@sectionid" +
-					"AND NOT EXISTS(SELECT student_id FROM grades " +
-					"WHERE grades.student_id = students.student_id)", con);
-				SqlCommand cmd2 = new SqlCommand("INSERT INTO partial_grades (student_id, subject_id, school_year_id, year_level_id, section_id, teacher_id) " +
-					"SELECT student_id, @subjectid, school_year_id, year_level_id, section_id, @teacherid," +
-					"FROM students WHERE section_id=@sectionid" +
+					"SELECT student_id, @subjectid, school_year_id, year_level_id, section_id, @teacherid " +
+					"FROM students WHERE section_id=@sectionid " +
 					"AND NOT EXISTS(SELECT student_id FROM grades " +
 					"WHERE grades.student_id = students.student_id)", con);
 				cmd.Parameters.AddWithValue("@quarterid", ddlQuarter.SelectedValue);
@@ -1126,12 +1145,12 @@ namespace Group1._3_GradingSystem.TeacherPages
 				con.Open();
 				SqlCommand cmd = new SqlCommand("INSERT INTO performance_tasks (quarter_id, student_id, subject_id, school_year_id, year_level_id, section_id, teacher_id, pt_total_amount) " +
 					"SELECT @quarterid, student_id, @subjectid, school_year_id, year_level_id, section_id, @teacherid, 1 " +
-					"FROM students WHERE section_id=@sectionid" +
-					"AND NOT EXISTS(SELECT student_id FROM performance_tasks " +
-					"WHERE performance_tasks.student_id = students.student_id)", con);
+					"FROM students WHERE section_id=@sectionid " +
+					"AND NOT EXISTS(SELECT student_id, quarter_id FROM performance_tasks " +
+					"WHERE performance_tasks.student_id = students.student_id AND performance_tasks.quarter_id=@quarterid)", con);
 				SqlCommand cmd1 = new SqlCommand("INSERT INTO grades (student_id, subject_id, school_year_id, year_level_id, section_id, teacher_id) " +
-									"SELECT student_id, @subjectid, school_year_id, year_level_id, section_id, @teacherid," +
-									"FROM students WHERE section_id=@sectionid" +
+									"SELECT student_id, @subjectid, school_year_id, year_level_id, section_id, @teacherid " +
+									"FROM students WHERE section_id=@sectionid " +
 									"AND NOT EXISTS(SELECT student_id FROM grades " +
 									"WHERE grades.student_id = students.student_id)", con);
 				cmd.Parameters.AddWithValue("@quarterid", ddlQuarter.SelectedValue);
@@ -1153,11 +1172,11 @@ namespace Group1._3_GradingSystem.TeacherPages
 				SqlCommand cmd = new SqlCommand("INSERT INTO quarterly_test_scores (quarter_id, student_id, subject_id, school_year_id, year_level_id, section_id, teacher_id) " +
 					"SELECT @quarterid, student_id, @subjectid, school_year_id, year_level_id, section_id, @teacherid " +
 					"FROM students WHERE section_id=@sectionid " +
-					"AND NOT EXISTS(SELECT student_id FROM quarterly_test_scores " +
-					"WHERE quarterly_test_scores.student_id = students.student_id)", con);
+					"AND NOT EXISTS(SELECT student_id, quarter_id FROM quarterly_test_scores " +
+					"WHERE quarterly_test_scores.student_id = students.student_id AND quarterly_test_scores.quarter_id=@quarterid)", con);
 				SqlCommand cmd1 = new SqlCommand("INSERT INTO grades (student_id, subject_id, school_year_id, year_level_id, section_id, teacher_id) " +
-					"SELECT student_id, @subjectid, school_year_id, year_level_id, section_id, @teacherid," +
-					"FROM students WHERE section_id=@sectionid" +
+					"SELECT student_id, @subjectid, school_year_id, year_level_id, section_id, @teacherid " +
+					"FROM students WHERE section_id=@sectionid " +
 					"AND NOT EXISTS(SELECT student_id FROM grades " +
 					"WHERE grades.student_id = students.student_id)", con);
 				cmd.Parameters.AddWithValue("@quarterid", ddlQuarter.SelectedValue);
@@ -1306,10 +1325,11 @@ namespace Group1._3_GradingSystem.TeacherPages
 				{
 					SqlConnection con = new SqlConnection(conStr);
 					con.Open();
-					SqlCommand cmd = new SqlCommand("UPDATE written_works SET ww_1_total_score=@tscore WHERE subject_id=@subjectid AND section_id=@sectionid", con);
+					SqlCommand cmd = new SqlCommand("UPDATE written_works SET ww_1_total_score=@tscore WHERE subject_id=@subjectid AND section_id=@sectionid AND quarter_id=@quarterid", con);
 					cmd.Parameters.AddWithValue("@tscore", SRtxtTotalScore.Text);
 					cmd.Parameters.AddWithValue("@subjectid", ddlSubjects.SelectedValue);
 					cmd.Parameters.AddWithValue("@sectionid", ddlSection.SelectedValue);
+					cmd.Parameters.AddWithValue("@quarterid", ddlQuarter.SelectedValue);
 					cmd.ExecuteNonQuery();
 					con.Close();
 					SRtxtTotalScore.Text = string.Empty;
@@ -1320,10 +1340,11 @@ namespace Group1._3_GradingSystem.TeacherPages
 				{
 					SqlConnection con = new SqlConnection(conStr);
 					con.Open();
-					SqlCommand cmd = new SqlCommand("UPDATE written_works SET ww_2_total_score=@tscore WHERE subject_id=@subjectid AND section_id=@sectionid", con);
+					SqlCommand cmd = new SqlCommand("UPDATE written_works SET ww_2_total_score=@tscore WHERE subject_id=@subjectid AND section_id=@sectionid AND quarter_id=@quarterid", con);
 					cmd.Parameters.AddWithValue("@tscore", SRtxtTotalScore.Text);
 					cmd.Parameters.AddWithValue("@subjectid", ddlSubjects.SelectedValue);
 					cmd.Parameters.AddWithValue("@sectionid", ddlSection.SelectedValue);
+					cmd.Parameters.AddWithValue("@quarterid", ddlQuarter.SelectedValue);
 					cmd.ExecuteNonQuery();
 					con.Close();
 					SRtxtTotalScore.Text = string.Empty;
@@ -1334,10 +1355,11 @@ namespace Group1._3_GradingSystem.TeacherPages
 				{
 					SqlConnection con = new SqlConnection(conStr);
 					con.Open();
-					SqlCommand cmd = new SqlCommand("UPDATE written_works SET ww_3_total_score=@tscore WHERE subject_id=@subjectid AND section_id=@sectionid", con);
+					SqlCommand cmd = new SqlCommand("UPDATE written_works SET ww_3_total_score=@tscore WHERE subject_id=@subjectid AND section_id=@sectionid AND quarter_id=@quarterid", con);
 					cmd.Parameters.AddWithValue("@tscore", SRtxtTotalScore.Text);
 					cmd.Parameters.AddWithValue("@subjectid", ddlSubjects.SelectedValue);
 					cmd.Parameters.AddWithValue("@sectionid", ddlSection.SelectedValue);
+					cmd.Parameters.AddWithValue("@quarterid", ddlQuarter.SelectedValue);
 					cmd.ExecuteNonQuery();
 					con.Close();
 					SRtxtTotalScore.Text = string.Empty;
@@ -1348,10 +1370,11 @@ namespace Group1._3_GradingSystem.TeacherPages
 				{
 					SqlConnection con = new SqlConnection(conStr);
 					con.Open();
-					SqlCommand cmd = new SqlCommand("UPDATE written_works SET ww_4_total_score=@tscore WHERE subject_id=@subjectid AND section_id=@sectionid", con);
+					SqlCommand cmd = new SqlCommand("UPDATE written_works SET ww_4_total_score=@tscore WHERE subject_id=@subjectid AND section_id=@sectionid AND quarter_id=@quarterid", con);
 					cmd.Parameters.AddWithValue("@tscore", SRtxtTotalScore.Text);
 					cmd.Parameters.AddWithValue("@subjectid", ddlSubjects.SelectedValue);
 					cmd.Parameters.AddWithValue("@sectionid", ddlSection.SelectedValue);
+					cmd.Parameters.AddWithValue("@quarterid", ddlQuarter.SelectedValue);
 					cmd.ExecuteNonQuery();
 					con.Close();
 					SRtxtTotalScore.Text = string.Empty;
@@ -1362,10 +1385,11 @@ namespace Group1._3_GradingSystem.TeacherPages
 				{
 					SqlConnection con = new SqlConnection(conStr);
 					con.Open();
-					SqlCommand cmd = new SqlCommand("UPDATE written_works SET ww_5_total_score=@score WHERE subject_id=@subjectid AND section_id=@sectionid", con);
+					SqlCommand cmd = new SqlCommand("UPDATE written_works SET ww_5_total_score=@score WHERE subject_id=@subjectid AND section_id=@sectionid AND quarter_id=@quarterid", con);
 					cmd.Parameters.AddWithValue("@tscore", SRtxtTotalScore.Text);
 					cmd.Parameters.AddWithValue("@subjectid", ddlSubjects.SelectedValue);
 					cmd.Parameters.AddWithValue("@sectionid", ddlSection.SelectedValue);
+					cmd.Parameters.AddWithValue("@quarterid", ddlQuarter.SelectedValue);
 					cmd.ExecuteNonQuery();
 					con.Close();
 					SRtxtTotalScore.Text = string.Empty;
@@ -1379,10 +1403,11 @@ namespace Group1._3_GradingSystem.TeacherPages
 				{
 					SqlConnection con = new SqlConnection(conStr);
 					con.Open();
-					SqlCommand cmd = new SqlCommand("UPDATE performance_tasks SET pt_1_total_score=@tscore WHERE subject_id=@subjectid AND section_id=@sectionid", con);
+					SqlCommand cmd = new SqlCommand("UPDATE performance_tasks SET pt_1_total_score=@tscore WHERE subject_id=@subjectid AND section_id=@sectionid AND quarter_id=@quarterid", con);
 					cmd.Parameters.AddWithValue("@tscore", SRtxtTotalScore.Text);
 					cmd.Parameters.AddWithValue("@subjectid", ddlSubjects.SelectedValue);
 					cmd.Parameters.AddWithValue("@sectionid", ddlSection.SelectedValue);
+					cmd.Parameters.AddWithValue("@quarterid", ddlQuarter.SelectedValue);
 					cmd.ExecuteNonQuery();
 					con.Close();
 					SRtxtTotalScore.Text = string.Empty;
@@ -1393,10 +1418,11 @@ namespace Group1._3_GradingSystem.TeacherPages
 				{
 					SqlConnection con = new SqlConnection(conStr);
 					con.Open();
-					SqlCommand cmd = new SqlCommand("UPDATE performance_tasks SET pt_2_total_score=@tscore WHERE subject_id=@subjectid AND section_id=@sectionid", con);
+					SqlCommand cmd = new SqlCommand("UPDATE performance_tasks SET pt_2_total_score=@tscore WHERE subject_id=@subjectid AND section_id=@sectionid AND quarter_id=@quarterid", con);
 					cmd.Parameters.AddWithValue("@tscore", SRtxtTotalScore.Text);
 					cmd.Parameters.AddWithValue("@subjectid", ddlSubjects.SelectedValue);
 					cmd.Parameters.AddWithValue("@sectionid", ddlSection.SelectedValue);
+					cmd.Parameters.AddWithValue("@quarterid", ddlQuarter.SelectedValue);
 					cmd.ExecuteNonQuery();
 					con.Close();
 					SRtxtTotalScore.Text = string.Empty;
@@ -1407,10 +1433,11 @@ namespace Group1._3_GradingSystem.TeacherPages
 				{
 					SqlConnection con = new SqlConnection(conStr);
 					con.Open();
-					SqlCommand cmd = new SqlCommand("UPDATE performance_tasks SET pt_3_total_score=@tscore WHERE subject_id=@subjectid AND section_id=@sectionid", con);
+					SqlCommand cmd = new SqlCommand("UPDATE performance_tasks SET pt_3_total_score=@tscore WHERE subject_id=@subjectid AND section_id=@sectionid AND quarter_id=@quarterid", con);
 					cmd.Parameters.AddWithValue("@tscore", SRtxtTotalScore.Text);
 					cmd.Parameters.AddWithValue("@subjectid", ddlSubjects.SelectedValue);
 					cmd.Parameters.AddWithValue("@sectionid", ddlSection.SelectedValue);
+					cmd.Parameters.AddWithValue("@quarterid", ddlQuarter.SelectedValue);
 					cmd.ExecuteNonQuery();
 					con.Close();
 					SRtxtTotalScore.Text = string.Empty;
@@ -1422,10 +1449,11 @@ namespace Group1._3_GradingSystem.TeacherPages
 			{
 				SqlConnection con = new SqlConnection(conStr);
 				con.Open();
-				SqlCommand cmd = new SqlCommand("UPDATE quarterly_test_scores SET total_score=@tscore WHERE subject_id=@subjectid AND section_id=@sectionid", con);
+				SqlCommand cmd = new SqlCommand("UPDATE quarterly_test_scores SET total_score=@tscore WHERE subject_id=@subjectid AND section_id=@sectionid AND quarter_id=@quarterid", con);
 				cmd.Parameters.AddWithValue("@tscore", SRtxtTotalScore.Text);
 				cmd.Parameters.AddWithValue("@subjectid", ddlSubjects.SelectedValue);
 				cmd.Parameters.AddWithValue("@sectionid", ddlSection.SelectedValue);
+				cmd.Parameters.AddWithValue("@quarterid", ddlQuarter.SelectedValue);
 				cmd.ExecuteNonQuery();
 				con.Close();
 				SRtxtTotalScore.Text = string.Empty;
