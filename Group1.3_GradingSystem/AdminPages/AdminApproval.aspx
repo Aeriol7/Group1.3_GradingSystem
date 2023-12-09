@@ -248,8 +248,8 @@ position: fixed;
         }
     #BSave{
         position: fixed;
-            top: 587px;
-            left: 666px;
+            top: 593px;
+            left: 651px;
         }
     </style>
 </head>
@@ -261,7 +261,7 @@ position: fixed;
             <asp:Image ID="Image1" img src="../HomePage/Image/hopeLogoWhiteBG_.png" runat="server" Height="94px" Width="103px" />
         </div>
         <asp:Label ID="Label1" runat="server" Text="HOPE INTERGRATED SCHOOL" Font-Names="Times New Roman"></asp:Label>
-        <asp:Button ID="Button1" runat="server" Text="Logout" OnClick="Button1_Click" />
+        <asp:Button ID="Button1" runat="server" Text="Logout" OnClick="Button1_Click" OnClientClick="return confirm('Are You Sure You Want To Logout?');"/>
         <asp:Image ID="Image2" img src="../HomePage/Image/ProfileIcon1%20(1).png" runat="server" />
     
     
@@ -352,14 +352,14 @@ position: fixed;
             <asp:Label ID="LLN" runat="server" Text="Lastname:"></asp:Label>
             
             
-            <asp:DropDownList ID="DDLApprove" runat="server">
+            <asp:DropDownList ID="DDLApprove" runat="server" OnSelectedIndexChanged="DDLApprove_SelectedIndexChanged">
                 <asp:ListItem Value="0">Select Status</asp:ListItem>
                 <asp:ListItem Value="1">Approved</asp:ListItem>
                 <asp:ListItem Value="2">Declined</asp:ListItem>
                 <asp:ListItem Value="3">Pending</asp:ListItem>
             </asp:DropDownList>
             
-            <asp:Button ID="BSave" runat="server" Text="Save" OnClick="BSave_Click1" />
+            <asp:Button ID="BSave" runat="server" Text="Update" OnClick="BSave_Click1" OnClientClick="return confirm('Update Status?');" />
 
 
         </div>

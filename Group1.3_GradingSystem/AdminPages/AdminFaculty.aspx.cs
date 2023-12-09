@@ -13,6 +13,7 @@ namespace Group1._3_GradingSystem.AdminPages
 {
     public partial class AdminFaculty : System.Web.UI.Page
     {
+        public string conStr = "Data Source=DESKTOP-4DSNP2P;Initial Catalog=HIS_GradingSystem;Integrated Security=False;User Id=sa;Password=1234;MultipleActiveResultSets=True";
         protected void Page_Load(object sender, EventArgs e)
         {
             users();
@@ -25,7 +26,7 @@ namespace Group1._3_GradingSystem.AdminPages
         }
         public void users()
         {
-            SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-4DSNP2P;Initial Catalog=HIS_GradingSystem;Integrated Security=False;User Id=sa;Password=1234;MultipleActiveResultSets=True");
+            SqlConnection con = new SqlConnection(conStr);
             string com = "SELECT * FROM users WHERE user_level = 'Teacher' ";
             con.Open();
             SqlDataAdapter adpt = new SqlDataAdapter(com, con);
@@ -37,7 +38,7 @@ namespace Group1._3_GradingSystem.AdminPages
         }
         public void teachers()
         {
-            SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-4DSNP2P;Initial Catalog=HIS_GradingSystem;Integrated Security=False;User Id=sa;Password=1234;MultipleActiveResultSets=True");
+            SqlConnection con = new SqlConnection(conStr);
             string com = "SELECT * FROM teachers";
             con.Open();
             SqlDataAdapter adpt = new SqlDataAdapter(com, con);
@@ -50,21 +51,29 @@ namespace Group1._3_GradingSystem.AdminPages
 
         protected void Button9_Click(object sender, EventArgs e)
         {
-            SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-4DSNP2P;Initial Catalog=HIS_GradingSystem;Integrated Security=False;User Id=sa;Password=1234;MultipleActiveResultSets=True");
-            con.Open();
-            SqlCommand cmd = new SqlCommand("INSERT INTO [dbo]. [users] (username ,password, user_level) VALUES  (@username, @password,@user_level)", con);
-            
-            cmd.Parameters.AddWithValue("@username", TextBox4.Text);
-            cmd.Parameters.AddWithValue("@password", TextBox8.Text);
-            cmd.Parameters.AddWithValue("@user_level", "Teacher");
-            cmd.ExecuteNonQuery();
-            con.Close();
+            if (TextBox4.Text.Length == 0 || TextBox8.Text.Length == 0 || TextBox9.Text.Length == 0)
+            {
+                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please Insert Needed Information');", true);
+            }
 
-            users();
+            else
+            {
+                SqlConnection con = new SqlConnection(conStr);
+                con.Open();
+                SqlCommand cmd = new SqlCommand("INSERT INTO [dbo]. [users] (username ,password, user_level) VALUES  (@username, @password,@user_level)", con);
 
-            TextBox4.Text = "";
-            TextBox8.Text = "";
-            ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Inserted Successfully');", true);
+                cmd.Parameters.AddWithValue("@username", TextBox4.Text);
+                cmd.Parameters.AddWithValue("@password", TextBox8.Text);
+                cmd.Parameters.AddWithValue("@user_level", "Teacher");
+                cmd.ExecuteNonQuery();
+                con.Close();
+
+                users();
+
+                TextBox4.Text = "";
+                TextBox8.Text = "";
+                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Inserted Successfully');", true);
+            }
         }
         protected void OnPageIndexChanging(object sender, GridViewPageEventArgs e)
         {
@@ -79,22 +88,30 @@ namespace Group1._3_GradingSystem.AdminPages
 
         protected void Button6_Click(object sender, EventArgs e)
         {
-            SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-4DSNP2P;Initial Catalog=HIS_GradingSystem;Integrated Security=False;User Id=sa;Password=1234;MultipleActiveResultSets=True");
-            con.Open();
-            SqlCommand cmd = new SqlCommand("UPDATE users SET username = @username, password = @password WHERE user_id = @userid", con);
+            if (TextBox4.Text.Length == 0 || TextBox8.Text.Length == 0 || TextBox9.Text.Length == 0)
+            {
+                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please Select Needed Information');", true);
+            }
 
-            cmd.Parameters.AddWithValue("@username", TextBox4.Text);
-            cmd.Parameters.AddWithValue("@password", TextBox8.Text);
-            cmd.Parameters.AddWithValue("@userid", TextBox9.Text);
-            cmd.ExecuteNonQuery();
-            con.Close();
+            else
+            {
+                SqlConnection con = new SqlConnection(conStr);
+                con.Open();
+                SqlCommand cmd = new SqlCommand("UPDATE users SET username = @username, password = @password WHERE user_id = @userid", con);
 
-            users();
+                cmd.Parameters.AddWithValue("@username", TextBox4.Text);
+                cmd.Parameters.AddWithValue("@password", TextBox8.Text);
+                cmd.Parameters.AddWithValue("@userid", TextBox9.Text);
+                cmd.ExecuteNonQuery();
+                con.Close();
 
-            TextBox4.Text = "";
-            TextBox8.Text = "";
-            TextBox9.Text = "";
-            ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Inserted Successfully');", true);
+                users();
+
+                TextBox4.Text = "";
+                TextBox8.Text = "";
+                TextBox9.Text = "";
+                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Inserted Successfully');", true);
+            }
         }
 
         protected void GridView2_RowDataBound(object sender, System.Web.UI.WebControls.GridViewRowEventArgs e)
@@ -157,16 +174,23 @@ namespace Group1._3_GradingSystem.AdminPages
 
         protected void Button7_Click(object sender, EventArgs e)
         {
-            SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-4DSNP2P;Initial Catalog=HIS_GradingSystem;Integrated Security=False;User Id=sa;Password=1234;MultipleActiveResultSets=True");
-            con.Open();
-            SqlCommand cmd = new SqlCommand("DELETE FROM users WHERE user_id = @userid", con);
+            if (TextBox4.Text.Length == 0 || TextBox8.Text.Length == 0 || TextBox9.Text.Length == 0)
+            {
+                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please Select Teacher Information');", true);
+            }
+            else
+            {
+                SqlConnection con = new SqlConnection(conStr);
+                con.Open();
+                SqlCommand cmd = new SqlCommand("DELETE FROM users WHERE user_id = @userid", con);
 
-            cmd.Parameters.AddWithValue("@userid", TextBox9.Text);
-            cmd.ExecuteNonQuery();
-            con.Close();
+                cmd.Parameters.AddWithValue("@userid", TextBox9.Text);
+                cmd.ExecuteNonQuery();
+                con.Close();
 
-            clear();
-            ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Inserted Successfully');", true);
+                clear();
+                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Inserted Successfully');", true);
+            }
         }
         protected void clear()
         {
@@ -191,27 +215,42 @@ namespace Group1._3_GradingSystem.AdminPages
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-4DSNP2P;Initial Catalog=HIS_GradingSystem;Integrated Security=False;User Id=sa;Password=1234;MultipleActiveResultSets=True");
-            con.Open();
-            SqlCommand cmd = new SqlCommand("INSERT INTO [dbo]. [teachers] (Firstname ,Lastname, user_id) VALUES  (@Firstname, @Lastname, @user_id)", con);
+            if (TextBox7.Text.Length == 0 || TextBox6.Text.Length == 0 || TextBox10.Text.Length == 0)
+            {
+                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please Insert Needed Information');", true);
+            }
+            else
+            {
+                SqlConnection con = new SqlConnection(conStr);
+                con.Open();
+                SqlCommand cmd = new SqlCommand("INSERT INTO [dbo]. [teachers] (Firstname ,Lastname, user_id) VALUES  (@Firstname, @Lastname, @user_id)", con);
 
-            cmd.Parameters.AddWithValue("@Firstname", TextBox7.Text);
-            cmd.Parameters.AddWithValue("@Lastname", TextBox6.Text);
-            cmd.Parameters.AddWithValue("@user_id", TextBox10.Text);
-            cmd.ExecuteNonQuery();
-            con.Close();
+                cmd.Parameters.AddWithValue("@Firstname", TextBox7.Text);
+                cmd.Parameters.AddWithValue("@Lastname", TextBox6.Text);
+                cmd.Parameters.AddWithValue("@user_id", TextBox10.Text);
+                cmd.ExecuteNonQuery();
+                con.Close();
 
-            teachers();
+                teachers();
 
-            TextBox7.Text = "";
-            TextBox6.Text = "";
-            TextBox10.Text = "";
-            ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Inserted Successfully');", true);
+                TextBox7.Text = "";
+                TextBox6.Text = "";
+                TextBox10.Text = "";
+                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Inserted Successfully');", true);
+            }
         }
 
         protected void Button2_Click(object sender, EventArgs e)
         {
-            SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-4DSNP2P;Initial Catalog=HIS_GradingSystem;Integrated Security=False;User Id=sa;Password=1234;MultipleActiveResultSets=True");
+            if (TextBox7.Text.Length == 0 || TextBox6.Text.Length == 0 || TextBox10.Text.Length == 0)
+            {
+                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please Select Needed Information');", true);
+            }
+            else
+            {
+
+            
+                SqlConnection con = new SqlConnection(conStr);
             con.Open();
             SqlCommand cmd = new SqlCommand("UPDATE teachers SET Firstname = @Firstname, Lastname = @Lastname WHERE user_id = @user_id", con);
 
@@ -227,25 +266,33 @@ namespace Group1._3_GradingSystem.AdminPages
             TextBox6.Text = "";
             TextBox10.Text = "";
             ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Inserted Successfully');", true);
+            }
         }
 
         protected void Button3_Click(object sender, EventArgs e)
         {
-            SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-4DSNP2P;Initial Catalog=HIS_GradingSystem;Integrated Security=False;User Id=sa;Password=1234;MultipleActiveResultSets=True");
-            con.Open();
-            SqlCommand cmd = new SqlCommand("DELETE FROM teachers WHERE ID = @ID", con);
+            if (TextBox7.Text.Length == 0 || TextBox6.Text.Length == 0 || TextBox10.Text.Length == 0)
+            {
+                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please Select Needed Information');", true);
+            }
+            else
+            {
+                SqlConnection con = new SqlConnection(conStr);
+                con.Open();
+                SqlCommand cmd = new SqlCommand("DELETE FROM teachers WHERE ID = @ID", con);
 
-            cmd.Parameters.AddWithValue("ID", TextBox10.Text);
-            cmd.ExecuteNonQuery();
-            con.Close();
+                cmd.Parameters.AddWithValue("ID", TextBox10.Text);
+                cmd.ExecuteNonQuery();
+                con.Close();
 
-            clear();
-            ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Inserted Successfully');", true);
+                clear();
+                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Inserted Successfully');", true);
+            }
         }
 
         protected void TextBox3_TextChanged(object sender, EventArgs e)
         {
-            SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-4DSNP2P;Initial Catalog=HIS_GradingSystem;Integrated Security=False;User Id=sa;Password=1234;MultipleActiveResultSets=True");
+            SqlConnection con = new SqlConnection(conStr);
             string qry = "SELECT * FROM users WHERE username LIKE '%" + TextBox3.Text + "%'";
             con.Open();
             SqlDataAdapter ad = new SqlDataAdapter(qry, con);
@@ -258,7 +305,7 @@ namespace Group1._3_GradingSystem.AdminPages
 
         protected void TextBox11_TextChanged(object sender, EventArgs e)
         {
-            SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-4DSNP2P;Initial Catalog=HIS_GradingSystem;Integrated Security=False;User Id=sa;Password=1234;MultipleActiveResultSets=True");
+            SqlConnection con = new SqlConnection(conStr);
             string qry = "SELECT * FROM teachers WHERE Firstname LIKE '%" + TextBox11.Text + "%'";
             con.Open();
             SqlDataAdapter ad = new SqlDataAdapter(qry, con);

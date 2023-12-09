@@ -280,7 +280,7 @@
         left: 319px;
         width: 96px;
         height: 29px;
-        right: 882px;
+        right: 862px;
     }
 #Button6{
     position: fixed;
@@ -559,9 +559,9 @@ position: fixed;
                 <asp:Label ID="Label22" runat="server" Text="ID:"></asp:Label>
 
 
-                <asp:Button ID="Button9" runat="server" Text="+  Add " OnClick="Button9_Click" />
-                <asp:Button ID="Button7" runat="server" Text="+ Delete" OnClick="Button7_Click" />
-                <asp:Button ID="Button6" runat="server" Text="+ Update" OnClick="Button6_Click" />
+                <asp:Button ID="Button9" runat="server" Text="+  Add " OnClick="Button9_Click" OnClientClick="return confirm('Add Teacher Account?');"/>
+                <asp:Button ID="Button7" runat="server" Text="+ Delete" OnClick="Button7_Click" OnClientClick="return confirm('Delete Teacher Account?');"/>
+                <asp:Button ID="Button6" runat="server" Text="+ Update" OnClick="Button6_Click" OnClientClick="return confirm('Update Teacher Account?');"/>
                 <asp:Button ID="Button8" runat="server" Text=" + Clear" OnClick="Button8_Click" />
 
 
@@ -572,7 +572,7 @@ position: fixed;
             
             <asp:Label ID="Label21" runat="server" Text="Firstname:"></asp:Label>
 
-            <asp:Button ID="Button10" runat="server" Text="Logout" OnClick="Button10_Click" />
+            <asp:Button ID="Button10" runat="server" Text="Logout" OnClick="Button10_Click" OnClientClick="return confirm('Are You Sure You Want To Logout');"/>
             
 
             
@@ -595,9 +595,9 @@ position: fixed;
             </asp:GridView>
 
 
-                <asp:Button ID="Button1" runat="server" Text="+  Add " Height="29px" Width="96px" OnClick="Button1_Click" />
-                <asp:Button ID="Button2" runat="server" Text="+ Update" Height="29px" Width="96px" OnClick="Button2_Click" />
-                <asp:Button ID="Button3" runat="server" Text="+ Delete" Height="29px" Width="96px" OnClick="Button3_Click" />
+                <asp:Button ID="Button1" runat="server" Text="+  Add " Height="29px" Width="96px" OnClick="Button1_Click" OnClientClick="return confirm('Add Teacher Account?');"/>
+                <asp:Button ID="Button2" runat="server" Text="+ Update" Height="29px" Width="96px" OnClick="Button2_Click" OnClientClick="return confirm('Delete Teacher Account?');"/>
+                <asp:Button ID="Button3" runat="server" Text="+ Delete" Height="29px" Width="96px" OnClick="Button3_Click" OnClientClick="return confirm('Update Teacher Account?');"/>
                 <asp:Button ID="Button5" runat="server" Text=" + Clear" Height="29px" Width="96px" OnClick="Button5_Click" />
 
 

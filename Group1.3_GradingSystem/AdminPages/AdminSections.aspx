@@ -160,8 +160,8 @@
     }
 #Button1{
     position: fixed;
-        top: 201px;
-        left: 312px;
+        top: 177px;
+        left: 527px;
         width: 147px;
     }
 #Button2{
@@ -457,15 +457,15 @@ position: fixed;
                 <asp:Label ID="Label22" runat="server" Text="Year Level:"></asp:Label>
 
 
-                <asp:Button ID="Button9" runat="server" Text="+  Add " OnClick="Button9_Click" Height="29px" Width="96px" />
-                <asp:Button ID="Button7" runat="server" Text="+ Delete" OnClick="Button7_Click" Height="29px" Width="96px" />
+                <asp:Button ID="Button9" runat="server" Text="+  Add " OnClick="Button9_Click" Height="29px" Width="96px" OnClientClick="return confirm('Add Section?');"/>
+                <asp:Button ID="Button7" runat="server" Text="+ Delete" OnClick="Button7_Click" Height="29px" Width="96px" OnClientClick="return confirm('Delete Section?');"/>
                 <asp:Button ID="Button8" runat="server" Text=" + Clear" OnClick="Button8_Click" Height="29px" Width="96px" />
 
 
                 <asp:TextBox ID="TextBox4" runat="server"></asp:TextBox>
 
 
-                <asp:Button ID="Button11" runat="server" Text="+  Update" OnClick="Button11_Click" Height="29px" Width="96px" />
+                <asp:Button ID="Button11" runat="server" Text="+  Update" OnClick="Button11_Click" Height="29px" Width="96px" OnClientClick="return confirm('Update Section?');"/>
 
 
         

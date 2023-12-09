@@ -230,7 +230,7 @@
     }
 #Button9{
     position: fixed;
-        top: 640px;
+        top: 641px;
         left: 506px;
         width: 132px;
         right: 675px;
@@ -334,7 +334,7 @@
 #Label20{
     position: fixed;
 }
-#DropDownList2{
+#ddlSection{
     position: fixed;
         top: 589px;
         left: 424px;
@@ -364,10 +364,10 @@
     }
 #Button11{
     position: fixed;
-        top: 640px;
-        left: 506px;
+        top: 585px;
+        left: 611px;
         width: 132px;
-        right: 675px;
+        right: 570px;
     }
 #Label22{
     position: fixed;
@@ -607,8 +607,8 @@ position: fixed;
 
             
 
-            <asp:Button ID="Button9" runat="server" Text="Update" Width="96px" OnClick="Button3_Click" Height="29px" />
-            <asp:Button ID="Button10" runat="server" Text="Delete" Width="96px" Height="29px" OnClick="Button10_Click" />
+            <asp:Button ID="Button9" runat="server" Text="Update" Width="96px" OnClick="Button9_Click" Height="29px" OnClientClick="return confirm('Update Section?');"/>
+            <asp:Button ID="Button10" runat="server" Text="Delete" Width="96px" Height="29px" OnClick="Button10_Click" OnClientClick="return confirm('Delete Section?');"/>
 
             <asp:Label ID="Label16" runat="server" Text="First Name:"></asp:Label>
 
@@ -624,7 +624,7 @@ position: fixed;
 
 
 
-            <asp:Button ID="Button8" runat="server" Text="Add" Height="29px" Width="96px" OnClick="Button1_Click" />
+            <asp:Button ID="Button8" runat="server" Text="Add" Height="29px" Width="96px" OnClick="Button8_Click" OnClientClick="return confirm('Add Student?');"/>
             <asp:Button ID="Button7" runat="server" Text="Clear" Width="96px" Height="29px" OnClick="Button7_Click" />
 
             <asp:Label ID="Label15" runat="server" Text="User ID:"></asp:Label>
@@ -637,23 +637,8 @@ position: fixed;
 
             <asp:Label ID="Label20" runat="server" Text="Section:"></asp:Label>
 
-                    <asp:DropDownList ID="DropDownList2" runat="server" Height="25px" Width="167px">
+                    <asp:DropDownList ID="ddlSection" runat="server" Height="25px" Width="167px">
                         <asp:ListItem Value="0">Select Section</asp:ListItem>
-                        <asp:ListItem Value="1">Kinder-A</asp:ListItem>
-                        <asp:ListItem Value="2">Grade 1-A</asp:ListItem>
-                        <asp:ListItem Value="3">Grade 2-A</asp:ListItem>
-                        <asp:ListItem Value="4">Grade 3-A</asp:ListItem>
-                        <asp:ListItem Value="5">Grade 4-A</asp:ListItem>
-                        <asp:ListItem Value="6">Grade 5-A</asp:ListItem>
-                        <asp:ListItem Value="7">Grade 6-A</asp:ListItem>
-                        <asp:ListItem Value="8">Grade 7-A</asp:ListItem>
-                        <asp:ListItem Value="9">Grade 8-A</asp:ListItem>
-                        <asp:ListItem Value="10">Grade 9-A</asp:ListItem>
-                        <asp:ListItem Value="11">Grade 10-A</asp:ListItem>
-                        <asp:ListItem Value="12">Grade 11-HUMSS</asp:ListItem>
-                        <asp:ListItem Value="13">Grade 11-STEM</asp:ListItem>
-                        <asp:ListItem Value="14">Grade 12-HUMSS</asp:ListItem>
-                        <asp:ListItem Value="15">Grade 12-STEM</asp:ListItem>
                        </asp:DropDownList>
             
             <asp:DropDownList ID="DropDownList3" runat="server" Height="25px">
@@ -665,8 +650,6 @@ position: fixed;
                 <asp:ListItem Value="5">2027-2028</asp:ListItem>
             </asp:DropDownList>
             
-                    <asp:Button ID="Button11" runat="server" Text="Update" Width="96px" OnClick="Button11_Click" Height="29px" />
-
 <asp:Label ID="Label25" runat="server" Text="School Year:"></asp:Label>
 
                     

@@ -12,6 +12,7 @@ namespace Group1._3_GradingSystem.AdminPages
 {
     public partial class AdminSubjects : System.Web.UI.Page
     {
+        public string conStr = "Data Source=DESKTOP-4DSNP2P;Initial Catalog=HIS_GradingSystem;Integrated Security=False;User Id=sa;Password=1234;MultipleActiveResultSets=True";
         protected void Page_Load(object sender, EventArgs e)
         {
             subjects();
@@ -24,7 +25,7 @@ namespace Group1._3_GradingSystem.AdminPages
         }
         public void subjects()
         {
-            SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-4DSNP2P;Initial Catalog=HIS_GradingSystem;Integrated Security=False;User Id=sa;Password=1234;MultipleActiveResultSets=True");
+            SqlConnection con = new SqlConnection(conStr);
             string com = "SELECT * FROM subjects";
             con.Open();
             SqlDataAdapter adpt = new SqlDataAdapter(com, con);
@@ -36,7 +37,7 @@ namespace Group1._3_GradingSystem.AdminPages
         }
         public void teachers()
         {
-            SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-4DSNP2P;Initial Catalog=HIS_GradingSystem;Integrated Security=False;User Id=sa;Password=1234;MultipleActiveResultSets=True");
+            SqlConnection con = new SqlConnection(conStr);
             string com = "SELECT * FROM teachers";
             con.Open();
             SqlDataAdapter adpt = new SqlDataAdapter(com, con);
@@ -57,8 +58,7 @@ namespace Group1._3_GradingSystem.AdminPages
                 TextBox3.Text = gr.Cells[1].Text;
                 TextBox4.Text = gr.Cells[3].Text;
                 DropDownList1.SelectedValue = gr.Cells[2].Text;
-                DropDownList2.SelectedValue = gr.Cells[2].Text;
-                DropDownList3.SelectedValue = gr.Cells[5].Text;
+                DropDownList3.SelectedValue = gr.Cells[4].Text;
             }
         }
 
@@ -95,62 +95,79 @@ namespace Group1._3_GradingSystem.AdminPages
 
         protected void Button1_Click(object sender, EventArgs e)
         {
-            SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-4DSNP2P;Initial Catalog=HIS_GradingSystem;Integrated Security=False;User Id=sa;Password=1234;MultipleActiveResultSets=True");
-            con.Open();
-            SqlCommand cmd = new SqlCommand("INSERT INTO subjects (subject_name, year_level_id, teacher_id, section_id, subject_category_id) VALUES  (@subject_name, @year_level_id, @teacher_id, @section_id, @category)", con);
+            if (TextBox3.Text.Length == 0 || TextBox4.Text.Length == 0 || DropDownList1.SelectedIndex == 0 || DropDownList3.SelectedIndex == 0)
+            {
+                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please FIll Needed Information');", true);
+            }
+             else
+             {
+                SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-4DSNP2P;Initial Catalog=HIS_GradingSystem;Integrated Security=False;User Id=sa;Password=1234;MultipleActiveResultSets=True");
+                con.Open();
+                SqlCommand cmd = new SqlCommand("INSERT INTO subjects (subject_name, year_level_id, teacher_id, subject_category_id) VALUES  (@subject_name, @year_level_id, @teacher_id, @category)", con);
 
-            cmd.Parameters.AddWithValue("@subject_name", TextBox3.Text);
-            cmd.Parameters.AddWithValue("@teacher_id", TextBox4.Text);
-            cmd.Parameters.AddWithValue("@year_level_id", DropDownList1.SelectedValue);
-            cmd.Parameters.AddWithValue("@section_id", DropDownList2.SelectedValue);
-            cmd.Parameters.AddWithValue("@category", DropDownList3.SelectedValue);
-            cmd.ExecuteNonQuery();
-            con.Close();
+                cmd.Parameters.AddWithValue("@subject_name", TextBox3.Text);
+                cmd.Parameters.AddWithValue("@teacher_id", TextBox4.Text);
+                cmd.Parameters.AddWithValue("@year_level_id", DropDownList1.SelectedValue);
+                cmd.Parameters.AddWithValue("@category", DropDownList3.SelectedValue);
+                cmd.ExecuteNonQuery();
+                con.Close();
 
-            subjects();
-
-            TextBox3.Text = "";
-            TextBox4.Text = "";
-            DropDownList1.SelectedValue = null;
-            ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Inserted Successfully');", true);
+                subjects();
+                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Inserted Successfully');", true);
+             }
         }
 
         protected void Button3_Click(object sender, EventArgs e)
         {
-            SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-4DSNP2P;Initial Catalog=HIS_GradingSystem;Integrated Security=False;User Id=sa;Password=1234;MultipleActiveResultSets=True");
-            con.Open();
-            SqlCommand cmd = new SqlCommand("UPDATE subjects SET subject_name = @subject_name, teacher_id = @teacher_id, year_level_id = @year_level_id, section_id = @section_id, subject_category_id = @category WHERE subject_id = @subject_id", con);
+            if (TextBox3.Text.Length == 0 || TextBox4.Text.Length == 0 || DropDownList1.SelectedIndex == 0 || DropDownList3.SelectedIndex == 0)
+            {
+                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please Select Subject');", true);
+            }
 
-            cmd.Parameters.AddWithValue("@subject_name", TextBox3.Text);
-            cmd.Parameters.AddWithValue("@teacher_id", TextBox4.Text);
-            cmd.Parameters.AddWithValue("@subject_id", TextBox2.Text);
-            cmd.Parameters.AddWithValue("@year_level_id", DropDownList1.SelectedValue);
-            cmd.Parameters.AddWithValue("@section_id", DropDownList2.SelectedValue);
-            cmd.Parameters.AddWithValue("@category", DropDownList3.SelectedValue); 
-            cmd.ExecuteNonQuery();
-            con.Close();
+            else
+            {
+                SqlConnection con = new SqlConnection(conStr);
+                con.Open();
+                SqlCommand cmd = new SqlCommand("UPDATE subjects SET subject_name = @subject_name, teacher_id = @teacher_id, year_level_id = @year_level_id, subject_category_id = @category WHERE subject_id = @subject_id", con);
 
-            subjects();
+                cmd.Parameters.AddWithValue("@subject_name", TextBox3.Text);
+                cmd.Parameters.AddWithValue("@teacher_id", TextBox4.Text);
+                cmd.Parameters.AddWithValue("@subject_id", TextBox2.Text);
+                cmd.Parameters.AddWithValue("@year_level_id", DropDownList1.SelectedValue);
+                cmd.Parameters.AddWithValue("@category", DropDownList3.SelectedValue);
+                cmd.ExecuteNonQuery();
+                con.Close();
 
-            TextBox3.Text = "";
-            TextBox4.Text = "";
-            DropDownList1.SelectedValue = null;
-            ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Inserted Successfully');", true);
+                subjects();
+
+                TextBox3.Text = "";
+                TextBox4.Text = "";
+                DropDownList1.SelectedValue = null;
+                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Inserted Successfully');", true);
+            }
         }
 
         protected void Button2_Click(object sender, EventArgs e)
         {
-            SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-4DSNP2P;Initial Catalog=HIS_GradingSystem;Integrated Security=False;User Id=sa;Password=1234;MultipleActiveResultSets=True");
-            con.Open();
-            SqlCommand cmd = new SqlCommand("DELETE FROM subjects WHERE subject_id = @subject_id", con);
+            if (TextBox3.Text.Length == 0 || TextBox4.Text.Length == 0 || DropDownList1.SelectedIndex == 0 || DropDownList3.SelectedIndex == 0)
+            {
+                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please Select Subject');", true);
+            }
 
-            cmd.Parameters.AddWithValue("@subject_id", TextBox2.Text);
-            cmd.ExecuteNonQuery();
-            con.Close();
+            else
+            {
+                SqlConnection con = new SqlConnection(conStr);
+                con.Open();
+                SqlCommand cmd = new SqlCommand("DELETE FROM subjects WHERE subject_id = @subject_id", con);
 
-            clear();
-            subjects();
-            ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Inserted Successfully');", true);
+                cmd.Parameters.AddWithValue("@subject_id", TextBox2.Text);
+                cmd.ExecuteNonQuery();
+                con.Close();
+
+                clear();
+                subjects();
+                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Inserted Successfully');", true);
+            }
         }
         protected void clear()
         {
@@ -165,7 +182,7 @@ namespace Group1._3_GradingSystem.AdminPages
             TextBox3.Text = String.Empty;
             TextBox4.Text = String.Empty;
             DropDownList1.SelectedValue = null;
-            DropDownList2.SelectedValue = null;
+            DropDownList3.SelectedValue = null;
         }
 
         protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)

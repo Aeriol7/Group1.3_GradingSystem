@@ -11,10 +11,14 @@ namespace Group1._3_GradingSystem.AdminPages
 {
     public partial class AdminStudent : System.Web.UI.Page
     {
+
+        public string conStr = "Data Source=DESKTOP-4DSNP2P;Initial Catalog=HIS_GradingSystem;Integrated Security=False;User Id=sa;Password=1234;MultipleActiveResultSets=True";
+
         protected void Page_Load(object sender, EventArgs e)
         {
             students();
             sections();
+            Sections();
         }
 
         protected void Button6_Click(object sender, EventArgs e)
@@ -48,7 +52,7 @@ namespace Group1._3_GradingSystem.AdminPages
                 TextBox4.Text = gr.Cells[0].Text;
                 DropDownList3.SelectedValue = gr.Cells[4].Text;
                 DropDownList4.SelectedValue = gr.Cells[5].Text;
-                DropDownList2.SelectedValue = gr.Cells[5].Text;
+                ddlSection.SelectedValue = gr.Cells[5].Text;
             }
         }
 
@@ -71,7 +75,7 @@ namespace Group1._3_GradingSystem.AdminPages
             this.students();
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
+        protected void Button8_Click(object sender, EventArgs e)
         {
             SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-4DSNP2P;Initial Catalog=HIS_GradingSystem;Integrated Security=False;User Id=sa;Password=1234;MultipleActiveResultSets=True");
             con.Open();
@@ -81,7 +85,7 @@ namespace Group1._3_GradingSystem.AdminPages
             cmd.Parameters.AddWithValue("@Last_name", TextBox1.Text);
             cmd.Parameters.AddWithValue("@user_id", TextBox5.Text);
             cmd.Parameters.AddWithValue("@school_year_id", DropDownList3.SelectedValue);
-            cmd.Parameters.AddWithValue("@sections_id", DropDownList2.SelectedValue);
+            cmd.Parameters.AddWithValue("@sections_id", ddlSection.SelectedValue);
             cmd.Parameters.AddWithValue("@year_level_id", DropDownList4.SelectedValue);
             cmd.ExecuteNonQuery();
             con.Close();
@@ -93,11 +97,11 @@ namespace Group1._3_GradingSystem.AdminPages
             TextBox5.Text = "";
             DropDownList3.SelectedValue = null;
             DropDownList4.SelectedValue = null;
-            DropDownList2.SelectedValue = null;
+            ddlSection.SelectedValue = null;
             ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Inserted Successfully');", true);
         }
 
-        protected void Button3_Click(object sender, EventArgs e)
+        protected void Button9_Click(object sender, EventArgs e)
         {
             SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-4DSNP2P;Initial Catalog=HIS_GradingSystem;Integrated Security=False;User Id=sa;Password=1234;MultipleActiveResultSets=True");
             con.Open();
@@ -109,7 +113,7 @@ namespace Group1._3_GradingSystem.AdminPages
             cmd.Parameters.AddWithValue("@student_id", TextBox4.Text);
             cmd.Parameters.AddWithValue("@school_year_id", DropDownList3.SelectedValue);
             cmd.Parameters.AddWithValue("@year_level_id", DropDownList4.SelectedValue);
-            cmd.Parameters.AddWithValue("@sections_id", DropDownList2.SelectedValue);
+            cmd.Parameters.AddWithValue("@sections_id", ddlSection.SelectedValue);
             cmd.ExecuteNonQuery();
             con.Close();
 
@@ -120,7 +124,7 @@ namespace Group1._3_GradingSystem.AdminPages
             TextBox5.Text = "";
             DropDownList4.SelectedValue = null;
             DropDownList3.SelectedValue = null;
-            DropDownList2.SelectedValue = null;
+            ddlSection.SelectedValue = null;
             ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Updated Successfully');", true);
         }
 
@@ -146,7 +150,7 @@ namespace Group1._3_GradingSystem.AdminPages
             TextBox4.Text = String.Empty;
             DropDownList4.SelectedValue = null;
             DropDownList3.SelectedValue = null;
-            DropDownList2.SelectedValue = null;
+            ddlSection.SelectedValue = null;
         }
 
         protected void Button7_Click(object sender, EventArgs e)
@@ -157,7 +161,7 @@ namespace Group1._3_GradingSystem.AdminPages
             TextBox4.Text = String.Empty;
             DropDownList4.SelectedValue = null;
             DropDownList3.SelectedValue = null;
-            DropDownList2.SelectedValue = null;
+            ddlSection.SelectedValue = null;
 
 
             students();
@@ -202,15 +206,22 @@ namespace Group1._3_GradingSystem.AdminPages
                 GridViewRow gr = GridView2.SelectedRow;
             }
         }
-
-        protected void Button11_Click(object sender, EventArgs e)
+        public void Sections()
         {
-
+            SqlConnection con = new SqlConnection(conStr);
+            SqlCommand cmd = new SqlCommand("SELECT * FROM sections", con);
+            SqlDataAdapter adpt = new SqlDataAdapter(cmd);
+            DataTable dt = new DataTable();
+            adpt.Fill(dt);
+            ddlSection.DataSource = dt;
+            ddlSection.DataTextField = "section";
+            ddlSection.DataValueField = "section_id";
+            ddlSection.DataBind();
+            ddlSection.Items.Insert(0, new ListItem("Select Section"));
+            ddlSection.SelectedIndex = 0;
+            ddlSection.Enabled = true;
         }
 
-        protected void Button8_Click(object sender, EventArgs e)
-        {
-
-        }
+        
     }
 }
