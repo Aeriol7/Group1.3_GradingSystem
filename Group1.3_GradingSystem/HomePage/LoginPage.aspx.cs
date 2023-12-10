@@ -46,7 +46,7 @@ namespace Group1._3_GradingSystem.HomePage
 					con.Open();
 					cmd1.ExecuteNonQuery();
 					Session["Username"] = dt1.Rows[0][1].ToString() + " " + dt1.Rows[0][2].ToString();
-					Session["CurrentTeacherUser"] = dt1.Rows[0][0].ToString()
+					Session["CurrentTeacherUser"] = dt1.Rows[0][0].ToString();
 					con.Close();
 					Response.Redirect("~/TeacherPages/TeacherHomePage.aspx");
 				}
