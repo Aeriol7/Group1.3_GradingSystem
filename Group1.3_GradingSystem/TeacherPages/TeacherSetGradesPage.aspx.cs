@@ -17,26 +17,14 @@ namespace Group1._3_GradingSystem.TeacherPages
 
 		protected void Page_Load(object sender, EventArgs e)
 		{
-			SchoolYears();
+			
 		}
 
-		public void SchoolYears()
-		{
-			SqlConnection con = new SqlConnection(conStr);
-			string com = "SELECT * FROM school_years";
-			SqlDataAdapter adpt = new SqlDataAdapter(com, con);
-			DataTable dt = new DataTable();
-			adpt.Fill(dt);
-			ddlSchoolYear.DataSource = dt;
-			ddlSchoolYear.DataTextField = "school_year";
-			ddlSchoolYear.DataValueField = "school_year_id";
-			ddlSchoolYear.DataBind();
-		}
 		public void Grades()
 		{
 			SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-O5EH83O;Initial Catalog=HIS_GradingSystem;Integrated Security=False;User Id=sa;Password=1234;MultipleActiveResultSets=True");
 			SqlCommand cmd = new SqlCommand("SELECT grades.grades_id, subjects.subject_name, students.first_name, students.last_name, " +
-				"grades.first_quarter, grades.second_quarter, grades.third_quarter, grades.fourth_quarter, grades.average, grades.remarks FROM grades " +
+				"grades.first_quarter, grades.second_quarter, grades.third_quarter, grades.fourth_quarter, grades.average, grades.remarks, grades.approval FROM grades " +
 				"INNER JOIN students ON grades.student_id=students.student_id " +
 				"INNER JOIN subjects ON grades.subject_id=subjects.subject_id " +
 				"WHERE subjects.subject_id=@subjectid AND subjects.teacher_id=@teacherid", con);
@@ -47,6 +35,12 @@ namespace Group1._3_GradingSystem.TeacherPages
 			adpt.Fill(dt);
 			gvGrades.DataSource = dt;
 			gvGrades.DataBind();
+			if (dt.Rows.Count <= 0)
+			{
+				gvGrades.DataSource = null;
+				gvGrades.DataBind();
+				TGNoRecordsLabel.Text = "No Records";
+			}
 			con.Close();
 		}
 		protected void ddlSchoolYear_SelectedIndexChanged(object sender, EventArgs e)
@@ -142,6 +136,7 @@ namespace Group1._3_GradingSystem.TeacherPages
 				e.Row.Cells[7].Text = "4th Quarter";
 				e.Row.Cells[8].Text = "Average";
 				e.Row.Cells[9].Text = "Remarks";
+				e.Row.Cells[10].Text = "Status";
 			}
 		}
 

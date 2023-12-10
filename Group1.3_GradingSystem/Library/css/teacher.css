@@ -12,6 +12,38 @@
     height: 58px;
 }
 
+.teacher-home-image {
+    position: fixed;
+    height: 464px;
+    width: 994px;
+    top: 86px;
+    left: 278px;
+}
+
+#TeacherWelcome {
+    position: fixed;
+    top: 97px;
+    left: 312px;
+    height: 503px;
+    width: 967px;
+}
+
+#TeacherUser {
+    position: fixed;
+    top: 90px;
+    left: 460px;
+    color: #47D466;
+}
+
+#TeacherWelcomeLabel {
+    position: fixed;
+    top: 89px;
+    left: 274px;
+    height: 45px;
+    width: 180px;
+    color: #D44747;
+}
+
 #LogoutDropDown {
     position: fixed;
     top: 35px;
@@ -48,7 +80,7 @@
 #TeacherHomeLabel {
     position: fixed;
     top: 98px;
-    left: 160px;
+    left: 158px;
     height: 28px;
     width: 54px;
     text-align: center;
@@ -60,33 +92,12 @@
     line-height: normal;
 }
 
-#AnnouncementIcon {
+#SetGradesIcon {
     position: fixed;
     width: 48px;
     top: 149px;
     left: 37px;
     height: 45px;
-}
-
-#TeacherAnnouncementLabel {
-    position: fixed;
-    text-align: center;
-    color: #B03E3E;
-    font-family: Inter;
-    font-size: 100px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    top: 159px;
-    left: 122px;
-}
-
-#SetGradesIcon {
-    position: fixed;
-    top: 212px;
-    left: 39px;
-    right: 1203px;
-    height: 43px;
 }
 
 #SetGradesLabel {
@@ -98,18 +109,40 @@
     font-style: normal;
     font-weight: 700;
     line-height: normal;
-    top: 221px;
-    left: 137px;
+    top: 156px;
+    left: 100px;
+    right: 1094px;
+}
+
+#RecordsIcon {
+    position: fixed;
+    top: 212px;
+    left: 39px;
+    right: 1203px;
+    height: 43px;
+}
+
+#RecordsHL {
+    position: fixed;
+    text-align: center;
+    color: #B03E3E;
+    font-family: Inter;
+    font-size: 100px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    top: 223px;
+    left: 141px;
     width: 91px;
-    right: 1057px;
+    right: 1053px;
 }
 
 .teacher-home-image {
     position: fixed;
-    height: 464px;
-    width: 994px;
-    top: 86px;
-    left: 278px;
+    height: 520px;
+    width: 966px;
+    top: 77px;
+    left: 318px;
 }
 
 #TCWelcomeALabel {
@@ -122,18 +155,19 @@
 #TeacherUser {
     position: fixed;
     color: #47D466;
-    top: 96px;
-    left: 940px;
+    top: 80px;
+    left: 498px;
+    width: 342px;
 }
 
 #TeacherWelcomeLabel {
     position: fixed;
-    top: 89px;
-    left: 274px;
+    top: 79px;
+    left: 323px;
     height: 45px;
     width: 180px;
     color: #D44747;
-    right: 831px;
+    right: 782px;
 }
 
 #form1 {

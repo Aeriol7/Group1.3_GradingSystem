@@ -1,0 +1,259 @@
+﻿.teacher-home-image {
+    position: fixed;
+    height: 464px;
+    width: 994px;
+    top: 86px;
+    left: 278px;
+}
+
+#TCWelcomeALabel {
+    position: fixed;
+    top: 96px;
+    left: 580px;
+    color: #B03E3E;
+}
+
+#TeacherUser {
+    position: fixed;
+    color: #47D466;
+    top: 96px;
+    left: 940px;
+}
+
+#TeacherWelcomeLabel {
+    position: fixed;
+    top: 89px;
+    left: 274px;
+    height: 45px;
+    width: 180px;
+    color: #D44747;
+    right: 831px;
+}
+
+#form1 {
+    height: 586px;
+}
+
+.nav-tree-view {
+    height: 379px;
+    width: 254px;
+}
+
+.set-grades-container {
+    position: fixed;
+    top: 78px;
+    left: 317px;
+    width: 960px;
+    height: 520px;
+}
+
+#TSetGradesLabel {
+    position: fixed;
+    top: 88px;
+    left: 328px;
+    height: 40px;
+    width: 197px;
+}
+
+#SGSaveGrades {
+    position: fixed;
+    top: 496px;
+    left: 649px;
+    width: 94px;
+}
+
+#SGButton1 {
+    position: fixed;
+    top: 445px;
+    left: 956px;
+    width: 91px;
+}
+
+#SGButton2 {
+    position: fixed;
+    top: 446px;
+    left: 1077px;
+    width: 91px;
+}
+
+#SGGradeIDLabel {
+    position: fixed;
+    top: 425px;
+    left: 624px;
+    bottom: 16px;
+}
+
+#SGSearchTxt {
+    position: fixed;
+    top: 135px;
+    left: 1080px;
+}
+
+#SGNext {
+    position: fixed;
+    top: 492px;
+    left: 1225px;
+}
+
+#SGPrev {
+    position: fixed;
+    top: 490px;
+    left: 1095px;
+}
+
+.set-grades-table {
+    position: fixed;
+    top: 169px;
+    left: 338px;
+    width: 917px;
+    height: 303px;
+    max-height: 303px;
+    overflow-y: scroll;
+}
+
+.set-grades-form {
+    position: fixed;
+    top: 419px;
+    left: 336px;
+    height: 169px;
+    width: 455px;
+}
+
+#Button1 {
+    position: fixed;
+    top: 37px;
+    left: 1207px;
+}
+
+#ddlSchoolYear {
+    position: fixed;
+    top: 135px;
+    left: 334px;
+    width: 79px;
+    height: 15px;
+}
+
+#ddlGradeLevel {
+    position: fixed;
+    top: 135px;
+    left: 456px;
+}
+
+#ddlSection {
+    position: fixed;
+    top: 135px;
+    left: 582px;
+}
+
+#ddlSubjects {
+    position: fixed;
+    top: 135px;
+    left: 741px;
+}
+
+#gvGrades {
+    position: fixed;
+    top: 171px;
+    left: 340px;
+    width: 914px;
+    max-height: 291px;
+    overflow-y: scroll;
+    height: 242px;
+}
+
+#SGSearchLabel0 {
+    position: fixed;
+    top: 139px;
+    left: 1018px;
+    bottom: 381px;
+}
+
+#SGtxtGradeID {
+    position: fixed;
+    top: 425px;
+    left: 706px;
+    width: 70px;
+}
+
+#SGFNLabel {
+    position: fixed;
+    top: 425px;
+    left: 351px;
+}
+
+#SGtxtLName {
+    position: fixed;
+    top: 457px;
+    left: 434px;
+    width: 176px;
+}
+
+#SGQRTLabel {
+    position: fixed;
+    top: 482px;
+    left: 374px;
+    right: 857px;
+}
+
+#SGtxtFName {
+    position: fixed;
+    top: 425px;
+    left: 435px;
+    width: 176px;
+}
+
+#SGLNLabel {
+    position: fixed;
+    top: 455px;
+    left: 351px;
+}
+
+#ddlQuarter {
+    position: fixed;
+    top: 305px;
+    left: 943px;
+}
+
+#SGGradesLabel {
+    position: fixed;
+    top: 511px;
+    left: 374px;
+}
+
+#SGtxtGrades {
+    position: fixed;
+    top: 512px;
+    left: 435px;
+    width: 70px;
+}
+
+#cbINC {
+    position: fixed;
+}
+
+#ddlQuarter {
+    position: fixed;
+    top: 482px;
+    left: 435px;
+    width: 70px;
+}
+
+#ddlSection0 {
+    position: fixed;
+    top: 135px;
+    left: 570px;
+}
+
+#ddlSchoolYear0 {
+    position: fixed;
+    top: 482px;
+    left: 434px;
+    width: 79px;
+    height: 15px;
+}
+#TGNoRecordsLabel{
+    position: fixed;
+    top: 260px;
+    left: 730px;
+    margin-bottom: 0px;
+}

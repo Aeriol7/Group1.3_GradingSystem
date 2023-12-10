@@ -87,33 +87,6 @@ namespace Group1._3_GradingSystem.TeacherPages
 		protected global::System.Web.UI.WebControls.HyperLink TeacherHomeLabel;
 
 		/// <summary>
-		/// TeacherAnnouncementHL control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.HyperLink TeacherAnnouncementHL;
-
-		/// <summary>
-		/// AnnouncementIcon control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.Image AnnouncementIcon;
-
-		/// <summary>
-		/// TeacherAnnouncementLabel control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.HyperLink TeacherAnnouncementLabel;
-
-		/// <summary>
 		/// SetGradesHL control.
 		/// </summary>
 		/// <remarks>
@@ -177,13 +150,13 @@ namespace Group1._3_GradingSystem.TeacherPages
 		protected global::System.Web.UI.WebControls.Label SGSearchLabel0;
 
 		/// <summary>
-		/// SGSearchTxt control.
+		/// SRSearchTxt control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox SGSearchTxt;
+		protected global::System.Web.UI.WebControls.TextBox SRSearchTxt;
 
 		/// <summary>
 		/// ddlGradeLevel control.

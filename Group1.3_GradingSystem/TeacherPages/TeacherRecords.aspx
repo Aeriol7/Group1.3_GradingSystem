@@ -10,25 +10,23 @@
         <asp:Image ID="Image1" img src="../imgs/HopeLogo_TransparentPng.png" runat="server" />
         <asp:Label ID="Label1" runat="server" Text="HOPE INTEGRATED SCHOOL" Font-Bold="False" Font-Size="16pt" Width="204px" Font-Names="Times New Roman"></asp:Label>
         <asp:Image ID="UserIcon" img src="../imgs/ProfileIcon1.png" runat="server" />          
-        <asp:Button ID="Button1" runat="server" Text="Logout" OnClick="Button1_Click" />          
+        <asp:Button ID="Button1" runat="server" OnClientClick="return confirm('Logout?');" Text="Logout" OnClick="Button1_Click" />          
 <body style="height: 584px; width:1277px; margin-left: 10px;">
     <div class="teacher-side-bar">
         <asp:HyperLink ID="TeacherHomeHL" runat="server" NavigateUrl="TeacherHomePage.aspx" Font-Size="14pt" Font-Underline="False"> <asp:Image ID="HomeIcon" img src="../imgs/icon_home.png" runat="server" Height="40px" />
         </asp:HyperLink>  
     <asp:HyperLink ID="TeacherHomeLabel" runat="server" NavigateUrl="TeacherHomePage.aspx" Text="Home" Font-Size="14pt" Font-Underline="False"></asp:HyperLink>
-    <asp:HyperLink ID="TeacherAnnouncementHL" runat="server" NavigateUrl="TeacherAnnouncementsPage.aspx" Font-Size="14pt" Font-Underline="False"> <asp:Image ID="AnnouncementIcon" img src="../imgs/mdi_announcement.png" runat="server" />
-        </asp:HyperLink>   
-    <asp:HyperLink ID="TeacherAnnouncementLabel" runat="server" NavigateUrl="TeacherAnnouncementsPage.aspx" Text="Announcements" Font-Size="14pt" Font-Underline="False"></asp:HyperLink>
     <asp:HyperLink ID="SetGradesHL" runat="server" NavigateUrl="TeacherSetGradesPage.aspx" Font-Size="14pt" Font-Underline="False"> <asp:Image ID="SetGradesIcon" runat="server" img="" src="../imgs/ic_sharp-rate-review.png" />
         </asp:HyperLink> 
-        <asp:HyperLink ID="RecordsHL" runat="server" NavigateUrl="TeacherRecords.aspx" Font-Size="14pt" Text="Records" Font-Underline="False"> <asp:Image ID="RecordsIcon" runat="server" src="../imgs/icon-park_mail-review.png" />
+        <asp:HyperLink ID="RecordsHL" runat="server" NavigateUrl="TeacherRecords.aspx" Font-Size="14pt" Text="Records" Font-Underline="False"> 
+            <asp:Image ID="RecordsIcon" runat="server" src="../imgs/icon-park_mail-review.png" />
         </asp:HyperLink>
     <asp:HyperLink ID="SetGradesLabel" runat="server" NavigateUrl="TeacherSetGradesPage.aspx" Font-Size="14pt" Text="Set Grades" Font-Underline="False"></asp:HyperLink>
     </div>
         <div class="set-grades-container">
         <asp:Label ID="TSetGradesLabel" runat="server" Font-Bold="True" Font-Names="Arial" Font-Size="20pt" ForeColor="#983939">Records</asp:Label>
         <asp:Label ID="SGSearchLabel0" runat="server" Font-Names="Arial" ForeColor="#983939" Height="18px">Search:</asp:Label>
-        <asp:TextBox ID="SGSearchTxt" runat="server" BorderStyle="Solid" BorderWidth="1px"></asp:TextBox>
+        <asp:TextBox ID="SRSearchTxt" runat="server" BorderStyle="Solid" BorderWidth="1px"></asp:TextBox>
         <asp:DropDownList ID="ddlGradeLevel" runat="server" Width="105px" Height="22px" AutoPostBack = "true" OnSelectedIndexChanged="ddlGradeLevel_SelectedIndexChanged">
             <asp:ListItem >Select Level</asp:ListItem>
         </asp:DropDownList>
@@ -77,23 +75,23 @@
         </div>
     <div class="set-grades-form">
             <asp:Label ID="SRFNLabel" runat="server" Font-Names="Arial" ForeColor="#983939">First Name:</asp:Label>
-            <asp:TextBox ID="SRtxtFName" runat="server" BorderStyle="Solid" BorderWidth="1px"></asp:TextBox>
+            <asp:TextBox ID="SRtxtFName" runat="server" BorderStyle="Solid" BorderWidth="1px" Enabled="False"></asp:TextBox>
             <asp:Label ID="SRLNLabel" runat="server" Font-Names="Arial" ForeColor="#983939" BorderStyle="None">Last Name:</asp:Label>
-            <asp:Button ID="TRUpdateTable" runat="server" Text="Update" BackColor="White" Font-Names="Arial" ForeColor="#983939" Height="21px" Width="94px" OnClick="UpdateTable_Click" />
-            <asp:TextBox ID="SRtxtLName" runat="server" BorderStyle="Solid" BorderWidth="1px"></asp:TextBox>
+            <asp:Button ID="TRUpdateTable" runat="server" OnClientClick="return confirm('Update schoolwork amount?');" Text="Update" BackColor="White" Font-Names="Arial" ForeColor="#983939" Height="21px" Width="94px" OnClick="UpdateTable_Click" Enabled="False" />
+            <asp:TextBox ID="SRtxtLName" runat="server" BorderStyle="Solid" BorderWidth="1px" Enabled="False"></asp:TextBox>
             <asp:Label ID="SRRecordIDLabel" runat="server" Font-Names="Arial" ForeColor="#983939" Height="18px">Record ID:</asp:Label>
-            <asp:TextBox ID="SRtxtRecordID" runat="server" BorderStyle="Solid" BorderWidth="1px"></asp:TextBox>
+            <asp:TextBox ID="SRtxtRecordID" runat="server" BorderStyle="Solid" BorderWidth="1px" Enabled="False"></asp:TextBox>
             <asp:Label ID="SGGradesLabel" runat="server" Font-Names="Arial" ForeColor="#983939" Height="18px">Score:</asp:Label>
-            <asp:TextBox ID="SRtxtGrades" runat="server" BorderStyle="Solid" BorderWidth="1px"></asp:TextBox>
+            <asp:TextBox ID="SRtxtGrades" runat="server" BorderStyle="Solid" BorderWidth="1px" TextMode="Number"></asp:TextBox>
             <asp:Label ID="SRTotalScoreLabel" runat="server" Font-Names="Arial" ForeColor="#983939" Height="18px">Total Score:</asp:Label>
-            <asp:TextBox ID="SRtxtTotalScore" runat="server" BorderStyle="Solid" BorderWidth="1px"></asp:TextBox>
-            <asp:Button ID="TRSaveGrades" runat="server" Text="Save" BackColor="White" Font-Names="Arial" ForeColor="#983939" OnClick="TRSaveGrades_Click" />
+            <asp:TextBox ID="SRtxtTotalScore" runat="server" BorderStyle="Solid" BorderWidth="1px" TextMode="Number"></asp:TextBox>
+            <asp:Button ID="TRSaveGrades" runat="server" OnClientClick="return confirm('Save grade?');" Text="Save" BackColor="White" Font-Names="Arial" ForeColor="#983939" OnClick="TRSaveGrades_Click" />
             <asp:Label ID="SRSWNoLabel" runat="server" Font-Names="Arial" ForeColor="#983939" Height="18px">School Work No.:</asp:Label>
         <asp:DropDownList ID="ddlSWNo" runat="server" Width="90px" Height="22px" AutoPostBack="True">
         </asp:DropDownList>
             <asp:Label ID="SGGradesLabel0" runat="server" Font-Names="Arial" ForeColor="#983939">Amount of School Work:</asp:Label>
-            <asp:Button ID="TRInsertRecords" runat="server" Text="Insert Records" BackColor="White" Font-Names="Arial" ForeColor="#983939" OnClick="TRInsertRecords_Click" Height="21px" Width="100px" />
-            <asp:Button ID="TRUpdateTS" runat="server" Text="Update" BackColor="White" Font-Names="Arial" ForeColor="#983939" Height="21px" Width="94px" OnClick="UpdateTS_Click" />
+            <asp:Button ID="TRInsertRecords" runat="server" OnClientClick="return confirm('Insert records?');" Text="Insert Records" BackColor="White" Font-Names="Arial" ForeColor="#983939" OnClick="TRInsertRecords_Click" Height="21px" Width="100px" />
+            <asp:Button ID="TRUpdateTS" runat="server" OnClientClick="return confirm('Update total score?');" Text="Update" BackColor="White" Font-Names="Arial" ForeColor="#983939" Height="21px" Width="94px" OnClick="UpdateTS_Click" />
     </div>
         <asp:DropDownList ID="ddlSchoolYear" runat="server" Width="95px" Height="22px" AutoPostBack="True" OnSelectedIndexChanged="ddlSchoolYear_SelectedIndexChanged">
             <asp:ListItem>Select S.Y.</asp:ListItem>
@@ -110,7 +108,7 @@
             <asp:ListItem Value="3">3rd</asp:ListItem>
             <asp:ListItem Value="4">4th</asp:ListItem>
         </asp:DropDownList>
-        <asp:DropDownList ID="ddlAmnt" runat="server" Width="115px" Height="22px" AutoPostBack="True">
+        <asp:DropDownList ID="ddlAmnt" runat="server" Width="115px" Height="22px" AutoPostBack="True" Enabled="False">
         </asp:DropDownList>
     </div>
 </body>
