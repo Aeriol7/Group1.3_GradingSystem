@@ -177,15 +177,6 @@ namespace Group1._3_GradingSystem.TeacherPages
 		protected global::System.Web.UI.WebControls.DropDownList ddlSchoolWork;
 
 		/// <summary>
-		/// ddlSortAZ control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.DropDownList ddlSortAZ;
-
-		/// <summary>
 		/// TRNoRecordsLabel control.
 		/// </summary>
 		/// <remarks>

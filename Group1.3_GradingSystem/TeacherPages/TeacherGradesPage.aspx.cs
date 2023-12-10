@@ -10,7 +10,7 @@ using System.Diagnostics.Tracing;
 
 namespace Group1._3_GradingSystem.TeacherPages
 {
-	public partial class TeacherSetGradesPage : System.Web.UI.Page
+	public partial class TeacherGradesPage : System.Web.UI.Page
 	{
 
 		public string conStr = "Data Source=DESKTOP-O5EH83O;Initial Catalog=HIS_GradingSystem;Integrated Security=False;User Id=sa;Password=1234;MultipleActiveResultSets=True";
@@ -22,26 +22,54 @@ namespace Group1._3_GradingSystem.TeacherPages
 
 		public void Grades()
 		{
-			SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-O5EH83O;Initial Catalog=HIS_GradingSystem;Integrated Security=False;User Id=sa;Password=1234;MultipleActiveResultSets=True");
-			SqlCommand cmd = new SqlCommand("SELECT grades.grades_id, subjects.subject_name, students.first_name, students.last_name, " +
-				"grades.first_quarter, grades.second_quarter, grades.third_quarter, grades.fourth_quarter, grades.average, grades.remarks, grades.approval FROM grades " +
-				"INNER JOIN students ON grades.student_id=students.student_id " +
-				"INNER JOIN subjects ON grades.subject_id=subjects.subject_id " +
-				"WHERE subjects.subject_id=@subjectid AND subjects.teacher_id=@teacherid", con);
-			cmd.Parameters.AddWithValue("@subjectid", ddlSubjects.SelectedValue);
-			cmd.Parameters.AddWithValue("@teacherid", Session["CurrentTeacherUser"]);
-			SqlDataAdapter adpt = new SqlDataAdapter(cmd);
-			DataTable dt = new DataTable();
-			adpt.Fill(dt);
-			gvGrades.DataSource = dt;
-			gvGrades.DataBind();
-			if (dt.Rows.Count <= 0)
+			if (ddlSortAZ.SelectedIndex == 1)
 			{
-				gvGrades.DataSource = null;
+				SqlConnection con = new SqlConnection(conStr);
+				SqlCommand cmd = new SqlCommand("SELECT subjects.subject_name, " +
+					"grades.first_quarter, grades.second_quarter, grades.third_quarter, grades.fourth_quarter, grades.average, grades.remarks, grades.approval FROM grades " +
+					"INNER JOIN students ON grades.student_id=students.student_id " +
+					"INNER JOIN subjects ON grades.subject_id=subjects.subject_id " +
+					"WHERE subjects.subject_id=@subjectid AND subjects.teacher_id=@teacherid " +
+					"ORDER BY last_name ASC", con);
+				cmd.Parameters.AddWithValue("@subjectid", ddlSubjects.SelectedValue);
+				cmd.Parameters.AddWithValue("@teacherid", Session["CurrentTeacherUser"]);
+				SqlDataAdapter adpt = new SqlDataAdapter(cmd);
+				DataTable dt = new DataTable();
+				adpt.Fill(dt);
+				gvGrades.DataSource = dt;
 				gvGrades.DataBind();
-				TGNoRecordsLabel.Text = "No Records";
+				if (dt.Rows.Count <= 0)
+				{
+					gvGrades.DataSource = null;
+					gvGrades.DataBind();
+					TGNoRecordsLabel.Text = "No Records";
+				}
+				con.Close();
 			}
-			con.Close();
+			else if (ddlSortAZ.SelectedIndex == 2)
+			{
+				SqlConnection con = new SqlConnection(conStr);
+				SqlCommand cmd = new SqlCommand("SELECT subjects.subject_name, " +
+					"grades.first_quarter, grades.second_quarter, grades.third_quarter, grades.fourth_quarter, grades.average, grades.remarks, grades.approval FROM grades " +
+					"INNER JOIN students ON grades.student_id=students.student_id " +
+					"INNER JOIN subjects ON grades.subject_id=subjects.subject_id " +
+					"WHERE subjects.subject_id=@subjectid AND subjects.teacher_id=@teacherid " +
+					"ORDER BY last_name DESC", con);
+				cmd.Parameters.AddWithValue("@subjectid", ddlSubjects.SelectedValue);
+				cmd.Parameters.AddWithValue("@teacherid", Session["CurrentTeacherUser"]);
+				SqlDataAdapter adpt = new SqlDataAdapter(cmd);
+				DataTable dt = new DataTable();
+				adpt.Fill(dt);
+				gvGrades.DataSource = dt;
+				gvGrades.DataBind();
+				if (dt.Rows.Count <= 0)
+				{
+					gvGrades.DataSource = null;
+					gvGrades.DataBind();
+					TGNoRecordsLabel.Text = "No Records";
+				}
+				con.Close();
+			}
 		}
 		protected void ddlSchoolYear_SelectedIndexChanged(object sender, EventArgs e)
 		{
@@ -64,7 +92,7 @@ namespace Group1._3_GradingSystem.TeacherPages
 		}
 		protected void ddlGradeLevel_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-O5EH83O;Initial Catalog=HIS_GradingSystem;Integrated Security=False;User Id=sa;Password=1234;MultipleActiveResultSets=True");
+			SqlConnection con = new SqlConnection(conStr);
 			SqlCommand cmd = new SqlCommand("SELECT * FROM sections WHERE year_level_id=@yearlevelid", con);
 			cmd.Parameters.AddWithValue("@yearlevelid", ddlGradeLevel.SelectedValue);
 			SqlDataAdapter adpt = new SqlDataAdapter(cmd);
@@ -83,7 +111,7 @@ namespace Group1._3_GradingSystem.TeacherPages
 		}
 		protected void ddlSection_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-O5EH83O;Initial Catalog=HIS_GradingSystem;Integrated Security=False;User Id=sa;Password=1234;MultipleActiveResultSets=True");
+			SqlConnection con = new SqlConnection(conStr);
 			SqlCommand cmd = new SqlCommand("SELECT * FROM subjects WHERE teacher_id=@teacherid AND year_level_id=@yearlevelid", con);
 			cmd.Parameters.AddWithValue("@teacherid", Session["CurrentTeacherUser"]);
 			cmd.Parameters.AddWithValue("@yearlevelid", ddlGradeLevel.SelectedValue);
@@ -113,24 +141,20 @@ namespace Group1._3_GradingSystem.TeacherPages
 		{
 			gvGrades.PageIndex = e.NewPageIndex;
 			this.Grades();
-			ddlSortAZ.SelectedIndex = 0;
 		}
 
 		protected void gvGrades_RowDataBound(object sender, GridViewRowEventArgs e)
 		{
 			if (e.Row.RowType == DataControlRowType.Header)
 			{
-				e.Row.Cells[0].Text = "Grade ID";
-				e.Row.Cells[1].Text = "Subject";
-				e.Row.Cells[2].Text = "First Name";
-				e.Row.Cells[3].Text = "Last Name";
-				e.Row.Cells[4].Text = "1st Quarter";
-				e.Row.Cells[5].Text = "2nd Quarter";
-				e.Row.Cells[6].Text = "3rd Quarter";
-				e.Row.Cells[7].Text = "4th Quarter";
-				e.Row.Cells[8].Text = "Average";
-				e.Row.Cells[9].Text = "Remarks";
-				e.Row.Cells[10].Text = "Status";
+				e.Row.Cells[0].Text = "Subject";
+				e.Row.Cells[1].Text = "1st Quarter";
+				e.Row.Cells[2].Text = "2nd Quarter";
+				e.Row.Cells[3].Text = "3rd Quarter";
+				e.Row.Cells[4].Text = "4th Quarter";
+				e.Row.Cells[5].Text = "Average";
+				e.Row.Cells[6].Text = "Remarks";
+				e.Row.Cells[7].Text = "Status";
 			}
 		}
 
@@ -138,8 +162,8 @@ namespace Group1._3_GradingSystem.TeacherPages
 		{
 			if (ddlSortAZ.SelectedIndex == 1)
 			{
-				SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-O5EH83O;Initial Catalog=HIS_GradingSystem;Integrated Security=False;User Id=sa;Password=1234;MultipleActiveResultSets=True");
-				SqlCommand cmd = new SqlCommand("SELECT grades.grades_id, subjects.subject_name, students.first_name, students.last_name, " +
+				SqlConnection con = new SqlConnection(conStr);
+				SqlCommand cmd = new SqlCommand("SELECT subjects.subject_name, " +
 					"grades.first_quarter, grades.second_quarter, grades.third_quarter, grades.fourth_quarter, grades.average, grades.remarks, grades.approval FROM grades " +
 					"INNER JOIN students ON grades.student_id=students.student_id " +
 					"INNER JOIN subjects ON grades.subject_id=subjects.subject_id " +
@@ -162,8 +186,8 @@ namespace Group1._3_GradingSystem.TeacherPages
 			}
 			else if (ddlSortAZ.SelectedIndex == 2)
 			{
-				SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-O5EH83O;Initial Catalog=HIS_GradingSystem;Integrated Security=False;User Id=sa;Password=1234;MultipleActiveResultSets=True");
-				SqlCommand cmd = new SqlCommand("SELECT grades.grades_id, subjects.subject_name, students.first_name, students.last_name, " +
+				SqlConnection con = new SqlConnection(conStr);
+				SqlCommand cmd = new SqlCommand("SELECT subjects.subject_name, " +
 					"grades.first_quarter, grades.second_quarter, grades.third_quarter, grades.fourth_quarter, grades.average, grades.remarks, grades.approval FROM grades " +
 					"INNER JOIN students ON grades.student_id=students.student_id " +
 					"INNER JOIN subjects ON grades.subject_id=subjects.subject_id " +
