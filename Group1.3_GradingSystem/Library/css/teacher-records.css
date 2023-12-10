@@ -8,9 +8,9 @@
 
 #TSetGradesLabel {
 	position: fixed;
-	top: 88px;
-	left: 328px;
-	height: 40px;
+	top: 91px;
+	left: 329px;
+	height: 28px;
 	width: 197px;
 }
 
@@ -42,7 +42,7 @@
 	bottom: 92px;
 }
 
-#SGSearchTxt {
+#SRSearchTxt {
 	position: fixed;
 	top: 90px;
 	left: 1119px;
@@ -207,28 +207,6 @@
 	left: 570px;
 }
 
-#RecordsHL {
-	position: fixed;
-	text-align: center;
-	color: #B03E3E;
-	font-family: Inter;
-	font-size: 100px;
-	font-style: normal;
-	font-weight: 700;
-	line-height: normal;
-	position: fixed;
-	top: 283px;
-	left: 148px;
-}
-
-#RecordsIcon {
-	position: fixed;
-	width: 48px;
-	height: 45px;
-	top: 273px;
-	left: 39px;
-}
-
 #ddlSchoolWork {
 	position: fixed;
 	left: 1007px;
@@ -301,9 +279,9 @@
 }
 #TRInsertRecords {
 	position: fixed;
-    top: 485px;
-    left: 1137px;
-    bottom: 57px;
+    top: 420px;
+    left: 1165px;
+    bottom: 75px;
 }
 #TRDeleteRecords {
 	position: fixed;
