@@ -9,12 +9,6 @@ namespace Group1._3_GradingSystem.TeacherPages
 {
 	public partial class TeacherHomePage : System.Web.UI.Page
 	{
-
-		protected void ddlLogout_SelectedIndexChanged(object sender, EventArgs e)
-		{
-
-		}
-
         protected void Button1_Click(object sender, EventArgs e)
         {
             Response.Redirect("/HomePage/LoginPage.aspx");

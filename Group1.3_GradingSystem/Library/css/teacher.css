@@ -22,8 +22,8 @@
 
 #TeacherWelcome {
     position: fixed;
-    top: 97px;
-    left: 312px;
+    top: 99px;
+    left: 323px;
     height: 503px;
     width: 967px;
 }
@@ -172,6 +172,7 @@
 
 #form1 {
     height: 583px;
+    margin-bottom: 0px;
 }
 
 .nav-tree-view {

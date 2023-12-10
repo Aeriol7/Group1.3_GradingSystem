@@ -11,22 +11,20 @@
         <asp:Label ID="Label1" runat="server" Text="HOPE INTEGRATED SCHOOL" Font-Bold="False" Font-Size="16pt" Width="204px" Font-Names="Times New Roman"></asp:Label>
         <asp:Image ID="UserIcon" img src="../imgs/ProfileIcon1.png" runat="server" />          
         <asp:Button ID="Button1" runat="server" OnClientClick="return confirm('Logout?');" Text="Logout" OnClick="Button1_Click" />          
-<body style="height: 584px; width:1277px; margin-left: 10px;">
+<body style="height: 584px; width:1277px; margin-left: 0px;">
     <div class="teacher-side-bar">
         <asp:HyperLink ID="TeacherHomeHL" runat="server" NavigateUrl="TeacherHomePage.aspx" Font-Size="14pt" Font-Underline="False"> <asp:Image ID="HomeIcon" img src="../imgs/icon_home.png" runat="server" Height="40px" />
         </asp:HyperLink>  
     <asp:HyperLink ID="TeacherHomeLabel" runat="server" NavigateUrl="TeacherHomePage.aspx" Text="Home" Font-Size="14pt" Font-Underline="False"></asp:HyperLink>
-    <asp:HyperLink ID="SetGradesHL" runat="server" NavigateUrl="TeacherSetGradesPage.aspx" Font-Size="14pt" Font-Underline="False"> <asp:Image ID="SetGradesIcon" runat="server" img="" src="../imgs/ic_sharp-rate-review.png" />
+    <asp:HyperLink ID="SetGradesHL" runat="server" NavigateUrl="TeacherGradesPage.aspx" Font-Size="14pt" Font-Underline="False"> <asp:Image ID="SetGradesIcon" runat="server" img="" src="../imgs/ic_sharp-rate-review.png" />
         </asp:HyperLink> 
         <asp:HyperLink ID="RecordsHL" runat="server" NavigateUrl="TeacherRecords.aspx" Font-Size="14pt" Text="Records" Font-Underline="False"> 
             <asp:Image ID="RecordsIcon" runat="server" src="../imgs/icon-park_mail-review.png" />
         </asp:HyperLink>
-    <asp:HyperLink ID="SetGradesLabel" runat="server" NavigateUrl="TeacherSetGradesPage.aspx" Font-Size="14pt" Text="Set Grades" Font-Underline="False"></asp:HyperLink>
+    <asp:HyperLink ID="SetGradesLabel" runat="server" NavigateUrl="TeacherGradesPage.aspx" Font-Size="14pt" Text="Grades" Font-Underline="False"></asp:HyperLink>
     </div>
-        <div class="set-grades-container">
+        <div class="set-grades-container" aria-atomic="False" aria-checked="true">
         <asp:Label ID="TSetGradesLabel" runat="server" Font-Bold="True" Font-Names="Arial" Font-Size="20pt" ForeColor="#983939">Records</asp:Label>
-        <asp:Label ID="SGSearchLabel0" runat="server" Font-Names="Arial" ForeColor="#983939" Height="18px">Search:</asp:Label>
-        <asp:TextBox ID="SRSearchTxt" runat="server" BorderStyle="Solid" BorderWidth="1px"></asp:TextBox>
         <asp:DropDownList ID="ddlGradeLevel" runat="server" Width="105px" Height="22px" AutoPostBack = "true" OnSelectedIndexChanged="ddlGradeLevel_SelectedIndexChanged">
             <asp:ListItem >Select Level</asp:ListItem>
         </asp:DropDownList>
@@ -56,7 +54,12 @@
             <asp:ListItem Value="1">Written Work</asp:ListItem>
             <asp:ListItem Value="2">Performance Task</asp:ListItem>
             <asp:ListItem Value="3">Quarterly Assessment</asp:ListItem>
-</asp:DropDownList>
+         </asp:DropDownList>
+            <asp:DropDownList ID="ddlSortAZ" runat="server" OnSelectedIndexChanged="ddlSortAZ_SelectedIndexChanged" Width="70px" AutoPostBack="True">
+            <asp:ListItem>Sort</asp:ListItem>
+            <asp:ListItem>A-Z</asp:ListItem>
+            <asp:ListItem Value="Z-A"></asp:ListItem>
+        </asp:DropDownList>
     <div class="set-grades-table" style="height: 250px; overflow: auto;" >
             <asp:Label ID="TRNoRecordsLabel" runat="server"></asp:Label>
             <asp:GridView ID="gvRecords" runat="server" AllowPaging="True" PageSize="5" OnPageIndexChanging="OnPageIndexChanging" OnSelectedIndexChanged="gvRecords_SelectedIndexChanged"

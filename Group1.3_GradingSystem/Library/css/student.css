@@ -1,0 +1,302 @@
+﻿#Panel1 {
+    position: fixed;
+}
+
+#Image1 {
+    position: fixed;
+    margin-right: 15px;
+    margin-left: 15px;
+    top: 14px;
+    left: 12px;
+    width: 58px;
+    height: 58px;
+}
+
+#LogoutDropDown {
+    position: fixed;
+    top: 35px;
+    left: 1211px;
+}
+
+#UserIcon {
+    position: fixed;
+    top: 26px;
+    left: 1137px;
+    height: 40px;
+    width: 40px;
+    right: 108px;
+}
+
+#Label1 {
+    position: fixed;
+    top: 20px;
+    left: 105px;
+}
+
+#NavPanel {
+    position: fixed;
+}
+
+#HomeIcon {
+    position: fixed;
+    top: 88px;
+    left: 38px;
+    width: 44px;
+    height: 43px;
+}
+
+#StudentHomeLabel {
+    position: fixed;
+    top: 98px;
+    left: 160px;
+    height: 28px;
+    width: 54px;
+    text-align: center;
+    color: #B03E3E;
+    font-family: Inter;
+    font-size: 100px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+#AnnouncementIcon {
+    position: fixed;
+    width: 48px;
+    top: 149px;
+    left: 37px;
+    height: 45px;
+}
+
+#StudentAnnouncementLabel {
+    position: fixed;
+    text-align: center;
+    color: #B03E3E;
+    font-family: Inter;
+    font-size: 100px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    top: 159px;
+    left: 122px;
+    width: 129px;
+}
+
+#ViewGradesIcon {
+    position: fixed;
+    top: 166px;
+    left: 39px;
+    right: 1195px;
+    height: 43px;
+}
+
+#ViewGradesLabel {
+    position: fixed;
+    text-align: center;
+    color: #B03E3E;
+    font-family: Inter;
+    font-size: 100px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    top: 160px;
+    left: 142px;
+    width: 91px;
+    right: 1044px;
+}
+
+.Student-home-image {
+    position: fixed;
+    height: 520px;
+    width: 994px;
+    top: 86px;
+    left: 278px;
+}
+
+#TCWelcomeALabel {
+    position: fixed;
+    top: 96px;
+    left: 580px;
+    color: #B03E3E;
+}
+
+#StudentUser {
+    position: fixed;
+    color: #47D466;
+    top: 96px;
+    left: 940px;
+}
+
+#StudentWelcomeLabel {
+    position: fixed;
+    top: 89px;
+    left: 274px;
+    height: 45px;
+    width: 180px;
+    color: #D44747;
+    right: 783px;
+}
+
+#form1 {
+    height: 564px;
+    margin-bottom: 0px;
+    width: 1266px;
+}
+
+.nav-tree-view {
+    height: 379px;
+    width: 254px;
+}
+
+.set-grades-container {
+    position: fixed;
+    top: 83px;
+    left: 316px;
+    width: 960px;
+    height: 445px;
+}
+
+#SViewGradesLabel {
+    position: fixed;
+    top: 85px;
+    left: 320px;
+    height: 40px;
+    width: 197px;
+    bottom: 369px;
+}
+
+#VGPrintRecord {
+    position: fixed;
+    top: 169px;
+    left: 344px;
+    width: 94px;
+    right: 847px;
+}
+
+#VGButton1 {
+    position: fixed;
+    top: 170px;
+    left: 465px;
+    width: 91px;
+}
+
+#VGButton2 {
+    position: fixed;
+    top: 170px;
+    left: 582px;
+    width: 91px;
+}
+
+#VGSearchLabel {
+    position: fixed;
+    top: 210px;
+    left: 1018px;
+    bottom: 335px;
+}
+
+#VGSearchTxt {
+    position: fixed;
+    top: 209px;
+    left: 1087px;
+    width: 176px;
+}
+
+#VGNext {
+    position: fixed;
+    top: 492px;
+    left: 1225px;
+}
+
+#VGPrev {
+    position: fixed;
+    top: 490px;
+    left: 1095px;
+}
+
+.view-grades-table {
+    position: fixed;
+    top: 156px;
+    left: 322px;
+    height: 301px;
+    width: 944px;
+}
+
+#Button1 {
+    position: fixed;
+    top: 39px;
+    left: 1207px;
+}
+.student-side-bar {
+    position: fixed;
+    top: 82px;
+    left: 14px;
+    height: 449px;
+    width: 297px;
+    bottom: -15px;
+}
+#gvGrades {
+    position: fixed;
+    top: 162px;
+    left: 323px;
+    height: 288px;
+    width: 939px;
+}
+#SNotYetReleased {
+    position: fixed;
+    top: 292px;
+    left: 684px;
+    width: 220px;
+    text-align: center;
+}
+#lblStudentName {
+    position: fixed;
+    top: 131px;
+    left: 372px;
+    right: 806px;
+}
+#lblName{
+    position: fixed;
+    top: 131px;
+    left: 327px;
+}
+#lblSection {
+    position: fixed;
+    top: 131px;
+    left: 636px;
+    height: 19px;
+}
+#lblStudentSection {
+    position: fixed;
+    top: 131px;
+}
+#StudentWelcome {
+    position: fixed;
+    top: 106px;
+    left: 319px;
+    height: 518px;
+    width: 948px;
+}
+
+#StudentUser {
+    position: fixed;
+    top: 83px;
+    left: 508px;
+    color: #47D466;
+}
+#StudentWelcomeLabel {
+    position: fixed;
+    top: 83px;
+    left: 322px;
+    height: 45px;
+    width: 180px;
+    color: #D44747;
+}
+.student-home-image {
+    position: fixed;
+    top: 84px;
+    left: 316px;
+    height: 491px;
+    width: 959px;
+    margin-left: 0px;
+    margin-bottom: 0px;
+}

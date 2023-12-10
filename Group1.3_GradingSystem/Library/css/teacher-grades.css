@@ -149,6 +149,7 @@
     position: fixed;
     top: 135px;
     left: 741px;
+    right: 419px;
 }
 
 #gvGrades {
@@ -256,4 +257,9 @@
     top: 260px;
     left: 730px;
     margin-bottom: 0px;
+}
+#ddlSortAZ {
+    position: fixed;
+    top: 135px;
+    left: 899px;
 }
