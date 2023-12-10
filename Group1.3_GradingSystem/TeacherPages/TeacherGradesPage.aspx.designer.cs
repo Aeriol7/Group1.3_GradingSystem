@@ -11,7 +11,7 @@ namespace Group1._3_GradingSystem.TeacherPages
 {
 
 
-	public partial class TeacherSetGradesPage
+	public partial class TeacherGradesPage
 	{
 
 		/// <summary>

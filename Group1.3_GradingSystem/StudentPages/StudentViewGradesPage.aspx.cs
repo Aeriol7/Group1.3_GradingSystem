@@ -34,7 +34,7 @@ namespace Group1._3_GradingSystem.StudentPages
 				"INNER JOIN year_levels ON students.year_level_id = year_levels.year_level_id " +
 				"INNER JOIN school_years ON students.school_year_id = school_years.school_year_id " +
 				"WHERE student_id=@studentid", con);
-			cmdsi.Parameters.AddWithValue("@studentid", (string)Session["CurrentStudentUser"]);
+			cmdsi.Parameters.AddWithValue("@studentid", Session["CurrentStudentUser"]);
 			SqlDataAdapter adptsi = new SqlDataAdapter(cmdsi);
 			DataTable dtsi = new DataTable();
 			adptsi.Fill(dtsi);
@@ -50,7 +50,7 @@ namespace Group1._3_GradingSystem.StudentPages
 				"INNER JOIN students ON grades.student_id=students.student_id " +
 				"INNER JOIN subjects ON grades.subject_id=subjects.subject_id " +
 				"WHERE grades.student_id=@studentid AND grades.school_year_id=students.school_year_id AND grades.section_id=students.section_id AND grades.year_level_id=students.year_level_id AND grades.approval='Approved'", con);
-			cmd.Parameters.AddWithValue("@studentid", (string)Session["CurrentStudentUser"]);
+			cmd.Parameters.AddWithValue("@studentid", Session["CurrentStudentUser"]);
 			SqlDataAdapter adpt = new SqlDataAdapter(cmd);
 			DataTable dt = new DataTable();
 			adpt.Fill(dt);

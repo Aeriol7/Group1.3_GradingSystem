@@ -55,11 +55,6 @@
             <asp:ListItem Value="2">Performance Task</asp:ListItem>
             <asp:ListItem Value="3">Quarterly Assessment</asp:ListItem>
          </asp:DropDownList>
-            <asp:DropDownList ID="ddlSortAZ" runat="server" OnSelectedIndexChanged="ddlSortAZ_SelectedIndexChanged" Width="70px" AutoPostBack="True">
-            <asp:ListItem>Sort</asp:ListItem>
-            <asp:ListItem>A-Z</asp:ListItem>
-            <asp:ListItem Value="Z-A"></asp:ListItem>
-        </asp:DropDownList>
     <div class="set-grades-table" style="height: 250px; overflow: auto;" >
             <asp:Label ID="TRNoRecordsLabel" runat="server"></asp:Label>
             <asp:GridView ID="gvRecords" runat="server" AllowPaging="True" PageSize="5" OnPageIndexChanging="OnPageIndexChanging" OnSelectedIndexChanged="gvRecords_SelectedIndexChanged"

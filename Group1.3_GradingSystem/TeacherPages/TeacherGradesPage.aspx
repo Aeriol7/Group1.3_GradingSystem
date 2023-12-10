@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="TeacherGradesPage.aspx.cs" Inherits="Group1._3_GradingSystem.TeacherPages.TeacherSetGradesPage" enableEventValidation="false" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="TeacherGradesPage.aspx.cs" Inherits="Group1._3_GradingSystem.TeacherPages.TeacherGradesPage" enableEventValidation="false" %>
 
 <!DOCTYPE html>
 <head runat="server">
