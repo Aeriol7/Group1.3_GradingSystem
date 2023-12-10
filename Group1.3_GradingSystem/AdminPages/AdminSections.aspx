@@ -420,7 +420,7 @@ position: fixed;
 
             <asp:Label ID="Label14" runat="server" ForeColor="#B03E3E" Text="Manage Sections" Font-Names="Arial" Font-Size="17pt"></asp:Label>
             
-            <asp:Button ID="Button6" runat="server" Text="Logout" OnClick="Button6_Click" />
+            <asp:Button ID="Button6" runat="server" Text="Logout" OnClick="Button6_Click" OnClientClick="return confirm('Are You Sure You Want To Logout');"/>
             
             
             

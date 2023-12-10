@@ -51,7 +51,7 @@ namespace Group1._3_GradingSystem.AdminPages
 
         protected void Button9_Click(object sender, EventArgs e)
         {
-            if (TextBox4.Text.Length == 0 || TextBox8.Text.Length == 0 || TextBox9.Text.Length == 0)
+            if (TextBox4.Text.Length == 0 || TextBox8.Text.Length == 0)
             {
                 ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please Insert Needed Information');", true);
             }
@@ -110,7 +110,7 @@ namespace Group1._3_GradingSystem.AdminPages
                 TextBox4.Text = "";
                 TextBox8.Text = "";
                 TextBox9.Text = "";
-                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Inserted Successfully');", true);
+                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Updated Successfully');", true);
             }
         }
 
@@ -135,7 +135,7 @@ namespace Group1._3_GradingSystem.AdminPages
                 GridViewRow gr = GridView2.SelectedRow;
                 TextBox6.Text = gr.Cells[2].Text;
                 TextBox7.Text = gr.Cells[1].Text;
-                TextBox10.Text = gr.Cells[0].Text;
+                TextBox10.Text = gr.Cells[3].Text;
 
                 
             }
@@ -187,9 +187,10 @@ namespace Group1._3_GradingSystem.AdminPages
                 cmd.Parameters.AddWithValue("@userid", TextBox9.Text);
                 cmd.ExecuteNonQuery();
                 con.Close();
-
+                users();
                 clear();
-                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Inserted Successfully');", true);
+                
+                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Deleted Successfully');", true);
             }
         }
         protected void clear()
@@ -204,6 +205,9 @@ namespace Group1._3_GradingSystem.AdminPages
             TextBox4.Text = string.Empty;
             TextBox8.Text = string.Empty;
             TextBox9.Text = string.Empty;
+            TextBox10.Text = string.Empty;
+            TextBox6.Text = string.Empty;
+            TextBox7.Text = string.Empty;
         }
 
         protected void Button5_Click(object sender, EventArgs e)
@@ -223,7 +227,7 @@ namespace Group1._3_GradingSystem.AdminPages
             {
                 SqlConnection con = new SqlConnection(conStr);
                 con.Open();
-                SqlCommand cmd = new SqlCommand("INSERT INTO [dbo]. [teachers] (Firstname ,Lastname, user_id) VALUES  (@Firstname, @Lastname, @user_id)", con);
+                SqlCommand cmd = new SqlCommand("INSERT INTO [dbo]. [teachers] (first_name ,last_name, user_id) VALUES  (@Firstname, @Lastname, @user_id)", con);
 
                 cmd.Parameters.AddWithValue("@Firstname", TextBox7.Text);
                 cmd.Parameters.AddWithValue("@Lastname", TextBox6.Text);
@@ -265,13 +269,13 @@ namespace Group1._3_GradingSystem.AdminPages
             TextBox7.Text = "";
             TextBox6.Text = "";
             TextBox10.Text = "";
-            ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Inserted Successfully');", true);
+            ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Updated Successfully');", true);
             }
         }
 
         protected void Button3_Click(object sender, EventArgs e)
         {
-            if (TextBox7.Text.Length == 0 || TextBox6.Text.Length == 0 || TextBox10.Text.Length == 0)
+            if (TextBox10.Text.Length == 0)
             {
                 ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please Select Needed Information');", true);
             }
@@ -279,14 +283,16 @@ namespace Group1._3_GradingSystem.AdminPages
             {
                 SqlConnection con = new SqlConnection(conStr);
                 con.Open();
-                SqlCommand cmd = new SqlCommand("DELETE FROM teachers WHERE ID = @ID", con);
+                SqlCommand cmd = new SqlCommand("DELETE FROM teachers WHERE teacher_id = @ID", con);
 
-                cmd.Parameters.AddWithValue("ID", TextBox10.Text);
+                cmd.Parameters.AddWithValue("@ID", TextBox10.Text);
                 cmd.ExecuteNonQuery();
                 con.Close();
 
+                teachers();
+
                 clear();
-                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Inserted Successfully');", true);
+                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Deleted Successfully');", true);
             }
         }
 

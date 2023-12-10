@@ -11,6 +11,7 @@ namespace Group1._3_GradingSystem.AdminPages
 {
     public partial class AdminSections : System.Web.UI.Page
     {
+        public string conStr = "Data Source=DESKTOP-4DSNP2P;Initial Catalog=HIS_GradingSystem;Integrated Security=False;User Id=sa;Password=1234;MultipleActiveResultSets=True";
         protected void Page_Load(object sender, EventArgs e)
         {
             sections();
@@ -23,7 +24,7 @@ namespace Group1._3_GradingSystem.AdminPages
 
         public void sections()
         {
-            SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-4DSNP2P;Initial Catalog=HIS_GradingSystem;Integrated Security=False;User Id=sa;Password=1234;MultipleActiveResultSets=True");
+            SqlConnection con = new SqlConnection(conStr);
             string com = "SELECT * FROM sections";
             con.Open();
             SqlDataAdapter adpt = new SqlDataAdapter(com, con);
@@ -80,55 +81,76 @@ namespace Group1._3_GradingSystem.AdminPages
 
         protected void Button9_Click(object sender, EventArgs e)
         {
-            SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-4DSNP2P;Initial Catalog=HIS_GradingSystem;Integrated Security=False;User Id=sa;Password=1234;MultipleActiveResultSets=True");
-            con.Open();
-            SqlCommand cmd = new SqlCommand("INSERT INTO sections (section, year_level_id) VALUES  (@section, @year_level_id)", con);
-            cmd.Parameters.AddWithValue("@section", TextBox4.Text);
-            cmd.Parameters.AddWithValue("@year_level_id", DropDownList4.SelectedValue);
-            cmd.ExecuteNonQuery();
-            con.Close();
+            if (TextBox4.Text.Length == 0 || DropDownList4.SelectedIndex == 0)
+            {
+                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please Insert Section or Year Level');", true);
+            }
+            else
+            {
+                SqlConnection con = new SqlConnection(conStr);
+                con.Open();
+                SqlCommand cmd = new SqlCommand("INSERT INTO sections (section, year_level_id) VALUES  (@section, @year_level_id)", con);
+                cmd.Parameters.AddWithValue("@section", TextBox4.Text);
+                cmd.Parameters.AddWithValue("@year_level_id", DropDownList4.SelectedValue);
+                cmd.ExecuteNonQuery();
+                con.Close();
 
-            sections();
+                sections();
 
-            TextBox8.Text = "";
-            TextBox4.Text = "";
-            DropDownList4.SelectedValue = null;
-            ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Inserted Successfully');", true);
+                TextBox8.Text = "";
+                TextBox4.Text = "";
+                DropDownList4.SelectedValue = null;
+                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Inserted Successfully');", true);
+            }
         }
         protected void Button11_Click(object sender, EventArgs e)
         {
-            SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-4DSNP2P;Initial Catalog=HIS_GradingSystem;Integrated Security=False;User Id=sa;Password=1234;MultipleActiveResultSets=True");
-            con.Open();
-            SqlCommand cmd = new SqlCommand("UPDATE sections SET section = @section, year_level_id = @year_level_id WHERE section_id = @section_id", con);
+            if (TextBox4.Text.Length == 0 || TextBox8.Text.Length == 0 || DropDownList4.SelectedIndex == 0)
+            {
+                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please Select Section');", true);
+            }
+            else
+            {
+                SqlConnection con = new SqlConnection(conStr);
+                con.Open();
+                SqlCommand cmd = new SqlCommand("UPDATE sections SET section = @section, year_level_id = @year_level_id WHERE section_id = @section_id", con);
 
-            cmd.Parameters.AddWithValue("@section_id", TextBox8.Text);
-            cmd.Parameters.AddWithValue("@section", TextBox4.Text);
-            cmd.Parameters.AddWithValue("@year_level_id", DropDownList4.SelectedValue);
-            cmd.ExecuteNonQuery();
-            con.Close();
+                cmd.Parameters.AddWithValue("@section_id", TextBox8.Text);
+                cmd.Parameters.AddWithValue("@section", TextBox4.Text);
+                cmd.Parameters.AddWithValue("@year_level_id", DropDownList4.SelectedValue);
+                cmd.ExecuteNonQuery();
+                con.Close();
 
-            sections();
+                sections();
 
-            TextBox8.Text = "";
-            TextBox4.Text = "";
-            DropDownList4.SelectedValue = null;
-            ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Updated Successfully');", true);
+                TextBox8.Text = "";
+                TextBox4.Text = "";
+                DropDownList4.SelectedValue = null;
+                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Updated Successfully');", true);
+            }
 
         }
 
         protected void Button7_Click(object sender, EventArgs e)
         {
-            SqlConnection con = new SqlConnection(@"Data Source=DESKTOP-4DSNP2P;Initial Catalog=HIS_GradingSystem;Integrated Security=False;User Id=sa;Password=1234;MultipleActiveResultSets=True");
-            con.Open();
-            SqlCommand cmd = new SqlCommand("DELETE FROM sections WHERE section_id = @section_id", con);
+            if (TextBox8.Text.Length == 0)
+            {
+                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please Select Section');", true);
+            }
+            else
+            {
+                SqlConnection con = new SqlConnection(conStr);
+                con.Open();
+                SqlCommand cmd = new SqlCommand("DELETE FROM sections WHERE section_id = @section_id", con);
 
-            cmd.Parameters.AddWithValue("@section_id", TextBox8.Text);
-            cmd.ExecuteNonQuery();
-            con.Close();
+                cmd.Parameters.AddWithValue("@section_id", TextBox8.Text);
+                cmd.ExecuteNonQuery();
+                con.Close();
 
-            clear();
-            sections();
-            ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Deleted Successfully');", true);
+                clear();
+                sections();
+                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Deleted Successfully');", true);
+            }
         }
 
         protected void Button8_Click(object sender, EventArgs e)

@@ -338,6 +338,7 @@
     position: fixed;
         top: 589px;
         left: 424px;
+        right: 846px;
     }
 #Label21{
     position: fixed;
@@ -582,12 +583,8 @@ position: fixed;
 
             <asp:Label ID="Label14" runat="server" ForeColor="#B03E3E" Text="Manage Students" Font-Names="Arial" Font-Size="17pt"></asp:Label>
             
-            <asp:Button ID="Button6" runat="server" Text="Logout" OnClick="Button6_Click" />
+            <asp:Button ID="Button6" runat="server" Text="Logout" OnClick="Button6_Click" OnClientClick="return confirm('Are You Sure You Want To Logout');"/>
             
-
-
-
-
                 <div class ="subject">
 
             <asp:GridView OnSelectedIndexChanged="GridView1_SelectedIndexChanged" OnRowDataBound="GridView1_RowDataBound" OnPageIndexChanging="OnPageIndexChangingstudents" ID="GridView1" runat="server"  CellPadding="4" ForeColor="#333333" GridLines="None" AllowPaging="True" PageSize="4" Width="432px">
@@ -605,8 +602,6 @@ position: fixed;
 
                 </asp:GridView>
 
-            
-
             <asp:Button ID="Button9" runat="server" Text="Update" Width="96px" OnClick="Button9_Click" Height="29px" OnClientClick="return confirm('Update Section?');"/>
             <asp:Button ID="Button10" runat="server" Text="Delete" Width="96px" Height="29px" OnClick="Button10_Click" OnClientClick="return confirm('Delete Section?');"/>
 
@@ -619,10 +614,6 @@ position: fixed;
             <asp:Label ID="Label18" runat="server" Text="Last Name:"></asp:Label>
 
             <asp:TextBox ID="TextBox4" runat="server" Enabled="False"></asp:TextBox>
-
-            
-
-
 
             <asp:Button ID="Button8" runat="server" Text="Add" Height="29px" Width="96px" OnClick="Button8_Click" OnClientClick="return confirm('Add Student?');"/>
             <asp:Button ID="Button7" runat="server" Text="Clear" Width="96px" Height="29px" OnClick="Button7_Click" />
@@ -637,7 +628,7 @@ position: fixed;
 
             <asp:Label ID="Label20" runat="server" Text="Section:"></asp:Label>
 
-                    <asp:DropDownList ID="ddlSection" runat="server" Height="25px" Width="167px">
+                    <asp:DropDownList ID="ddlSection" runat="server" Height="25px" Width="167px" OnSelectedIndexChanged="ddlSection_SelectedIndexChanged">
                         <asp:ListItem Value="0">Select Section</asp:ListItem>
                        </asp:DropDownList>
             
@@ -653,19 +644,7 @@ position: fixed;
 <asp:Label ID="Label25" runat="server" Text="School Year:"></asp:Label>
 
                     
-
-
-               
-
-                
-
-            
-
-            
-
             </div>
-
-
 
             <div class ="sections">
 
@@ -685,14 +664,9 @@ position: fixed;
 
                 </asp:GridView>
 
-
-
-
             </div>
 
-
-        
-            <asp:DropDownList ID="DropDownList4" runat="server" Height="25px" Width="167px">
+            <asp:DropDownList ID="DropDownList4" runat="server" Height="25px" Width="167px" AutoPostBack="True" OnSelectedIndexChanged="DropDownList4_SelectedIndexChanged">
                 <asp:ListItem Value="0">Select Grade Level</asp:ListItem>
                 <asp:ListItem Value="1">Kinder</asp:ListItem>
                 <asp:ListItem Value="2">Grade 1</asp:ListItem>

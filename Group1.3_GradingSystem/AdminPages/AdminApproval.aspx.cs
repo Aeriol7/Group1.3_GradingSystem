@@ -175,7 +175,7 @@ namespace Group1._3_GradingSystem.AdminPages
         {
             if (TBGradeID.Text.Length == 0 || TBFirstname.Text.Length == 0 || TBLastname.Text.Length == 0 || DDLApprove.SelectedIndex == 0)
             {
-                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please Select Record');", true);
+                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please Select Record or Status');", true);
             }
 
             else
