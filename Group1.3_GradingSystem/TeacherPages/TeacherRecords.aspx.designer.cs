@@ -141,24 +141,6 @@ namespace Group1._3_GradingSystem.TeacherPages
 		protected global::System.Web.UI.WebControls.Label TSetGradesLabel;
 
 		/// <summary>
-		/// SGSearchLabel0 control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.Label SGSearchLabel0;
-
-		/// <summary>
-		/// SRSearchTxt control.
-		/// </summary>
-		/// <remarks>
-		/// Auto-generated field.
-		/// To modify move field declaration from designer file to code-behind file.
-		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox SRSearchTxt;
-
-		/// <summary>
 		/// ddlGradeLevel control.
 		/// </summary>
 		/// <remarks>
@@ -193,6 +175,15 @@ namespace Group1._3_GradingSystem.TeacherPages
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
 		protected global::System.Web.UI.WebControls.DropDownList ddlSchoolWork;
+
+		/// <summary>
+		/// ddlSortAZ control.
+		/// </summary>
+		/// <remarks>
+		/// Auto-generated field.
+		/// To modify move field declaration from designer file to code-behind file.
+		/// </remarks>
+		protected global::System.Web.UI.WebControls.DropDownList ddlSortAZ;
 
 		/// <summary>
 		/// TRNoRecordsLabel control.

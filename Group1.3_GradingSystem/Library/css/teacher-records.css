@@ -95,19 +95,19 @@
 
 #ddlGradeLevel {
 	position: fixed;
-	top: 134px;
+	top: 135px;
 	left: 445px;
 }
 
 #ddlSection {
 	position: fixed;
-	top: 133px;
+	top: 135px;
 	left: 565px;
 }
 
 #ddlSubjects {
 	position: fixed;
-	top: 132px;
+	top: 135px;
 	left: 717px;
 	right: 443px;
 }
@@ -212,7 +212,7 @@
 	left: 1007px;
 	height: 18px;
 	width: 176px;
-	top: 131px;
+	top: 135px;
 }
 
 #SRAmntLabel {
@@ -224,7 +224,7 @@
 
 #ddlQuarter {
 	position: fixed;
-	top: 131px;
+	top: 135px;
 	left: 873px;
 	width: 70px;
 }
@@ -297,4 +297,9 @@
 	position: fixed;
     top: 475px;
     left: 947px;
+}
+#ddlSortAZ {
+	position: fixed;
+	top: 135px;
+    left: 1195px;
 }
