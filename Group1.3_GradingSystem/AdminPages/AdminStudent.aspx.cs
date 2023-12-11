@@ -77,7 +77,7 @@ namespace Group1._3_GradingSystem.AdminPages
         {
             if (TextBox3.Text.Length == 0 || TextBox1.Text.Length == 0 || TextBox5.Text.Length == 0 || DropDownList3.SelectedIndex == 0)
             {
-                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please Insert Needed Information');", true);
+                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please insert needed information');", true);
             }
 
             else
@@ -111,7 +111,7 @@ namespace Group1._3_GradingSystem.AdminPages
         {
             if (TextBox3.Text.Length == 0 || TextBox1.Text.Length == 0 || TextBox5.Text.Length == 0 || DropDownList3.SelectedIndex == 0 || ddlSection.SelectedIndex == 0 || DropDownList4.SelectedIndex == 0)
             {
-                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please Select Student');", true);
+                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please select student');", true);
             }
 
             else
@@ -146,7 +146,7 @@ namespace Group1._3_GradingSystem.AdminPages
         {
             if (TextBox4.Text.Length == 0)
             {
-                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please Select Student');", true);
+                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please select student');", true);
             }
 
             else

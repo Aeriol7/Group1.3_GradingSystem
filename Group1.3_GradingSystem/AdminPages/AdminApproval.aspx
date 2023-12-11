@@ -261,7 +261,7 @@ position: fixed;
             <asp:Image ID="Image1" img src="../HomePage/Image/hopeLogoWhiteBG_.png" runat="server" Height="94px" Width="103px" />
         </div>
         <asp:Label ID="Label1" runat="server" Text="HOPE INTERGRATED SCHOOL" Font-Names="Times New Roman"></asp:Label>
-        <asp:Button ID="Button1" runat="server" Text="Logout" OnClick="Button1_Click" OnClientClick="return confirm('Are You Sure You Want To Logout?');"/>
+        <asp:Button ID="Button1" runat="server" Text="Logout" OnClick="Button1_Click" OnClientClick="return confirm('Logout?');"/>
         <asp:Image ID="Image2" img src="../HomePage/Image/ProfileIcon1%20(1).png" runat="server" />
     
     

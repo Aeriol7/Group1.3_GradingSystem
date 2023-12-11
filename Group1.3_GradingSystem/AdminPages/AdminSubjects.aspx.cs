@@ -97,7 +97,7 @@ namespace Group1._3_GradingSystem.AdminPages
         {
             if (TextBox3.Text.Length == 0 || TextBox4.Text.Length == 0 || DropDownList1.SelectedIndex == 0 || DropDownList3.SelectedIndex == 0)
             {
-                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please FIll Needed Information');", true);
+                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please fIll needed information');", true);
             }
              else
              {
@@ -121,7 +121,7 @@ namespace Group1._3_GradingSystem.AdminPages
         {
             if (TextBox3.Text.Length == 0 || TextBox4.Text.Length == 0 || DropDownList1.SelectedIndex == 0 || DropDownList3.SelectedIndex == 0)
             {
-                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please Select Subject');", true);
+                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please select subject');", true);
             }
 
             else
@@ -151,7 +151,7 @@ namespace Group1._3_GradingSystem.AdminPages
         {
             if (TextBox3.Text.Length == 0 || TextBox4.Text.Length == 0 || DropDownList1.SelectedIndex == 0 || DropDownList3.SelectedIndex == 0)
             {
-                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please Select Subject');", true);
+                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please select subject');", true);
             }
 
             else

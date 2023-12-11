@@ -446,7 +446,7 @@ position: fixed;
             
             <asp:TextBox ID="TextBox1" runat="server"></asp:TextBox>
             
-            <asp:Button ID="Button6" runat="server" Text="Logout" OnClick="Button6_Click" OnClientClick="return confirm('Are You Sure You Want To Logout');"/>
+            <asp:Button ID="Button6" runat="server" Text="Logout" OnClick="Button6_Click" OnClientClick="return confirm('Logout');"/>
             
 
 

@@ -572,7 +572,7 @@ position: fixed;
             
             <asp:Label ID="Label21" runat="server" Text="Firstname:"></asp:Label>
 
-            <asp:Button ID="Button10" runat="server" Text="Logout" OnClick="Button10_Click" OnClientClick="return confirm('Are You Sure You Want To Logout');"/>
+            <asp:Button ID="Button10" runat="server" Text="Logout" OnClick="Button10_Click" OnClientClick="return confirm('Logout');"/>
             
 
             

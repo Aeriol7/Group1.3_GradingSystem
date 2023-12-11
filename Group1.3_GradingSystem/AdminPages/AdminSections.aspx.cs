@@ -83,7 +83,7 @@ namespace Group1._3_GradingSystem.AdminPages
         {
             if (TextBox4.Text.Length == 0 || DropDownList4.SelectedIndex == 0)
             {
-                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please Insert Section or Year Level');", true);
+                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please insert section or year level');", true);
             }
             else
             {
@@ -107,7 +107,7 @@ namespace Group1._3_GradingSystem.AdminPages
         {
             if (TextBox4.Text.Length == 0 || TextBox8.Text.Length == 0 || DropDownList4.SelectedIndex == 0)
             {
-                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please Select Section');", true);
+                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please select section');", true);
             }
             else
             {
@@ -135,7 +135,7 @@ namespace Group1._3_GradingSystem.AdminPages
         {
             if (TextBox8.Text.Length == 0)
             {
-                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please Select Section');", true);
+                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please select section');", true);
             }
             else
             {

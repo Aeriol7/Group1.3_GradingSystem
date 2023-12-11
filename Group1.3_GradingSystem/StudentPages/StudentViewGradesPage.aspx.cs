@@ -13,7 +13,7 @@ namespace Group1._3_GradingSystem.StudentPages
 {
 	public partial class StudentViewGradesPage : System.Web.UI.Page
 	{
-		public string conStr = "Data Source=DESKTOP-O5EH83O;Initial Catalog=HIS_GradingSystem;Integrated Security=False;User Id=sa;Password=1234;MultipleActiveResultSets=True";
+		public string conStr = "Data Source=DESKTOP-4DSNP2P;Initial Catalog=HIS_GradingSystem;Integrated Security=False;User Id=sa;Password=1234;MultipleActiveResultSets=True";
 
 		protected void Button1_Click(object sender, EventArgs e)
 		{
@@ -45,7 +45,7 @@ namespace Group1._3_GradingSystem.StudentPages
         public void StudentGrades()
         {
 			SqlConnection con = new SqlConnection(conStr);
-			SqlCommand cmd = new SqlCommand("SELECT subjects.subject_name, students.first_name, students.last_name, " +
+			SqlCommand cmd = new SqlCommand("SELECT subjects.subject_name, " +
 				"grades.first_quarter, grades.second_quarter, grades.third_quarter, grades.fourth_quarter, grades.average, grades.remarks FROM grades " +
 				"INNER JOIN students ON grades.student_id=students.student_id " +
 				"INNER JOIN subjects ON grades.subject_id=subjects.subject_id " +
@@ -77,14 +77,12 @@ namespace Group1._3_GradingSystem.StudentPages
 			if (e.Row.RowType == DataControlRowType.Header)
 			{
 				e.Row.Cells[0].Text = "Subject";
-				e.Row.Cells[1].Text = "First Name";
-				e.Row.Cells[2].Text = "Last Name";
-				e.Row.Cells[3].Text = "1st Quarter";
-				e.Row.Cells[4].Text = "2nd Quarter";
-				e.Row.Cells[5].Text = "3rd Quarter";
-				e.Row.Cells[6].Text = "4th Quarter";
-				e.Row.Cells[7].Text = "Average";
-				e.Row.Cells[8].Text = "Remarks";
+				e.Row.Cells[1].Text = "1st Quarter";
+				e.Row.Cells[2].Text = "2nd Quarter";
+				e.Row.Cells[3].Text = "3rd Quarter";
+				e.Row.Cells[4].Text = "4th Quarter";
+				e.Row.Cells[5].Text = "Average";
+				e.Row.Cells[6].Text = "Remarks";
 			}
 		}
 	}
