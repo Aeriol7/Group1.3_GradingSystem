@@ -1,0 +1,245 @@
+﻿#AManageFacultyLabel {
+    position: fixed;
+    top: 91px;
+    left: 309px;
+    right: 660px;
+}
+
+#AbtnAddTeacher {
+    position: fixed;
+    top: 432px;
+    left: 796px;
+    width: 96px;
+}
+
+#AbtnDeleteTeacher {
+    position: fixed;
+    top: 479px;
+    left: 794px;
+    width: 96px;
+    height: 29px;
+    bottom: 30px;
+}
+
+#AbtnUpdateTeacher {
+    position: fixed;
+    top: 432px;
+    left: 903px;
+    width: 96px;
+}
+
+#AbtnClearTeacher {
+    position: fixed;
+    top: 479px;
+    left: 903px;
+    height: 29px;
+    width: 96px;
+    right: 284px;
+}
+
+#ASearchUserLabel {
+    position: fixed;
+    top: 147px;
+    left: 312px;
+    right: 928px;
+}
+
+#AtxtSearchUser {
+    position: fixed;
+    top: 145px;
+    left: 364px;
+}
+
+#AtxtUserName {
+    position: fixed;
+    top: 363px;
+    left: 446px;
+    width: 115px;
+}
+
+#AUserNameLabel {
+    position: fixed;
+    top: 363px;
+    left: 371px;
+}
+
+#APasswordLabel {
+    position: fixed;
+    top: 397px;
+    left: 371px;
+}
+
+#ATeacherLastNameLabel {
+    position: fixed;
+    top: 485px;
+    left: 317px;
+}
+
+#AtxtLastName {
+    position: fixed;
+    top: 390px;
+    left: 845px;
+}
+
+#gvTeachers {
+    position: fixed;
+    top: 175px;
+    left: 766px;
+    height: 142px;
+    width: 424px;
+}
+
+#gvUsers {
+    position: fixed;
+    top: 175px;
+    left: 318px;
+    height: 142px;
+    width: 424px;
+}
+
+#AAddUserbtn {
+    position: fixed;
+    top: 508px;
+    left: 344px;
+    width: 96px;
+    height: 29px;
+    right: 895px;
+}
+
+#AUpdateUserbtn {
+    position: fixed;
+    top: 510px;
+    left: 454px;
+    width: 96px;
+    height: 29px;
+}
+
+#ADeleteUserbtn {
+    position: fixed;
+    top: 554px;
+    left: 343px;
+    width: 96px;
+    height: 29px;
+}
+
+#AClearUserbtn {
+    position: fixed;
+    top: 555px;
+    left: 452px;
+    height: 29px;
+    width: 96px;
+}
+
+#AtxtFirstName {
+    position: fixed;
+    top: 360px;
+    left: 845px;
+}
+
+#ATeacherFirstNameLabel {
+    position: fixed;
+    top: 364px;
+    left: 764px;
+}
+
+#ATeacherLastNameLabel {
+    position: fixed;
+    top: 394px;
+    left: 766px;
+}
+
+#AtxtPassword {
+    position: fixed;
+    top: 397px;
+    left: 446px;
+    width: 115px;
+}
+
+#AtxtUserID {
+    position: fixed;
+    top: 361px;
+    left: 661px;
+    width: 42px;
+    height: 20px;
+    bottom: 228px;
+}
+
+#AUserIDLabel {
+    position: fixed;
+    top: 365px;
+    left: 592px;
+}
+
+.admin-users {
+    position: fixed;
+    top: 174px;
+    left: 314px;
+    width: 435px;
+    height: 178px;
+    margin-top: 0px;
+}
+
+.teachers {
+    position: fixed;
+    top: 174px;
+    left: 761px;
+    width: 440px;
+    height: 180px;
+}
+
+#AtxtTeacherUserID {
+    position: fixed;
+    top: 358px;
+    left: 1098px;
+    width: 74px;
+    height: 20px;
+}
+
+#ATeacherUserIDLabel {
+    position: fixed;
+    top: 363px;
+    left: 1039px;
+    margin-top: 0px;
+}
+
+#AtxtTeacherSearch {
+    position: fixed;
+    top: 144px;
+    left: 811px;
+    right: 346px;
+}
+
+#ASerachTeacherLabel {
+    position: fixed;
+    top: 146px;
+    left: 760px;
+    right: 480px;
+    margin-bottom: 0px;
+}
+
+.admin-faculty-container {
+    position: fixed;
+    top: 86px;
+    left: 303px;
+    height: 550px;
+    width: 962px;
+}
+#AddlUserLevel {
+    position: fixed;
+    top: 460px;
+    left: 445px;
+}
+#AUserLevelLabel {
+    position: fixed;
+}
+#AConfirmPasswordLabel {
+    position: fixed;
+    top: 428px;
+    left: 317px;
+}
+#AtxtConfirmPassword {
+    position: fixed;
+    top: 426px;
+    left: 446px;
+    width: 115px;
+}

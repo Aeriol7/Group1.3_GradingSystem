@@ -13,7 +13,7 @@ namespace Group1._3_GradingSystem.StudentPages
 {
 	public partial class StudentViewGradesPage : System.Web.UI.Page
 	{
-		public string conStr = "Data Source=DESKTOP-4DSNP2P;Initial Catalog=HIS_GradingSystem;Integrated Security=False;User Id=sa;Password=1234;MultipleActiveResultSets=True";
+		public string conStr = "Data Source=DESKTOP-O5EH83O;Initial Catalog=HIS_GradingSystem;Integrated Security=False;User Id=sa;Password=1234;MultipleActiveResultSets=True";
 
 		protected void Button1_Click(object sender, EventArgs e)
 		{

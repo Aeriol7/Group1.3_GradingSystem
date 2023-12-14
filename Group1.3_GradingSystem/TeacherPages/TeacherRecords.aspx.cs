@@ -16,7 +16,7 @@ namespace Group1._3_GradingSystem.TeacherPages
 	public partial class TeacherRecords : System.Web.UI.Page
 	{
 
-		public string conStr = "Data Source=DESKTOP-4DSNP2P;Initial Catalog=HIS_GradingSystem;Integrated Security=False;User Id=sa;Password=1234;MultipleActiveResultSets=True";
+		public string conStr = "Data Source=DESKTOP-O5EH83O;Initial Catalog=HIS_GradingSystem;Integrated Security=False;User Id=sa;Password=1234;MultipleActiveResultSets=True";
 
 		protected void Page_Load(object sender, EventArgs e)
 		{
@@ -66,6 +66,7 @@ namespace Group1._3_GradingSystem.TeacherPages
 					ddlSWNo.Items.Insert(0, new ListItem("Select No.", "0"));
 					ddlSWNo.Items.Insert(1, new ListItem("1", "1"));
 					ddlSWNo.SelectedIndex = 0;
+					ddlSWNo.Enabled = true;
 					con.Close();
 				}
 				else if (dt.Rows[0][24].ToString() == "2")
@@ -91,6 +92,7 @@ namespace Group1._3_GradingSystem.TeacherPages
 					ddlSWNo.Items.Insert(1, new ListItem("1", "1"));
 					ddlSWNo.Items.Insert(2, new ListItem("2", "2"));
 					ddlSWNo.SelectedIndex = 0;
+					ddlSWNo.Enabled = true;
 					con.Close();
 				}
 				else if (dt.Rows[0][24].ToString() == "3")
@@ -118,6 +120,7 @@ namespace Group1._3_GradingSystem.TeacherPages
 					ddlSWNo.Items.Insert(2, new ListItem("2", "2"));
 					ddlSWNo.Items.Insert(3, new ListItem("3", "3"));
 					ddlSWNo.SelectedIndex = 0;
+					ddlSWNo.Enabled = true;
 					con.Close();
 				}
 				else if (dt.Rows[0][24].ToString() == "4")
@@ -147,6 +150,7 @@ namespace Group1._3_GradingSystem.TeacherPages
 					ddlSWNo.Items.Insert(3, new ListItem("3", "3"));
 					ddlSWNo.Items.Insert(4, new ListItem("4", "4"));
 					ddlSWNo.SelectedIndex = 0;
+					ddlSWNo.Enabled = true;
 					con.Close();
 				}
 				else if (dt.Rows[0][24].ToString() == "5")
@@ -178,6 +182,7 @@ namespace Group1._3_GradingSystem.TeacherPages
 					ddlSWNo.Items.Insert(4, new ListItem("4", "4"));
 					ddlSWNo.Items.Insert(5, new ListItem("5", "5"));
 					ddlSWNo.SelectedIndex = 0;
+					ddlSWNo.Enabled = true;
 					con.Close();
 				}
 			}
@@ -221,6 +226,11 @@ namespace Group1._3_GradingSystem.TeacherPages
 					adptpt.Fill(dtpt);
 					gvRecords.DataSource = dtpt;
 					gvRecords.DataBind();
+					ddlSWNo.Items.Clear();
+					ddlSWNo.Items.Insert(0, new ListItem("Select No.", "0"));
+					ddlSWNo.Items.Insert(1, new ListItem("1", "1"));
+					ddlSWNo.SelectedIndex = 0;
+					ddlSWNo.Enabled = true;
 					con.Close();
 				}
 				else if (dt2.Rows[0][18].ToString() == "2")
@@ -241,6 +251,12 @@ namespace Group1._3_GradingSystem.TeacherPages
 					adptpt.Fill(dtpt);
 					gvRecords.DataSource = dtpt;
 					gvRecords.DataBind();
+					ddlSWNo.Items.Clear();
+					ddlSWNo.Items.Insert(0, new ListItem("Select No.", "0"));
+					ddlSWNo.Items.Insert(1, new ListItem("1", "1"));
+					ddlSWNo.Items.Insert(2, new ListItem("2", "2"));
+					ddlSWNo.SelectedIndex = 0;
+					ddlSWNo.Enabled = true;
 					con.Close();
 				}
 				else if (dt2.Rows[0][18].ToString() == "3")
@@ -262,6 +278,13 @@ namespace Group1._3_GradingSystem.TeacherPages
 					adptpt.Fill(dtpt);
 					gvRecords.DataSource = dtpt;
 					gvRecords.DataBind();
+					ddlSWNo.Items.Clear();
+					ddlSWNo.Items.Insert(0, new ListItem("Select No.", "0"));
+					ddlSWNo.Items.Insert(1, new ListItem("1", "1"));
+					ddlSWNo.Items.Insert(2, new ListItem("2", "2"));
+					ddlSWNo.Items.Insert(3, new ListItem("3", "3"));
+					ddlSWNo.SelectedIndex = 0;
+					ddlSWNo.Enabled = true;
 					con.Close();
 				}
 			}
@@ -302,6 +325,10 @@ namespace Group1._3_GradingSystem.TeacherPages
 				adptqt.Fill(dtqt);
 				gvRecords.DataSource = dtqt;
 				gvRecords.DataBind();
+				ddlSWNo.Items.Clear();
+				ddlSWNo.Items.Insert(0, new ListItem("Select No.", "0"));
+				ddlSWNo.SelectedIndex = 0;
+				ddlSWNo.Enabled = false;
 				con.Close();
 			}
 		}
@@ -699,6 +726,10 @@ namespace Group1._3_GradingSystem.TeacherPages
 					adptqt.Fill(dtqt);
 					gvRecords.DataSource = dtqt;
 					gvRecords.DataBind();
+					ddlSWNo.Items.Clear();
+					ddlSWNo.Items.Insert(0, new ListItem("Select No.", "0"));
+					ddlSWNo.SelectedIndex = 0;
+					ddlSWNo.Enabled = false;
 					con.Close();
 				}
 			}

@@ -213,6 +213,15 @@
     <Content Include="imgs\material-symbols_print.png" />
     <Content Include="imgs\mdi_announcement.png" />
     <Content Include="imgs\ProfileIcon1.png" />
+    <Content Include="Library\css\admin-approval.css" />
+    <Content Include="Library\css\admin-faculty.css" />
+    <Content Include="Library\css\admin-home.css" />
+    <Content Include="Library\css\admin-section.css" />
+    <Content Include="Library\css\admin-student.css" />
+    <Content Include="Library\css\admin-subjects.css" />
+    <Content Include="Library\css\admin.css" />
+    <Content Include="Library\css\student.css" />
+    <Content Include="Library\css\teacher-grades.css" />
     <Content Include="Library\css\teacher-records.css" />
     <Content Include="Library\css\teacher.css" />
     <Content Include="obj\Debug\Group1.3_GradingSystem.csproj.FileListAbsolute.txt" />

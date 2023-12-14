@@ -1,0 +1,40 @@
+﻿#AdminWelcomeLabel {
+    position: fixed;
+    top: 92px;
+    left: 310px;
+    right: 793px;
+}
+
+#AdminUser {
+    position: fixed;
+    top: 92px;
+    left: 497px;
+}
+
+#AdminWelcome {
+    position: fixed;
+    top: 132px;
+    left: 299px;
+    height: 503px;
+    width: 967px;
+}
+
+#Button1 {
+    position: fixed;
+    top: 31px;
+    left: 1187px;
+}
+
+#form1 {
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.admin-welcome {
+    position: fixed;
+    top: 84px;
+    left: 304px;
+    height: 560px;
+    width: 966px;
+    margin-left: 0px;
+}
