@@ -8,32 +8,32 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using static System.Collections.Specialized.BitVector32;
 using System.Web.Services.Description;
+using System.Net;
 
 namespace Group1._3_GradingSystem.AdminPages
 {
     public partial class AdminFaculty : System.Web.UI.Page
     {
-        public string conStr = "Data Source=DESKTOP-4DSNP2P;Initial Catalog=HIS_GradingSystem;Integrated Security=False;User Id=sa;Password=1234;MultipleActiveResultSets=True";
+        public string conStr = "Data Source=DESKTOP-O5EH83O;Initial Catalog=HIS_GradingSystem;Integrated Security=False;User Id=sa;Password=1234;MultipleActiveResultSets=True";
         protected void Page_Load(object sender, EventArgs e)
         {
             users();
             teachers();
         }
-
-        protected void Button10_Click(object sender, EventArgs e)
+        protected void Button6_Click(object sender, EventArgs e)
         {
             Response.Redirect("/HomePage/LoginPage.aspx");
         }
         public void users()
         {
             SqlConnection con = new SqlConnection(conStr);
-            string com = "SELECT * FROM users WHERE user_level = 'Teacher' ";
+            string com = "SELECT user_id, username, user_level FROM users";
             con.Open();
             SqlDataAdapter adpt = new SqlDataAdapter(com, con);
             DataTable dt = new DataTable();
             adpt.Fill(dt);
-            GridView3.DataSource = dt;
-            GridView3.DataBind();
+            gvUsers.DataSource = dt;
+            gvUsers.DataBind();
             con.Close();
         }
         public void teachers()
@@ -44,77 +44,100 @@ namespace Group1._3_GradingSystem.AdminPages
             SqlDataAdapter adpt = new SqlDataAdapter(com, con);
             DataTable dt = new DataTable();
             adpt.Fill(dt);
-            GridView2.DataSource = dt;
-            GridView2.DataBind();
+            gvTeachers.DataSource = dt;
+            gvTeachers.DataBind();
             con.Close();
         }
-
-        protected void Button9_Click(object sender, EventArgs e)
+        protected void AAddUserbtn_Click(object sender, EventArgs e)
         {
-            if (TextBox4.Text.Length == 0 || TextBox8.Text.Length == 0)
+            if (AtxtUserName.Text.Length == 0)
             {
-                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please insert needed information');", true);
+                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please input username!');", true);
             }
-
-            else
+            else if (AtxtPassword.Text.Length == 0)
+            {
+				ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please input password!');", true);
+			}
+			else if (AtxtPassword.Text != AtxtConfirmPassword.Text)
+			{
+				ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Passwords do not match!');", true);
+			}
+			else if (AddlUserLevel.SelectedIndex == 0)
+			{
+				ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please select user level!');", true);
+			}
+			else
             {
                 SqlConnection con = new SqlConnection(conStr);
                 con.Open();
-                SqlCommand cmd = new SqlCommand("INSERT INTO [dbo]. [users] (username ,password, user_level) VALUES  (@username, @password,@user_level)", con);
+                SqlCommand cmd = new SqlCommand("INSERT INTO users (username, password, user_level) VALUES (@username, @password, @user_level)", con);
 
-                cmd.Parameters.AddWithValue("@username", TextBox4.Text);
-                cmd.Parameters.AddWithValue("@password", TextBox8.Text);
-                cmd.Parameters.AddWithValue("@user_level", "Teacher");
+                cmd.Parameters.AddWithValue("@username", AtxtUserName.Text);
+                cmd.Parameters.AddWithValue("@password", AtxtPassword.Text);
+                cmd.Parameters.AddWithValue("@user_level", AddlUserLevel.SelectedValue);
                 cmd.ExecuteNonQuery();
                 con.Close();
 
                 users();
 
-                TextBox4.Text = "";
-                TextBox8.Text = "";
-                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Inserted Successfully');", true);
+                AtxtUserName.Text = string.Empty;
+                AtxtPassword.Text = string.Empty;
+                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Inserted Successfully!');", true);
             }
         }
         protected void OnPageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-            GridView3.PageIndex = e.NewPageIndex;
+            gvUsers.PageIndex = e.NewPageIndex;
             this.users();
         }
         protected void OnPageIndexChangingTeacher(object sender, GridViewPageEventArgs e)
         {
-            GridView2.PageIndex = e.NewPageIndex;
+            gvTeachers.PageIndex = e.NewPageIndex;
             this.teachers();
         }
-
-        protected void Button6_Click(object sender, EventArgs e)
+        protected void AUpdateUserbtn_Click(object sender, EventArgs e)
         {
-            if (TextBox4.Text.Length == 0 || TextBox8.Text.Length == 0 || TextBox9.Text.Length == 0)
-            {
-                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please select needed information');", true);
-            }
-
-            else
-            {
-                SqlConnection con = new SqlConnection(conStr);
+			if (AtxtUserID.Text.Length == 0)
+			{
+				ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please select user!');", true);
+			}
+			else if (AtxtUserName.Text.Length == 0)
+			{
+				ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please input username!');", true);
+			}
+			else if (AtxtPassword.Text.Length == 0)
+			{
+				ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please input password!');", true);
+			}
+			else if (AtxtPassword.Text != AtxtConfirmPassword.Text)
+			{
+				ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Passwords do not match!');", true);
+			}
+			else if (AddlUserLevel.SelectedIndex == 0)
+			{
+				ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please select user level!');", true);
+			}
+			else
+			{
+				SqlConnection con = new SqlConnection(conStr);
                 con.Open();
                 SqlCommand cmd = new SqlCommand("UPDATE users SET username = @username, password = @password WHERE user_id = @userid", con);
 
-                cmd.Parameters.AddWithValue("@username", TextBox4.Text);
-                cmd.Parameters.AddWithValue("@password", TextBox8.Text);
-                cmd.Parameters.AddWithValue("@userid", TextBox9.Text);
+                cmd.Parameters.AddWithValue("@username", AtxtUserName.Text);
+                cmd.Parameters.AddWithValue("@password", AtxtPassword.Text);
+                cmd.Parameters.AddWithValue("@userid", AtxtUserID.Text);
                 cmd.ExecuteNonQuery();
                 con.Close();
 
                 users();
 
-                TextBox4.Text = "";
-                TextBox8.Text = "";
-                TextBox9.Text = "";
-                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Updated Successfully');", true);
+                AtxtUserName.Text = string.Empty;
+                AtxtPassword.Text = string.Empty;
+                AtxtUserID.Text = string.Empty;
+                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Updated Successfully!');", true);
             }
         }
-
-        protected void GridView2_RowDataBound(object sender, System.Web.UI.WebControls.GridViewRowEventArgs e)
+        protected void gvTeachers_RowDataBound(object sender, System.Web.UI.WebControls.GridViewRowEventArgs e)
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
@@ -123,43 +146,44 @@ namespace Group1._3_GradingSystem.AdminPages
                 e.Row.Attributes["onmouseout"] = "this.style.textDecoration='none';";
 
                 //Attach the click event to each cells
-                e.Row.Attributes["onclick"] = ClientScript.GetPostBackClientHyperlink(this.GridView2, "Select$" + e.Row.RowIndex);
+                e.Row.Attributes["onclick"] = ClientScript.GetPostBackClientHyperlink(this.gvTeachers, "Select$" + e.Row.RowIndex);
             }
-        }
-        protected void GridView2_SelectedIndexChanged(object sender, EventArgs e)
+			if (e.Row.RowType == DataControlRowType.Header)
+			{
+				e.Row.Cells[0].Text = "Teacher ID";
+				e.Row.Cells[1].Text = "First Name";
+				e.Row.Cells[2].Text = "Last Name";
+				e.Row.Cells[3].Text = "User ID";
+			}
+		}
+        protected void gvTeachers_SelectedIndexChanged(object sender, EventArgs e)
         {
-            GridViewRow row = GridView2.Rows[GridView2.SelectedIndex];
+            GridViewRow row = gvTeachers.Rows[gvTeachers.SelectedIndex];
             if (row != null)
             {
-                
-                GridViewRow gr = GridView2.SelectedRow;
-                TextBox6.Text = gr.Cells[2].Text;
-                TextBox7.Text = gr.Cells[1].Text;
-                TextBox10.Text = gr.Cells[3].Text;
-
-                
+                GridViewRow gr = gvTeachers.SelectedRow;
+                AtxtLastName.Text = gr.Cells[2].Text;
+                AtxtFirstName.Text = gr.Cells[1].Text;
+                AtxtTeacherUserID.Text = gr.Cells[3].Text;
             }
         }
-        protected void GridView3_SelectedIndexChanged(object sender, EventArgs e)
+        protected void gvUsers_SelectedIndexChanged(object sender, EventArgs e)
         {
             //Get the selected row
-            GridViewRow row = GridView3.Rows[GridView3.SelectedIndex];
+            GridViewRow row = gvUsers.Rows[gvUsers.SelectedIndex];
             if (row != null)
-            {
-                
-                GridViewRow gr = GridView3.SelectedRow;
-                TextBox4.Text = gr.Cells[1].Text;
-                TextBox8.Text = gr.Cells[2].Text;
-                TextBox9.Text = gr.Cells[0].Text;
-                TextBox10.Text = gr.Cells[0].Text;
+            { 
+                GridViewRow gr = gvUsers.SelectedRow;
+                AtxtUserName.Text = gr.Cells[1].Text;
+                AtxtPassword.Text = gr.Cells[2].Text;
+                AtxtUserID.Text = gr.Cells[0].Text;
+                AtxtTeacherUserID.Text = gr.Cells[0].Text;
 
-                TextBox7.Text = string.Empty;
-                TextBox6.Text = string.Empty;
-                
-
+                AtxtFirstName.Text = string.Empty;
+                AtxtLastName.Text = string.Empty;
             }
         }
-        protected void GridView3_RowDataBound(object sender, System.Web.UI.WebControls.GridViewRowEventArgs e)
+        protected void gvUsers_RowDataBound(object sender, System.Web.UI.WebControls.GridViewRowEventArgs e)
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
@@ -168,116 +192,117 @@ namespace Group1._3_GradingSystem.AdminPages
                 e.Row.Attributes["onmouseout"] = "this.style.textDecoration='none';";
 
                 //Attach the click event to each cells
-                e.Row.Attributes["onclick"] = ClientScript.GetPostBackClientHyperlink(this.GridView3, "Select$" + e.Row.RowIndex);
+                e.Row.Attributes["onclick"] = ClientScript.GetPostBackClientHyperlink(this.gvUsers, "Select$" + e.Row.RowIndex);
             }
-        }
-
-        protected void Button7_Click(object sender, EventArgs e)
+			if (e.Row.RowType == DataControlRowType.Header)
+			{
+				e.Row.Cells[0].Text = "User ID";
+				e.Row.Cells[1].Text = "User Name";
+				e.Row.Cells[2].Text = "User Level";
+			}	
+		}
+        protected void ADeleteUserbtn_Click(object sender, EventArgs e)
         {
-            if (TextBox4.Text.Length == 0 || TextBox8.Text.Length == 0 || TextBox9.Text.Length == 0)
-            {
-                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please select teacher information');", true);
-            }
-            else
-            {
-                SqlConnection con = new SqlConnection(conStr);
+			if (AtxtUserID.Text.Length == 0)
+			{
+				ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please select user!');", true);
+			}
+			else
+			{
+				SqlConnection con = new SqlConnection(conStr);
                 con.Open();
                 SqlCommand cmd = new SqlCommand("DELETE FROM users WHERE user_id = @userid", con);
 
-                cmd.Parameters.AddWithValue("@userid", TextBox9.Text);
+                cmd.Parameters.AddWithValue("@userid", AtxtUserID.Text);
                 cmd.ExecuteNonQuery();
                 con.Close();
                 users();
                 clear();
                 
-                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Deleted Successfully');", true);
+                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Deleted Successfully!');", true);
             }
         }
         protected void clear()
         {
-            TextBox4.Text = String.Empty;
-            TextBox8.Text = String.Empty;
-            TextBox9.Text = String.Empty;
+            AtxtUserName.Text = String.Empty;
+            AtxtPassword.Text = String.Empty;
+            AtxtUserID.Text = String.Empty;
         }
-
-        protected void Button8_Click(object sender, EventArgs e)
+        protected void AClearUserbtn_Click(object sender, EventArgs e)
         {
-            TextBox4.Text = string.Empty;
-            TextBox8.Text = string.Empty;
-            TextBox9.Text = string.Empty;
-            TextBox10.Text = string.Empty;
-            TextBox6.Text = string.Empty;
-            TextBox7.Text = string.Empty;
+            AtxtUserName.Text = string.Empty;
+            AtxtPassword.Text = string.Empty;
+            AtxtUserID.Text = string.Empty;
+            AtxtTeacherUserID.Text = string.Empty;
+            AtxtLastName.Text = string.Empty;
+            AtxtFirstName.Text = string.Empty;
         }
-
-        protected void Button5_Click(object sender, EventArgs e)
+        protected void AbtnClearTeacher_Click(object sender, EventArgs e)
         {
-            TextBox6.Text = string.Empty;
-            TextBox7.Text = string.Empty;
-            TextBox10.Text = string.Empty;
+            AtxtLastName.Text = string.Empty;
+            AtxtFirstName.Text = string.Empty;
+            AtxtTeacherUserID.Text = string.Empty;
         }
-
-        protected void Button1_Click(object sender, EventArgs e)
+        protected void AbtnAddTeacher_Click(object sender, EventArgs e)
         {
-            if (TextBox7.Text.Length == 0 || TextBox6.Text.Length == 0 || TextBox10.Text.Length == 0)
-            {
-                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please insert needed information');", true);
-            }
-            else
             {
                 SqlConnection con = new SqlConnection(conStr);
                 con.Open();
-                SqlCommand cmd = new SqlCommand("INSERT INTO [dbo]. [teachers] (first_name ,last_name, user_id) VALUES  (@Firstname, @Lastname, @user_id)", con);
+                SqlCommand cmd = new SqlCommand("INSERT INTO teachers (first_name ,last_name, user_id) VALUES  (@Firstname, @Lastname, @user_id)", con);
 
-                cmd.Parameters.AddWithValue("@Firstname", TextBox7.Text);
-                cmd.Parameters.AddWithValue("@Lastname", TextBox6.Text);
-                cmd.Parameters.AddWithValue("@user_id", TextBox10.Text);
+                cmd.Parameters.AddWithValue("@Firstname", AtxtFirstName.Text);
+                cmd.Parameters.AddWithValue("@Lastname", AtxtLastName.Text);
+                cmd.Parameters.AddWithValue("@user_id", AtxtTeacherUserID.Text);
                 cmd.ExecuteNonQuery();
                 con.Close();
 
                 teachers();
 
-                TextBox7.Text = "";
-                TextBox6.Text = "";
-                TextBox10.Text = "";
-                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Inserted Successfully');", true);
+                AtxtFirstName.Text = string.Empty;
+                AtxtLastName.Text = string.Empty;
+                AtxtTeacherUserID.Text = string.Empty;
+                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Inserted Successfully!');", true);
             }
         }
-
-        protected void Button2_Click(object sender, EventArgs e)
+        protected void AbtnUpdateTeacher_Click(object sender, EventArgs e)
         {
-            if (TextBox7.Text.Length == 0 || TextBox6.Text.Length == 0 || TextBox10.Text.Length == 0)
+			if (AtxtTeacherUserID.Text.Length == 0)
+			{
+				ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please select teacher!');", true);
+			}
+			else if (AtxtFirstName.Text.Length == 0)
+			{
+				ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please input teacher first name!');", true);
+			}
+			else if (AtxtLastName.Text.Length == 0)
+			{
+				ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please input teacher last name!');", true);
+			}
+			else
             {
-                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please select needed information');", true);
-            }
-            else
-            {
-
-            
-                SqlConnection con = new SqlConnection(conStr);
+            SqlConnection con = new SqlConnection(conStr);
             con.Open();
-            SqlCommand cmd = new SqlCommand("UPDATE teachers SET Firstname = @Firstname, Lastname = @Lastname WHERE user_id = @user_id", con);
+            SqlCommand cmd = new SqlCommand("UPDATE teachers SET firstname = @firstname, lastname = @lastname WHERE user_id = @user_id", con);
 
-            cmd.Parameters.AddWithValue("@Firstname", TextBox7.Text);
-            cmd.Parameters.AddWithValue("@Lastname", TextBox6.Text);
-            cmd.Parameters.AddWithValue("@user_id", TextBox10.Text);
+            cmd.Parameters.AddWithValue("@firstname", AtxtFirstName.Text);
+            cmd.Parameters.AddWithValue("@lastname", AtxtLastName.Text);
+            cmd.Parameters.AddWithValue("@user_id", AtxtTeacherUserID.Text);
             cmd.ExecuteNonQuery();
             con.Close();
 
             teachers();
 
-            TextBox7.Text = "";
-            TextBox6.Text = "";
-            TextBox10.Text = "";
-            ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Updated Successfully');", true);
+            AtxtFirstName.Text = string.Empty;
+            AtxtLastName.Text = string.Empty;
+            AtxtTeacherUserID.Text = string.Empty;
+            ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Updated Successfully!');", true);
             }
         }
-
-        protected void Button3_Click(object sender, EventArgs e)
+        protected void AbtnDeleteTeacher_Click(object sender, EventArgs e)
         {
-            if (TextBox10.Text.Length == 0)
+            if (AtxtTeacherUserID.Text.Length == 0)
             {
-                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please select needed information');", true);
+                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please select teacher!');", true);
             }
             else
             {
@@ -285,41 +310,15 @@ namespace Group1._3_GradingSystem.AdminPages
                 con.Open();
                 SqlCommand cmd = new SqlCommand("DELETE FROM teachers WHERE teacher_id = @ID", con);
 
-                cmd.Parameters.AddWithValue("@ID", TextBox10.Text);
+                cmd.Parameters.AddWithValue("@ID", AtxtTeacherUserID.Text);
                 cmd.ExecuteNonQuery();
                 con.Close();
 
                 teachers();
 
                 clear();
-                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Deleted Successfully');", true);
+                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Deleted Successfully!');", true);
             }
-        }
-
-        protected void TextBox3_TextChanged(object sender, EventArgs e)
-        {
-            SqlConnection con = new SqlConnection(conStr);
-            string qry = "SELECT * FROM users WHERE username LIKE '%" + TextBox3.Text + "%'";
-            con.Open();
-            SqlDataAdapter ad = new SqlDataAdapter(qry, con);
-            DataTable dt = new DataTable();
-            ad.Fill(dt);
-            GridView3.DataSource = dt;
-            GridView3.DataBind();
-            con.Close();
-        }
-
-        protected void TextBox11_TextChanged(object sender, EventArgs e)
-        {
-            SqlConnection con = new SqlConnection(conStr);
-            string qry = "SELECT * FROM teachers WHERE Firstname LIKE '%" + TextBox11.Text + "%'";
-            con.Open();
-            SqlDataAdapter ad = new SqlDataAdapter(qry, con);
-            DataTable asd = new DataTable();
-            ad.Fill(asd);
-            GridView2.DataSource = asd;
-            GridView2.DataBind();
-            con.Close();
-        }
-    }
+        }   
+	}
 }

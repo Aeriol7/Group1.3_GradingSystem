@@ -12,7 +12,7 @@ namespace Group1._3_GradingSystem.AdminPages
 {
     public partial class AdminSubjects : System.Web.UI.Page
     {
-        public string conStr = "Data Source=DESKTOP-4DSNP2P;Initial Catalog=HIS_GradingSystem;Integrated Security=False;User Id=sa;Password=1234;MultipleActiveResultSets=True";
+        public string conStr = "Data Source=DESKTOP-O5EH83O;Initial Catalog=HIS_GradingSystem;Integrated Security=False;User Id=sa;Password=1234;MultipleActiveResultSets=True";
         protected void Page_Load(object sender, EventArgs e)
         {
             subjects();
@@ -31,8 +31,8 @@ namespace Group1._3_GradingSystem.AdminPages
             SqlDataAdapter adpt = new SqlDataAdapter(com, con);
             DataTable dt = new DataTable();
             adpt.Fill(dt);
-            GridView3.DataSource = dt;
-            GridView3.DataBind();
+            gvSubjects.DataSource = dt;
+            gvSubjects.DataBind();
             con.Close();
         }
         public void teachers()
@@ -43,26 +43,26 @@ namespace Group1._3_GradingSystem.AdminPages
             SqlDataAdapter adpt = new SqlDataAdapter(com, con);
             DataTable dt = new DataTable();
             adpt.Fill(dt);
-            GridView2.DataSource = dt;
-            GridView2.DataBind();
+            gvTeachers.DataSource = dt;
+            gvTeachers.DataBind();
             con.Close();
         }
-        protected void GridView3_SelectedIndexChanged(object sender, EventArgs e)
+        protected void gvSubjects_SelectedIndexChanged(object sender, EventArgs e)
         {
-            GridViewRow row = GridView3.Rows[GridView3.SelectedIndex];
+            GridViewRow row = gvSubjects.Rows[gvSubjects.SelectedIndex];
             if (row != null)
             {
 
-                GridViewRow gr = GridView3.SelectedRow;
-                TextBox2.Text = gr.Cells[0].Text;
-                TextBox3.Text = gr.Cells[1].Text;
-                TextBox4.Text = gr.Cells[3].Text;
-                DropDownList1.SelectedValue = gr.Cells[2].Text;
-                DropDownList3.SelectedValue = gr.Cells[4].Text;
+                GridViewRow gr = gvSubjects.SelectedRow;
+                AtxtSubjectID.Text = gr.Cells[0].Text;
+                AtxtSubjectName.Text = gr.Cells[1].Text;
+                AtxtTeacherID.Text = gr.Cells[3].Text;
+                AddlYearLevel.SelectedValue = gr.Cells[2].Text;
+                AddlCategory.SelectedValue = gr.Cells[4].Text;
             }
         }
 
-        protected void GridView3_RowDataBound(object sender, System.Web.UI.WebControls.GridViewRowEventArgs e)
+        protected void gvSubjects_RowDataBound(object sender, System.Web.UI.WebControls.GridViewRowEventArgs e)
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
@@ -71,16 +71,16 @@ namespace Group1._3_GradingSystem.AdminPages
                 e.Row.Attributes["onmouseout"] = "this.style.textDecoration='none';";
 
                 //Attach the click event to each cells
-                e.Row.Attributes["onclick"] = ClientScript.GetPostBackClientHyperlink(this.GridView3, "Select$" + e.Row.RowIndex);
+                e.Row.Attributes["onclick"] = ClientScript.GetPostBackClientHyperlink(this.gvSubjects, "Select$" + e.Row.RowIndex);
             }
         }
         protected void OnPageIndexChangingsubjects(object sender, GridViewPageEventArgs e)
         {
-            GridView3.PageIndex = e.NewPageIndex;
+            gvSubjects.PageIndex = e.NewPageIndex;
             this.subjects();
         }
         
-        protected void GridView2_RowDataBound(object sender, System.Web.UI.WebControls.GridViewRowEventArgs e)
+        protected void gvTeachers_RowDataBound(object sender, System.Web.UI.WebControls.GridViewRowEventArgs e)
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
@@ -89,13 +89,13 @@ namespace Group1._3_GradingSystem.AdminPages
                 e.Row.Attributes["onmouseout"] = "this.style.textDecoration='none';";
 
                 //Attach the click event to each cells
-                e.Row.Attributes["onclick"] = ClientScript.GetPostBackClientHyperlink(this.GridView2, "Select$" + e.Row.RowIndex);
+                e.Row.Attributes["onclick"] = ClientScript.GetPostBackClientHyperlink(this.gvTeachers, "Select$" + e.Row.RowIndex);
             }
         }
 
-        protected void Button1_Click(object sender, EventArgs e)
+        protected void AbtnAddSubject_Click(object sender, EventArgs e)
         {
-            if (TextBox3.Text.Length == 0 || TextBox4.Text.Length == 0 || DropDownList1.SelectedIndex == 0 || DropDownList3.SelectedIndex == 0)
+            if (AtxtSubjectName.Text.Length == 0 || AtxtTeacherID.Text.Length == 0 || AddlYearLevel.SelectedIndex == 0 || AddlCategory.SelectedIndex == 0)
             {
                 ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please fIll needed information');", true);
             }
@@ -105,10 +105,10 @@ namespace Group1._3_GradingSystem.AdminPages
                 con.Open();
                 SqlCommand cmd = new SqlCommand("INSERT INTO subjects (subject_name, year_level_id, teacher_id, subject_category_id) VALUES  (@subject_name, @year_level_id, @teacher_id, @category)", con);
 
-                cmd.Parameters.AddWithValue("@subject_name", TextBox3.Text);
-                cmd.Parameters.AddWithValue("@teacher_id", TextBox4.Text);
-                cmd.Parameters.AddWithValue("@year_level_id", DropDownList1.SelectedValue);
-                cmd.Parameters.AddWithValue("@category", DropDownList3.SelectedValue);
+                cmd.Parameters.AddWithValue("@subject_name", AtxtSubjectName.Text);
+                cmd.Parameters.AddWithValue("@teacher_id", AtxtTeacherID.Text);
+                cmd.Parameters.AddWithValue("@year_level_id", AddlYearLevel.SelectedValue);
+                cmd.Parameters.AddWithValue("@category", AddlCategory.SelectedValue);
                 cmd.ExecuteNonQuery();
                 con.Close();
 
@@ -117,9 +117,9 @@ namespace Group1._3_GradingSystem.AdminPages
              }
         }
 
-        protected void Button3_Click(object sender, EventArgs e)
+        protected void AbtnUpdateSubject_Click(object sender, EventArgs e)
         {
-            if (TextBox3.Text.Length == 0 || TextBox4.Text.Length == 0 || DropDownList1.SelectedIndex == 0 || DropDownList3.SelectedIndex == 0)
+            if (AtxtSubjectName.Text.Length == 0 || AtxtTeacherID.Text.Length == 0 || AddlYearLevel.SelectedIndex == 0 || AddlCategory.SelectedIndex == 0)
             {
                 ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please select subject');", true);
             }
@@ -130,26 +130,26 @@ namespace Group1._3_GradingSystem.AdminPages
                 con.Open();
                 SqlCommand cmd = new SqlCommand("UPDATE subjects SET subject_name = @subject_name, teacher_id = @teacher_id, year_level_id = @year_level_id, subject_category_id = @category WHERE subject_id = @subject_id", con);
 
-                cmd.Parameters.AddWithValue("@subject_name", TextBox3.Text);
-                cmd.Parameters.AddWithValue("@teacher_id", TextBox4.Text);
-                cmd.Parameters.AddWithValue("@subject_id", TextBox2.Text);
-                cmd.Parameters.AddWithValue("@year_level_id", DropDownList1.SelectedValue);
-                cmd.Parameters.AddWithValue("@category", DropDownList3.SelectedValue);
+                cmd.Parameters.AddWithValue("@subject_name", AtxtSubjectName.Text);
+                cmd.Parameters.AddWithValue("@teacher_id", AtxtTeacherID.Text);
+                cmd.Parameters.AddWithValue("@subject_id", AtxtSubjectID.Text);
+                cmd.Parameters.AddWithValue("@year_level_id", AddlYearLevel.SelectedValue);
+                cmd.Parameters.AddWithValue("@category", AddlCategory.SelectedValue);
                 cmd.ExecuteNonQuery();
                 con.Close();
 
                 subjects();
 
-                TextBox3.Text = "";
-                TextBox4.Text = "";
-                DropDownList1.SelectedValue = null;
+                AtxtSubjectName.Text = string.Empty;
+                AtxtTeacherID.Text = string.Empty;
+                AddlYearLevel.SelectedValue = null;
                 ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Inserted Successfully');", true);
             }
         }
 
-        protected void Button2_Click(object sender, EventArgs e)
+        protected void AbtnDeleteSubject_Click(object sender, EventArgs e)
         {
-            if (TextBox3.Text.Length == 0 || TextBox4.Text.Length == 0 || DropDownList1.SelectedIndex == 0 || DropDownList3.SelectedIndex == 0)
+            if (AtxtSubjectName.Text.Length == 0 || AtxtTeacherID.Text.Length == 0 || AddlYearLevel.SelectedIndex == 0 || AddlCategory.SelectedIndex == 0)
             {
                 ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please select subject');", true);
             }
@@ -160,7 +160,7 @@ namespace Group1._3_GradingSystem.AdminPages
                 con.Open();
                 SqlCommand cmd = new SqlCommand("DELETE FROM subjects WHERE subject_id = @subject_id", con);
 
-                cmd.Parameters.AddWithValue("@subject_id", TextBox2.Text);
+                cmd.Parameters.AddWithValue("@subject_id", AtxtSubjectID.Text);
                 cmd.ExecuteNonQuery();
                 con.Close();
 
@@ -171,21 +171,21 @@ namespace Group1._3_GradingSystem.AdminPages
         }
         protected void clear()
         {
-            TextBox2.Text = String.Empty;
-            TextBox3.Text = String.Empty;
-            TextBox4.Text = String.Empty;
+            AtxtSubjectID.Text = String.Empty;
+            AtxtSubjectName.Text = String.Empty;
+            AtxtTeacherID.Text = String.Empty;
         }
 
-        protected void Button7_Click(object sender, EventArgs e)
+        protected void AbtnClearSubject_Click(object sender, EventArgs e)
         {
-            TextBox2.Text = String.Empty;
-            TextBox3.Text = String.Empty;
-            TextBox4.Text = String.Empty;
-            DropDownList1.SelectedValue = null;
-            DropDownList3.SelectedValue = null;
+            AtxtSubjectID.Text = String.Empty;
+            AtxtSubjectName.Text = String.Empty;
+            AtxtTeacherID.Text = String.Empty;
+            AddlYearLevel.SelectedValue = null;
+            AddlCategory.SelectedValue = null;
         }
 
-        protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
+        protected void AddlYearLevel_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }

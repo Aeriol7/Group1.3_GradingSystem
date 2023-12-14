@@ -1,0 +1,144 @@
+﻿#AddlYearLevel {
+    position: fixed;
+    top: 395px;
+    left: 422px;
+}
+
+#AManageSubjectsLabel {
+    position: fixed;
+    top: 89px;
+    left: 315px;
+}
+
+#AbtnAddSubject {
+    position: fixed;
+    top: 393px;
+    left: 636px;
+    width: 147px;
+    right: 553px;
+}
+
+#AbtnDeleteSubject {
+    position: fixed;
+    top: 435px;
+    left: 635px;
+    width: 117px;
+    }
+
+#AbtnUpdateSubject {
+    position: fixed;
+    top: 392px;
+    left: 746px;
+    width: 132px;
+}
+
+.admin-subject {
+    position: fixed;
+    height: 180px;
+    width: 561px;
+    top: 143px;
+    left: 319px;
+}
+
+#gvSubjects {
+    position: fixed;
+    top: 144px;
+    left: 324px;
+    height: 142px;
+    width: 549px;
+    bottom: 197px;
+}
+
+#AbtnClearSubject {
+    position: fixed;
+    top: 436px;
+    left: 747px;
+    bottom: 51px;
+}
+
+.admin-teacher {
+    position: fixed;
+    top: 141px;
+    left: 894px;
+    height: 180px;
+    width: 322px;
+}
+
+#gvTeachers {
+    position: fixed;
+    top: 144px;
+    left: 898px;
+    width: 311px;
+}
+
+#AtxtSubjectID {
+    position: fixed;
+    top: 331px;
+    left: 675px;
+    width: 69px;
+}
+
+#AtxtSubjectName {
+    position: fixed;
+    top: 332px;
+    left: 422px;
+    width: 147px;
+}
+
+#AddlYearLevel {
+    position: fixed;
+    bottom: 99px;
+}
+
+#ATeacherIDLabel {
+    position: fixed;
+    top: 364px;
+    left: 341px;
+}
+
+#AYearLevelLabel {
+    position: fixed;
+    top: 397px;
+    left: 343px;
+    right: 867px;
+    height: 19px;
+}
+
+#ASubjectIDLabel {
+    position: fixed;
+    top: 332px;
+    left: 597px;
+}
+
+#ASubjectNameLabel {
+    position: fixed;
+    top: 334px;
+    left: 324px;
+}
+
+#AtxtTeacherID {
+    position: fixed;
+    top: 364px;
+    left: 422px;
+    width: 76px;
+}
+
+#ACategoryLabel {
+    position: fixed;
+    top: 430px;
+    left: 354px;
+}
+
+#AddlCategory {
+    position: fixed;
+    top: 429px;
+    left: 421px;
+}
+
+.admin-subjects-container {
+    position: fixed;
+    top: 85px;
+    left: 307px;
+    height: 549px;
+    width: 946px;
+}

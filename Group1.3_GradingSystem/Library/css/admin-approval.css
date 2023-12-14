@@ -1,0 +1,118 @@
+﻿#AManageApprovalLabel {
+    position: fixed;
+    top: 91px;
+    left: 309px;
+    right: 680px;
+}
+
+.admin-grades {
+    position: fixed;
+    top: 160px;
+    left: 323px;
+    width: 876px;
+    height: 268px;
+}
+
+#gvGrades {
+    position: fixed;
+    top: 166px;
+    left: 325px;
+    width: 870px;
+    max-height: 291px;
+    overflow-y: scroll;
+    height: 259px;
+}
+
+#ddlSchoolYear {
+    position: fixed;
+    top: 132px;
+    left: 321px;
+    width: 104px;
+    height: 15px;
+}
+
+#ddlSubject {
+    position: fixed;
+    top: 128px;
+    left: 1068px;
+}
+
+#ddlTeacher {
+    position: fixed;
+    top: 130px;
+    left: 477px;
+}
+
+#ddlSection {
+    position: fixed;
+    top: 130px;
+    left: 875px;
+    width: 119px;
+}
+
+#ddlGradeLevel {
+    position: fixed;
+    top: 130px;
+    left: 676px;
+    width: 136px;
+    right: 473px;
+}
+
+#TBLastname {
+    position: fixed;
+    top: 501px;
+    left: 401px;
+    right: 766px;
+}
+
+#TBGradeID {
+    position: fixed;
+    top: 443px;
+    left: 401px;
+    right: 766px;
+}
+
+#TBFirstname {
+    position: fixed;
+    top: 470px;
+    left: 401px;
+}
+
+#LGradeid {
+    position: fixed;
+    top: 444px;
+    left: 327px;
+}
+
+#LFN {
+    position: fixed;
+    top: 471px;
+    left: 326px;
+}
+
+#LLN {
+    position: fixed;
+    top: 502px;
+    left: 327px;
+    right: 947px;
+}
+
+#DDLApprove {
+    position: fixed;
+    top: 440px;
+    left: 659px;
+}
+
+#BSave {
+    position: fixed;
+    top: 477px;
+    left: 676px;
+}
+
+.admin-approval-container {
+    position: fixed;
+    top: 84px;
+    left: 305px;
+    height: 555px;
+    width: 961px;
+}

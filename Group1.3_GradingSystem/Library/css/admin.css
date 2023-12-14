@@ -1,0 +1,170 @@
+﻿#Image1 {
+    position: fixed;
+    top: 26px;
+    left: 30px;
+    width: 62px;
+    height: 58px;
+}
+
+#Image2 {
+    position: fixed;
+    top: 32px;
+    left: 1114px;
+    height: 32px;
+    width: 33px;
+}
+
+#Label1 {
+    position: fixed;
+    top: 26px;
+    left: 102px;
+    width: 281px;
+}
+
+#Button6 {
+    position: fixed;
+    top: 35px;
+    left: 1182px;
+}
+#AHome {
+    position: fixed;
+    top: 128px;
+    left: 161px;
+    text-align: center;
+    color: #B03E3E;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+#ASubj {
+    position: fixed;
+    top: 200px;
+    left: 153px;
+    text-align: center;
+    color: #B03E3E;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    bottom: 356px;
+}
+
+#AFaculty {
+    position: fixed;
+    top: 271px;
+    left: 157px;
+    height: 24px;
+    text-align: center;
+    color: #B03E3E;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+#AStudent {
+    position: fixed;
+    top: 351px;
+    left: 147px;
+    bottom: 163px;
+    text-align: center;
+    color: #B03E3E;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    width: 81px;
+}
+
+#ASection {
+    position: fixed;
+    top: 425px;
+    left: 153px;
+    text-align: center;
+    color: #B03E3E;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+#AApproval {
+    position: fixed;
+    top: 509px;
+    left: 150px;
+    text-align: center;
+    color: #B03E3E;
+    font-family: Inter;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+
+#IHome {
+    position: fixed;
+    top: 115px;
+    left: 55px;
+    height: 27px;
+    width: 29px;
+}
+
+#IBook {
+    position: fixed;
+    top: 190px;
+    left: 56px;
+    height: 27px;
+    width: 25px;
+}
+
+#IClipboard {
+    position: fixed;
+    top: 262px;
+    left: 56px;
+    height: 27px;
+    width: 24px;
+}
+
+#IPeople {
+    position: fixed;
+    top: 339px;
+    left: 55px;
+    height: 29px;
+    width: 28px;
+}
+
+#IThree {
+    position: fixed;
+    top: 414px;
+    left: 56px;
+    height: 26px;
+    width: 26px;
+}
+
+#IApproval {
+    position: fixed;
+    top: 499px;
+    left: 55px;
+    height: 24px;
+    width: 23px;
+}
+#form2 {
+    height: 639px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.admin-side-bar {
+    position: fixed;
+    top: 84px;
+    left: 15px;
+    height: 555px;
+    width: 283px;
+}

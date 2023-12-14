@@ -1,0 +1,174 @@
+﻿#AManageStudentLabel {
+    position: fixed;
+    top: 88px;
+    left: 311px;
+}
+
+#AtxtLastName {
+    position: fixed;
+    top: 347px;
+    left: 404px;
+}
+
+#AUserIDLabel {
+    position: fixed;
+    top: 375px;
+    left: 340px;
+}
+
+.student-table {
+    position: fixed;
+    height: 189px;
+    width: 638px;
+    top: 126px;
+    left: 316px;
+}
+
+#AbtnAdd {
+    position: fixed;
+    top: 462px;
+    left: 403px;
+    width: 147px;
+}
+
+#AbtnDelete {
+    position: fixed;
+    top: 495px;
+    left: 404px;
+    width: 117px;
+}
+
+#AbtnUpdate {
+    position: fixed;
+    top: 461px;
+    left: 506px;
+    width: 132px;
+    right: 683px;
+}
+
+#AbtnClear {
+    position: fixed;
+    top: 495px;
+    left: 506px;
+    right: 683px;
+}
+
+#AFirstNameLabel {
+    position: fixed;
+    top: 324px;
+    left: 322px;
+}
+
+#AStudentIDLabel {
+    position: fixed;
+    top: 324px;
+    left: 600px;
+}
+
+#AtxtLastName {
+    position: fixed;
+}
+
+#AtxtFirstName {
+    position: fixed;
+    top: 323px;
+    left: 404px;
+}
+
+#AtxtFirstName {
+    position: fixed;
+}
+
+#ALastNameLabel {
+    position: fixed;
+    top: 347px;
+    left: 323px;
+}
+
+#AtxtStudentID {
+    position: fixed;
+    top: 322px;
+    left: 678px;
+}
+
+#AtxtStudentID {
+    position: fixed;
+    width: 37px;
+}
+
+#AYearLevelLabel {
+    position: fixed;
+    top: 398px;
+    left: 322px;
+}
+
+#AtxtUserID {
+    position: fixed;
+    top: 372px;
+    left: 404px;
+}
+
+#AtxtUserID {
+    position: fixed;
+    width: 37px;
+}
+
+#ddlSchoolYear {
+    position: fixed;
+    top: 392px;
+    left: 678px;
+    width: 104px;
+    right: 503px;
+}
+
+#ASectionLabel {
+    position: fixed;
+    top: 424px;
+    left: 343px;
+}
+
+#ddlSection {
+    position: fixed;
+    top: 423px;
+    left: 403px;
+    right: 715px;
+}
+
+#ASchoolYearLabel {
+    position: fixed;
+    top: 396px;
+    left: 590px;
+}
+
+.sections {
+    position: fixed;
+    height: 186px;
+    width: 294px;
+    top: 125px;
+    left: 965px;
+    margin-top: 0px;
+}
+
+#gvStudents {
+    position: fixed;
+    top: 133px;
+    left: 324px;
+    width: 622px;
+}
+
+#gvUsers {
+    position: fixed;
+    top: 131px;
+    left: 969px;
+    width: 286px;
+}
+
+#ddlYearLevel {
+    position: fixed;
+    top: 395px;
+    left: 403px;
+}
+
+.manage-students {
+    position: fixed;
+}

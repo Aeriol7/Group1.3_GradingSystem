@@ -11,7 +11,7 @@ namespace Group1._3_GradingSystem.AdminPages
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            Label10.Text = (String)Session["Username"];
+            AdminUser.Text = (String)Session["Username"];
         }
 
         protected void Button1_Click(object sender, EventArgs e)

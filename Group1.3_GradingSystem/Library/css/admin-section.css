@@ -1,0 +1,99 @@
+﻿#AManageSectionLabel {
+    position: fixed;
+    top: 89px;
+    left: 308px;
+}
+
+.admin-section {
+    position: fixed;
+    top: 130px;
+    left: 360px;
+    width: 854px;
+    height: 179px;
+    margin-top: 0px;
+}
+
+#gvSections {
+    position: fixed;
+    top: 131px;
+    left: 367px;
+    height: 142px;
+    width: 841px;
+}
+
+#AtxtSectionID {
+    position: fixed;
+    top: 331px;
+    left: 402px;
+}
+
+#ASectionIDLabel {
+    position: fixed;
+    top: 332px;
+    left: 320px;
+    height: 21px;
+    width: 78px;
+    right: 887px;
+}
+
+#ASectionLabel {
+    position: fixed;
+    top: 360px;
+    left: 341px;
+    height: 21px;
+    width: 60px;
+}
+
+#AYearLevelLabel {
+    position: fixed;
+    top: 390px;
+    left: 319px;
+    height: 22px;
+    width: 78px;
+}
+
+#AbtnAddSection {
+    position: fixed;
+    top: 331px;
+    left: 619px;
+}
+
+#AbtnDeleteSection {
+    position: fixed;
+    top: 374px;
+    left: 619px;
+}
+
+#AbtnCleatSection {
+    position: fixed;
+    top: 374px;
+    left: 730px;
+}
+
+#AtxtSecction {
+    position: fixed;
+    top: 359px;
+    left: 402px;
+}
+
+#AbtnUpdateSection {
+    position: fixed;
+    top: 331px;
+    left: 731px;
+    width: 85px;
+}
+
+#AddlYearLevel {
+    position: fixed;
+    top: 389px;
+    left: 403px;
+    bottom: 105px;
+}
+
+.admin-section-container {
+    position: fixed;
+    top: 84px;
+    left: 304px;
+    height: 554px;
+    width: 964px;
+}
