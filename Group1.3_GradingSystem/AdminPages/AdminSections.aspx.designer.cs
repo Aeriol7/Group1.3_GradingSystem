@@ -312,13 +312,13 @@ namespace Group1._3_GradingSystem.AdminPages
 		protected global::System.Web.UI.WebControls.Button AbtnCleatSection;
 
 		/// <summary>
-		/// AtxtSecction control.
+		/// AtxtSection control.
 		/// </summary>
 		/// <remarks>
 		/// Auto-generated field.
 		/// To modify move field declaration from designer file to code-behind file.
 		/// </remarks>
-		protected global::System.Web.UI.WebControls.TextBox AtxtSecction;
+		protected global::System.Web.UI.WebControls.TextBox AtxtSection;
 
 		/// <summary>
 		/// AddlYearLevel control.

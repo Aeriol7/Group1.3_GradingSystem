@@ -63,7 +63,7 @@
                 <asp:Button ID="AbtnUpdateSection" runat="server" Text="Update" OnClick="AbtnUpdateSection_Click" Height="29px" Width="96px" OnClientClick="return confirm('Update Section?');" BackColor="White" ForeColor="#983939"/>
                 <asp:Button ID="AbtnDeleteSection" runat="server" Text="Delete" OnClick="AbtnDeleteSection_Click" Height="29px" Width="96px" OnClientClick="return confirm('Delete Section?');" BackColor="White" ForeColor="#983939"/>
                 <asp:Button ID="AbtnCleatSection" runat="server" Text="Clear" OnClick="AbtnCleatSection_Click" Height="29px" Width="96px" BackColor="White" ForeColor="#983939" />
-                <asp:TextBox ID="AtxtSecction" runat="server"></asp:TextBox>     
+                <asp:TextBox ID="AtxtSection" runat="server"></asp:TextBox>     
             <asp:DropDownList ID="AddlYearLevel" runat="server" Height="25px" Width="167px">
                 <asp:ListItem Value="0">Select Year Level</asp:ListItem>
                 <asp:ListItem Value="1">Kinder</asp:ListItem>

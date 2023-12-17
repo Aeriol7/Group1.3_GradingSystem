@@ -15,7 +15,9 @@ namespace Group1._3_GradingSystem.AdminPages
     public partial class AdminFaculty : System.Web.UI.Page
     {
         public string conStr = "Data Source=DESKTOP-O5EH83O;Initial Catalog=HIS_GradingSystem;Integrated Security=False;User Id=sa;Password=1234;MultipleActiveResultSets=True";
-        protected void Page_Load(object sender, EventArgs e)
+        
+
+		protected void Page_Load(object sender, EventArgs e)
         {
             users();
             teachers();
@@ -50,15 +52,19 @@ namespace Group1._3_GradingSystem.AdminPages
         }
         protected void AAddUserbtn_Click(object sender, EventArgs e)
         {
-            if (AtxtUserName.Text.Length == 0)
+            string username = AtxtUserName.Text.Trim();
+            string password = AtxtPassword.Text.Trim();
+            string cpassword = AtxtConfirmPassword.Text.Trim();
+
+			if (username.Length == 0)
             {
                 ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please input username!');", true);
             }
-            else if (AtxtPassword.Text.Length == 0)
+            else if (password.Length == 0)
             {
 				ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please input password!');", true);
 			}
-			else if (AtxtPassword.Text != AtxtConfirmPassword.Text)
+			else if (password != cpassword)
 			{
 				ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Passwords do not match!');", true);
 			}
@@ -72,8 +78,8 @@ namespace Group1._3_GradingSystem.AdminPages
                 con.Open();
                 SqlCommand cmd = new SqlCommand("INSERT INTO users (username, password, user_level) VALUES (@username, @password, @user_level)", con);
 
-                cmd.Parameters.AddWithValue("@username", AtxtUserName.Text);
-                cmd.Parameters.AddWithValue("@password", AtxtPassword.Text);
+                cmd.Parameters.AddWithValue("@username", username);
+                cmd.Parameters.AddWithValue("@password", password);
                 cmd.Parameters.AddWithValue("@user_level", AddlUserLevel.SelectedValue);
                 cmd.ExecuteNonQuery();
                 con.Close();
@@ -97,19 +103,23 @@ namespace Group1._3_GradingSystem.AdminPages
         }
         protected void AUpdateUserbtn_Click(object sender, EventArgs e)
         {
-			if (AtxtUserID.Text.Length == 0)
+            string userid = AtxtUserID.Text.Trim();
+			string username = AtxtUserName.Text.Trim();
+			string password = AtxtPassword.Text.Trim();
+			string cpassword = AtxtConfirmPassword.Text.Trim();
+			if (userid.Length == 0)
 			{
 				ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please select user!');", true);
 			}
-			else if (AtxtUserName.Text.Length == 0)
+			else if (username.Length == 0)
 			{
 				ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please input username!');", true);
 			}
-			else if (AtxtPassword.Text.Length == 0)
+			else if (password.Length == 0)
 			{
 				ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please input password!');", true);
 			}
-			else if (AtxtPassword.Text != AtxtConfirmPassword.Text)
+			else if (password != cpassword)
 			{
 				ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Passwords do not match!');", true);
 			}
@@ -121,12 +131,13 @@ namespace Group1._3_GradingSystem.AdminPages
 			{
 				SqlConnection con = new SqlConnection(conStr);
                 con.Open();
-                SqlCommand cmd = new SqlCommand("UPDATE users SET username = @username, password = @password WHERE user_id = @userid", con);
+                SqlCommand cmd = new SqlCommand("UPDATE users SET username = @username, password = @password, user_level = @userlevel WHERE user_id = @userid", con);
 
                 cmd.Parameters.AddWithValue("@username", AtxtUserName.Text);
                 cmd.Parameters.AddWithValue("@password", AtxtPassword.Text);
                 cmd.Parameters.AddWithValue("@userid", AtxtUserID.Text);
-                cmd.ExecuteNonQuery();
+				cmd.Parameters.AddWithValue("@userlevel", AddlUserLevel.SelectedValue);
+				cmd.ExecuteNonQuery();
                 con.Close();
 
                 users();
@@ -203,7 +214,8 @@ namespace Group1._3_GradingSystem.AdminPages
 		}
         protected void ADeleteUserbtn_Click(object sender, EventArgs e)
         {
-			if (AtxtUserID.Text.Length == 0)
+			string userid = AtxtUserID.Text.Trim();
+			if (userid.Length == 0)
 			{
 				ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please select user!');", true);
 			}
@@ -213,7 +225,7 @@ namespace Group1._3_GradingSystem.AdminPages
                 con.Open();
                 SqlCommand cmd = new SqlCommand("DELETE FROM users WHERE user_id = @userid", con);
 
-                cmd.Parameters.AddWithValue("@userid", AtxtUserID.Text);
+                cmd.Parameters.AddWithValue("@userid", userid);
                 cmd.ExecuteNonQuery();
                 con.Close();
                 users();
@@ -245,14 +257,30 @@ namespace Group1._3_GradingSystem.AdminPages
         }
         protected void AbtnAddTeacher_Click(object sender, EventArgs e)
         {
+			string tuserid = AtxtTeacherUserID.Text.Trim();
+			string firstname = AtxtFirstName.Text.Trim();
+			string lastname = AtxtLastName.Text.Trim();
+			if (tuserid.Length == 0)
+            {
+                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please select user!');", true);
+            }
+            else if (firstname.Length == 0)
+            {
+                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please input first name of teacher!');", true);
+            }
+            else if (lastname.Length == 0)
+            {
+                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please input last name of teacher!');", true);
+            }
+            else
             {
                 SqlConnection con = new SqlConnection(conStr);
                 con.Open();
-                SqlCommand cmd = new SqlCommand("INSERT INTO teachers (first_name ,last_name, user_id) VALUES  (@Firstname, @Lastname, @user_id)", con);
+                SqlCommand cmd = new SqlCommand("INSERT INTO teachers (first_name, last_name, user_id) VALUES  (@firstname, @lastname, @user_id)", con);
 
-                cmd.Parameters.AddWithValue("@Firstname", AtxtFirstName.Text);
-                cmd.Parameters.AddWithValue("@Lastname", AtxtLastName.Text);
-                cmd.Parameters.AddWithValue("@user_id", AtxtTeacherUserID.Text);
+                cmd.Parameters.AddWithValue("@firstname", firstname);
+                cmd.Parameters.AddWithValue("@lastname", lastname);
+                cmd.Parameters.AddWithValue("@user_id", tuserid);
                 cmd.ExecuteNonQuery();
                 con.Close();
 
@@ -266,28 +294,31 @@ namespace Group1._3_GradingSystem.AdminPages
         }
         protected void AbtnUpdateTeacher_Click(object sender, EventArgs e)
         {
-			if (AtxtTeacherUserID.Text.Length == 0)
+			string tuserid = AtxtTeacherUserID.Text.Trim();
+			string firstname = AtxtFirstName.Text.Trim();
+			string lastname = AtxtLastName.Text.Trim();
+			if (tuserid.Length == 0)
 			{
-				ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please select teacher!');", true);
+				ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please select user!');", true);
 			}
-			else if (AtxtFirstName.Text.Length == 0)
+			else if (firstname.Length == 0)
 			{
-				ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please input teacher first name!');", true);
+				ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please input first name of teacher!');", true);
 			}
-			else if (AtxtLastName.Text.Length == 0)
+			else if (lastname.Length == 0)
 			{
-				ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please input teacher last name!');", true);
+				ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please input last name of teacher!');", true);
 			}
 			else
-            {
-            SqlConnection con = new SqlConnection(conStr);
+			{
+			SqlConnection con = new SqlConnection(conStr);
             con.Open();
             SqlCommand cmd = new SqlCommand("UPDATE teachers SET firstname = @firstname, lastname = @lastname WHERE user_id = @user_id", con);
 
-            cmd.Parameters.AddWithValue("@firstname", AtxtFirstName.Text);
-            cmd.Parameters.AddWithValue("@lastname", AtxtLastName.Text);
-            cmd.Parameters.AddWithValue("@user_id", AtxtTeacherUserID.Text);
-            cmd.ExecuteNonQuery();
+			cmd.Parameters.AddWithValue("@firstname", firstname);
+			cmd.Parameters.AddWithValue("@lastname", lastname);
+			cmd.Parameters.AddWithValue("@user_id", tuserid);
+			cmd.ExecuteNonQuery();
             con.Close();
 
             teachers();
@@ -300,7 +331,8 @@ namespace Group1._3_GradingSystem.AdminPages
         }
         protected void AbtnDeleteTeacher_Click(object sender, EventArgs e)
         {
-            if (AtxtTeacherUserID.Text.Length == 0)
+			string tuserid = AtxtTeacherUserID.Text.Trim();
+			if (tuserid.Length == 0)
             {
                 ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please select teacher!');", true);
             }
@@ -310,7 +342,7 @@ namespace Group1._3_GradingSystem.AdminPages
                 con.Open();
                 SqlCommand cmd = new SqlCommand("DELETE FROM teachers WHERE teacher_id = @ID", con);
 
-                cmd.Parameters.AddWithValue("@ID", AtxtTeacherUserID.Text);
+                cmd.Parameters.AddWithValue("@ID", tuserid);
                 cmd.ExecuteNonQuery();
                 con.Close();
 

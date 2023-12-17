@@ -56,8 +56,8 @@
                 <asp:TextBox ID="AtxtPassword" runat="server" TextMode="Password"></asp:TextBox>
                 <asp:Label ID="APasswordLabel" runat="server" Text="Password:"></asp:Label>
                 <asp:Label ID="AUserIDLabel" runat="server" Text="User ID:"></asp:Label>
-                <asp:Button ID="ADeleteUserbtn" runat="server" Text="Delete" OnClick="ADeleteUserbtn_Click" OnClientClick="return confirm('Delete user account?');" BackColor="White" ForeColor="#983939" Enabled="False"/>
-                <asp:Button ID="AUpdateUserbtn" runat="server" Text="Update" OnClick="AUpdateUserbtn_Click" OnClientClick="return confirm('Update user account information?');" BackColor="White" ForeColor="#983939" Enabled="False"/>
+                <asp:Button ID="ADeleteUserbtn" runat="server" Text="Delete" OnClick="ADeleteUserbtn_Click" OnClientClick="return confirm('Delete user account?');" BackColor="White" ForeColor="#983939"/>
+                <asp:Button ID="AUpdateUserbtn" runat="server" Text="Update" OnClick="AUpdateUserbtn_Click" OnClientClick="return confirm('Update user account information?');" BackColor="White" ForeColor="#983939"/>
                 <asp:Button ID="AClearUserbtn" runat="server" Text="Clear" OnClick="AClearUserbtn_Click" BackColor="White" ForeColor="#983939" />
             </div>
                 <asp:TextBox ID="AtxtFirstName" runat="server"></asp:TextBox>           
