@@ -67,7 +67,7 @@
 <asp:Label ID="AUserIDLabel" runat="server" Text="User ID:"></asp:Label>
 <asp:TextBox ID="AtxtLastName" runat="server"></asp:TextBox>
 <asp:Label ID="AYearLevelLabel" runat="server" Text="Year Level:"></asp:Label>
-<asp:TextBox ID="AtxtUserID" runat="server"></asp:TextBox>
+<asp:TextBox ID="AtxtUserID" runat="server" Enabled="False"></asp:TextBox>
 <asp:Label ID="ASectionLabel" runat="server" Text="Section:"></asp:Label>
 <asp:DropDownList ID="ddlSection" runat="server" Height="25px" Width="167px">
      <asp:ListItem Value="0">Select Section</asp:ListItem>

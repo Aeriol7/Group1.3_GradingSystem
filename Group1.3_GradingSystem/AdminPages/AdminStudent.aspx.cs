@@ -48,13 +48,12 @@ namespace Group1._3_GradingSystem.AdminPages
             GridViewRow row = gvStudents.Rows[gvStudents.SelectedIndex];
             if (row != null)
             {
-
                 GridViewRow gr = gvStudents.SelectedRow;
                 AtxtFirstName.Text = gr.Cells[1].Text;
                 AtxtLastName.Text = gr.Cells[2].Text;
                 AtxtUserID.Text = gr.Cells[3].Text;
                 AtxtStudentID.Text = gr.Cells[0].Text;
-                ddlSchoolYear.Text = gr.Cells[6].Text;
+                ddlSchoolYear.Text = gr.Cells[4].Text;
             }
         }
         protected void gvStudents_RowDataBound(object sender, System.Web.UI.WebControls.GridViewRowEventArgs e)
@@ -88,15 +87,19 @@ namespace Group1._3_GradingSystem.AdminPages
 
         protected void AbtnAdd_Click(object sender, EventArgs e)
         {
-			if (AtxtFirstName.Text.Length == 0)
+            string firstname = AtxtFirstName.Text.Trim();
+			string lastname = AtxtLastName.Text.Trim();
+			string userid = AtxtUserID.Text.Trim();
+			string studentid = AtxtStudentID.Text.Trim();
+			if (firstname.Length == 0)
 			{
 				ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please input first name of student!');", true);
 			}
-			else if (AtxtLastName.Text.Length == 0)
+			else if (lastname.Length == 0)
 			{
 				ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please input last name of student!');", true);
 			}
-			else if (AtxtUserID.Text.Length == 0)
+			else if (userid.Length == 0)
 			{
 				ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please select student!');", true);
 			}
@@ -112,15 +115,19 @@ namespace Group1._3_GradingSystem.AdminPages
 			{
 				ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please select the section of student!');", true);
 			}
+			else if (studentid.Length > 0)
+			{
+				ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Student already exist!');", true);
+			}
 			else
 			{
 				SqlConnection con = new SqlConnection(conStr);
                 con.Open();
-                SqlCommand cmd = new SqlCommand("INSERT INTO students (first_name, last_name, user_id, year_level_id, section_id, school_year_id) VALUES  (@first_name, @last_name, @user_id, @year_level_id, @sections_id, @school_year_id)", con);
+                SqlCommand cmd = new SqlCommand("INSERT INTO students (first_name, last_name, user_id, year_level_id, section_id, school_year_id) VALUES (@first_name, @last_name, @user_id, @year_level_id, @sections_id, @school_year_id)", con);
 
-                cmd.Parameters.AddWithValue("@first_name", AtxtFirstName.Text);
-                cmd.Parameters.AddWithValue("@Last_name", AtxtLastName.Text);
-                cmd.Parameters.AddWithValue("@user_id", AtxtUserID.Text);
+                cmd.Parameters.AddWithValue("@first_name", firstname);
+                cmd.Parameters.AddWithValue("@last_name", lastname);
+                cmd.Parameters.AddWithValue("@user_id", userid);
                 cmd.Parameters.AddWithValue("@school_year_id", ddlSchoolYear.SelectedValue);
                 cmd.Parameters.AddWithValue("@sections_id", ddlSection.SelectedValue);
                 cmd.Parameters.AddWithValue("@year_level_id", ddlYearLevel.SelectedValue);
@@ -138,20 +145,22 @@ namespace Group1._3_GradingSystem.AdminPages
                 ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Inserted Successfully');", true);
             }
         }
-
         protected void AbtnUpdate_Click(object sender, EventArgs e)
         {
-             if (AtxtUserID.Text.Length == 0)
+			string firstname = AtxtFirstName.Text.Trim();
+			string lastname = AtxtLastName.Text.Trim();
+			string userid = AtxtUserID.Text.Trim();
+			if (firstname.Length == 0)
+			{
+				ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please input first name of student!');", true);
+			}
+			else if (lastname.Length == 0)
+			{
+				ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please input last name of student!');", true);
+			}
+			else if (userid.Length == 0)
 			{
 				ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please select student!');", true);
-			}
-			else if (AtxtFirstName.Text.Length == 0)
-            {
-                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please input first name of student!');", true);
-            }
-            else if (AtxtLastName.Text.Length == 0) 
-            {
-				ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please input last name of student!');", true);
 			}
 			else if (ddlSchoolYear.SelectedIndex == 0)
 			{
@@ -166,15 +175,15 @@ namespace Group1._3_GradingSystem.AdminPages
 				ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please select the section of student!');", true);
 			}
 			else
-            {
+			{
                 SqlConnection con = new SqlConnection(conStr);
                 con.Open();
                 SqlCommand cmd = new SqlCommand("UPDATE students SET first_name = @first_name, last_name = @last_name, user_id = @user_id, year_level_id = @year_level_id, section_id = @sections_id, school_year_id = @school_year_id WHERE student_id = @student_id", con);
 
-                cmd.Parameters.AddWithValue("@first_name", AtxtFirstName.Text);
-                cmd.Parameters.AddWithValue("@Last_name", AtxtLastName.Text);
-                cmd.Parameters.AddWithValue("@user_id", AtxtUserID.Text);
-                cmd.Parameters.AddWithValue("@student_id", AtxtStudentID.Text);
+				cmd.Parameters.AddWithValue("@first_name", firstname);
+				cmd.Parameters.AddWithValue("@last_name", lastname);
+				cmd.Parameters.AddWithValue("@user_id", userid);
+				cmd.Parameters.AddWithValue("@student_id", AtxtStudentID.Text);
                 cmd.Parameters.AddWithValue("@school_year_id", ddlSchoolYear.SelectedValue);
                 cmd.Parameters.AddWithValue("@year_level_id", ddlYearLevel.SelectedValue);
                 cmd.Parameters.AddWithValue("@sections_id", ddlSection.SelectedValue);
@@ -194,18 +203,18 @@ namespace Group1._3_GradingSystem.AdminPages
         }
         protected void AbtnDelete_Click(object sender, EventArgs e)
         {
-            if (AtxtStudentID.Text.Length == 0)
+			string studentid = AtxtStudentID.Text.Trim();
+			if (studentid.Length == 0)
             {
                 ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please select student');", true);
             }
-
             else
             {
                 SqlConnection con = new SqlConnection(conStr);
                 con.Open();
                 SqlCommand cmd = new SqlCommand("DELETE FROM students WHERE student_id = @student_id", con);
 
-                cmd.Parameters.AddWithValue("@student_id", AtxtStudentID.Text);
+                cmd.Parameters.AddWithValue("@student_id", studentid);
                 cmd.ExecuteNonQuery();
                 con.Close();
 
@@ -224,7 +233,6 @@ namespace Group1._3_GradingSystem.AdminPages
             ddlSchoolYear.SelectedValue = null;
             ddlSection.SelectedValue = null;
         }
-
         protected void AbtnClear_Click(object sender, EventArgs e)
         {
             AtxtFirstName.Text = String.Empty;
@@ -237,7 +245,6 @@ namespace Group1._3_GradingSystem.AdminPages
 
 
             students();
-            ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Cleared Successfully');", true);
         }
         public void users()
         {
@@ -280,9 +287,9 @@ namespace Group1._3_GradingSystem.AdminPages
             GridViewRow row = gvUsers.Rows[gvUsers.SelectedIndex];
             if (row != null)
             {
-
                 GridViewRow gr = gvUsers.SelectedRow;
-            }
+				AtxtUserID.Text = gr.Cells[0].Text;
+			}
         }
         public void Sections()
         {

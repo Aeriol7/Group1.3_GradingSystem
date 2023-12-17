@@ -44,7 +44,7 @@ namespace Group1._3_GradingSystem.AdminPages
 
                 GridViewRow gr = gvSections.SelectedRow;
                 AtxtSectionID.Text = gr.Cells[0].Text;
-                AtxtSecction.Text = gr.Cells[1].Text;
+                AtxtSection.Text = gr.Cells[1].Text;
                 AddlYearLevel.SelectedValue = gr.Cells[2].Text;
             }
         }
@@ -83,22 +83,26 @@ namespace Group1._3_GradingSystem.AdminPages
         protected void clear()
         {
             AtxtSectionID.Text = String.Empty;
-            AtxtSecction.Text = String.Empty;
+            AtxtSection.Text = String.Empty;
             AddlYearLevel.SelectedValue = null;
         }
-
         protected void AbtnAddSection_Click(object sender, EventArgs e)
         {
-            if (AtxtSecction.Text.Length == 0 || AddlYearLevel.SelectedIndex == 0)
+            string section = AtxtSection.Text.Trim();
+            if (section.Length == 0)
             {
-                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please insert section or year level');", true);
+                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please input section name!');", true);
             }
+            else if (AddlYearLevel.SelectedIndex == 0)
+            {
+				ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please select year level!');", true);
+			}
             else
             {
                 SqlConnection con = new SqlConnection(conStr);
                 con.Open();
                 SqlCommand cmd = new SqlCommand("INSERT INTO sections (section, year_level_id) VALUES  (@section, @year_level_id)", con);
-                cmd.Parameters.AddWithValue("@section", AtxtSecction.Text);
+                cmd.Parameters.AddWithValue("@section", section);
                 cmd.Parameters.AddWithValue("@year_level_id", AddlYearLevel.SelectedValue);
                 cmd.ExecuteNonQuery();
                 con.Close();
@@ -106,25 +110,35 @@ namespace Group1._3_GradingSystem.AdminPages
                 sections();
 
                 AtxtSectionID.Text = string.Empty;
-                AtxtSecction.Text = string.Empty;
+                AtxtSection.Text = string.Empty;
                 AddlYearLevel.SelectedValue = null;
                 ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Inserted Successfully');", true);
             }
         }
         protected void AbtnUpdateSection_Click(object sender, EventArgs e)
         {
-            if (AtxtSecction.Text.Length == 0 || AtxtSectionID.Text.Length == 0 || AddlYearLevel.SelectedIndex == 0)
-            {
-                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please select section');", true);
+			string section = AtxtSection.Text.Trim();
+			string sectionid = AtxtSectionID.Text.Trim();
+			if (sectionid.Length == 0)
+			{
+                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please select section!');", true);
             }
+            else if (section.Length == 0)
+			{
+				ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please input section name!');", true);
+			}
+            else if (AddlYearLevel.SelectedIndex == 0)
+            {
+				ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please select section!');", true);
+			}
             else
             {
                 SqlConnection con = new SqlConnection(conStr);
                 con.Open();
                 SqlCommand cmd = new SqlCommand("UPDATE sections SET section = @section, year_level_id = @year_level_id WHERE section_id = @section_id", con);
 
-                cmd.Parameters.AddWithValue("@section_id", AtxtSectionID.Text);
-                cmd.Parameters.AddWithValue("@section", AtxtSecction.Text);
+                cmd.Parameters.AddWithValue("@section_id", sectionid);
+                cmd.Parameters.AddWithValue("@section", section);
                 cmd.Parameters.AddWithValue("@year_level_id", AddlYearLevel.SelectedValue);
                 cmd.ExecuteNonQuery();
                 con.Close();
@@ -132,18 +146,18 @@ namespace Group1._3_GradingSystem.AdminPages
                 sections();
 
                 AtxtSectionID.Text = string.Empty;
-                AtxtSecction.Text = string.Empty;
+                AtxtSection.Text = string.Empty;
                 AddlYearLevel.SelectedValue = null;
                 ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Updated Successfully');", true);
             }
 
         }
-
         protected void AbtnDeleteSection_Click(object sender, EventArgs e)
         {
-            if (AtxtSectionID.Text.Length == 0)
+			string sectionid = AtxtSectionID.Text.Trim();
+			if (sectionid.Length == 0)
             {
-                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please select section');", true);
+                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please select section!');", true);
             }
             else
             {
@@ -151,7 +165,7 @@ namespace Group1._3_GradingSystem.AdminPages
                 con.Open();
                 SqlCommand cmd = new SqlCommand("DELETE FROM sections WHERE section_id = @section_id", con);
 
-                cmd.Parameters.AddWithValue("@section_id", AtxtSectionID.Text);
+                cmd.Parameters.AddWithValue("@section_id", sectionid);
                 cmd.ExecuteNonQuery();
                 con.Close();
 
@@ -160,16 +174,13 @@ namespace Group1._3_GradingSystem.AdminPages
                 ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Deleted Successfully');", true);
             }
         }
-
         protected void AbtnCleatSection_Click(object sender, EventArgs e)
         {
             AtxtSectionID.Text = String.Empty;
-            AtxtSecction.Text = String.Empty;
+            AtxtSection.Text = String.Empty;
             AddlYearLevel.SelectedValue = null;
 
-
             sections();
-            ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Cleared Successfully');", true);
         }
     }
 }
