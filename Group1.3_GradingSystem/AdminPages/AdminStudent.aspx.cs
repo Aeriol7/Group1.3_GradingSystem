@@ -91,33 +91,33 @@ namespace Group1._3_GradingSystem.AdminPages
 			string lastname = AtxtLastName.Text.Trim();
 			string userid = AtxtUserID.Text.Trim();
 			string studentid = AtxtStudentID.Text.Trim();
-			if (firstname.Length == 0)
+            if (firstname.Length == 0)
+            {
+                ScriptManager.RegisterStartupScript(this, GetType(), "alert", "swal('Error', 'Please input student first name!','warning');", true);
+            }
+            else if (lastname.Length == 0)
 			{
-				ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please input first name of student!');", true);
-			}
-			else if (lastname.Length == 0)
-			{
-				ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please input last name of student!');", true);
+				ScriptManager.RegisterStartupScript(this, GetType(), "alert", "swal('Error', 'Please input student last name!','warning');", true);
 			}
 			else if (userid.Length == 0)
 			{
-				ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please select student!');", true);
+				ScriptManager.RegisterStartupScript(this, GetType(), "alert", "swal('Error', 'Please select user!','warning');", true);
 			}
 			else if (ddlSchoolYear.SelectedIndex == 0)
 			{
-				ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please select the school year of student!');", true);
+				ScriptManager.RegisterStartupScript(this, GetType(), "alert", "swal('Error', 'Please select school year!','warning');", true);
 			}
 			else if (ddlYearLevel.SelectedIndex == 0)
 			{
-				ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please select the year level of student!');", true);
+				ScriptManager.RegisterStartupScript(this, GetType(), "alert", "swal('Error', 'Please select year level!','warning');", true);
 			}
 			else if (ddlSection.SelectedIndex == 0)
 			{
-				ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please select the section of student!');", true);
+				ScriptManager.RegisterStartupScript(this, GetType(), "alert", "swal('Error', 'Please select section!','warning');", true);
 			}
 			else if (studentid.Length > 0)
 			{
-				ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Student already exist!');", true);
+				ScriptManager.RegisterStartupScript(this, GetType(), "alert", "swal('Error', 'Student already exist!','warning');", true);
 			}
 			else
 			{
@@ -142,8 +142,8 @@ namespace Group1._3_GradingSystem.AdminPages
 				ddlSchoolYear.SelectedValue = null;
                 ddlYearLevel.SelectedValue = null;
                 ddlSection.SelectedValue = null;
-                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Inserted Successfully');", true);
-            }
+				ScriptManager.RegisterStartupScript(this, GetType(), "alert", "swal('Success', 'Student account inserted successfully!','success');", true);
+			}
         }
         protected void AbtnUpdate_Click(object sender, EventArgs e)
         {
@@ -152,31 +152,31 @@ namespace Group1._3_GradingSystem.AdminPages
 			string userid = AtxtUserID.Text.Trim();
 			if (firstname.Length == 0)
 			{
-				ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please input first name of student!');", true);
+				ScriptManager.RegisterStartupScript(this, GetType(), "alert", "swal('Error', 'Please input student first name!','warning');", true);
 			}
 			else if (lastname.Length == 0)
 			{
-				ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please input last name of student!');", true);
+				ScriptManager.RegisterStartupScript(this, GetType(), "alert", "swal('Error', 'Please input student last name!','warning');", true);
 			}
 			else if (userid.Length == 0)
 			{
-				ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please select student!');", true);
+				ScriptManager.RegisterStartupScript(this, GetType(), "alert", "swal('Error', 'Please select user!','warning');", true);
 			}
 			else if (ddlSchoolYear.SelectedIndex == 0)
 			{
-				ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please select the school year of student!');", true);
+				ScriptManager.RegisterStartupScript(this, GetType(), "alert", "swal('Error', 'Please select school year!','warning');", true);
 			}
 			else if (ddlYearLevel.SelectedIndex == 0)
 			{
-				ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please select the year level of student!');", true);
+				ScriptManager.RegisterStartupScript(this, GetType(), "alert", "swal('Error', 'Please select year level!','warning');", true);
 			}
 			else if (ddlSection.SelectedIndex == 0)
 			{
-				ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please select the section of student!');", true);
+				ScriptManager.RegisterStartupScript(this, GetType(), "alert", "swal('Error', 'Please select section!','warning');", true);
 			}
 			else
 			{
-                SqlConnection con = new SqlConnection(conStr);
+				SqlConnection con = new SqlConnection(conStr);
                 con.Open();
                 SqlCommand cmd = new SqlCommand("UPDATE students SET first_name = @first_name, last_name = @last_name, user_id = @user_id, year_level_id = @year_level_id, section_id = @sections_id, school_year_id = @school_year_id WHERE student_id = @student_id", con);
 
@@ -198,19 +198,19 @@ namespace Group1._3_GradingSystem.AdminPages
 				ddlYearLevel.SelectedValue = null;
                 ddlSchoolYear.SelectedValue = null;
                 ddlSection.SelectedValue = null;
-                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Updated Successfully');", true);
-            }
+				ScriptManager.RegisterStartupScript(this, GetType(), "alert", "swal('Success', 'Student account updated successfully!','success');", true);
+			}
         }
         protected void AbtnDelete_Click(object sender, EventArgs e)
         {
 			string studentid = AtxtStudentID.Text.Trim();
 			if (studentid.Length == 0)
-            {
-                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please select student');", true);
-            }
-            else
-            {
-                SqlConnection con = new SqlConnection(conStr);
+			{
+				ScriptManager.RegisterStartupScript(this, GetType(), "alert", "swal('Error', 'Please select student!','warning');", true);
+			}
+			else
+			{
+				SqlConnection con = new SqlConnection(conStr);
                 con.Open();
                 SqlCommand cmd = new SqlCommand("DELETE FROM students WHERE student_id = @student_id", con);
 
@@ -220,8 +220,8 @@ namespace Group1._3_GradingSystem.AdminPages
 
                 clear();
                 students();
-                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Deleted Successfully');", true);
-            }
+				ScriptManager.RegisterStartupScript(this, GetType(), "alert", "swal('Success', 'Student account deleted successfully!','success');", true);
+			}
         }
         protected void clear()
         {

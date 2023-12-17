@@ -76,15 +76,15 @@ namespace Group1._3_GradingSystem.AdminPages
                 //Attach the click event to each cells
                 e.Row.Attributes["onclick"] = ClientScript.GetPostBackClientHyperlink(this.gvSubjects, "Select$" + e.Row.RowIndex);
             }
-			if (e.Row.RowType == DataControlRowType.Header)
-			{
-				e.Row.Cells[0].Text = "Subject ID";
-				e.Row.Cells[1].Text = "Subject Name";
-				e.Row.Cells[2].Text = "Year Level";
-				e.Row.Cells[3].Text = "Teacher";
-				e.Row.Cells[4].Text = "Subject Category";
-			}
-		}
+            if (e.Row.RowType == DataControlRowType.Header)
+            {
+                e.Row.Cells[0].Text = "Subject ID";
+                e.Row.Cells[1].Text = "Subject Name";
+                e.Row.Cells[2].Text = "Year Level";
+                e.Row.Cells[3].Text = "Teacher";
+                e.Row.Cells[4].Text = "Subject Category";
+            }
+        }
         protected void OnPageIndexChangingsubjects(object sender, GridViewPageEventArgs e)
         {
             gvSubjects.PageIndex = e.NewPageIndex;
@@ -101,34 +101,39 @@ namespace Group1._3_GradingSystem.AdminPages
                 //Attach the click event to each cells
                 e.Row.Attributes["onclick"] = ClientScript.GetPostBackClientHyperlink(this.gvTeachers, "Select$" + e.Row.RowIndex);
             }
-			if (e.Row.RowType == DataControlRowType.Header)
-			{
-				e.Row.Cells[0].Text = "Teacher ID";
-				e.Row.Cells[1].Text = "First Name";
-				e.Row.Cells[2].Text = "Last Name";
+            if (e.Row.RowType == DataControlRowType.Header)
+            {
+                e.Row.Cells[0].Text = "Teacher ID";
+                e.Row.Cells[1].Text = "First Name";
+                e.Row.Cells[2].Text = "Last Name";
                 e.Row.Cells[3].Text = "User ID";
-			}
-		}
+            }
+        }
         protected void AbtnAddSubject_Click(object sender, EventArgs e)
         {
             string subjectname = AtxtSubjectName.Text.Trim();
             string teacherid = AtxtTeacherID.Text.Trim();
+            string subjectid = AtxtSubjectID.Text.Trim();
             if (subjectname.Length == 0)
             {
-                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please input subject name!');", true);
+                ScriptManager.RegisterStartupScript(this, GetType(), "alert", "swal('Error', 'Please input subject name!','warning');", true);
             }
             else if (teacherid.Length == 0)
             {
-				ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please select teacher to be assigned for subject!');", true);
-			}
+                ScriptManager.RegisterStartupScript(this, GetType(), "alert", "swal('Error', 'Please select teacher to be assigned to subject!','warning');", true);
+            }
             else if (AddlYearLevel.SelectedIndex == 0)
             {
-				ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please select year level of subject!');", true);
-			}
+                ScriptManager.RegisterStartupScript(this, GetType(), "alert", "swal('Error', 'Please select year level!','warning');", true);
+            }
             else if (AddlCategory.SelectedIndex == 0)
             {
-				ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please select the subject category!');", true);
-			}
+                ScriptManager.RegisterStartupScript(this, GetType(), "alert", "swal('Error', 'Please select subject category!','warning');", true);
+            }
+            else if (subjectid.Length > 0)
+            {
+                ScriptManager.RegisterStartupScript(this, GetType(), "alert", "swal('Error', 'Subject already exist!','warning');", true);
+            }
             else
             {
                 SqlConnection con = new SqlConnection(conStr);
@@ -143,38 +148,38 @@ namespace Group1._3_GradingSystem.AdminPages
                 con.Close();
 
                 subjects();
-                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Inserted Successfully');", true);
+                ScriptManager.RegisterStartupScript(this, GetType(), "alert", "swal('Success', 'Subject inserted successfully!','success');", true);
             }
         }
 
         protected void AbtnUpdateSubject_Click(object sender, EventArgs e)
         {
-			string subjectid = AtxtSubjectID.Text.Trim();
-			string subjectname = AtxtSubjectName.Text.Trim();
-			string teacherid = AtxtTeacherID.Text.Trim();
-			if (subjectid.Length == 0)
-			{
-				ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please select subject!');", true);
-			}
-			else if (subjectname.Length == 0)
-			{
-				ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please input subject name!');", true);
-			}
-			else if (teacherid.Length == 0)
-			{
-				ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please select teacher to be assigned for subject!');", true);
-			}
-			else if (AddlYearLevel.SelectedIndex == 0)
-			{
-				ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please select year level of subject!');", true);
-			}
-			else if (AddlCategory.SelectedIndex == 0)
-			{
-				ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please select the subject category!');", true);
-			}
-			else
-			{
-				SqlConnection con = new SqlConnection(conStr);
+            string subjectid = AtxtSubjectID.Text.Trim();
+            string subjectname = AtxtSubjectName.Text.Trim();
+            string teacherid = AtxtTeacherID.Text.Trim();
+            if (subjectid.Length == 0)
+            {
+                ScriptManager.RegisterStartupScript(this, GetType(), "alert", "swal('Error', 'Please select subject!','warning');", true);
+            }
+            else if (subjectname.Length == 0)
+            {
+                ScriptManager.RegisterStartupScript(this, GetType(), "alert", "swal('Error', 'Please input subject name!','warning');", true);
+            }
+            else if (teacherid.Length == 0)
+            {
+                ScriptManager.RegisterStartupScript(this, GetType(), "alert", "swal('Error', 'Please select teacher to be assigned to subject!','warning');", true);
+            }
+            else if (AddlYearLevel.SelectedIndex == 0)
+            {
+                ScriptManager.RegisterStartupScript(this, GetType(), "alert", "swal('Error', 'Please select year level!','warning');", true);
+            }
+            else if (AddlCategory.SelectedIndex == 0)
+            {
+                ScriptManager.RegisterStartupScript(this, GetType(), "alert", "swal('Error', 'Please select subject category!','warning');", true);
+            }
+            else
+            {
+                SqlConnection con = new SqlConnection(conStr);
                 con.Open();
                 SqlCommand cmd = new SqlCommand("UPDATE subjects SET subject_name = @subject_name, teacher_id = @teacher_id, year_level_id = @year_level_id, subject_category_id = @category WHERE subject_id = @subject_id", con);
 
@@ -191,17 +196,18 @@ namespace Group1._3_GradingSystem.AdminPages
                 AtxtSubjectName.Text = string.Empty;
                 AtxtTeacherID.Text = string.Empty;
                 AddlYearLevel.SelectedValue = null;
-                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Inserted Successfully');", true);
+                ScriptManager.RegisterStartupScript(this, GetType(), "alert", "swal('Success', 'Subject updated successfully!','success');", true);
             }
         }
+    
         protected void AbtnDeleteSubject_Click(object sender, EventArgs e)
         {
 			string subjectid = AtxtSubjectID.Text.Trim();
-            if (subjectid.Length == 0)
-            {
-                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please select subject!');", true);
-            }
-            else
+			if (subjectid.Length == 0)
+			{
+				ScriptManager.RegisterStartupScript(this, GetType(), "alert", "swal('Error', 'Please select subject!','warning');", true);
+			}
+			else
             {
                 SqlConnection con = new SqlConnection(conStr);
                 con.Open();
@@ -213,7 +219,7 @@ namespace Group1._3_GradingSystem.AdminPages
 
                 clear();
                 subjects();
-                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Inserted Successfully');", true);
+                ScriptManager.RegisterStartupScript(this, GetType(), "alert", "swal('Success', 'Subject deleted successfully!','success');", true);
             }
         }
         protected void clear()

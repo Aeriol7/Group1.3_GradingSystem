@@ -18,11 +18,6 @@ namespace Group1._3_GradingSystem.TeacherPages
 
 		public string conStr = "Data Source=DESKTOP-O5EH83O;Initial Catalog=HIS_GradingSystem;Integrated Security=False;User Id=sa;Password=1234;MultipleActiveResultSets=True";
 
-		protected void Page_Load(object sender, EventArgs e)
-		{
-
-		}
-
 		public void WrittenWorks()
 		{
 			SqlConnection con = new SqlConnection(conStr);
@@ -388,13 +383,11 @@ namespace Group1._3_GradingSystem.TeacherPages
 			ddlQuarter.Enabled = true;
 			ddlQuarter.SelectedIndex = 0;
 		}
-
 		protected void ddlQuarter_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			ddlSchoolWork.Enabled = true;
 			ddlSchoolWork.SelectedIndex = 0;
 		}
-
 		protected void ddlSchoolWork_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			if (ddlSchoolWork.SelectedIndex == 1)
@@ -1133,7 +1126,7 @@ namespace Group1._3_GradingSystem.TeacherPages
 		{
 			if (ddlAmnt.SelectedIndex == 0)
 			{
-				ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please select schoolwork amount!');", true);
+				ScriptManager.RegisterStartupScript(this, GetType(), "alert", "swal('Error', 'Please select amount of selected schoolwork!','warning');", true);
 			}
 			else
 			{
@@ -1153,7 +1146,7 @@ namespace Group1._3_GradingSystem.TeacherPages
 					SRtxtFName.Text = string.Empty;
 					SRtxtLName.Text = string.Empty;
 					WrittenWorks();
-					ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Updated Successfully');", true);
+					ScriptManager.RegisterStartupScript(this, GetType(), "alert", "swal('Success', 'Amoung of written works updated successfully!','success');", true);
 				}
 				else if (ddlSchoolWork.SelectedIndex == 2)
 				{
@@ -1171,7 +1164,7 @@ namespace Group1._3_GradingSystem.TeacherPages
 					SRtxtFName.Text = string.Empty;
 					SRtxtLName.Text = string.Empty;
 					PerformanceTasks();
-					ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Updated Successfully');", true);
+					ScriptManager.RegisterStartupScript(this, GetType(), "alert", "swal('Success', 'Amount of performance tasks updated successfully!','success');", true);
 				}
 			}
 		}
@@ -1209,7 +1202,7 @@ namespace Group1._3_GradingSystem.TeacherPages
 				con.Close();
 				WrittenWorks();
 
-				ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Records inserted successfully!');", true);
+				ScriptManager.RegisterStartupScript(this, GetType(), "alert", "swal('Success', 'Records inserted successfully!','success');", true);
 			}
 			else if (ddlSchoolWork.SelectedIndex == 2)
 			{
@@ -1243,7 +1236,7 @@ namespace Group1._3_GradingSystem.TeacherPages
 				con.Close();
 				PerformanceTasks();
 
-				ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Records inserted successfully!');", true);
+				ScriptManager.RegisterStartupScript(this, GetType(), "alert", "swal('Success', 'Records inserted successfully!','success');", true);
 			}
 			else if (ddlSchoolWork.SelectedIndex == 3)
 			{
@@ -1277,7 +1270,7 @@ namespace Group1._3_GradingSystem.TeacherPages
 				con.Close();
 				QuarterlyAssessments();
 
-				ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Records inserted successfully!');", true);
+				ScriptManager.RegisterStartupScript(this, GetType(), "alert", "swal('Success', 'Records inserted successfully!','success');", true);
 			}
 		}
 		protected void TRSaveGrades_Click(object sender, EventArgs e)
@@ -1286,11 +1279,11 @@ namespace Group1._3_GradingSystem.TeacherPages
 			string grade = SRtxtGrades.Text.Trim();
 			if (recordid.Length == 0)
 			{
-				ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please select record!');", true);
+				ScriptManager.RegisterStartupScript(this, GetType(), "alert", "swal('Error', 'Please select record!','warning');", true);
 			}
 			else if (grade.Length == 0)
 			{
-				ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please input grade!');", true);
+				ScriptManager.RegisterStartupScript(this, GetType(), "alert", "swal('Error', 'Please input grade for selected record!','warning');", true);
 			}
 			else if (ddlSchoolWork.SelectedIndex == 3)
 			{
@@ -1304,11 +1297,11 @@ namespace Group1._3_GradingSystem.TeacherPages
 				SRtxtGrades.Text = string.Empty;
 				QuarterlyAssessments();
 
-				ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Score saved successfully!');", true);
+				ScriptManager.RegisterStartupScript(this, GetType(), "alert", "swal('Success', 'Grade of selected quarterly test record updated successfully!','success');", true);
 			}
 			else if (ddlSWNo.SelectedIndex == 0)
 			{
-				ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please select schoolwork number!');", true);
+				ScriptManager.RegisterStartupScript(this, GetType(), "alert", "swal('Error', 'Please select schoolrwork number of selected record!','warning');", true);
 			}
 			else 
 			{
@@ -1327,8 +1320,8 @@ namespace Group1._3_GradingSystem.TeacherPages
 					WW_FinalGrade();
 					WrittenWorks();
 
-					ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Score saved successfully!');", true);
-				}
+					ScriptManager.RegisterStartupScript(this, GetType(), "alert", "swal('Success', 'Grade of selected written work record updated successfully!','success');", true);
+					}
 				else if (ddlSWNo.SelectedValue == "2")
 				{
 					SqlConnection con = new SqlConnection(conStr);
@@ -1342,8 +1335,8 @@ namespace Group1._3_GradingSystem.TeacherPages
 					WW_FinalGrade();
 					WrittenWorks();
 
-					ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Score saved successfully!');", true);
-				}
+						ScriptManager.RegisterStartupScript(this, GetType(), "alert", "swal('Success', 'Grade of selected written work record updated successfully!','success');", true);
+					}
 				else if (ddlSWNo.SelectedValue == "3")
 				{
 					SqlConnection con = new SqlConnection(conStr);
@@ -1357,8 +1350,8 @@ namespace Group1._3_GradingSystem.TeacherPages
 					WW_FinalGrade();
 					WrittenWorks();
 
-					ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Score saved successfully!');", true);
-				}
+					ScriptManager.RegisterStartupScript(this, GetType(), "alert", "swal('Success', 'Grade of selected written work record updated successfully!','success');", true);
+					}
 				else if (ddlSWNo.SelectedValue == "4")
 				{
 					SqlConnection con = new SqlConnection(conStr);
@@ -1372,8 +1365,8 @@ namespace Group1._3_GradingSystem.TeacherPages
 					WW_FinalGrade();
 					WrittenWorks();
 
-					ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Score saved successfully!');", true);
-				}
+						ScriptManager.RegisterStartupScript(this, GetType(), "alert", "swal('Success', 'Grade of selected written work record updated successfully!','success');", true);
+					}
 				else if (ddlSWNo.SelectedValue == "5")
 				{
 					SqlConnection con = new SqlConnection(conStr);
@@ -1387,8 +1380,8 @@ namespace Group1._3_GradingSystem.TeacherPages
 					WW_FinalGrade();
 					WrittenWorks();
 
-					ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Score saved successfully!');", true);
-				}
+						ScriptManager.RegisterStartupScript(this, GetType(), "alert", "swal('Success', 'Grade of selected written work record updated successfully!','success');", true);
+					}
 			}
 			else if (ddlSchoolWork.SelectedIndex == 2)
 			{
@@ -1405,8 +1398,8 @@ namespace Group1._3_GradingSystem.TeacherPages
 					PT_FinalGrade();
 					PerformanceTasks();
 
-					ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Score saved successfully!');", true);
-				}
+						ScriptManager.RegisterStartupScript(this, GetType(), "alert", "swal('Success', 'Grade of selected performance task record updated successfully!','success');", true);
+					}
 				else if (ddlSWNo.SelectedValue == "2")
 				{
 					SqlConnection con = new SqlConnection(conStr);
@@ -1420,8 +1413,8 @@ namespace Group1._3_GradingSystem.TeacherPages
 					PT_FinalGrade();
 					PerformanceTasks();
 
-					ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Score saved successfully!');", true);
-				}
+						ScriptManager.RegisterStartupScript(this, GetType(), "alert", "swal('Success', 'Grade of selected performance task record updated successfully!','success');", true);
+					}
 				else if (ddlSWNo.SelectedValue == "3")
 				{
 					SqlConnection con = new SqlConnection(conStr);
@@ -1435,8 +1428,8 @@ namespace Group1._3_GradingSystem.TeacherPages
 					PT_FinalGrade();
 					PerformanceTasks();
 
-					ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Score saved successfully!');", true);
-				}
+						ScriptManager.RegisterStartupScript(this, GetType(), "alert", "swal('Success', 'Grade of selected performance task record updated successfully!','success');", true);
+					}
 			}
 		}
 	}
@@ -1445,7 +1438,7 @@ namespace Group1._3_GradingSystem.TeacherPages
 			string totalscore = SRtxtTotalScore.Text.Trim();
 			if (totalscore.Length == 0)
 			{
-				ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please input total score!');", true);
+				ScriptManager.RegisterStartupScript(this, GetType(), "alert", "swal('Error', 'Please input total score of selected schoolwork!','warning');", true);
 			}
 			else if (ddlSchoolWork.SelectedIndex == 3)
 			{
@@ -1461,11 +1454,11 @@ namespace Group1._3_GradingSystem.TeacherPages
 				SRtxtTotalScore.Text = string.Empty;
 				QuarterlyAssessments();
 
-				ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Total score updated successfully!');", true);
+				ScriptManager.RegisterStartupScript(this, GetType(), "alert", "swal('Success', 'Total score of selected quarterly test record updated successfully!','success');", true);
 			}
 			else if (ddlSWNo.SelectedIndex == 0)
 			{
-				ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please select schoolwork number!');", true);
+				ScriptManager.RegisterStartupScript(this, GetType(), "alert", "swal('Error', 'Please select schoolwork number of selected schoolwork!','warning');", true);
 			}
 			else
 			{
@@ -1486,7 +1479,7 @@ namespace Group1._3_GradingSystem.TeacherPages
 						WW_FinalGrade();
 						WrittenWorks();
 
-						ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Total score updated successfully!');", true);
+						ScriptManager.RegisterStartupScript(this, GetType(), "alert", "swal('Success', 'Total score of selected written work record updated successfully!','success');", true);
 					}
 					else if (ddlSWNo.SelectedValue == "2")
 					{
@@ -1503,7 +1496,7 @@ namespace Group1._3_GradingSystem.TeacherPages
 						WW_FinalGrade();
 						WrittenWorks();
 
-						ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Total score updated successfully!');", true);
+						ScriptManager.RegisterStartupScript(this, GetType(), "alert", "swal('Success', 'Total score of selected written work record updated successfully!','success');", true);
 					}
 					else if (ddlSWNo.SelectedValue == "3")
 					{
@@ -1520,7 +1513,7 @@ namespace Group1._3_GradingSystem.TeacherPages
 						WW_FinalGrade();
 						WrittenWorks();
 
-						ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Total score updated successfully!');", true);
+						ScriptManager.RegisterStartupScript(this, GetType(), "alert", "swal('Success', 'Total score of selected written work record updated successfully!','success');", true);
 					}
 					else if (ddlSWNo.SelectedValue == "4")
 					{
@@ -1537,7 +1530,7 @@ namespace Group1._3_GradingSystem.TeacherPages
 						WW_FinalGrade();
 						WrittenWorks();
 
-						ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Total score updated successfully!');", true);
+						ScriptManager.RegisterStartupScript(this, GetType(), "alert", "swal('Success', 'Total score of selected written work record updated successfully!','success');", true);
 					}
 					else if (ddlSWNo.SelectedValue == "5")
 					{
@@ -1554,7 +1547,7 @@ namespace Group1._3_GradingSystem.TeacherPages
 						WW_FinalGrade();
 						WrittenWorks();
 
-						ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Total score updated successfully!');", true);
+						ScriptManager.RegisterStartupScript(this, GetType(), "alert", "swal('Success', 'Total score of selected written work record updated successfully!','success');", true);
 					}
 				}
 				else if (ddlSchoolWork.SelectedIndex == 2)
@@ -1574,7 +1567,7 @@ namespace Group1._3_GradingSystem.TeacherPages
 						PT_FinalGrade();
 						PerformanceTasks();
 
-						ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Total score updated successfully!');", true);
+						ScriptManager.RegisterStartupScript(this, GetType(), "alert", "swal('Success', 'Total score of selected performance task record updated successfully!','success');", true);
 					}
 					else if (ddlSWNo.SelectedValue == "2")
 					{
@@ -1591,7 +1584,7 @@ namespace Group1._3_GradingSystem.TeacherPages
 						PT_FinalGrade();
 						PerformanceTasks();
 
-						ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Total score updated successfully!');", true);
+						ScriptManager.RegisterStartupScript(this, GetType(), "alert", "swal('Success', 'Total score of selected performance task record updated successfully!','success');", true);
 					}
 					else if (ddlSWNo.SelectedValue == "3")
 					{
@@ -1608,12 +1601,10 @@ namespace Group1._3_GradingSystem.TeacherPages
 						PT_FinalGrade();
 						PerformanceTasks();
 
-						ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Total score updated successfully!');", true);
+						ScriptManager.RegisterStartupScript(this, GetType(), "alert", "swal('Success', 'Total score of selected performance task record updated successfully!','success');", true);
 					}
 				}
 			}
 		}
-		
-		
 	}
 }

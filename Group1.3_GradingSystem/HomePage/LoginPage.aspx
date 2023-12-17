@@ -1,6 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="LoginPage.aspx.cs" Inherits="Group1._3_GradingSystem.HomePage.LoginPage" %>
 
 <!DOCTYPE html>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <style type="text/css">
     #Panel1{
         position: fixed;
