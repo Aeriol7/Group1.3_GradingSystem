@@ -26,7 +26,7 @@ namespace Group1._3_GradingSystem.AdminPages
         public void subjects()
         {
             SqlConnection con = new SqlConnection(conStr);
-            string com = "SELECT subjects.subject_id, subjects.subject_name, year_levels.year_level, teachers.last_name, subject_categories.subject_category " +
+            string com = "SELECT subjects.subject_id, subjects.subject_name, year_levels.year_level, teachers.teacher_id, subject_categories.subject_category " +
                 "from SUBJECTS " +
                 "INNER JOIN year_levels ON subjects.year_level_id=year_levels.year_level_id " +
                 "INNER JOIN teachers ON subjects.teacher_id=teachers.teacher_id " +

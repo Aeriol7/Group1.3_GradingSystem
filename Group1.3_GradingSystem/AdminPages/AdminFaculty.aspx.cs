@@ -272,10 +272,6 @@ namespace Group1._3_GradingSystem.AdminPages
             {
                 ScriptManager.RegisterStartupScript(this, GetType(), "alert", "swal('Error', 'Please input last name!','warning');", true);
             }
-			else if (tuserid.Length > 0)
-			{
-				ScriptManager.RegisterStartupScript(this, GetType(), "alert", "swal('Error', 'Teacher account already exists for this user!','warning');", true);
-			}
 			else
             {
                 SqlConnection con = new SqlConnection(conStr);
