@@ -1,6 +1,10 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="LoginPage.aspx.cs" Inherits="Group1._3_GradingSystem.HomePage.LoginPage" %>
 
 <!DOCTYPE html>
+<head runat="server">
+    <title>Login Page</title>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</head>
 <style type="text/css">
     #Panel1{
         position: fixed;
@@ -129,9 +133,7 @@
 
        </nav>
 </header>
-<head runat="server">
-    <title></title>
-</head>
+
 <body style="height: 603px; width:1440px;"> 
         <div class="login-container">
             <asp:Panel ID="TLoginContainerPanel" runat="server" Height="447px" Width="1037px" BorderStyle="Solid" BorderWidth="1px">

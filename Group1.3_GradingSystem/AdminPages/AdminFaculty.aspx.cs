@@ -57,24 +57,24 @@ namespace Group1._3_GradingSystem.AdminPages
             string cpassword = AtxtConfirmPassword.Text.Trim();
 
 			if (username.Length == 0)
-            {
-                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please input username!');", true);
-            }
-            else if (password.Length == 0)
-            {
-				ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please input password!');", true);
+			{
+				ScriptManager.RegisterStartupScript(this, GetType(), "alert", "swal('Error', 'Please input username!','warning');", true);
+			}
+			else if (password.Length == 0)
+			{
+				ScriptManager.RegisterStartupScript(this, GetType(), "alert", "swal('Error', 'Please input password!','warning');", true);
 			}
 			else if (password != cpassword)
 			{
-				ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Passwords do not match!');", true);
+				ScriptManager.RegisterStartupScript(this, GetType(), "alert", "swal('Error', 'Passwords do not match!','warning');", true);
 			}
 			else if (AddlUserLevel.SelectedIndex == 0)
 			{
-				ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please select user level!');", true);
+				ScriptManager.RegisterStartupScript(this, GetType(), "alert", "swal('Error', 'Please select user level!','warning');", true);
 			}
 			else
-            {
-                SqlConnection con = new SqlConnection(conStr);
+			{
+				SqlConnection con = new SqlConnection(conStr);
                 con.Open();
                 SqlCommand cmd = new SqlCommand("INSERT INTO users (username, password, user_level) VALUES (@username, @password, @user_level)", con);
 
@@ -88,7 +88,7 @@ namespace Group1._3_GradingSystem.AdminPages
 
                 AtxtUserName.Text = string.Empty;
                 AtxtPassword.Text = string.Empty;
-                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Inserted Successfully!');", true);
+                ScriptManager.RegisterStartupScript(this, GetType(), "alert", "swal('Success', 'User account inserted successfully!','success');", true);
             }
         }
         protected void OnPageIndexChanging(object sender, GridViewPageEventArgs e)
@@ -109,23 +109,23 @@ namespace Group1._3_GradingSystem.AdminPages
 			string cpassword = AtxtConfirmPassword.Text.Trim();
 			if (userid.Length == 0)
 			{
-				ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please select user!');", true);
+				ScriptManager.RegisterStartupScript(this, GetType(), "alert", "swal('Error', 'Please select user!','warning');", true);
 			}
 			else if (username.Length == 0)
 			{
-				ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please input username!');", true);
+				ScriptManager.RegisterStartupScript(this, GetType(), "alert", "swal('Error', 'Please input username!','warning');", true);
 			}
 			else if (password.Length == 0)
 			{
-				ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please input password!');", true);
+				ScriptManager.RegisterStartupScript(this, GetType(), "alert", "swal('Error', 'Please input password!','warning');", true);
 			}
 			else if (password != cpassword)
 			{
-				ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Passwords do not match!');", true);
+				ScriptManager.RegisterStartupScript(this, GetType(), "alert", "swal('Error', 'Passwords do not match!','warning');", true);
 			}
 			else if (AddlUserLevel.SelectedIndex == 0)
 			{
-				ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please select user level!');", true);
+				ScriptManager.RegisterStartupScript(this, GetType(), "alert", "swal('Error', 'Please select user level!','warning');", true);
 			}
 			else
 			{
@@ -145,8 +145,8 @@ namespace Group1._3_GradingSystem.AdminPages
                 AtxtUserName.Text = string.Empty;
                 AtxtPassword.Text = string.Empty;
                 AtxtUserID.Text = string.Empty;
-                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Updated Successfully!');", true);
-            }
+				ScriptManager.RegisterStartupScript(this, GetType(), "alert", "swal('Success', 'User account updated successfully!','success');", true);
+			}
         }
         protected void gvTeachers_RowDataBound(object sender, System.Web.UI.WebControls.GridViewRowEventArgs e)
         {
@@ -217,7 +217,7 @@ namespace Group1._3_GradingSystem.AdminPages
 			string userid = AtxtUserID.Text.Trim();
 			if (userid.Length == 0)
 			{
-				ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please select user!');", true);
+				ScriptManager.RegisterStartupScript(this, GetType(), "alert", "swal('Error', 'Please select user!','warning');", true);
 			}
 			else
 			{
@@ -230,9 +230,9 @@ namespace Group1._3_GradingSystem.AdminPages
                 con.Close();
                 users();
                 clear();
-                
-                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Deleted Successfully!');", true);
-            }
+
+				ScriptManager.RegisterStartupScript(this, GetType(), "alert", "swal('Success', 'User account deleted successfully!','success');", true);
+			}
         }
         protected void clear()
         {
@@ -262,17 +262,17 @@ namespace Group1._3_GradingSystem.AdminPages
 			string lastname = AtxtLastName.Text.Trim();
 			if (tuserid.Length == 0)
             {
-                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please select user!');", true);
+                ScriptManager.RegisterStartupScript(this, GetType(), "alert", "swal('Error', 'Please select user!','warning');", true);
             }
             else if (firstname.Length == 0)
             {
-                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please input first name of teacher!');", true);
+                ScriptManager.RegisterStartupScript(this, GetType(), "alert", "swal('Error', 'Please input first name!','warning');", true);
             }
             else if (lastname.Length == 0)
             {
-                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please input last name of teacher!');", true);
+                ScriptManager.RegisterStartupScript(this, GetType(), "alert", "swal('Error', 'Please input last name!','warning');", true);
             }
-            else
+			else
             {
                 SqlConnection con = new SqlConnection(conStr);
                 con.Open();
@@ -289,8 +289,8 @@ namespace Group1._3_GradingSystem.AdminPages
                 AtxtFirstName.Text = string.Empty;
                 AtxtLastName.Text = string.Empty;
                 AtxtTeacherUserID.Text = string.Empty;
-                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Inserted Successfully!');", true);
-            }
+				ScriptManager.RegisterStartupScript(this, GetType(), "alert", "swal('Success', 'Teacher account inserted successfully!','success');", true);
+			}
         }
         protected void AbtnUpdateTeacher_Click(object sender, EventArgs e)
         {
@@ -299,19 +299,19 @@ namespace Group1._3_GradingSystem.AdminPages
 			string lastname = AtxtLastName.Text.Trim();
 			if (tuserid.Length == 0)
 			{
-				ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please select user!');", true);
+				ScriptManager.RegisterStartupScript(this, GetType(), "alert", "swal('Error', 'Please select user!','warning');", true);
 			}
 			else if (firstname.Length == 0)
 			{
-				ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please input first name of teacher!');", true);
+				ScriptManager.RegisterStartupScript(this, GetType(), "alert", "swal('Error', 'Please input first name!','warning');", true);
 			}
 			else if (lastname.Length == 0)
 			{
-				ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please input last name of teacher!');", true);
+				ScriptManager.RegisterStartupScript(this, GetType(), "alert", "swal('Error', 'Please input last name!','warning');", true);
 			}
 			else
 			{
-			SqlConnection con = new SqlConnection(conStr);
+				SqlConnection con = new SqlConnection(conStr);
             con.Open();
             SqlCommand cmd = new SqlCommand("UPDATE teachers SET firstname = @firstname, lastname = @lastname WHERE user_id = @user_id", con);
 
@@ -326,19 +326,19 @@ namespace Group1._3_GradingSystem.AdminPages
             AtxtFirstName.Text = string.Empty;
             AtxtLastName.Text = string.Empty;
             AtxtTeacherUserID.Text = string.Empty;
-            ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Updated Successfully!');", true);
-            }
+				ScriptManager.RegisterStartupScript(this, GetType(), "alert", "swal('Success', 'Teacher account updated successfully!','success');", true);
+			}
         }
         protected void AbtnDeleteTeacher_Click(object sender, EventArgs e)
         {
 			string tuserid = AtxtTeacherUserID.Text.Trim();
 			if (tuserid.Length == 0)
-            {
-                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Please select teacher!');", true);
-            }
-            else
-            {
-                SqlConnection con = new SqlConnection(conStr);
+			{
+				ScriptManager.RegisterStartupScript(this, GetType(), "alert", "swal('Error', 'Please select user!','warning');", true);
+			}
+			else
+            { 
+				SqlConnection con = new SqlConnection(conStr);
                 con.Open();
                 SqlCommand cmd = new SqlCommand("DELETE FROM teachers WHERE teacher_id = @ID", con);
 
@@ -349,8 +349,8 @@ namespace Group1._3_GradingSystem.AdminPages
                 teachers();
 
                 clear();
-                ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Deleted Successfully!');", true);
-            }
+				ScriptManager.RegisterStartupScript(this, GetType(), "alert", "swal('Success', 'Teacher account deleted successfully!','success');", true);
+			}
         }   
 	}
 }

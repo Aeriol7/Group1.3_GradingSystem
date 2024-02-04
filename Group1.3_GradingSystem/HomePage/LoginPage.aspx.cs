@@ -33,6 +33,7 @@ namespace Group1._3_GradingSystem.HomePage
 				{
 					Session["Username"] = dt.Rows[0][1].ToString();
 					Session["CurrentUser"] = dt.Rows[0][0].ToString();
+					ScriptManager.RegisterStartupScript(this, GetType(), "alert", "swal('Success', 'Login Successful!','success');", true);
 					Response.Redirect("~/AdminPages/AdminHome.aspx");
 				}
 				else if (dt.Rows[0][3].ToString() == "Teacher")
@@ -48,6 +49,7 @@ namespace Group1._3_GradingSystem.HomePage
 					Session["Username"] = dt1.Rows[0][1].ToString() + " " + dt1.Rows[0][2].ToString();
 					Session["CurrentTeacherUser"] = dt1.Rows[0][0].ToString();
 					con.Close();
+					ScriptManager.RegisterStartupScript(this, GetType(), "alert", "swal('Success', 'Login Successful!','success');", true);
 					Response.Redirect("~/TeacherPages/TeacherHomePage.aspx");
 				}
 				else if (dt.Rows[0][3].ToString() == "Student")
@@ -63,12 +65,13 @@ namespace Group1._3_GradingSystem.HomePage
 					Session["Username"] = dt1.Rows[0][1].ToString() + " " + dt1.Rows[0][2].ToString();
 					Session["CurrentStudentUser"] = dt1.Rows[0][0].ToString();
 					con.Close();
+					ScriptManager.RegisterStartupScript(this, GetType(), "alert", "swal('Success', 'Login Successful!','success');", true);
 					Response.Redirect("~/StudentPages/StudentHomePage.aspx");
 				}
 			}
 			else
 			{
-				ScriptManager.RegisterStartupScript(this, GetType(), "alertMessage", "alert('Invalid Login');", true);
+				ScriptManager.RegisterStartupScript(this, GetType(), "alert", "swal('Error', 'Invalid Login!','warning');", true);
 			}
 		}
 	}
